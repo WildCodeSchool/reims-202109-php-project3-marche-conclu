@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{{ form_start(form) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
+
+    <div class="row">
+        <div class="col">
+            {{ form_row(form.location) }}
+        </div>
+        <div class="col" id="some-custom-id">
+        </div>
+    </div>
+{{ form_end(form) }}
+{% endblock %}
