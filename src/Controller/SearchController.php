@@ -20,31 +20,19 @@ class SearchController extends AbstractController
     public function index(Request $request): Response
     {
 
-        $form = $this->createForm(SearchType::class);
+        $form = $this->createForm(SearchType::class, null, array('method' => 'GET'));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $location = $form->get('location')->getData();
 
-            return $this->redirectToRoute('app_search_list', [
+            return $this->redirectToRoute('app_space_list', [
                 'location' => $location,
             ]);
         }
 
         return $this->renderForm('search/index.html.twig', [
             'form' => $form,
-        ]);
-    }
-
-    /**
-     * @Route("/search/{location}", name="app_search_list")
-     */
-    public function list(SpaceRepository $spaceRepository, string $location): Response
-    {
-
-        $space = $spaceRepository->findByLocation($location);
-        return $this->render('search/list.html.twig', [
-            'space' => $space,
         ]);
     }
 }
