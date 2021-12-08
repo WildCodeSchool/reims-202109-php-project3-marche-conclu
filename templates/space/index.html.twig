@@ -1,20 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SpaceController!{% endblock %}
+{% block title %}Space index{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>Space index</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Photos</th>
+                <th>Surface</th>
+                <th>Category</th>
+                <th>Capacity</th>
+                <th>Location</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for space in spaces %}
+            <tr>
+                <td>{{ space.id }}</td>
+                <td>{{ space.name }}</td>
+                <td>{{ space.photos }}</td>
+                <td>{{ space.surface }}</td>
+                <td>{{ space.category }}</td>
+                <td>{{ space.capacity }}</td>
+                <td>{{ space.location }}</td>
+                <td>
+                    <a href="{{ path('space_show', {'id': space.id}) }}">show</a>
+                    <a href="{{ path('space_edit', {'id': space.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/sayn/Documents/Wild/Symfony/MarcheConclu/reims-202109-php-project3-marche-conclu/src/Controller/SpaceController.php'|file_link(0) }}">src/Controller/SpaceController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/sayn/Documents/Wild/Symfony/MarcheConclu/reims-202109-php-project3-marche-conclu/templates/space/index.html.twig'|file_link(0) }}">templates/space/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <a href="{{ path('space_new') }}">Create new</a>
 {% endblock %}

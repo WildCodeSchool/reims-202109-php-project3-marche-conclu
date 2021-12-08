@@ -1,16 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-{{ form_start(form) }}
-    <div class="my-custom-class-for-errors">
-        {{ form_errors(form) }}
-    </div>
+{% block title %}New Space{% endblock %}
 
-    <div class="row">
-        <div class="col">
-        </div>
-        <div class="col" id="some-custom-id">
-        </div>
-    </div>
-{{ form_end(form) }}
+{% block body %}
+    <h1>Create new Space</h1>
+
+    {{ include('space/_form.html.twig') }}
+
+    <a href="{{ path('space_index') }}">back to list</a>
 {% endblock %}

@@ -6,7 +6,6 @@ use App\Entity\Space;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -32,9 +31,7 @@ class SpaceType extends AbstractType
                     'Espace fermé' => 'Espace fermé',
                     'Espace bureau' => 'Espace bureau',
                 ],
-            ])
-            ->add('submit', SubmitType::class)
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
