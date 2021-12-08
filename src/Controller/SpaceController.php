@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Space;
+use App\Form\SearchType;
 use App\Form\SpaceType;
 use App\Repository\SpaceRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -14,11 +15,49 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/space')]
 class SpaceController extends AbstractController
 {
+
+
     #[Route('/', name: 'space_index', methods: ['GET'])]
     public function index(SpaceRepository $spaceRepository): Response
     {
         return $this->render('space/index.html.twig', [
             'spaces' => $spaceRepository->findAll(),
+        ]);
+    }
+    /**
+     * @Route("/search", name="space_search")
+     */
+    public function search(Request $request): Response
+    {
+
+        $form = $this->createForm(SearchType::class, null, array('method' => 'GET'));
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $location = $form->get('location')->getData();
+
+            return $this->redirectToRoute('app_space_list', [
+                'location' => $location,
+            ]);
+        }
+
+        return $this->renderForm('space/search.html.twig', [
+            'form' => $form,
+        ]);
+    }
+
+    /**
+     * @Route("/list", name="app_space_list")
+     */
+
+    public function list(SpaceRepository $spaceRepository, Request $request): Response
+    {
+        $location = $request->get('location');
+
+        $space = $spaceRepository->findByLocation($location);
+        return $this->render('space/list.html.twig', [
+            'space' => $space,
         ]);
     }
 
