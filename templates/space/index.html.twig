@@ -32,13 +32,15 @@
     </div>
 {{ form_end(form) }}
 {% for space in spaces %}
-<article class="offer">
+<figure class="offer">
     <img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" height="160" alt="Marché Conclu"/>
-    <div class="text-offer">
-        <p>{{ space.name }}</p>
-        <p>{{ space.category }}</p>
-        <p>{{ space.surface }}</p>
-    </div>
-</article>
+    <figcaption class="text-offer">
+        <ul>
+         <li>{{ space.name }}</li>
+         <li>{{ space.category }}</li>
+         <li>{{ space.surface }}</li>
+         </ul>
+    </figcaption>
+</figure>
 {% endfor %}
 {% endblock %}
