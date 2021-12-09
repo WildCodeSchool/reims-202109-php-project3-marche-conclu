@@ -3,42 +3,28 @@
 
     <label>
         Nom de votre bureau :
-            
-        {{ form_widget(form.name, {'attr': {'class': 'form-content', 'id' : 'name' }}
-        ) }}
-            
+        {{ form_widget(form.name, {'attr': {'class': 'form-content'}}) }}
     </label>
     <label>
-        Capacité : 
-            
-        {{ form_widget(form.capacity, {'attr': {'class': 'form-content', 'id' : 'name' }}
-        ) }}
-            
+        Capacité :
+        {{ form_widget(form.capacity, {'attr': {'class': 'form-content'}}) }}
     </label>
     <label>
-        Catégorie : 
-            
-        {{ form_widget(form.category, {'attr': {'class': 'form-content' }}
-        ) }}
-            
+        Catégorie :
+        {{ form_widget(form.category, {'attr': {'class': 'form-content'}}) }}
     </label>
     <label>
         Surface en m² :
+        {{ form_widget(form.surface, {'attr': {'class': 'form-content'}}) }}
     </label>
-    {{ form_widget(form.surface, {'attr': {'class': 'form-content' }}
-    ) }}
-    
     <label>
        Photos :
+       {{ form_widget(form.photos, {'attr': {'class': 'form-content'}}) }}
     </label>
-    {{ form_widget(form.photos, {'attr': {'class': 'form-content' }}
-    ) }}
     <label>
         Adresse :
-     </label>
-     {{ form_widget(form.location, {'attr': {'class': 'form-content' }}
-     ) }}
-    
+        {{ form_widget(form.location, {'attr': {'class': 'form-content'}}) }}
+    </label>
     <button class="btn form-submit">
         {{ button_label|default('Save') }}
     </button>
