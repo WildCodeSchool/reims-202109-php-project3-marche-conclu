@@ -20,8 +20,8 @@ class SearchType extends AbstractType
                     'Marseille' => 'Marseille',
                     'Lyon' => 'Lyon',
                 ],
-            ])
-            ->add('submit', SubmitType::class);
+                'label' => false,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
