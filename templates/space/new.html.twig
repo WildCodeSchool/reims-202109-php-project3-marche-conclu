@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}New Space{% endblock %}
-
+{% block title %}
+    New Space
+{% endblock %}
 {% block body %}
-    <h1>Create new Space</h1>
-
-    {{ include('space/_form.html.twig') }}
-
-    <a href="{{ path('space_index') }}">back to list</a>
+    <h1>
+        Créer un nouvel espace
+    </h1>
+    <div class="form-container">
+        {{ include('space/_form.html.twig') }}
+    </div>
 {% endblock %}

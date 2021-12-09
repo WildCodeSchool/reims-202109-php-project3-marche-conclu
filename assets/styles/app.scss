@@ -115,6 +115,7 @@ svg {
     object-fit: cover;
 }
 
+
 .cardcontent {
   font-family: 'Work Sans', sans-serif;
   font-weight: 100;
@@ -129,5 +130,11 @@ svg {
   align-items: start;
 }
 
-
 /* END OF CARD */
+
+/* Add Space Form */
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
