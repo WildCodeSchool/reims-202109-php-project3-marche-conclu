@@ -56,6 +56,7 @@ svg {
 }
 
 .navigation {
+    background-color: #f0f6ff;
   background-color: var(--navigation-background-color);
   border-radius: var(--navigation-border-radius);
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
@@ -71,6 +72,7 @@ svg {
 }
 
 .navigation a {
+padding: 1.5rem;
   display: block;
   padding: var(--navigation-anchor-padding);
   position: relative;
