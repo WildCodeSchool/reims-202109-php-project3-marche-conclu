@@ -1,59 +1,57 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+	<header class="header-home">
+		<div>
+			<img class="logo" src="{{ asset('build/images/logo.png') }}" width="60" alt="Marché Conclu"/>
+			<p class="logo-title">Marché
+				<br>C O N C L U</p>
+		</div>
+		{{ form_start(form) }}
+		<div class="my-custom-class-for-errors">
+			{{ form_errors(form) }}
+		</div>
+		<div class="row">
+			<div class="col">
+				{{ form_widget(form.location, {'attr': {'class': 'search_location'}}) }}
+			</div>
+			<div class="col" id="some-custom-id"></div>
+		</div>
+	</div>
+	{{ form_end(form) }}
 
-    <header class="header-home">
-        <div>
-            <img class="logo" src="{{ asset('build/images/logoMarcheConclu.png') }}" width="160" height="160" alt="Marché Conclu" />
-        </div>
-        {{ form_start(form) }}
-        <div class="my-custom-class-for-errors">
-            {{ form_errors(form) }}
-        </div>
-        <div class="row">
-            <div class="col">
-                {{ form_widget(form.location, {'attr': {'class': 'search_location'}}) }}
-            </div>
-            <div class="col" id="some-custom-id"></div>
-        </div>
-    </div>
-    {{ form_end(form) }}
-    <div class="header-text">
-        <p>
-            Un accélérateur de business,
-        </p>
-        <p>
-            créé par vous, pour vous.
-        </p>
-    </div>
 </header>
+<div class="space-pitch">
+	<p>Un accélérateur de business,
+		<br>créé par vous, pour vous.</p>
+</div>
 {% for space in spaces %}
-    <figure class="offer">
-        <img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" height="160" alt="Marché Conclu" />
-        <figcaption class="text-offer">
-            <ul class="cardcontent">
-                <li class="spacelocation">
-                    {{ space.location }}
-                </li>
-                <li class="spacename">
-                    {{ space.name }}
-                </li>
-                <li class="spacecategory">
-                    {{ space.category }}
-                </li>
-                <li class="spacesurface">
-                    {{ space.surface }}
-                    m²
-                </li>
-                <li class="spacecapacity">
-                    {{ space.capacity }}
-                    places
-                </li>
-                <li class="spaceprice">
-                    {{ random(50, 250) }}
-                    €/jour
-                </li>
-            </ul>
-        </figcaption>
-    </figure>
+	<figure class="offer">
+		<img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" height="160" alt="Marché Conclu"/>
+		<figcaption class="text-offer">
+			<ul class="cardcontent">
+				<li class="spacelocation">
+					{{ space.location }}
+				</li>
+				<li class="spacename">
+					{{ space.name }}
+				</li>
+				<li class="spacecategory">
+					{{ space.category }}
+				</li>
+				<li class="spacesurface">
+					{{ space.surface }}
+					m²
+				</li>
+				<li class="spacecapacity">
+					{{ space.capacity }}
+					places
+				</li>
+				<li class="spaceprice">
+					{{ random(50, 250) }}
+					€/jour
+				</li>
+			</ul>
+		</figcaption>
+	</figure>
 {% endfor %}{% endblock %}
