@@ -96,3 +96,20 @@ padding: 1.5rem;
   display: flex;
 }
 /* END OF NAVBAR */
+
+.header-home {
+    font-family: Abhaya;
+    color: $color-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-image: url("/assets/images/imageHome.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.header-text {
+
+    text-align: center;
+}

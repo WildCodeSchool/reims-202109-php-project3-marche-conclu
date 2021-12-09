@@ -1,2 +1,13 @@
-$wild-color: #ff6c71;
-$light: #fffbfb;
+@font-face {
+    font-family: 'Actor';
+    src: url('../fonts/Actor-Regular.ttf');
+}
+@font-face {
+    font-family: 'Abhaya';
+    src: url('../fonts/AbhayaLibre-Regular.ttf');
+}
+
+$color-white: #FAFAFA;
+$color-burgundy: #750208;
+$color-grey: #191919;
+$color-blue: #5271FF;
