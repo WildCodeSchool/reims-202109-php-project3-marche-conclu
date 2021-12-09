@@ -1,45 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Space index{% endblock %}
-
 {% block body %}
-    <h1>Space index</h1>
+{{ form_start(form) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Photos</th>
-                <th>Surface</th>
-                <th>Category</th>
-                <th>Capacity</th>
-                <th>Location</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for space in spaces %}
-            <tr>
-                <td>{{ space.id }}</td>
-                <td>{{ space.name }}</td>
-                <td>{{ space.photos }}</td>
-                <td>{{ space.surface }}</td>
-                <td>{{ space.category }}</td>
-                <td>{{ space.capacity }}</td>
-                <td>{{ space.location }}</td>
-                <td>
-                    <a href="{{ path('space_show', {'id': space.id}) }}">show</a>
-                    <a href="{{ path('space_edit', {'id': space.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col">
+            {{ form_row(form.location) }}
+        </div>
+        <div class="col" id="some-custom-id">
+        </div>
+    </div>
+{{ form_end(form) }}
+{% for space in spaces %}
 
-    <a href="{{ path('space_new') }}">Create new</a>
+<p>{{ space.name }}</p>
+{% endfor %}
 {% endblock %}

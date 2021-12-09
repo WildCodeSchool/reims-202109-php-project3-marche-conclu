@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\SearchType;
 use App\Entity\Space;
 use App\Form\SpaceType;
 use App\Repository\SpaceRepository;
@@ -11,15 +12,25 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/space')]
 class SpaceController extends AbstractController
 {
+
     #[Route('/', name: 'space_index', methods: ['GET'])]
-    public function index(SpaceRepository $spaceRepository): Response
+
+    public function index(Request $request, SpaceRepository $spaceRepository, ?string $location): Response
     {
-        return $this->render('space/index.html.twig', [
-            'spaces' => $spaceRepository->findAll(),
-        ]);
+        $form = $this->createForm(SearchType::class, null, array('method' => 'GET'));
+        $form->handleRequest($request);
+        $spaces = $spaceRepository->findAll();
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $location = $form->get('location')->getData();
+
+            $spaces = $spaceRepository->findByLocation($location);
+        }
+
+        return $this->renderForm('space/index.html.twig', ['form' => $form,
+        'location' => $location, 'spaces' => $spaces]);
     }
 
     #[Route('/new', name: 'space_new', methods: ['GET', 'POST'])]
