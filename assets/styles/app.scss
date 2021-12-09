@@ -1,3 +1,5 @@
+@import 'variables.scss';
+
 /* NAVBAR */
 .invisible {
     bottom: 2px;
@@ -117,4 +119,12 @@ svg {
 
 .image-offer {
     object-fit: cover;
+}
+
+
+/* Add Space Form */
+
+.form-container {
+    display: flex;
+    flex-direction: column;
 }
