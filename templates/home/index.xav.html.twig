@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Marche Conclu{% endblock %}
+
+{% block body %}
+    <header class="header-home">
+        <div>
+            <img class="logo" src="{{asset('build/images/logoMarcheConclu.png')}}"
+            width="160" height="160" alt="Marché Conclu"/>
+        </div>
+        <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <input class="search" type="text" class="form-control" placeholder="P Recherche">
+            </div>
+        </form>
+        <div class="header-text">
+            <p>Un accélérateur de business,</p>
+            <p>créé par vous, pour vous.</p>
+        </div>
+    </header>
+
+{% endblock %}
