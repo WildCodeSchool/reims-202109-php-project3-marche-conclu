@@ -1,3 +1,4 @@
+@import "variables.scss";
 /* NAVBAR */
 .invisible {
     bottom: 2px;
@@ -98,6 +99,7 @@ svg {
 .header-text {
     text-align: center;
 }
+/* START OF CARD */
 
 .offer {
     display: flex;
@@ -109,12 +111,23 @@ svg {
     padding: initial;
 }
 
-.text-offer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
 .image-offer {
     object-fit: cover;
 }
+
+.cardcontent {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 100;
+  font-size: 0.75rem;
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-row-gap: 0.5rem;
+  justify-items: start;
+  align-items: start;
+}
+
+
+/* END OF CARD */

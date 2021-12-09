@@ -35,11 +35,14 @@
 <figure class="offer">
     <img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" height="160" alt="Marché Conclu"/>
     <figcaption class="text-offer">
-        <ul>
-         <li>{{ space.name }}</li>
-         <li>{{ space.category }}</li>
-         <li>{{ space.surface }}</li>
-         </ul>
+        <ul class="cardcontent">
+            <li class="spacelocation">{{ space.location }}</li>
+            <li class="spacename">{{ space.name }}</li>
+            <li class="spacecategory">{{ space.category }}</li>
+            <li class="spacesurface">{{ space.surface }} m²</li>
+            <li class="spacecapacity">{{ space.capacity }} places</li>
+            <li class="spaceprice">{{ random(50, 250) }} €/jour</li>
+        </ul>
     </figcaption>
 </figure>
 {% endfor %}
