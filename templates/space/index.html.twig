@@ -2,37 +2,34 @@
 
 {% block body %}
 
-<header class="header-home">
-    <div>
-        <img class="logo" src="{{ asset('build/images/logoMarcheConclu.png') }}"
-        width="160" height="160" alt="Marché Conclu"/>
-    </div>
-    <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-            <input class="search" type="text" class="form-control" placeholder="P Recherche">
-        </div>
-    </form>
-    <div class="header-text">
-        <p>Un accélérateur de business,</p>
-        <p>créé par vous, pour vous.</p>
-    </div>
-</header>
+	<header class="header-home">
 
-{{ form_start(form) }}
-    <div class="my-custom-class-for-errors">
-        {{ form_errors(form) }}
-    </div>
+		<img class="logo" src="{{ asset('build/images/logoMarcheConclu.png') }}" width="200" height="200" alt="Marché Conclu"/>
 
-    <div class="row">
-        <div class="col">
-            {{ form_row(form.location) }}
-        </div>
-        <div class="col" id="some-custom-id">
-        </div>
-    </div>
-{{ form_end(form) }}
-{% for space in spaces %}
+		<form class="navbar-form navbar-left" role="search">
+			<div class="form-group">
+				<input class="search" type="text" class="form-control" placeholder="P Recherche">
+			</div>
+		</form>
+		<div class="header-text">
+			<p>Un accélérateur de business,<br>créé par vous, pour vous.</p>
+		</div>
+	</header>
 
-<p>{{ space.name }}</p>
-{% endfor %}
+	{{ form_start(form) }}
+	<div class="my-custom-class-for-errors">
+		{{ form_errors(form) }}
+	</div>
+
+	<div class="row">
+		<div class="col">
+			{{ form_row(form.location) }}
+		</div>
+		<div class="col" id="some-custom-id"></div>
+	</div>
+	{{ form_end(form) }}
+	{% for space in spaces %}
+
+		<p>{{ space.name }}</p>
+	{% endfor %}
 {% endblock %}

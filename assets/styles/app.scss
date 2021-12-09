@@ -1,12 +1,24 @@
 @import 'variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Actor&display=swap');
+:root {
+    --font-color-primary: #322E2A;
+    --font-color-red: #BD1110;
+    --font-color-white: #FAFAF;
+    --font-family-first: 'Abhaya Libre', serif;
+    --font-family-second: 'Actor', sans-serif;
+}
 
 body {
     margin: 0;
+    background-color: #FAFAFA;
+    color: var(--font-family-first);
+    font-family: var(--font-family-first);
+    font-size: 24px;
 }
 
 .header-home {
-    font-family: Abhaya;
-    color: $color-white;
+    color: --font-color-white;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -17,6 +29,5 @@ body {
 }
 
 .header-text {
-
     text-align: center;
 }
