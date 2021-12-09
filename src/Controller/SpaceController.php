@@ -15,25 +15,22 @@ use Symfony\Component\Routing\Annotation\Route;
 class SpaceController extends AbstractController
 {
 
-    /**
-     * @Route("/", name="app_home")
-     */
-    public function index(Request $request, SpaceRepository $spaceRepository): Response
-    {
+    #[Route('/', name: 'space_index', methods: ['GET'])]
 
+    public function index(Request $request, SpaceRepository $spaceRepository, ?string $location): Response
+    {
         $form = $this->createForm(SearchType::class, null, array('method' => 'GET'));
         $form->handleRequest($request);
+        $spaces = $spaceRepository->findAll();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $location = $form->get('location')->getData();
 
-            return $this->render('space/list.html.twig', [
-                'location' => $location,
-                'spaces' => $spaceRepository->findByLocation($location)
-            ]);
+            $spaces = $spaceRepository->findByLocation($location);
         }
 
-        return $this->renderForm('space/index.html.twig', ['form' => $form]);
+        return $this->renderForm('space/index.html.twig', ['form' => $form,
+        'location' => $location, 'spaces' => $spaces]);
     }
 
     #[Route('/new', name: 'space_new', methods: ['GET', 'POST'])]
@@ -56,19 +53,6 @@ class SpaceController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/search", name="app_space_list")
-     */
-
-    public function list(SpaceRepository $spaceRepository, Request $request): Response
-    {
-        $location = $request->get('location');
-
-        $space = $spaceRepository->findByLocation($location);
-        return $this->render('search/list.html.twig', [
-            'space' => $space,
-        ]);
-    }
     #[Route('/{id}', name: 'space_show', methods: ['GET'])]
     public function show(Space $space): Response
     {
