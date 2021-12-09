@@ -9,7 +9,7 @@
     </div>
     <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-            <input class="search" type="text" class="form-control" placeholder="P Recherche">
+            <input class="search" type="text" class="form-control" placeholder="Recherche">
         </div>
     </form>
     <div class="header-text">
@@ -32,8 +32,16 @@
     </div>
 {{ form_end(form) }}
 {% for space in spaces %}
-
-<p>{{ space.name }}</p>
+<figure class="offer">
+    <img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" height="160" alt="Marché Conclu"/>
+    <figcaption class="text-offer">
+        <ul>
+         <li>{{ space.name }}</li>
+         <li>{{ space.category }}</li>
+         <li>{{ space.surface }}</li>
+         </ul>
+    </figcaption>
+</figure>
 {% endfor %}
 
 {% endblock %}
