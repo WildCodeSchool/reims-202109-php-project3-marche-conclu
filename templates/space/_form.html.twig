@@ -1,5 +1,46 @@
+<div class="container">
+    {{ form_start(form) }}
 
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+    <label>
+        Nom de votre bureau :
+            
+        {{ form_widget(form.name, {'attr': {'class': 'form-content', 'id' : 'name' }}
+        ) }}
+            
+    </label>
+    <label>
+        Capacité : 
+            
+        {{ form_widget(form.capacity, {'attr': {'class': 'form-content', 'id' : 'name' }}
+        ) }}
+            
+    </label>
+    <label>
+        Catégorie : 
+            
+        {{ form_widget(form.category, {'attr': {'class': 'form-content' }}
+        ) }}
+            
+    </label>
+    <label>
+        Surface en m² :
+    </label>
+    {{ form_widget(form.surface, {'attr': {'class': 'form-content' }}
+    ) }}
+    
+    <label>
+       Photos :
+    </label>
+    {{ form_widget(form.photos, {'attr': {'class': 'form-content' }}
+    ) }}
+    <label>
+        Adresse :
+     </label>
+     {{ form_widget(form.location, {'attr': {'class': 'form-content' }}
+     ) }}
+    
+    <button class="btn form-submit">
+        {{ button_label|default('Save') }}
+    </button>
+    {{ form_end(form) }}
+</div>
