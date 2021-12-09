@@ -1,8 +1,87 @@
-@import 'variables.scss';
+/* NAVBAR */
+.invisible {
+    bottom: 2px;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0.7rem;
+  }
+
+.align {
+    display: grid;
+    place-items: center;
+  }
 
 body {
     margin: 0;
-}
+    min-block-size: 100vh;
+  }
+
+a {
+    color: inherit;
+    outline: 0;
+  }
+
+.icons {
+    display: none;
+  }
+
+.icon {
+    block-size: 1em;
+    display: inline-block;
+    fill: currentcolor;
+    inline-size: 1em;
+    vertical-align: middle;
+  }
+
+.icon--2x {
+    font-size: 2rem;
+  }
+
+svg {
+    max-inline-size: 100%;
+  }
+
+.navigation {
+    background-color: #f0f6ff;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+  }
+
+.navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+.navigation a {
+    padding: 1.5rem;
+    display: block;
+    padding: 1.5em;
+    position: relative;
+    text-decoration: none;
+  }
+
+.navigation a:focus::after,
+.navigation a:hover::after {
+    opacity: 1;
+  }
+
+.navigation a::after {
+    block-size: 100%;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+    inline-size: 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+.navigation--inline ul {
+    display: flex;
+  }
+
+/* END OF NAVBAR */
 
 .header-home {
     font-family: Abhaya;
@@ -39,4 +118,3 @@ body {
 .image-offer {
     object-fit: cover;
 }
-
