@@ -1,32 +1,37 @@
 @import "variables.scss";
 
 /* NAVBAR */
+
 .invisible {
     bottom: 2px;
     position: absolute;
     display: flex;
     justify-content: space-around;
     padding-left: 0.7rem;
-  }
+}
 
 .align {
     display: grid;
     place-items: center;
-  }
+}
 
 body {
     margin: 0;
     min-block-size: 100vh;
-  }
+    text-align: center;
+    color: $color-grey;
+    font-family: Abhala;
+    background-color: $color-white;
+}
 
 a {
     color: inherit;
     outline: 0;
-  }
+}
 
 .icons {
     display: none;
-  }
+}
 
 .icon {
     block-size: 1em;
@@ -34,15 +39,15 @@ a {
     fill: currentcolor;
     inline-size: 1em;
     vertical-align: middle;
-  }
+}
 
 .icon--2x {
     font-size: 2rem;
-  }
+}
 
 svg {
     max-inline-size: 100%;
-  }
+}
 
 .navigation {
     background-color: #f0f6ff;
@@ -50,13 +55,13 @@ svg {
     width: 100%;
     bottom: 0;
     position: fixed;
-  }
+}
 
 .navigation ul {
     list-style: none;
     margin: 0;
     padding: 0;
-  }
+}
 
 .navigation a {
     padding: 1.5rem;
@@ -64,12 +69,12 @@ svg {
     padding: 1.5em;
     position: relative;
     text-decoration: none;
-  }
+}
 
 .navigation a:focus::after,
 .navigation a:hover::after {
     opacity: 1;
-  }
+}
 
 .navigation a::after {
     block-size: 100%;
@@ -77,37 +82,51 @@ svg {
     inline-size: 100%;
     opacity: 0;
     transition: opacity 0.3s;
-  }
+}
 
 .navigation--inline ul {
     display: flex;
-  }
+}
+
 
 /* END OF NAVBAR */
 
 .header-home {
+    height: 30vh;
     font-family: Abhaya;
     color: $color-white;
+    padding: 1rem 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
-    background-image: url("/assets/images/imageHome.svg");
+    text-align: center;
+    background-image: url("/assets/images/header.png");
     background-size: cover;
     background-repeat: no-repeat;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 1px #534f4c;
+}
+
+.logo-title {
+    color: $color-white;
+    margin: 0;
 }
 
 .search_location {
     font-size: 1rem;
-    padding: 0.5rem 2rem; 
+    padding: 0.5rem 2rem;
     text-align: center;
     border-radius: 5%;
-    background-color: white;
+    background-color: $color-white;
 }
 
-.header-text {
-    text-align: center;
+.space-pitch {
+    padding: 1rem 0;
+    font-size: 1.3rem;
 }
+
+
 /* START OF CARD */
 
 .offer {
@@ -138,44 +157,51 @@ svg {
     align-items: start;
 }
 
+
 /* END OF CARD */
+
 
 /* Add Space Form */
 #space {
-  display: flex;
+    display: flex;
 }
 
 /* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea, .form-content {
-  width: 100%; /* Full width */
-  padding: 12px; /* Some padding */ 
-  border: 1px solid #ccc; /* Gray border */
-  border-radius: 4px; /* Rounded borders */
-  box-sizing: border-box; /* Make sure that padding and width stays in place */
-  margin-top: 6px; /* Add a top margin */
-  margin-bottom: 16px; /* Bottom margin */
-  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
 }
 
 /* Style the submit button with a specific background color etc */
 input[type=submit], .form-submit {
-  background-color: $color-burgundy;
-  color: white;
-  padding: 12px 20px;
-  border: none;
+    background-color: $color-burgundy;
+    color: white;
+    padding: 12px 20px;
+    border: none;
     border-radius: 4px;
-  cursor: pointer;
+    cursor: pointer;
 }
 
 
 /* Add a background color and some padding around the form */
 .container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
 }
 
 .add-space-title {
-  font-size: 2rem;
-  text-align: center;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
 }
