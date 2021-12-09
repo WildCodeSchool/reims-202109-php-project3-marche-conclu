@@ -1,4 +1,5 @@
 @import "variables.scss";
+
 /* NAVBAR */
 .invisible {
     bottom: 2px;
@@ -94,6 +95,14 @@ svg {
     background-image: url("/assets/images/imageHome.svg");
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.search_location {
+    font-size: 1rem;
+    padding: 0.5rem 2rem; 
+    text-align: center;
+    border-radius: 5%;
+    background-color: white;
 }
 
 .header-text {
