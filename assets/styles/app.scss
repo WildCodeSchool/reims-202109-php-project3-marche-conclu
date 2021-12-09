@@ -17,6 +17,23 @@ body {
 }
 
 .header-text {
-
     text-align: center;
 }
+
+.offer {
+    display: flex;
+    flex-direction: column;
+    padding: 1px;
+}
+.offer:hover {
+    padding: initial;
+}
+.text-offer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.image-offer {
+    object-fit: cover;
+}
+
