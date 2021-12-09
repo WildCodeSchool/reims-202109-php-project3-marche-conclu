@@ -1,7 +1,22 @@
 @import 'variables.scss';
 
 body {
-    margin:0;
-    background-color: $wild-color;
-    color: $light;
+    margin: 0;
+}
+
+.header-home {
+    font-family: Abhaya;
+    color: $color-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-image: url("/assets/images/imageHome.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.header-text {
+
+    text-align: center;
 }
