@@ -18,6 +18,10 @@
 body {
     margin: 0;
     min-block-size: 100vh;
+    text-align: center;
+    color: $color-grey;
+    font-family: Abhala;
+    background-color: $color-white;
 }
 
 a {
@@ -94,7 +98,7 @@ svg {
     padding: 1rem 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
     background-image: url("/assets/images/header.png");
@@ -109,6 +113,22 @@ svg {
     margin: 0;
 }
 
+.search_location {
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    border-radius: 5%;
+    background-color: $color-white;
+}
+
+.space-pitch {
+    padding: 1rem 0;
+    font-size: 1.3rem;
+}
+
+
+/* START OF CARD */
+
 .offer {
     display: flex;
     flex-direction: column;
@@ -119,12 +139,31 @@ svg {
     padding: initial;
 }
 
-.text-offer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
 .image-offer {
     object-fit: cover;
+}
+
+.cardcontent {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 100;
+    font-size: 0.75rem;
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-row-gap: 0.5rem;
+    justify-items: start;
+    align-items: start;
+}
+
+
+/* END OF CARD */
+
+
+/* Add Space Form */
+
+.form-container {
+    display: flex;
+    flex-direction: column;
 }
