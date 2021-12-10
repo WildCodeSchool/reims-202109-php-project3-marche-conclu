@@ -125,17 +125,17 @@ svg {
 }
 
 .cardcontent {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 100;
-  font-size: 0.75rem;
-  list-style-type: none;
-  padding-left: 1rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
-  grid-row-gap: 0.5rem;
-  justify-items: start;
-  align-items: start;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 100;
+    font-size: 0.75rem;
+    list-style-type: none;
+    padding-left: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-row-gap: 0.5rem;
+    justify-items: start;
+    align-items: start;
 }
 
 /* END OF CARD */
