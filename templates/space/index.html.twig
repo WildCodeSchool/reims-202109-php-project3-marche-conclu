@@ -1,57 +1,86 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<header class="header-home">
-		<div>
-			<img class="logo" src="{{ asset('build/images/logo.png') }}" width="60" alt="Marché Conclu"/>
-			<p class="logo-title">Marché
-				<br>C O N C L U</p>
-		</div>
-		{{ form_start(form) }}
-		<div class="my-custom-class-for-errors">
-			{{ form_errors(form) }}
-		</div>
-		<div class="row">
-			<div class="col">
-				{{ form_widget(form.location, {'attr': {'class': 'search_location'}}) }}
-			</div>
-			<div class="col" id="some-custom-id"></div>
-		</div>
-	</div>
-	{{ form_end(form) }}
-
-</header>
-<div class="space-pitch">
-	<p>Un accélérateur de business,
-		<br>créé par vous, pour vous.</p>
-</div>
-{% for space in spaces %}
-	<figure class="offer">
-		<img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" height="160" alt="Marché Conclu"/>
-		<figcaption class="text-offer">
-			<ul class="cardcontent">
-				<li class="spacelocation">
-					{{ space.location }}
-				</li>
-				<li class="spacename">
-					{{ space.name }}
-				</li>
-				<li class="spacecategory">
-					{{ space.category }}
-				</li>
-				<li class="spacesurface">
-					{{ space.surface }}
-					m²
-				</li>
-				<li class="spacecapacity">
-					{{ space.capacity }}
-					places
-				</li>
-				<li class="spaceprice">
-					{{ random(50, 250) }}
-					€/jour
-				</li>
-			</ul>
-		</figcaption>
-	</figure>
-{% endfor %}{% endblock %}
+    <header class="header-home">
+        <div>
+            <img class="logo" src="{{ asset('build/images/logo.png') }}" width="60" alt="Marché Conclu" />
+            <p class="logo-title">
+                Marché
+                <br>
+                    C O N C L U
+                </p>
+            </div>
+            {{ form_start(form) }}
+            <div class="my-custom-class-for-errors">
+                {{ form_errors(form) }}
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ form_widget(form.location, {'attr': {'class': 'form-search'}}) }}
+                </div>
+                <div class="col" id="some-custom-id"></div>
+            </div>
+            <button class="btn form-submit">
+                {{ button_label|default('Chercher') }}
+            </button>
+            {{ form_end(form) }}
+        </div>
+    </header>
+    <div class="space-pitch">
+        <p>
+            Un accélérateur de business,
+            <br>
+                créé par vous, pour vous.
+            </p>
+        </div>
+        {% if spaces %}
+            {% set space_count = 0 %}
+            {% for space in spaces %}
+                {% set space_count = space_count + 1 %}
+            {% endfor %}
+            {% if location %}
+                <p class="space-count">
+                    <span id="space-count">
+                        {{ space_count }}
+                    </span>
+                    bureaux ont été trouvés à
+                    {{ location }}
+                </p>
+            {% endif %}
+            {% for space in spaces %}
+                <figure class="offer">
+                    <img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" height="160" alt="Marché Conclu" />
+                    <figcaption class="text-offer">
+                        <ul class="cardcontent">
+                            <li class="spacelocation">
+                                {{ space.location }}
+                            </li>
+                            <li class="spacename">
+                                {{ space.name }}
+                            </li>
+                            <li class="spacecategory">
+                                {{ space.category }}
+                            </li>
+                            <li class="spacesurface">
+                                {{ space.surface }}
+                                m²
+                            </li>
+                            <li class="spacecapacity">
+                                {{ space.capacity }}
+                                places
+                            </li>
+                            <li class="spaceprice">
+                                {{ random(50, 250) }}
+                                €/jour
+                            </li>
+                        </ul>
+                    </figcaption>
+                </figure>
+            {% endfor %}
+        {% else %}
+            <p>
+                Aucun bureau n'a été trouvé à {{ location }}.
+            </p>
+        {% endif %}
+    {% endblock %}
+    
