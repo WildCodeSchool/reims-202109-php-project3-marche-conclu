@@ -42,6 +42,7 @@
                 </p>
             {% endif %}
             {% for space in spaces %}
+            <a href=" {{ path("space_show", {id: space.id}) }}">
                 <figure class="offer">
                     <img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" height="160" alt="Marché Conclu" />
                     <figcaption class="text-offer">
@@ -70,6 +71,7 @@
                         </ul>
                     </figcaption>
                 </figure>
+            </a>
             {% endfor %}
         {% else %}
             <p>

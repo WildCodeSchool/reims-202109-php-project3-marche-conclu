@@ -3,11 +3,11 @@
 {% block title %}Edit Space{% endblock %}
 
 {% block body %}
-    <h1>Edit Space</h1>
 
-    {{ include('space/_form.html.twig', {'button_label': 'Update'}) }}
+    <h1> Mettre à jour l'espace {{ space.name }} </h1>
 
-    <a href="{{ path('space_index') }}">back to list</a>
+    {{ include('space/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    {{ include('space/_delete_form.html.twig') }}
+    <a class ="space-form-submit" href="{{ path('space_index') }}">Retourner sur la liste des annonces</a>
+
 {% endblock %}

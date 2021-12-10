@@ -137,9 +137,29 @@ svg {
     margin: 1rem;
 }
 
+.show-offer {
+    display: flex;
+    flex-direction: column;
+    color: $color-burgundy;
+    margin: 1rem;
+}
+
 .image-offer {
     object-fit: cover;
     border-radius: 5% 5% 0 0;
+}
+
+.show-image-offer {
+    object-fit: none;
+    width: 100%;
+}
+
+.show-title {
+    font-family: 'Work Sans', sans-serif;
+    color: grey;
+    margin-left: 1rem;
+    font-size: 0.8rem; 
+    float: left
 }
 
 .cardcontent {
@@ -155,6 +175,34 @@ svg {
     justify-items: start;
     align-items: start;
 }
+
+.div-btn {
+    width:60%; 
+    display:flex; 
+    align-items: center;
+    justify-content: center;
+    padding-left: 4.7rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.spacename {
+    font-weight: bolder; font-size: 1.2rem
+}
+
+.show-cardcontent {
+    margin-left: 1rem; 
+    padding: 0;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 100;
+    font-size: 0.75rem;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    text-align: justify;
+}
+
 
 
 /* END OF CARD */
@@ -193,8 +241,9 @@ input[type=submit], .form-submit {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
+    text-decoration: none;
 
+}
 
 /* Add a background color and some padding around the form */
 .container {
@@ -211,4 +260,20 @@ input[type=submit], .form-submit {
 .form-container {
     display: flex;
     flex-direction: column;
+}
+
+.show-spaceprice {
+    border-bottom: 1px solid black;
+    padding-bottom: 2rem;
+    width: 100%;
+}
+
+.space-form-submit {
+    background-color: $color-grey;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
 }
