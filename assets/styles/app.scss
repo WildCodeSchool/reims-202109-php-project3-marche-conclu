@@ -92,7 +92,6 @@ svg {
 /* END OF NAVBAR */
 
 .header-home {
-    height: 30vh;
     font-family: Abhaya;
     color: $color-white;
     padding: 1rem 0;
@@ -113,19 +112,19 @@ svg {
     margin: 0;
 }
 
-.search_location {
-    font-size: 1rem;
-    padding: 0.5rem 2rem;
+.form-search {
+    padding-left: 5rem;
+    padding-right: 5rem;
     text-align: center;
-    border-radius: 5%;
-    background-color: $color-white;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
 }
 
 .space-pitch {
     padding: 1rem 0;
     font-size: 1.3rem;
 }
-
 
 /* START OF CARD */
 
@@ -164,6 +163,14 @@ svg {
 /* Add Space Form */
 #space {
     display: flex;
+}
+
+#space-count {
+    font-weight: bolder;
+}
+
+.space-count {
+    font-size: 1.2rem;
 }
 
 /* Style inputs with type="text", select elements and textareas */
