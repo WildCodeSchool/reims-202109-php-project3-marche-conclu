@@ -128,8 +128,20 @@ body {
 .space-pitch {
     padding: 1rem 0;
     font-size: 1.3rem;
+    font-family: Abhaya;
+    text-align: center;
+    color: $color-burgundy;
 }
-
+.premium-title
+{
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: .5px solid #ccc;
+    font-size: 1.3rem;
+    font-family: Abhaya;
+    text-align: center;
+    color: $color-burgundy;
+}
 /* START SPACE_INDEX */
 
 .offer {

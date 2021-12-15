@@ -52,4 +52,45 @@
                 <button id="carousel-button-next" aria-label="Next">></button>
     </div>
 </div>
+<div>
+    <h3 class="premium-title">Annonces premium</h3>
+    {% for space in spaces|slice(0, 2) %}
+                <figure class="offer">
+                    <img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" alt="Marché Conclu" />
+                    <figcaption class="text-offer">
+                        <ul class="cardcontent">
+                            <div class="card-border">
+                                <div class="card-content-up">
+                                    <li class="spacecategory">
+                                    {{ space.category }}
+                                    </li>
+                                    <span class="point">·</span>
+                                    <li class="spacecapacity">
+                                        {{ space.capacity }}
+                                        places
+                                    </li>
+                                    <span class="point">·</span>
+                                    <li class="spacesurface">
+                                        {{ space.surface }}
+                                        m²
+                                    </li>
+                                </div>
+                                <div class="card-content-down">
+                                    <li class="spacelocation">
+                                        {{ space.location }}
+                                    </li>
+                                </div>
+                            </div>
+                        </ul>
+                        <ul id="price">
+                                <li class="spaceprice">
+                                    <span id="spanprice">{{ random(50, 250) }} €</span>
+                                    <span id="spanpriceday"> / jour</span>
+                                </li>
+                                <a class="form-submit" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
+                        </ul>
+                    </figcaption>
+                </figure>
+            {% endfor %}
+</div>
 {% endblock %}
