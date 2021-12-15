@@ -130,15 +130,11 @@ body {
 .space_index_offer {
     display: flex;
     flex-direction: column;
-    border: 0.2rem solid $color-burgundy;
-    border-radius: 1rem;
-    color: $color-burgundy;
-    margin: 1rem;
+    margin: 0;
 }
 
 .space_index_image-offer {
     object-fit: cover;
-    border-radius: 5% 5% 0 0;
 }
 
 .space_index_cardcontent {
@@ -147,12 +143,6 @@ body {
     font-size: 0.75rem;
     list-style-type: none;
     padding-left: 1rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    grid-row-gap: 0.5rem;
-    justify-items: start;
-    align-items: start;
 }
 
 .space_index_count {
@@ -161,6 +151,41 @@ body {
 
 #space_index_count {
     font-weight: bolder;
+}
+
+.space_index_card-content-up,
+.space_index_card-content-down {
+    display: flex;
+    flex-direction: row;
+    font-size: 1rem;
+    span {
+        padding: 0 0.2rem;
+        font-weight: bolder;
+    }
+}
+
+.space_index_card-content-up {
+    font-weight: bold;
+    padding-bottom: 1rem;
+}
+
+.space_index_spaceprice {
+    padding-bottom: 1.5rem;
+    padding-top: 0.5rem;
+    list-style: none;
+}
+
+#space_index_price {
+    padding-left: 0;
+    display: flex;
+    justify-content: left;
+    border-top: 0.5px solid #eee;
+    margin: 0 1rem;
+}
+
+#space_index_spanprice {
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 /* END SPACE_INDEX */

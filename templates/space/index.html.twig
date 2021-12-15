@@ -43,30 +43,38 @@
             {% endif %}
             {% for space in spaces %}
                 <figure class="space_index_offer">
-                    <img class="space_index_image-offer" src="{{ asset('build/images/imageHome.svg') }}" height="160" alt="Marché Conclu" />
+                    <img class="space_index_image-offer" src="{{ asset('build/images/imageHome.svg') }}" alt="Marché Conclu" />
                     <figcaption class="space_index_text-offer">
                         <ul class="space_index_cardcontent">
-                            <li class="space_index_spacelocation">
-                                {{ space.location }}
-                            </li>
-                            <li class="space_index_spacename">
-                                {{ space.name }}
-                            </li>
-                            <li class="space_index_spacecategory">
-                                {{ space.category }}
-                            </li>
-                            <li class="space_index_spacesurface">
-                                {{ space.surface }}
-                                m²
-                            </li>
-                            <li class="space_index_spacecapacity">
-                                {{ space.capacity }}
-                                places
-                            </li>
-                            <li class="space_index_spaceprice">
-                                {{ random(50, 250) }}
-                                €/jour
-                            </li>
+                            <div class="space_index_card-border">
+                                <div class="space_index_card-content-up">
+                                    <li class="space_index_spacecategory">
+                                    {{ space.category }}
+                                    </li>
+                                    <span class="space_index_point">·</span>
+                                    <li class="space_index_spacecapacity">
+                                        {{ space.capacity }}
+                                        places
+                                    </li>
+                                    <span class="space_index_point">·</span>
+                                    <li class="space_index_spacesurface">
+                                        {{ space.surface }}
+                                        m²
+                                    </li>
+                                </div>
+                                <div class="space_index_card-content-down">
+                                    <li class="space_index_spacelocation">
+                                        {{ space.location }}
+                                    </li>
+                                </div>
+                            </div>
+                        </ul>
+                        <ul id="space_index_price">
+                                <li class="space_index_spaceprice">
+                                    <span id="space_index_spanprice">{{ random(50, 250) }} €</span>
+                                    <span id="space_index_spanpriceday"> / jour</span>
+                                </li>
+                                <a href="{{ path("space_show", { id: space.id }) }}">Voir l'annonce</a>
                         </ul>
                     </figcaption>
                 </figure>
