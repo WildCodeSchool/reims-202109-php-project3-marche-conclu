@@ -1,20 +1,5 @@
 @import "variables.scss";
 
-/* NAVBAR */
-
-.invisible {
-    bottom: 2px;
-    position: absolute;
-    display: flex;
-    justify-content: space-around;
-    padding-left: 0.7rem;
-}
-
-.align {
-    display: grid;
-    place-items: center;
-}
-
 body {
     margin: 0;
     min-block-size: 100vh;
@@ -24,16 +9,31 @@ body {
     background-color: $color-white;
 }
 
-a {
+/* START NAVBAR */
+
+.navbar_invisible {
+    bottom: 2px;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0.7rem;
+}
+
+.navbar_align {
+    display: grid;
+    place-items: center;
+}
+
+.navbar_a {
     color: inherit;
     outline: 0;
 }
 
-.icons {
+.navbar_icons {
     display: none;
 }
 
-.icon {
+.navbar_icon {
     block-size: 1em;
     display: inline-block;
     fill: currentcolor;
@@ -41,15 +41,15 @@ a {
     vertical-align: middle;
 }
 
-.icon--2x {
+.navbar_icon--2x {
     font-size: 2rem;
 }
 
-svg {
+.navbar_svg {
     max-inline-size: 100%;
 }
 
-.navigation {
+.navbar_navigation {
     background-color: #f0f6ff;
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
     width: 100%;
@@ -57,13 +57,13 @@ svg {
     position: fixed;
 }
 
-.navigation ul {
+.navbar_navigation ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.navigation a {
+.navbar_navigation a {
     padding: 1.5rem;
     display: block;
     padding: 1.5em;
@@ -71,12 +71,12 @@ svg {
     text-decoration: none;
 }
 
-.navigation a:focus::after,
-.navigation a:hover::after {
+.navbar_navigation a:focus::after,
+.navbar_navigation a:hover::after {
     opacity: 1;
 }
 
-.navigation a::after {
+.navbar_navigation a::after {
     block-size: 100%;
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
     inline-size: 100%;
@@ -84,14 +84,15 @@ svg {
     transition: opacity 0.3s;
 }
 
-.navigation--inline ul {
+.navbar_navigation--inline ul {
     display: flex;
 }
 
+/* END NAVBAR */
 
-/* END OF NAVBAR */
+/* START SPACE_INDEX */
 
-.header-home {
+.space_index_header-home {
     font-family: Abhaya;
     color: $color-white;
     padding: 1rem 0;
@@ -107,12 +108,12 @@ svg {
     text-shadow: 1px 1px 1px #534f4c;
 }
 
-.logo-title {
+.space_index_logo-title {
     color: $color-white;
     margin: 0;
 }
 
-.form-search {
+.space_index_form-search {
     padding-left: 5rem;
     padding-right: 5rem;
     text-align: center;
@@ -121,14 +122,12 @@ svg {
     box-sizing: border-box; /* Make sure that padding and width stays in place */
 }
 
-.space-pitch {
+.space_index_space-pitch {
     padding: 1rem 0;
     font-size: 1.3rem;
 }
 
-/* START OF CARD */
-
-.offer {
+.space_index_offer {
     display: flex;
     flex-direction: column;
     border: 0.2rem solid $color-burgundy;
@@ -137,12 +136,12 @@ svg {
     margin: 1rem;
 }
 
-.image-offer {
+.space_index_image-offer {
     object-fit: cover;
     border-radius: 5% 5% 0 0;
 }
 
-.cardcontent {
+.space_index_cardcontent {
     font-family: 'Work Sans', sans-serif;
     font-weight: 100;
     font-size: 0.75rem;
@@ -156,25 +155,25 @@ svg {
     align-items: start;
 }
 
+.space_index_count {
+    font-size: 1.2rem;
+}
 
-/* END OF CARD */
+#space_index_count {
+    font-weight: bolder;
+}
+
+/* END SPACE_INDEX */
 
 
-/* Add Space Form */
+/* START SPACE_FORM */
+
 #space {
     display: flex;
 }
 
-#space-count {
-    font-weight: bolder;
-}
-
-.space-count {
-    font-size: 1.2rem;
-}
-
 /* Style inputs with type="text", select elements and textareas */
-input[type=text], select, textarea, .form-content {
+input[type=text], select, textarea, .space_form_content {
     width: 100%; /* Full width */
     padding: 12px; /* Some padding */ 
     border: 1px solid #ccc; /* Gray border */
@@ -186,7 +185,7 @@ input[type=text], select, textarea, .form-content {
 }
 
 /* Style the submit button with a specific background color etc */
-input[type=submit], .form-submit {
+input[type=submit], .space_form_submit {
     background-color: $color-burgundy;
     color: white;
     padding: 12px 20px;
@@ -195,20 +194,25 @@ input[type=submit], .form-submit {
     cursor: pointer;
 }
 
-
 /* Add a background color and some padding around the form */
-.container {
+.space_form_container {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
 }
 
-.add-space-title {
+/* START SPACE_FORM */
+
+/* START SPACE_NEW */
+
+.space_new_add-space-title {
     font-size: 2rem;
     text-align: center;
 }
 
-.form-container {
+.space_new_form-container {
     display: flex;
     flex-direction: column;
 }
+
+/* END SPACE_NEW */
