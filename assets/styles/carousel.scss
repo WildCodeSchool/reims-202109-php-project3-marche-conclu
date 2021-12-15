@@ -1,0 +1,82 @@
+.carousel {
+    max-width: 600px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.carousel .carousel-item,
+.carousel .carousel-item-hidden {
+    display: none; /* hide all slide images not currently being viewed */
+}
+
+.carousel .carousel-item-visible {
+    display: block; /* show current slide image */
+    animation: fadeVisibility 1s; /* for fading effect when switching between slides */
+}
+
+.carousel .carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 25vh;
+}
+
+/* Navigation control styles */
+.carousel .carousel-actions {
+    display: flex;
+    width: 100%;
+    justify-content: space-between; /* put space between the navigation buttons */
+    position: absolute; /* position navigation buttons on top */
+    top: 50%; /* center navigation buttons on the slide */
+    transform: translateY(-50%); /* align navigation buttons */
+}
+
+.carousel .carousel-actions button {
+    border-radius: 50px;
+    background-color: white;
+    border: 0;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+.carousel .carousel-actions button#carousel-button-prev {
+    margin-left: 20px; /* prevent previous button from touching the side*/
+    z-index: -1;
+}
+
+.carousel .carousel-actions button#carousel-button-next {
+    margin-right: 20px;  /* prevent next button from touching the side*/
+    z-index: -1;
+}
+
+/* hanlde smooth transitions between slides */
+@keyframes fadeVisibility {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.texte-center {
+    text-decoration: none;
+    font-family: 'Actor';
+    font-size: 1.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $color-white;
+    background-color: $color-cerise;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    height: 30vh;
+    z-index: 1;
+  }

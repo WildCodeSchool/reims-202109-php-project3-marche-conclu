@@ -1,15 +1,50 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <header class="header-home">
-            <img class="logo" src="{{ asset('build/images/logo.png') }}" width="60" alt="Marché Conclu" />
-            <p class="logo-title">
-                Marché
-                <br>
-                    C O N C L U
-                </p>
-            {{ form_start(form) }}
-            <div class="my-custom-class-for-errors">
-                {{ form_errors(form) }}
+<header class="header-home">
+  <img class="logo" src="{{ asset('build/images/logo.png') }}" width="60" alt="Marché Conclu" />
+  <p class="logo-title">
+    Marché
+    <br>
+    C O N C L U
+  </p>
+  {{ form_start(form) }}
+  <div class="my-custom-class-for-errors">
+    {{ form_errors(form) }}
+  </div>
+  <div class="row">
+    <div class="col">
+      {{ form_widget(form.location, {'attr': {'class': 'form-search'}}) }}
+    </div>
+    <div class="col" id="some-custom-id">
+    </div>
+  </div>
+  <button class="btn form-submit">
+    {{ button_label|default('Chercher') }}
+  </button>
+  {{ form_end(form) }}
+  </div>
+</header>
+<div class="space-pitch">
+  <p>
+    Un accélérateur de business,
+    <br>
+    créé par vous, pour vous.
+  </p>
+</div>
+<div class="carousel">
+    {% for category in categories %}
+      {% if loop.index0 == 0 %}
+        <div class="carousel-item carousel-item-visible">
+      {% else %}
+        <div class="carousel-item">
+      {% endif %}
+            <img src="{{ asset('build/images/' ~ category|lower|replace({' ': '', '-': ''}) ~ '.jpg') }}"
+                    alt="{{ category|lower }}" />
+                <a href="#">
+                    <div class="texte-center">
+                        <p>{{ category }}</p>
+                    </div>
+                </a>
             </div>
             <div class="row">
                 <div class="col">
@@ -31,4 +66,10 @@
             </p>
         </div>
 
+    {% endfor %}
+    <div class="carousel-actions">
+                <button id="carousel-button-prev" aria-label="Previous"><</button>
+                <button id="carousel-button-next" aria-label="Next">></button>
+    </div>
+</div>
 {% endblock %}
