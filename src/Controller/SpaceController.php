@@ -21,16 +21,40 @@ class SpaceController extends AbstractController
     {
         $form = $this->createForm(SearchType::class, null, array('method' => 'GET'));
         $form->handleRequest($request);
-        $spaces = $spaceRepository->findAll();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $location = $form->get('location')->getData();
-
-            $spaces = $spaceRepository->findByLocation($location);
+            return $this->redirectToRoute('space_search', array(
+                'location' => $location,
+            ));
         }
 
-        return $this->renderForm('space/index.html.twig', ['form' => $form,
-        'location' => $location, 'spaces' => $spaces]);
+        return $this->renderForm('space/index.html.twig', [
+            'form' => $form,
+            'location' => $location
+        ]);
+    }
+
+    #[Route('/search', name: 'space_search', methods: ['GET'])]
+
+    public function search(Request $request, SpaceRepository $spaceRepository, ?string $location): Response
+    {
+        $form = $this->createForm(SearchType::class, null, array('method' => 'GET'));
+        $form->handleRequest($request);
+        $location = $request->query->get('location');
+        $spaces = $location ? $spaceRepository->findByLocation($location) : $spaceRepository->findAll();
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $location = $form->get('location')->getData();
+            return $this->redirectToRoute('space_search', array(
+                'location' => $location,
+            ));
+        }
+
+        return $this->renderForm('space/search.html.twig', [
+            'form' => $form,
+            'location' => $location, 'spaces' => $spaces
+        ]);
     }
 
     #[Route('/new', name: 'space_new', methods: ['GET', 'POST'])]

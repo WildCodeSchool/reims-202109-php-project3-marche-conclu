@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+{% include '_searchbar.html.twig' %}
+{% if spaces %}
+    {% if location %}
+    <p class="count">
+        <span id="count">
+            {{ spaces|length }}
+        </span>
+        bureaux ont été trouvés à
+        {{ location }}
+    </p>
+{% endif %}
+{% for space in spaces %}
+    <figure class="offer">
+        <img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" alt="Marché Conclu" />
+        <figcaption class="text-offer">
+            <ul class="cardcontent">
+                <div class="card-border">
+                    <div class="card-content-up">
+                        <li class="spacecategory">
+                        {{ space.category }}
+                        </li>
+                        <span class="point">·</span>
+                        <li class="spacecapacity">
+                            {{ space.capacity }}
+                            places
+                        </li>
+                        <span class="point">·</span>
+                        <li class="spacesurface">
+                            {{ space.surface }}
+                            m²
+                        </li>
+                    </div>
+                    <div class="card-content-down">
+                        <li class="spacelocation">
+                            {{ space.location }}
+                        </li>
+                    </div>
+                </div>
+            </ul>
+            <ul id="price">
+                    <li class="spaceprice">
+                        <span id="spanprice">{{ random(50, 250) }} €</span>
+                        <span id="spanpriceday"> / jour</span>
+                    </li>
+                    <a class="form-submit" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
+            </ul>
+        </figcaption>
+    </figure>
+{% endfor %}
+{% else %}
+<p>
+    Aucun bureau n'a été trouvé à {{ location }}.
+</p>
+{% endif %}
+{% endblock %}
