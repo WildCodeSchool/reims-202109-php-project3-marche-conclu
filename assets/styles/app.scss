@@ -128,15 +128,12 @@ body {
     font-size: 1.3rem;
 }
 
-/* START OF CARD */
+/* START SPACE_INDEX */
 
 .offer {
     display: flex;
     flex-direction: column;
-    border: 0.2rem solid $color-burgundy;
-    border-radius: 1rem;
-    color: $color-burgundy;
-    margin: 1rem;
+    margin: 1rem 0;
 }
 
 .show-offer {
@@ -148,7 +145,6 @@ body {
 
 .image-offer {
     object-fit: cover;
-    border-radius: 5% 5% 0 0;
 }
 
 .show-image-offer {
@@ -170,12 +166,6 @@ body {
     font-size: 0.75rem;
     list-style-type: none;
     padding-left: 1rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    grid-row-gap: 0.5rem;
-    justify-items: start;
-    align-items: start;
 }
 
 .div-btn {
@@ -202,7 +192,53 @@ body {
     text-align: justify;
 }
 
+.card-content-up,
+.card-content-down {
+    display: flex;
+    flex-direction: row;
+    font-size: 1rem;
 
+    span {
+        padding: 0 0.2rem;
+        font-weight: bolder;
+    }
+}
+
+.card-content-up {
+    font-weight: bold;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.spaceprice {
+    margin-top: 1rem;
+    list-style: none;
+}
+
+#price {
+    padding-left: 0;
+    display: flex;
+    justify-content: space-between;
+    border-top: 0.5px solid #eee;
+    margin: 1rem;
+}
+
+#spanprice {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.space-pitch p {
+    text-align: center;
+}
+
+#buttonCardShow {
+    background-color: #eee;
+    color: $color-grey;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+/* END SPACE_INDEX */
 
 /* END OF CARD */
 
