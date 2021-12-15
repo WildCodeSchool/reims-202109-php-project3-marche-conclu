@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1 class="show-title">Accueil / {{ space.location }} / {{ space.category }} </h1>
-        <img class="show-image-offer" src="{{ asset('build/images/imageHome.svg') }}" height="160" alt="Marché Conclu" />
+        <img class="show-image-offer" src="{{ asset('build/images/' ~ space.photos) }}" alt="Marché Conclu" />
         <figcaption class="text-offer">
             <ul class="show-cardcontent">
             <li class="spacename">
