@@ -1,8 +1,13 @@
 @import "variables.scss";
 
-/* NAVBAR */
+body {
+    margin: 0;
+    padding: 0;
+}
 
-.invisible {
+/* START NAVBAR */
+
+.navbar_invisible {
     bottom: 2px;
     position: absolute;
     display: flex;
@@ -10,30 +15,21 @@
     padding-left: 0.7rem;
 }
 
-.align {
+.navbar_align {
     display: grid;
     place-items: center;
 }
 
-body {
-    margin: 0;
-    min-block-size: 100vh;
-    text-align: center;
-    color: $color-grey;
-    font-family: Abhala;
-    background-color: $color-white;
-}
-
-a {
+.navbar_a {
     color: inherit;
     outline: 0;
 }
 
-.icons {
+.navbar_icons {
     display: none;
 }
 
-.icon {
+.navbar_icon {
     block-size: 1em;
     display: inline-block;
     fill: currentcolor;
@@ -41,15 +37,15 @@ a {
     vertical-align: middle;
 }
 
-.icon--2x {
+.navbar_icon--2x {
     font-size: 2rem;
 }
 
-svg {
+.navbar_svg {
     max-inline-size: 100%;
 }
 
-.navigation {
+.navbar_navigation {
     background-color: #f0f6ff;
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
     width: 100%;
@@ -57,13 +53,13 @@ svg {
     position: fixed;
 }
 
-.navigation ul {
+.navbar_navigation ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.navigation a {
+.navbar_navigation a {
     padding: 1.5rem;
     display: block;
     padding: 1.5em;
@@ -71,12 +67,16 @@ svg {
     text-decoration: none;
 }
 
-.navigation a:focus::after,
-.navigation a:hover::after {
+.navbar_navigation ul li:first-child {
+    margin-left: 1rem;
+}
+
+.navbar_navigation a:focus::after,
+.navbar_navigation a:hover::after {
     opacity: 1;
 }
 
-.navigation a::after {
+.navbar_navigation a::after {
     block-size: 100%;
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
     inline-size: 100%;
@@ -84,12 +84,14 @@ svg {
     transition: opacity 0.3s;
 }
 
-.navigation--inline ul {
+.navbar_navigation--inline ul {
+    margin: 0;
     display: flex;
+    width: 100%;
+    padding-left: 1rem;
 }
 
-
-/* END OF NAVBAR */
+/* END NAVBAR */
 
 .header-home {
     font-family: Abhaya;
@@ -216,6 +218,11 @@ svg {
 
 .space-count {
     font-size: 1.2rem;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
 }
 
 /* Style inputs with type="text", select elements and textareas */
