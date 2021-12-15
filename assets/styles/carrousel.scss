@@ -1,0 +1,72 @@
+.carousel {
+    max-width: 600px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.carousel .carousel-item,
+.carousel .carousel-item-hidden {
+    display: none; /* hide all slide images not currently being viewed */
+}
+
+.carousel .carousel-item-visible {
+    display: block; /* show current slide image */
+    animation: fadeVisibility 0.5s; /* for fading effect when switching between slides */
+}
+
+.carousel .carousel-item img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+/* Navigation control styles */
+.carousel .carousel-actions {
+    display: flex;
+    width: 100%;
+    justify-content: space-between; /* put space between the navigation buttons */
+    position: absolute; /* position navigation buttons on top */
+    top: 50%; /* center navigation buttons on the slide */
+    transform: translateY(-50%); /* align navigation buttons */
+}
+
+.carousel .carousel-actions button {
+    border-radius: 50px;
+    background-color: white;
+    border: 0;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+.carousel .carousel-actions button#carousel-button-prev {
+    margin-left: 20px; /* prevent previous button from touching the side*/
+}
+
+.carousel .carousel-actions button#carousel-button-next {
+    margin-right: 20px;  /* prevent next button from touching the side*/
+}
+
+.carousel-dots {
+    text-align: center; 
+}
+
+.dot {
+    opacity: 0.7; /* gray out dots for slides not being visted */
+}
+
+.dot:focus {
+    border: 1px solid black; /* dot for currently visited slide */
+}
+
+/* hanlde smooth transitions between slides */
+@keyframes fadeVisibility {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

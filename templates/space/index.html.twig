@@ -31,51 +31,5 @@
     créé par vous, pour vous.
   </p>
 </div>
-{% if spaces %}
-	{% if location %}
-		<p class="space-count">
-  		<span id="space-count">
-    	{{ spaces|length }}
-  		</span>
-  		bureaux ont été trouvés à
-  		{{ location }}
-		</p>
-{% endif %}
-{% for space in spaces %}
-<a href=" {{ path("space_show", {id: space.id}) }}">
-  <figure class="offer">
-    <img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" height="160" alt="Marché Conclu" />
-    <figcaption class="text-offer">
-      <ul class="cardcontent">
-        <li class="spacelocation">
-          {{ space.location }}
-        </li>
-        <li class="spacename">
-          {{ space.name }}
-        </li>
-        <li class="spacecategory">
-          {{ space.category }}
-        </li>
-        <li class="spacesurface">
-          {{ space.surface }}
-          m²
-        </li>
-        <li class="spacecapacity">
-          {{ space.capacity }}
-          places
-        </li>
-        <li class="spaceprice">
-          {{ random(50, 250) }}
-          €/jour
-        </li>
-      </ul>
-    </figcaption>
-  </figure>
-</a>
-{% endfor %}
-{% else %}
-<p>
-  Aucun bureau n'a été trouvé à {{ location }}.
-</p>
-{% endif %}
+{% include "_carrousel.html.twig" %}
 {% endblock %}
