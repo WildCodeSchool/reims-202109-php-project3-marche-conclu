@@ -14,6 +14,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SpaceController extends AbstractController
 {
+    public const CATEGORIES = [
+        'BUREAU PRIVEE',
+        'CO-WORKING',
+        'SALLE DE REUNION',
+        'OPEN SPACE',
+        'ESPACE DE STOCKAGE',
+    ];
 
     #[Route('/', name: 'space_index', methods: ['GET'])]
 
@@ -30,7 +37,7 @@ class SpaceController extends AbstractController
         }
 
         return $this->renderForm('space/index.html.twig', ['form' => $form,
-        'location' => $location, 'spaces' => $spaces]);
+        'location' => $location, 'spaces' => $spaces, 'categories' => self::CATEGORIES]);
     }
 
     #[Route('/new', name: 'space_new', methods: ['GET', 'POST'])]

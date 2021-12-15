@@ -1,86 +1,55 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <header class="header-home">
-            <img class="logo" src="{{ asset('build/images/logo.png') }}" width="60" alt="Marché Conclu" />
-            <p class="logo-title">
-                Marché
-                <br>
-                    C O N C L U
-                </p>
-            {{ form_start(form) }}
-            <div class="my-custom-class-for-errors">
-                {{ form_errors(form) }}
+<header class="header-home">
+  <img class="logo" src="{{ asset('build/images/logo.png') }}" width="60" alt="Marché Conclu" />
+  <p class="logo-title">
+    Marché
+    <br>
+    C O N C L U
+  </p>
+  {{ form_start(form) }}
+  <div class="my-custom-class-for-errors">
+    {{ form_errors(form) }}
+  </div>
+  <div class="row">
+    <div class="col">
+      {{ form_widget(form.location, {'attr': {'class': 'form-search'}}) }}
+    </div>
+    <div class="col" id="some-custom-id">
+    </div>
+  </div>
+  <button class="btn form-submit">
+    {{ button_label|default('Chercher') }}
+  </button>
+  {{ form_end(form) }}
+  </div>
+</header>
+<div class="space-pitch">
+  <p>
+    Un accélérateur de business,
+    <br>
+    créé par vous, pour vous.
+  </p>
+</div>
+<div class="carousel">
+    {% for category in categories %}
+      {% if loop.index0 == 0 %}
+        <div class="carousel-item carousel-item-visible">
+      {% else %}
+        <div class="carousel-item">
+      {% endif %}
+            <img src="{{ asset('build/images/' ~ category|lower|replace({' ': '', '-': ''}) ~ '.jpg') }}"
+                    alt="{{ category|lower }}" />
+                <a href="#">
+                    <div class="texte-center">
+                        <p>{{ category }}</p>
+                    </div>
+                </a>
             </div>
-            <div class="row">
-                <div class="col">
-                    {{ form_widget(form.location, {'attr': {'class': 'form-search'}}) }}
-                </div>
-                <div class="col" id="some-custom-id"></div>
-            </div>
-            <button class="btn form-submit">
-                {{ button_label|default('Chercher') }}
-            </button>
-            {{ form_end(form) }}
-        </div>
-    </header>
-    <div class="space-pitch">
-        <p>
-            Un accélérateur de business,
-            <br>
-                créé par vous, pour vous.
-            </p>
-        </div>
-        {% if spaces %}
-            {% if location %}
-                <p class="count">
-                    <span id="count">
-                        {{ spaces|length }}
-                    </span>
-                    bureaux ont été trouvés à
-                    {{ location }}
-                </p>
-            {% endif %}
-            {% for space in spaces %}
-                <figure class="offer">
-                    <img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" alt="Marché Conclu" />
-                    <figcaption class="text-offer">
-                        <ul class="cardcontent">
-                            <div class="card-border">
-                                <div class="card-content-up">
-                                    <li class="spacecategory">
-                                    {{ space.category }}
-                                    </li>
-                                    <span class="point">·</span>
-                                    <li class="spacecapacity">
-                                        {{ space.capacity }}
-                                        places
-                                    </li>
-                                    <span class="point">·</span>
-                                    <li class="spacesurface">
-                                        {{ space.surface }}
-                                        m²
-                                    </li>
-                                </div>
-                                <div class="card-content-down">
-                                    <li class="spacelocation">
-                                        {{ space.location }}
-                                    </li>
-                                </div>
-                            </div>
-                        </ul>
-                        <ul id="price">
-                                <li class="spaceprice">
-                                    <span id="spanprice">{{ random(50, 250) }} €</span>
-                                    <span id="spanpriceday"> / jour</span>
-                                </li>
-                                <a class="form-submit" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
-                        </ul>
-                    </figcaption>
-                </figure>
-            {% endfor %}
-        {% else %}
-            <p>
-                Aucun bureau n'a été trouvé à {{ location }}.
-            </p>
-        {% endif %}
-    {% endblock %}
+    {% endfor %}
+    <div class="carousel-actions">
+                <button id="carousel-button-prev" aria-label="Previous"><</button>
+                <button id="carousel-button-next" aria-label="Next">></button>
+    </div>
+</div>
+{% endblock %}
