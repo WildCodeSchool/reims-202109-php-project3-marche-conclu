@@ -177,12 +177,9 @@ svg {
 }
 
 .div-btn {
-    width:60%; 
     display:flex; 
     align-items: center;
     justify-content: center;
-    padding-left: 4.7rem;
-    margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
@@ -260,6 +257,8 @@ input[type=submit], .form-submit {
 .form-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 
 .show-spaceprice {
