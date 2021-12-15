@@ -1,80 +1,81 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
-    <header class="space_index_header-home">
-            <img class="space_index_logo" src="{{ asset('build/images/logo.png') }}" width="60" alt="Marché Conclu" />
-            <p class="space_index_logo-title">
-                Marché
-                <br>
-                    C O N C L U
-                </p>
-            {{ form_start(form) }}
-            <div class="space_index_my-custom-class-for-errors">
-                {{ form_errors(form) }}
-            </div>
-            <div class="space_index_row">
-                <div class="space_index_col">
-                    {{ form_widget(form.location, {'attr': {'class': 'space_index_form-search'}}) }}
-                </div>
-                <div class="space_index_col" id="some-custom-id"></div>
-            </div>
-            <button class="space_index_btn form-submit">
-                {{ button_label|default('Chercher') }}
-            </button>
-            {{ form_end(form) }}
-        </div>
-    </header>
-    <div class="space_index_space-pitch">
-        <p>
-            Un accélérateur de business,
-            <br>
-                créé par vous, pour vous.
-            </p>
-        </div>
-        {% if spaces %}
-            {% if location %}
-                <p class="space_index_count">
-                    <span id="space_index_count">
-                        {{ spaces|length }}
-                    </span>
-                    bureaux ont été trouvés à
-                    {{ location }}
-                </p>
-            {% endif %}
-            {% for space in spaces %}
-                <figure class="space_index_offer">
-                    <img class="space_index_image-offer" src="{{ asset('build/images/imageHome.svg') }}" height="160" alt="Marché Conclu" />
-                    <figcaption class="space_index_text-offer">
-                        <ul class="space_index_cardcontent">
-                            <li class="space_index_spacelocation">
-                                {{ space.location }}
-                            </li>
-                            <li class="space_index_spacename">
-                                {{ space.name }}
-                            </li>
-                            <li class="space_index_spacecategory">
-                                {{ space.category }}
-                            </li>
-                            <li class="space_index_spacesurface">
-                                {{ space.surface }}
-                                m²
-                            </li>
-                            <li class="space_index_spacecapacity">
-                                {{ space.capacity }}
-                                places
-                            </li>
-                            <li class="space_index_spaceprice">
-                                {{ random(50, 250) }}
-                                €/jour
-                            </li>
-                        </ul>
-                    </figcaption>
-                </figure>
-            {% endfor %}
-        {% else %}
-            <p>
-                Aucun bureau n'a été trouvé à {{ location }}.
-            </p>
-        {% endif %}
-    {% endblock %}
-    
+<header class="header-home">
+  <img class="logo" src="{{ asset('build/images/logo.png') }}" width="60" alt="Marché Conclu" />
+  <p class="logo-title">
+    Marché
+    <br>
+    C O N C L U
+  </p>
+  {{ form_start(form) }}
+  <div class="my-custom-class-for-errors">
+    {{ form_errors(form) }}
+  </div>
+  <div class="row">
+    <div class="col">
+      {{ form_widget(form.location, {'attr': {'class': 'form-search'}}) }}
+    </div>
+    <div class="col" id="some-custom-id">
+    </div>
+  </div>
+  <button class="btn form-submit">
+    {{ button_label|default('Chercher') }}
+  </button>
+  {{ form_end(form) }}
+  </div>
+</header>
+<div class="space-pitch">
+  <p>
+    Un accélérateur de business,
+    <br>
+    créé par vous, pour vous.
+  </p>
+</div>
+{% if spaces %}
+	{% if location %}
+		<p class="space-count">
+  		<span id="space-count">
+    	{{ spaces|length }}
+  		</span>
+  		bureaux ont été trouvés à
+  		{{ location }}
+		</p>
+{% endif %}
+{% for space in spaces %}
+<a href=" {{ path("space_show", {id: space.id}) }}">
+  <figure class="offer">
+    <img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" height="160" alt="Marché Conclu" />
+    <figcaption class="text-offer">
+      <ul class="cardcontent">
+        <li class="spacelocation">
+          {{ space.location }}
+        </li>
+        <li class="spacename">
+          {{ space.name }}
+        </li>
+        <li class="spacecategory">
+          {{ space.category }}
+        </li>
+        <li class="spacesurface">
+          {{ space.surface }}
+          m²
+        </li>
+        <li class="spacecapacity">
+          {{ space.capacity }}
+          places
+        </li>
+        <li class="spaceprice">
+          {{ random(50, 250) }}
+          €/jour
+        </li>
+      </ul>
+    </figcaption>
+  </figure>
+</a>
+{% endfor %}
+{% else %}
+<p>
+  Aucun bureau n'a été trouvé à {{ location }}.
+</p>
+{% endif %}
+{% endblock %}

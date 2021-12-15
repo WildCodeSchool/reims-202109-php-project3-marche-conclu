@@ -1,5 +1,20 @@
 @import "variables.scss";
 
+/* NAVBAR */
+
+.invisible {
+    bottom: 2px;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0.7rem;
+}
+
+.align {
+    display: grid;
+    place-items: center;
+}
+
 body {
     margin: 0;
     min-block-size: 100vh;
@@ -9,31 +24,16 @@ body {
     background-color: $color-white;
 }
 
-/* START NAVBAR */
-
-.navbar_invisible {
-    bottom: 2px;
-    position: absolute;
-    display: flex;
-    justify-content: space-around;
-    padding-left: 0.7rem;
-}
-
-.navbar_align {
-    display: grid;
-    place-items: center;
-}
-
-.navbar_a {
+a {
     color: inherit;
     outline: 0;
 }
 
-.navbar_icons {
+.icons {
     display: none;
 }
 
-.navbar_icon {
+.icon {
     block-size: 1em;
     display: inline-block;
     fill: currentcolor;
@@ -41,15 +41,15 @@ body {
     vertical-align: middle;
 }
 
-.navbar_icon--2x {
+.icon--2x {
     font-size: 2rem;
 }
 
-.navbar_svg {
+svg {
     max-inline-size: 100%;
 }
 
-.navbar_navigation {
+.navigation {
     background-color: #f0f6ff;
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
     width: 100%;
@@ -57,13 +57,13 @@ body {
     position: fixed;
 }
 
-.navbar_navigation ul {
+.navigation ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.navbar_navigation a {
+.navigation a {
     padding: 1.5rem;
     display: block;
     padding: 1.5em;
@@ -71,12 +71,12 @@ body {
     text-decoration: none;
 }
 
-.navbar_navigation a:focus::after,
-.navbar_navigation a:hover::after {
+.navigation a:focus::after,
+.navigation a:hover::after {
     opacity: 1;
 }
 
-.navbar_navigation a::after {
+.navigation a::after {
     block-size: 100%;
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
     inline-size: 100%;
@@ -84,15 +84,14 @@ body {
     transition: opacity 0.3s;
 }
 
-.navbar_navigation--inline ul {
+.navigation--inline ul {
     display: flex;
 }
 
-/* END NAVBAR */
 
-/* START SPACE_INDEX */
+/* END OF NAVBAR */
 
-.space_index_header-home {
+.header-home {
     font-family: Abhaya;
     color: $color-white;
     padding: 1rem 0;
@@ -108,12 +107,12 @@ body {
     text-shadow: 1px 1px 1px #534f4c;
 }
 
-.space_index_logo-title {
+.logo-title {
     color: $color-white;
     margin: 0;
 }
 
-.space_index_form-search {
+.form-search {
     padding-left: 5rem;
     padding-right: 5rem;
     text-align: center;
@@ -122,12 +121,14 @@ body {
     box-sizing: border-box; /* Make sure that padding and width stays in place */
 }
 
-.space_index_space-pitch {
+.space-pitch {
     padding: 1rem 0;
     font-size: 1.3rem;
 }
 
-.space_index_offer {
+/* START OF CARD */
+
+.offer {
     display: flex;
     flex-direction: column;
     border: 0.2rem solid $color-burgundy;
@@ -136,12 +137,32 @@ body {
     margin: 1rem;
 }
 
-.space_index_image-offer {
+.show-offer {
+    display: flex;
+    flex-direction: column;
+    color: $color-burgundy;
+    margin: 1rem;
+}
+
+.image-offer {
     object-fit: cover;
     border-radius: 5% 5% 0 0;
 }
 
-.space_index_cardcontent {
+.show-image-offer {
+    object-fit: none;
+    width: 100%;
+}
+
+.show-title {
+    font-family: 'Work Sans', sans-serif;
+    color: grey;
+    margin-left: 1rem;
+    font-size: 0.8rem; 
+    float: left
+}
+
+.cardcontent {
     font-family: 'Work Sans', sans-serif;
     font-weight: 100;
     font-size: 0.75rem;
@@ -155,25 +176,50 @@ body {
     align-items: start;
 }
 
-.space_index_count {
-    font-size: 1.2rem;
+.div-btn {
+    display:flex; 
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
 }
 
-#space_index_count {
-    font-weight: bolder;
+.spacename {
+    font-weight: bolder; font-size: 1.2rem
 }
 
-/* END SPACE_INDEX */
+.show-cardcontent {
+    margin-left: 1rem; 
+    padding: 0;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 100;
+    font-size: 0.75rem;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    text-align: justify;
+}
 
 
-/* START SPACE_FORM */
 
+/* END OF CARD */
+
+
+/* Add Space Form */
 #space {
     display: flex;
 }
 
+#space-count {
+    font-weight: bolder;
+}
+
+.space-count {
+    font-size: 1.2rem;
+}
+
 /* Style inputs with type="text", select elements and textareas */
-input[type=text], select, textarea, .space_form_content {
+input[type=text], select, textarea, .form-content {
     width: 100%; /* Full width */
     padding: 12px; /* Some padding */ 
     border: 1px solid #ccc; /* Gray border */
@@ -185,34 +231,48 @@ input[type=text], select, textarea, .space_form_content {
 }
 
 /* Style the submit button with a specific background color etc */
-input[type=submit], .space_form_submit {
+input[type=submit], .form-submit {
     background-color: $color-burgundy;
     color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    text-decoration: none;
+
 }
 
 /* Add a background color and some padding around the form */
-.space_form_container {
+.container {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
 }
 
-/* START SPACE_FORM */
-
-/* START SPACE_NEW */
-
-.space_new_add-space-title {
+.add-space-title {
     font-size: 2rem;
     text-align: center;
 }
 
-.space_new_form-container {
+.form-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 
-/* END SPACE_NEW */
+.show-spaceprice {
+    border-bottom: 1px solid black;
+    padding-bottom: 2rem;
+    width: 100%;
+}
+
+.space-form-submit {
+    background-color: $color-grey;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
