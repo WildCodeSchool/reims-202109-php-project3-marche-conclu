@@ -11,7 +11,7 @@
 
 .carousel .carousel-item-visible {
     display: block; /* show current slide image */
-    animation: fadeVisibility 2s; /* for fading effect when switching between slides */
+    animation: fadeVisibility 1s; /* for fading effect when switching between slides */
 }
 
 .carousel .carousel-item img {
@@ -49,10 +49,6 @@
     margin-right: 20px;  /* prevent next button from touching the side*/
 }
 
-.carousel-dots {
-    text-align: center; 
-}
-
 /* hanlde smooth transitions between slides */
 @keyframes fadeVisibility {
     0% {
@@ -64,11 +60,13 @@
 }
 
 .texte-center {
+    text-decoration: none;
     font-family: 'Actor';
     font-size: 1.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     color: $color-white;
     background-color: $color-cerise;
     position: absolute;
