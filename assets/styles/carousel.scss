@@ -11,13 +11,13 @@
 
 .carousel .carousel-item-visible {
     display: block; /* show current slide image */
-    animation: fadeVisibility 0.5s; /* for fading effect when switching between slides */
+    animation: fadeVisibility 2s; /* for fading effect when switching between slides */
 }
 
 .carousel .carousel-item img {
+    object-fit: cover;
     width: 100%;
-    max-width: 600px;
-    height: auto;
+    height: 25vh;
 }
 
 /* Navigation control styles */
@@ -53,14 +53,6 @@
     text-align: center; 
 }
 
-.dot {
-    opacity: 0.7; /* gray out dots for slides not being visted */
-}
-
-.dot:focus {
-    border: 1px solid black; /* dot for currently visited slide */
-}
-
 /* hanlde smooth transitions between slides */
 @keyframes fadeVisibility {
     0% {
@@ -70,3 +62,13 @@
         opacity: 1;
     }
 }
+
+.texte-center {
+    color: $color-white;
+    background-color: $color-cerise;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+  }
