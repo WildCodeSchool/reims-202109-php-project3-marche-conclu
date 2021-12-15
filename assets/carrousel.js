@@ -6,7 +6,7 @@ const numberOfSlides = slides.length;
 
 function hideAllSlides() {
     // remove all slides not currently being viewed
-    slides.forEach((slide) => {
+    Array.from(slides).forEach((slide) => {
         slide.classList.remove('carousel-item-visible');
         slide.classList.add('carousel-item-hidden');
     });
