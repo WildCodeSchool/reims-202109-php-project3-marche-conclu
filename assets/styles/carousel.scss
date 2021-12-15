@@ -43,10 +43,12 @@
 
 .carousel .carousel-actions button#carousel-button-prev {
     margin-left: 20px; /* prevent previous button from touching the side*/
+    z-index: -1;
 }
 
 .carousel .carousel-actions button#carousel-button-next {
     margin-right: 20px;  /* prevent next button from touching the side*/
+    z-index: -1;
 }
 
 /* hanlde smooth transitions between slides */
@@ -75,4 +77,5 @@
     transform: translate(-50%, -50%);
     width: 60vw;
     height: 30vh;
+    z-index: 1;
   }
