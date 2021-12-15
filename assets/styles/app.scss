@@ -2,11 +2,7 @@
 
 body {
     margin: 0;
-    min-block-size: 100vh;
-    text-align: center;
-    color: $color-grey;
-    font-family: Abhala;
-    background-color: $color-white;
+    padding: 0;
 }
 
 /* START NAVBAR */
@@ -71,6 +67,10 @@ body {
     text-decoration: none;
 }
 
+.navbar_navigation ul li:first-child {
+    margin-left: 1rem;
+}
+
 .navbar_navigation a:focus::after,
 .navbar_navigation a:hover::after {
     opacity: 1;
@@ -85,14 +85,15 @@ body {
 }
 
 .navbar_navigation--inline ul {
+    margin: 0;
     display: flex;
+    width: 100%;
+    padding-left: 1rem;
 }
 
 /* END NAVBAR */
 
-/* START SPACE_INDEX */
-
-.space_index_header-home {
+.header-home {
     font-family: Abhaya;
     color: $color-white;
     padding: 1rem 0;
@@ -108,12 +109,12 @@ body {
     text-shadow: 1px 1px 1px #534f4c;
 }
 
-.space_index_logo-title {
+.logo-title {
     color: $color-white;
     margin: 0;
 }
 
-.space_index_form-search {
+.form-search {
     padding-left: 5rem;
     padding-right: 5rem;
     text-align: center;
@@ -122,22 +123,44 @@ body {
     box-sizing: border-box; /* Make sure that padding and width stays in place */
 }
 
-.space_index_space-pitch {
+.space-pitch {
     padding: 1rem 0;
     font-size: 1.3rem;
 }
 
-.space_index_offer {
+/* START SPACE_INDEX */
+
+.offer {
     display: flex;
     flex-direction: column;
-    margin: 0;
+    margin: 1rem 0;
 }
 
-.space_index_image-offer {
+.show-offer {
+    display: flex;
+    flex-direction: column;
+    color: $color-burgundy;
+    margin: 1rem;
+}
+
+.image-offer {
     object-fit: cover;
 }
 
-.space_index_cardcontent {
+.show-image-offer {
+    object-fit: none;
+    width: 100%;
+}
+
+.show-title {
+    font-family: 'Work Sans', sans-serif;
+    color: grey;
+    margin-left: 1rem;
+    font-size: 0.8rem; 
+    float: left
+}
+
+.cardcontent {
     font-family: 'Work Sans', sans-serif;
     font-weight: 100;
     font-size: 0.75rem;
@@ -145,60 +168,104 @@ body {
     padding-left: 1rem;
 }
 
-.space_index_count {
-    font-size: 1.2rem;
+.div-btn {
+    display:flex; 
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
 }
 
-#space_index_count {
-    font-weight: bolder;
+.spacename {
+    font-weight: bolder; font-size: 1.2rem
 }
 
-.space_index_card-content-up,
-.space_index_card-content-down {
+.show-cardcontent {
+    margin-left: 1rem; 
+    padding: 0;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 100;
+    font-size: 0.75rem;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    text-align: justify;
+}
+
+.card-content-up,
+.card-content-down {
     display: flex;
     flex-direction: row;
     font-size: 1rem;
+
     span {
         padding: 0 0.2rem;
         font-weight: bolder;
     }
 }
 
-.space_index_card-content-up {
+.card-content-up {
     font-weight: bold;
     padding-bottom: 1rem;
+    margin-top: 1rem;
 }
 
-.space_index_spaceprice {
-    padding-bottom: 1.5rem;
-    padding-top: 0.5rem;
+.spaceprice {
+    margin-top: 1rem;
     list-style: none;
 }
 
-#space_index_price {
+#price {
     padding-left: 0;
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     border-top: 0.5px solid #eee;
-    margin: 0 1rem;
+    margin: 1rem;
 }
 
-#space_index_spanprice {
+#spanprice {
     font-size: 1rem;
     font-weight: bold;
 }
 
+.space-pitch {
+
+    p {
+    text-align: center;
+    }
+}
+
+#buttonCardShow {
+    background-color: #eee;
+    color: $color-grey;
+    margin-top: 1rem;
+    font-weight: bold;
+}
 /* END SPACE_INDEX */
 
+/* END OF CARD */
 
-/* START SPACE_FORM */
 
+/* Add Space Form */
 #space {
     display: flex;
 }
 
+#space-count {
+    font-weight: bolder;
+}
+
+.space-count {
+    font-size: 1.2rem;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
 /* Style inputs with type="text", select elements and textareas */
-input[type=text], select, textarea, .space_form_content {
+input[type=text], select, textarea, .form-content {
     width: 100%; /* Full width */
     padding: 12px; /* Some padding */ 
     border: 1px solid #ccc; /* Gray border */
@@ -210,34 +277,48 @@ input[type=text], select, textarea, .space_form_content {
 }
 
 /* Style the submit button with a specific background color etc */
-input[type=submit], .space_form_submit {
+input[type=submit], .form-submit {
     background-color: $color-burgundy;
     color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    text-decoration: none;
+
 }
 
 /* Add a background color and some padding around the form */
-.space_form_container {
+.container {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
 }
 
-/* START SPACE_FORM */
-
-/* START SPACE_NEW */
-
-.space_new_add-space-title {
+.add-space-title {
     font-size: 2rem;
     text-align: center;
 }
 
-.space_new_form-container {
+.form-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 
-/* END SPACE_NEW */
+.show-spaceprice {
+    border-bottom: 1px solid black;
+    padding-bottom: 2rem;
+    width: 100%;
+}
+
+.space-form-submit {
+    background-color: $color-grey;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}

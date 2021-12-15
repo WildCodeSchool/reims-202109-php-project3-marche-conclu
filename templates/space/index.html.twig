@@ -1,30 +1,29 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
-    <header class="space_index_header-home">
-            <img class="space_index_logo" src="{{ asset('build/images/logo.png') }}" width="60" alt="Marché Conclu" />
-            <p class="space_index_logo-title">
+    <header class="header-home">
+            <img class="logo" src="{{ asset('build/images/logo.png') }}" width="60" alt="Marché Conclu" />
+            <p class="logo-title">
                 Marché
                 <br>
                     C O N C L U
                 </p>
             {{ form_start(form) }}
-            <div class="space_index_my-custom-class-for-errors">
+            <div class="my-custom-class-for-errors">
                 {{ form_errors(form) }}
             </div>
-            <div class="space_index_row">
-                <div class="space_index_col">
-                    {{ form_widget(form.location, {'attr': {'class': 'space_index_form-search'}}) }}
+            <div class="row">
+                <div class="col">
+                    {{ form_widget(form.location, {'attr': {'class': 'form-search'}}) }}
                 </div>
-                <div class="space_index_col" id="some-custom-id"></div>
+                <div class="col" id="some-custom-id"></div>
             </div>
-            <button class="space_index_btn form-submit">
+            <button class="btn form-submit">
                 {{ button_label|default('Chercher') }}
             </button>
             {{ form_end(form) }}
         </div>
     </header>
-    <div class="space_index_space-pitch">
+    <div class="space-pitch">
         <p>
             Un accélérateur de business,
             <br>
@@ -33,8 +32,8 @@
         </div>
         {% if spaces %}
             {% if location %}
-                <p class="space_index_count">
-                    <span id="space_index_count">
+                <p class="count">
+                    <span id="count">
                         {{ spaces|length }}
                     </span>
                     bureaux ont été trouvés à
@@ -42,39 +41,39 @@
                 </p>
             {% endif %}
             {% for space in spaces %}
-                <figure class="space_index_offer">
-                    <img class="space_index_image-offer" src="{{ asset('build/images/imageHome.svg') }}" alt="Marché Conclu" />
-                    <figcaption class="space_index_text-offer">
-                        <ul class="space_index_cardcontent">
-                            <div class="space_index_card-border">
-                                <div class="space_index_card-content-up">
-                                    <li class="space_index_spacecategory">
+                <figure class="offer">
+                    <img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" alt="Marché Conclu" />
+                    <figcaption class="text-offer">
+                        <ul class="cardcontent">
+                            <div class="card-border">
+                                <div class="card-content-up">
+                                    <li class="spacecategory">
                                     {{ space.category }}
                                     </li>
-                                    <span class="space_index_point">·</span>
-                                    <li class="space_index_spacecapacity">
+                                    <span class="point">·</span>
+                                    <li class="spacecapacity">
                                         {{ space.capacity }}
                                         places
                                     </li>
-                                    <span class="space_index_point">·</span>
-                                    <li class="space_index_spacesurface">
+                                    <span class="point">·</span>
+                                    <li class="spacesurface">
                                         {{ space.surface }}
                                         m²
                                     </li>
                                 </div>
-                                <div class="space_index_card-content-down">
-                                    <li class="space_index_spacelocation">
+                                <div class="card-content-down">
+                                    <li class="spacelocation">
                                         {{ space.location }}
                                     </li>
                                 </div>
                             </div>
                         </ul>
-                        <ul id="space_index_price">
-                                <li class="space_index_spaceprice">
-                                    <span id="space_index_spanprice">{{ random(50, 250) }} €</span>
-                                    <span id="space_index_spanpriceday"> / jour</span>
+                        <ul id="price">
+                                <li class="spaceprice">
+                                    <span id="spanprice">{{ random(50, 250) }} €</span>
+                                    <span id="spanpriceday"> / jour</span>
                                 </li>
-                                <a href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
+                                <a class="form-submit" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
                         </ul>
                     </figcaption>
                 </figure>
@@ -85,4 +84,3 @@
             </p>
         {% endif %}
     {% endblock %}
-    
