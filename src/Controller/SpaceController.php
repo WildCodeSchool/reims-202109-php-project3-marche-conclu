@@ -37,7 +37,7 @@ class SpaceController extends AbstractController
         }
 
         return $this->renderForm('space/index.html.twig', ['form' => $form,
-        'location' => $location, 'spaces' => $spaces, 'categories' => self::CATEGORIES]);
+        'location' => $location, 'categories' => self::CATEGORIES]);
     }
 
     #[Route('/search', name: 'space_search', methods: ['GET'])]
