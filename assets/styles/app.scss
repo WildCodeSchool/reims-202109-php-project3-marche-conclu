@@ -150,6 +150,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 1rem 0;
+    padding: 0 1rem;
 }
 
 .show-offer {
@@ -161,6 +162,7 @@ body {
 
 .image-offer {
     object-fit: cover;
+    border-radius: 1rem;
 }
 
 .show-image-offer {
