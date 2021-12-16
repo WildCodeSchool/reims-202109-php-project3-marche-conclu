@@ -1,20 +1,43 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-{% if app.user %}
-<div class="user-index-container">
-<div class="user-index-avatar">
-{% if app.user.avatar %}
-<img src="{{ app.user.avatar }}">
-{% endif %}
-</div>
-<h1>{{ "Bonjour" ~ " " ~ app.user.firstname ~ " " ~ app.user.lastname }}</h1>
-<p>{{ "Email :" ~ " " ~ app.user.email }}</p>
-{% if app.user.company %}
-<p>{{ "Société :" ~ " " ~ app.user.company }}</p>
-{% endif %}
-<a href="{{ path('index') }}">Retourner à la liste des espaces</a>
-</div>
-
-{% endif %}
-{% endblock %}
+    {% if app.user %}
+        <div class="user-index-container">
+            <div class="user-index-avatar">
+                {% if app.user.avatar %}
+                    <img src="{{ app.user.avatar }}">
+                    {% endif %}
+                </div>
+                <h1>
+                    {{ "Bonjour" ~ " " ~ app.user.firstname ~ " " ~ app.user.lastname }}
+                </h1>
+                <p>
+                    {{ "Email :" ~ " " ~ app.user.email }}
+                </p>
+                {% if app.user.company %}
+                    <p>
+                        {{ "Société :" ~ " " ~ app.user.company }}
+                    </p>
+                {% endif %}
+                <a href="{{ path('index') }}">Retourner à la liste des espaces</a>
+            </div>
+            {% for space in app.user.spaces %}
+                <figure class="offer">
+                    <div style="text-align: center; font-weight:bolder; margin-bottom: 2rem;">
+                        {{ "Nom de l'annonce :" ~ " " ~ space.name }}
+                    </div>
+                    <img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" alt="Marché Conclu" />
+                    <figcaption class="text-offer">
+                        <div style="text-align: center">
+                            <div class="card-border card-content-up cardcontent"></figcaption>
+                        </figure>
+                        <div style="text-align:center;">
+                            <a class="form-submit" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">
+                                Voir l'annonce
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    {% endblock %}

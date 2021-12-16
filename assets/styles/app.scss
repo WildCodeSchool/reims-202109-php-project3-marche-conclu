@@ -5,7 +5,6 @@ body {
     margin: 0;
     padding: 0;
     margin-bottom: 5rem;
-    text-align: center;
 }
 
 /* START NAVBAR */
@@ -261,6 +260,7 @@ body {
     font-weight: bold;
 }
 
+/* END SPACE_INDEX */
 
 /* END HOME_INDEX */
 
@@ -437,7 +437,7 @@ input[type=submit],
 }
 
 .search-header-h2 {
-    font-family: $fontWorkSans;
+    font-family: $fontBodiniLight;
 }
 
 .search-header-market {
@@ -455,6 +455,80 @@ input[type=submit],
     height: 80vh;
 }
 
+
+
+/* LOGIN/REGISTER PAGE */
+.login-body {
+    height: 90vh;
+    background-color: $color-cerise;
+}
+
+.login-title{
+    margin: 0;
+    padding-top: 1.5rem;
+    text-align: center;
+    font-family: $fontBodiniLight;
+    font-size: 3rem;
+    color: $color-white;
+    line-height: 1.5rem;
+}
+
+.conclu {
+    font-size: 1rem;
+}
+
+.invalidlogin {
+    display: flex;
+    justify-content: center;
+    background-color: $color-burgundy;
+    color: $color-white;
+    padding: 2rem;
+    margin-top: 1rem;
+}
+
+.connect-you {
+    margin-top: 7rem;
+    display: flex;
+    justify-content: center;
+    font-family: $fontBodiniLight;
+    color: $color-white;
+}
+
+.login-register {
+    margin: auto;
+    width: 75vw;
+    padding: 3rem 2rem 2rem;
+    border-radius: 1rem;
+    height: auto;
+    background-color: $color-white;
+    font-family: $fontBodiniLight;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.submit-login {
+    margin: auto;
+    text-align: center;
+    color: $color-white;
+    background-color: $color-cerise;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+}
+
+.loginorregister {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.registeryou {
+    margin-top: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
 /* PROFILE */
 
 .user-index-container {
