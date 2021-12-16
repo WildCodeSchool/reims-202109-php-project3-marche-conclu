@@ -22,21 +22,6 @@ class SpaceController extends AbstractController
         'ESPACE DE STOCKAGE',
     ];
 
-    #[Route('/', name: 'space_index', methods: ['GET'])]
-
-    public function index(Request $request, SpaceRepository $spaceRepository, ?string $location): Response
-    {
-        $form = $this->createForm(SearchType::class, null, array('method' => 'GET'));
-        $form->handleRequest($request);
-
-        $spaces = $spaceRepository->findBy(array(), null, 2);
-
-        return $this->renderForm('space/index.html.twig', [
-            'form' => $form,
-            'location' => $location, 'spaces' => $spaces, 'categories' => self::CATEGORIES
-        ]);
-    }
-
     #[Route('/search', name: 'space_search', methods: ['GET'])]
 
     public function search(Request $request, SpaceRepository $spaceRepository, ?string $location): Response

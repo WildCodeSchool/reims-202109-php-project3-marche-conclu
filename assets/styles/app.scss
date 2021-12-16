@@ -1,11 +1,11 @@
 @import "variables.scss";
 @import "carousel.scss";
 
-
 body {
     margin: 0;
     padding: 0;
     margin-bottom: 5rem;
+    text-align: center;
 }
 
 /* START NAVBAR */
@@ -97,7 +97,7 @@ body {
 /* END NAVBAR */
 
 .header-home {
-    font-family: Abhaya;
+    font-family: $fontAbhaya;
     color: $color-white;
     padding: 1rem 0;
     display: flex;
@@ -117,32 +117,34 @@ body {
     margin: 0;
 }
 
+
 .form-search {
     padding-left: 5rem;
     padding-right: 5rem;
     text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 4px; /* Rounded borders */
-    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    border-radius: 4px;
+    /* Rounded borders */
+    box-sizing: border-box;
+    /* Make sure that padding and width stays in place */
 }
 
 .space-pitch {
     padding: 1rem 0 2rem;
     font-size: 1.3rem;
-    font-family: Abhaya;
+    font-family: $fontAbhaya;
     text-align: center;
     color: $color-burgundy;
 }
 
-.premium-title
-{
+.premium-title {
     margin-top: 3rem;
     font-size: 1.3rem;
-    font-family: Abhaya;
+    font-family: $fontAbhaya;
     text-align: center;
     color: $color-burgundy;
 }
-/* START SPACE_INDEX */
+
+/* START HOME_INDEX */
 
 .offer {
     display: flex;
@@ -171,7 +173,7 @@ body {
     font-family: 'Work Sans', sans-serif;
     color: grey;
     margin-left: 1rem;
-    font-size: 0.8rem; 
+    font-size: 0.8rem;
     float: left
 }
 
@@ -184,18 +186,19 @@ body {
 }
 
 .div-btn {
-    display:flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
 }
 
 .spacename {
-    font-weight: bolder; font-size: 1.2rem
+    font-weight: bolder;
+    font-size: 1.2rem
 }
 
 .show-cardcontent {
-    margin-left: 1rem; 
+    margin-left: 1rem;
     padding: 0;
     font-family: 'Work Sans', sans-serif;
     font-weight: 100;
@@ -257,12 +260,16 @@ body {
     margin-top: 1rem;
     font-weight: bold;
 }
-/* END SPACE_INDEX */
+
+
+/* END HOME_INDEX */
+
 
 /* END OF CARD */
 
 
 /* Add Space Form */
+
 #space {
     display: flex;
 }
@@ -281,7 +288,9 @@ ul {
 }
 
 /* Style inputs with type="text", select elements and textareas */
-input[type=text], select, textarea, .form-content {
+
+input[type=text], input[type=password], select, textarea, .form-content {
+    background-color: rgba(224, 224, 224, 0.87);
     width: 100%; /* Full width */
     padding: 12px; /* Some padding */ 
     border: 1px solid #ccc; /* Gray border */
@@ -293,7 +302,9 @@ input[type=text], select, textarea, .form-content {
 }
 
 /* Style the submit button with a specific background color etc */
-input[type=submit], .form-submit {
+
+input[type=submit],
+.form-submit {
     background-color: $color-burgundy;
     color: white;
     padding: 12px 20px;
@@ -301,10 +312,11 @@ input[type=submit], .form-submit {
     border-radius: 4px;
     cursor: pointer;
     text-decoration: none;
-
 }
 
+
 /* Add a background color and some padding around the form */
+
 .container {
     border-radius: 5px;
     background-color: #f2f2f2;
@@ -339,6 +351,110 @@ input[type=submit], .form-submit {
     text-decoration: none;
 }
 
+/* LOGIN/REGISTER PAGE */
+.login-body {
+    height: 90vh;
+    background-color: $color-cerise;
+}
+
+.login-title{
+    margin: 0;
+    padding-top: 1.5rem;
+    text-align: center;
+    font-family: $fontBodiniLight;
+    font-size: 3rem;
+    color: $color-white;
+    line-height: 1.5rem;
+}
+
+.conclu {
+    font-size: 1rem;
+}
+
+.invalidlogin {
+    display: flex;
+    justify-content: center;
+    background-color: $color-burgundy;
+    color: $color-white;
+    padding: 2rem;
+    margin-top: 1rem;
+}
+
+.connect-you {
+    margin-top: 7rem;
+    display: flex;
+    justify-content: center;
+    font-family: $fontBodiniLight;
+    color: $color-white;
+}
+
+.login-register {
+    margin: auto;
+    width: 75vw;
+    padding: 3rem 2rem 2rem;
+    border-radius: 1rem;
+    height: auto;
+    background-color: $color-white;
+    font-family: $fontBodiniLight;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.submit-login {
+    margin: auto;
+    text-align: center;
+    color: $color-white;
+    background-color: $color-cerise;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+}
+
+.loginorregister {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.registeryou {
+    margin-top: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+/* START SPACE_INDEX */
+
+.search {
+    background-color: $color-cerise;
+}
+
+.search-header {
+    padding-top: 2rem;
+    color: $color-white;
+    letter-spacing: 2px;
+}
+
+.search-header-h2 {
+    font-family: $fontWorkSans;
+}
+
+.search-header-market {
+    margin: 0;
+    font-size: xx-large;
+    font-weight: lighter;
+    letter-spacing: 2px;
+}
+
+.search-criteria {
+    background-color: $color-white;
+    border: $color-grey;
+    border-radius: 20px;
+    box-shadow: 2px -6px 10px 0px rgba(0, 0, 0, 0.84);
+    height: 80vh;
+}
+
 /* PROFILE */
 
 .user-index-container {
@@ -349,7 +465,6 @@ input[type=submit], .form-submit {
 }
 
 .user-index-avatar {
-    
     img {
         margin-top: 1rem;
         box-shadow: 10px 10px 5px #ccc;

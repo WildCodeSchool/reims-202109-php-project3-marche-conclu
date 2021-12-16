@@ -8,8 +8,29 @@
     src: url('../fonts/AbhayaLibre-Regular.ttf');
 }
 
+@font-face {
+    font-family: 'BodiniLight';
+    src: url('../fonts/Becker Bodoni Light Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Bodini';
+    src: url('../fonts/Bodoni Becker Regular.ttf');
+}
+
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../fonts/WorkSans-VariableFont_wght.ttf');
+}
+
+$fontActor : Actor;
+$fontAbhaya : Abhaya;
+$fontBodiniLight : BodiniLight; 
+$fontBodini : Bodini; 
+$fontWorkSans : WorkSans; 
+
 $color-white: #FAFAFA;
 $color-burgundy: #BD1110;
 $color-grey: #322E2A;
 $color-blue: #5271FF;
-$color-cerise: rgba(99, 35, 35, 0.75);
+$color-cerise: #632323;
