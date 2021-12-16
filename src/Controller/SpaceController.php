@@ -30,13 +30,7 @@ class SpaceController extends AbstractController
     {
         $form = $this->createForm(SearchType::class, null, array('method' => 'GET'));
         $form->handleRequest($request);
-        $spaces = $spaceRepository->findAll();
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $location = $form->get('location')->getData();
-
-            $spaces = $spaceRepository->findByLocation($location);
-        }
+        $spaces = $spaceRepository->findBy(array(), null, 2);
 
         return $this->renderForm('space/index.html.twig', [
             'form' => $form,

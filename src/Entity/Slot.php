@@ -33,6 +33,12 @@ class Slot
      */
     private ?Space $space;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="slots")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private ?User $owner;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -77,6 +83,18 @@ class Slot
     public function setSpace(?Space $space): self
     {
         $this->space = $space;
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): self
+    {
+        $this->owner = $owner;
 
         return $this;
     }
