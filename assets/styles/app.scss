@@ -414,15 +414,16 @@ input[type=submit],
 }
 
 .invalidlogin {
-    margin-top: 2rem;
     display: flex;
     justify-content: center;
     background-color: $color-burgundy;
     color: $color-white;
     padding: 2rem;
+    margin-top: 1rem;
 }
 
 .connect-you {
+    margin-top: 5rem;
     display: flex;
     justify-content: center;
     font-family: $fontBodiniLight;
