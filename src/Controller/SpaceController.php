@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+#[Route('/space', name: 'space_')]
 class SpaceController extends AbstractController
 {
     public const CATEGORIES = [
@@ -24,7 +25,7 @@ class SpaceController extends AbstractController
         'ESPACE DE STOCKAGE',
     ];
 
-    #[Route('/', name: 'space_index', methods: ['GET'])]
+    #[Route('/', name: 'index', methods: ['GET'])]
 
     public function index(Request $request, SpaceRepository $spaceRepository, ?string $location): Response
     {
@@ -38,7 +39,7 @@ class SpaceController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'space_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $space = new Space();
@@ -58,7 +59,7 @@ class SpaceController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'space_show', methods: ['GET'])]
+    #[Route('/{id}', name: 'show', methods: ['GET'])]
     public function show(Request $request, EntityManagerInterface $entityManager, Space $space, Slot $slot): Response
     {
         $slot = new Slot();
@@ -80,7 +81,7 @@ class SpaceController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'space_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Space $space, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(SpaceType::class, $space);
@@ -98,7 +99,7 @@ class SpaceController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'space_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'delete', methods: ['POST'])]
     public function delete(Request $request, Space $space, EntityManagerInterface $entityManager): Response
     {
 
