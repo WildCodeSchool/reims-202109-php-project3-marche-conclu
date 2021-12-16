@@ -338,3 +338,21 @@ input[type=submit], .form-submit {
     cursor: pointer;
     text-decoration: none;
 }
+
+/* PROFILE */
+
+.user-index-container {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    font-weight: bolder;
+}
+
+.user-index-avatar {
+    
+    img {
+        margin-top: 1rem;
+        box-shadow: 10px 10px 5px #ccc;
+        max-width: 200px;
+    }
+}
