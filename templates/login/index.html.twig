@@ -21,10 +21,11 @@
 
         {# If you want to control the URL the user is redirected to on success
         <input type="hidden" name="_target_path" value="/account"/> #}
-
-        <button class="submit-login" type="submit">Login</button>
+        <div class="loginorregister">
+            <button class="submit-login" type="submit">Connection</button>
+            <a class="registeryou" href="{{ path('app_register') }}">Créer un compte</a>
+        </div>
     </form>
-    <a class="registeryou" href="{{ path('app_register') }}"> Créer un compte </a>
     </div>
     {% if error %}
         <div class="invalidlogin">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
