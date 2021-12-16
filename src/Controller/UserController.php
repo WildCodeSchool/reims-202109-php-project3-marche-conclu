@@ -16,11 +16,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     #[Route('/profile', name: 'user_index', methods: ['GET'])]
-    public function index(SpaceRepository $spaceRepository): Response
+    public function index(): Response
     {
-        $user = $this->getUser();
-        $spaces = $spaceRepository->findByOwner($user);
-        return $this->render('user/index.html.twig', ['spaces' => $spaces]);
+        return $this->render('user/index.html.twig');
     }
 
     #[Route('/{id}/edit', name: 'user_edit', methods: ['GET', 'POST'])]
