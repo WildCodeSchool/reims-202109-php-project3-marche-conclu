@@ -28,6 +28,7 @@ class SearchType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Space::class,
+            'csrf_protection' => false
         ]);
     }
 }

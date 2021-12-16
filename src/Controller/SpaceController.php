@@ -28,11 +28,35 @@ class SpaceController extends AbstractController
     {
         $form = $this->createForm(SearchType::class, null, array('method' => 'GET'));
         $form->handleRequest($request);
+
         $spaces = $spaceRepository->findBy(array(), null, 2);
 
-        return $this->renderForm('space/index.html.twig', ['form' => $form,
-        'location' => $location, 'spaces' => $spaces, 'categories' => self::CATEGORIES]);
+        return $this->renderForm('space/index.html.twig', [
+            'form' => $form,
+            'location' => $location, 'spaces' => $spaces, 'categories' => self::CATEGORIES
+        ]);
     }
+
+    #[Route('/search', name: 'space_search', methods: ['GET'])]
+
+    public function search(Request $request, SpaceRepository $spaceRepository, ?string $location): Response
+    {
+        $form = $this->createForm(SearchType::class, null, array('method' => 'GET'));
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $location = $form->get('location')->getData();
+            $spaces = $spaceRepository->findByLocation($location);
+        } else {
+            $spaces = $spaceRepository->findAll();
+        }
+
+        return $this->renderForm('space/search.html.twig', [
+            'form' => $form,
+            'location' => $location, 'spaces' => $spaces, 'categories' => self::CATEGORIES
+        ]);
+    }
+
 
     #[Route('/new', name: 'space_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
