@@ -1,394 +1,389 @@
-@import "variables.scss";
-@import "carousel.scss";
-body {
-    margin: 0;
-    padding: 0;
-    margin-bottom: 5rem;
-    text-align: center;
-}
-
-
-/* START NAVBAR */
-
-.navbar_invisible {
-    bottom: 2px;
-    position: absolute;
-    display: flex;
-    justify-content: space-around;
-    padding-left: 0.7rem;
-}
-
-.navbar_align {
-    display: grid;
-    place-items: center;
-}
-
-.navbar_a {
-    color: inherit;
-    outline: 0;
-}
-
-.navbar_icons {
-    display: none;
-}
-
-.navbar_icon {
-    block-size: 1em;
-    display: inline-block;
-    fill: currentcolor;
-    inline-size: 1em;
-    vertical-align: middle;
-}
-
-.navbar_icon--2x {
-    font-size: 2rem;
-}
-
-.navbar_svg {
-    max-inline-size: 100%;
-}
-
-.navbar_navigation {
-    background-color: #f0f6ff;
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
-    width: 100%;
-    bottom: 0;
-    position: fixed;
-}
-
-.navbar_navigation ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.navbar_navigation a {
-    padding: 1.5rem;
-    display: block;
-    padding: 1.5em;
-    position: relative;
-    text-decoration: none;
-}
-
-.navbar_navigation ul li:first-child {
-    margin-left: 1rem;
-}
-
-.navbar_navigation a:focus::after,
-.navbar_navigation a:hover::after {
-    opacity: 1;
-}
-
-.navbar_navigation a::after {
-    block-size: 100%;
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
-    inline-size: 100%;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.navbar_navigation--inline ul {
-    margin: 0;
-    display: flex;
-    width: 100%;
-    padding-left: 1rem;
-}
-
-
-/* END NAVBAR */
-
-.header-home {
-    font-family: Abhaya;
-    color: $color-white;
-    padding: 1rem 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    background-image: url("/assets/images/header.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    font-size: 1.5rem;
-    text-shadow: 1px 1px 1px #534f4c;
-}
-
-.logo-title {
-    color: $color-white;
-    margin: 0;
-}
-
-.form-search {
-    padding-left: 5rem;
-    padding-right: 5rem;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    /* Rounded borders */
-    box-sizing: border-box;
-    /* Make sure that padding and width stays in place */
-}
-
-.space-pitch {
-    padding: 1rem 0;
-    font-size: 1.3rem;
-    font-family: Abhaya;
-    text-align: center;
-    color: $color-burgundy;
-}
-
-.premium-title {
-    margin-top: 3rem;
-    padding-top: 1rem;
-    border-top: .5px solid #ccc;
-    font-size: 1.3rem;
-    font-family: Abhaya;
-    text-align: center;
-    color: $color-burgundy;
-}
-
-
-/* START HOME_INDEX */
-
-.offer {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem 0;
-    padding: 0 1rem;
-}
-
-.show-offer {
-    display: flex;
-    flex-direction: column;
-    color: $color-burgundy;
-    margin: 1rem;
-}
-
-.image-offer {
-    object-fit: cover;
-    border-radius: 1rem;
-}
-
-.show-image-offer {
-    width: 100%;
-}
-
-.show-title {
-    font-family: 'Work Sans', sans-serif;
-    color: grey;
-    margin-left: 1rem;
-    font-size: 0.8rem;
-    float: left
-}
-
-.cardcontent {
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 100;
-    font-size: 0.75rem;
-    list-style-type: none;
-    padding-left: 1rem;
-}
-
-.div-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-}
-
-.spacename {
-    font-weight: bolder;
-    font-size: 1.2rem
-}
-
-.show-cardcontent {
-    margin-left: 1rem;
-    padding: 0;
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 100;
-    font-size: 0.75rem;
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    float: left;
-    text-align: justify;
-}
-
-.card-content-up,
-.card-content-down {
-    display: flex;
-    flex-direction: row;
-    font-size: 1rem;
-    span {
-        padding: 0 0.2rem;
+        @import "variables.scss";
+    @import "carousel.scss";
+    body {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 5rem;
+        text-align: center;
+    }
+    /* START NAVBAR */
+    
+    .navbar_invisible {
+        bottom: 2px;
+        position: absolute;
+        display: flex;
+        justify-content: space-around;
+        padding-left: 0.7rem;
+    }
+    
+    .navbar_align {
+        display: grid;
+        place-items: center;
+    }
+    
+    .navbar_a {
+        color: inherit;
+        outline: 0;
+    }
+    
+    .navbar_icons {
+        display: none;
+    }
+    
+    .navbar_icon {
+        block-size: 1em;
+        display: inline-block;
+        fill: currentcolor;
+        inline-size: 1em;
+        vertical-align: middle;
+    }
+    
+    .navbar_icon--2x {
+        font-size: 2rem;
+    }
+    
+    .navbar_svg {
+        max-inline-size: 100%;
+    }
+    
+    .navbar_navigation {
+        background-color: #f0f6ff;
+        box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+        width: 100%;
+        bottom: 0;
+        position: fixed;
+    }
+    
+    .navbar_navigation ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .navbar_navigation a {
+        padding: 1.5rem;
+        display: block;
+        padding: 1.5em;
+        position: relative;
+        text-decoration: none;
+    }
+    
+    .navbar_navigation ul li:first-child {
+        margin-left: 1rem;
+    }
+    
+    .navbar_navigation a:focus::after,
+    .navbar_navigation a:hover::after {
+        opacity: 1;
+    }
+    
+    .navbar_navigation a::after {
+        block-size: 100%;
+        box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+        inline-size: 100%;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    
+    .navbar_navigation--inline ul {
+        margin: 0;
+        display: flex;
+        width: 100%;
+        padding-left: 1rem;
+    }
+    /* END NAVBAR */
+    
+    .header-home {
+        font-family: Abhaya;
+        color: $color-white;
+        padding: 1rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        background-image: url("/assets/images/header.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-size: 1.5rem;
+        text-shadow: 1px 1px 1px #534f4c;
+    }
+    
+    .logo-title {
+        color: $color-white;
+        margin: 0;
+    }
+    
+    .form-search {
+        padding-left: 5rem;
+        padding-right: 5rem;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        /* Rounded borders */
+        box-sizing: border-box;
+        /* Make sure that padding and width stays in place */
+    }
+    
+    .space-pitch {
+        padding: 1rem 0 2rem;
+        font-size: 1.3rem;
+        font-family: Abhaya;
+        text-align: center;
+        color: $color-burgundy;
+    }
+    
+    .premium-title {
+        margin-top: 3rem;
+        font-size: 1.3rem;
+        font-family: Abhaya;
+        text-align: center;
+        color: $color-burgundy;
+    }
+    /* START HOME_INDEX */
+    
+    .offer {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 0;
+        padding: 0 1rem;
+    }
+    
+    .show-offer {
+        display: flex;
+        flex-direction: column;
+        color: $color-burgundy;
+        margin: 1rem;
+    }
+    
+    .image-offer {
+        object-fit: cover;
+        border-radius: 1rem;
+    }
+    
+    .show-image-offer {
+        width: 100%;
+    }
+    
+    .show-title {
+        font-family: 'Work Sans', sans-serif;
+        color: grey;
+        margin-left: 1rem;
+        font-size: 0.8rem;
+        float: left
+    }
+    
+    .cardcontent {
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 100;
+        font-size: 0.75rem;
+        list-style-type: none;
+        padding-left: 1rem;
+    }
+    
+    .div-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+    
+    .spacename {
+        font-weight: bolder;
+        font-size: 1.2rem
+    }
+    
+    .show-cardcontent {
+        margin-left: 1rem;
+        padding: 0;
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 100;
+        font-size: 0.75rem;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        float: left;
+        text-align: justify;
+    }
+    
+    .card-content-up,
+    .card-content-down {
+        display: flex;
+        flex-direction: row;
+        font-size: 1rem;
+        span {
+            padding: 0 0.2rem;
+            font-weight: bolder;
+        }
+    }
+    
+    .card-content-up {
+        font-weight: bold;
+        padding-bottom: 0.5rem;
+        margin-top: 0.5rem;
+    }
+    
+    .card-content-down {
+        margin-left: 1rem;
+    }
+    
+    .spaceprice {
+        margin-top: 1rem;
+        list-style: none;
+    }
+    
+    #price {
+        padding-left: 0;
+        display: flex;
+        justify-content: space-between;
+        border-top: 0.5px solid #eee;
+        margin: 1rem;
+    }
+    
+    #spanprice {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    
+    .space-pitch p {
+        text-align: center;
+    }
+    
+    #buttonCardShow {
+        background-color: #eee;
+        color: $color-grey;
+        margin-top: 1rem;
+        font-weight: bold;
+    }
+    /* END HOME_INDEX */
+    /* END OF CARD */
+    /* Add Space Form */
+    
+    #space {
+        display: flex;
+    }
+    
+    #space-count {
         font-weight: bolder;
     }
-}
-
-.card-content-up {
-    font-weight: bold;
-    padding-bottom: 1rem;
-    margin-top: 1rem;
-}
-
-.spaceprice {
-    margin-top: 1rem;
-    list-style: none;
-}
-
-#price {
-    padding-left: 0;
-    display: flex;
-    justify-content: space-between;
-    border-top: 0.5px solid #eee;
-    margin: 1rem;
-}
-
-#spanprice {
-    font-size: 1rem;
-    font-weight: bold;
-}
-
-.space-pitch p {
-    text-align: center;
-}
-
-#buttonCardShow {
-    background-color: #eee;
-    color: $color-grey;
-    margin-top: 1rem;
-    font-weight: bold;
-}
-
-
-/* END HOME_INDEX */
-
-
-/* END OF CARD */
-
-
-/* Add Space Form */
-
-#space {
-    display: flex;
-}
-
-#space-count {
-    font-weight: bolder;
-}
-
-.space-count {
-    font-size: 1.2rem;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-}
-
-
-/* Style inputs with type="text", select elements and textareas */
-
-input[type=text],
-select,
-textarea,
-.form-content {
-    width: 100%;
-    /* Full width */
-    padding: 12px;
-    /* Some padding */
-    border: 1px solid #ccc;
-    /* Gray border */
-    border-radius: 4px;
-    /* Rounded borders */
-    box-sizing: border-box;
-    /* Make sure that padding and width stays in place */
-    margin-top: 6px;
-    /* Add a top margin */
-    margin-bottom: 16px;
-    /* Bottom margin */
-    resize: vertical/* Allow the user to vertically resize the textarea (not horizontally) */
-}
-
-
-/* Style the submit button with a specific background color etc */
-
-input[type=submit],
-.form-submit {
-    background-color: $color-burgundy;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-
-/* Add a background color and some padding around the form */
-
-.container {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
-
-.add-space-title {
-    font-size: 2rem;
-    text-align: center;
-}
-
-.form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-}
-
-.show-spaceprice {
-    border-bottom: 1px solid black;
-    padding-bottom: 2rem;
-    width: 100%;
-}
-
-.space-form-submit {
-    background-color: $color-grey;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-
-/* START SPACE_INDEX */
-
-.search {
-    background-color: $color-cerise;
-}
-
-.search-header {
-    padding-top: 2rem;
-    color: $color-white;
-    letter-spacing: 2px;
-}
-
-.search-header-h2 {
-    font-family: $font-family-second;
-}
-
-.search-header-market {
-    margin: 0;
-    font-size: xx-large;
-    font-weight: lighter;
-    letter-spacing: 2px;
-}
-
-.search-criteria {
-    background-color: $color-white;
-    border: $color-grey;
-    border-radius: 20px;
-    box-shadow: 2px -6px 10px 0px rgba(0, 0, 0, 0.84);
-    height: 80vh;
-}
+    
+    .space-count {
+        font-size: 1.2rem;
+    }
+    
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    /* Style inputs with type="text", select elements and textareas */
+    
+    input[type=text],
+    select,
+    textarea,
+    .form-content {
+        width: 100%;
+        /* Full width */
+        padding: 12px;
+        /* Some padding */
+        border: 1px solid #ccc;
+        /* Gray border */
+        border-radius: 4px;
+        /* Rounded borders */
+        box-sizing: border-box;
+        /* Make sure that padding and width stays in place */
+        margin-top: 6px;
+        /* Add a top margin */
+        margin-bottom: 16px;
+        /* Bottom margin */
+        resize: vertical/* Allow the user to vertically resize the textarea (not horizontally) */
+    }
+    /* Style the submit button with a specific background color etc */
+    
+    input[type=submit],
+    .form-submit {
+        background-color: $color-burgundy;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    /* Add a background color and some padding around the form */
+    
+    .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+    
+    .add-space-title {
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .show-spaceprice {
+        border-bottom: 1px solid black;
+        padding-bottom: 2rem;
+        width: 100%;
+    }
+    
+    .space-form-submit {
+        background-color: $color-grey;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    /* START SPACE_INDEX */
+    
+    .search {
+        background-color: $color-cerise;
+    }
+    
+    .search-header {
+        padding-top: 2rem;
+        color: $color-white;
+        letter-spacing: 2px;
+    }
+    
+    .search-header-h2 {
+        font-family: $font-family-second;
+    }
+    
+    .search-header-market {
+        margin: 0;
+        font-size: xx-large;
+        font-weight: lighter;
+        letter-spacing: 2px;
+    }
+    
+    .search-criteria {
+        background-color: $color-white;
+        border: $color-grey;
+        border-radius: 20px;
+        box-shadow: 2px -6px 10px 0px rgba(0, 0, 0, 0.84);
+        height: 80vh;
+        /* PROFILE */
+        .user-index-container {
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            font-weight: bolder;
+        }
+        .user-index-avatar {
+            img {
+                margin-top: 1rem;
+                box-shadow: 10px 10px 5px #ccc;
+                max-width: 200px;
+            }
+        }
