@@ -281,7 +281,7 @@ ul {
 }
 
 /* Style inputs with type="text", select elements and textareas */
-input[type=text], select, textarea, .form-content {
+input[type=text], input[type=password], select, textarea, .form-content {
     width: 100%; /* Full width */
     padding: 12px; /* Some padding */ 
     border: 1px solid #ccc; /* Gray border */
@@ -371,7 +371,7 @@ input[type=submit], .form-submit {
 }
 
 .connect-you {
-    margin-top: 5rem;
+    margin-top: 7rem;
     display: flex;
     justify-content: center;
     font-family: $fontBodiniLight;
@@ -381,22 +381,35 @@ input[type=submit], .form-submit {
 .login-register {
     margin: auto;
     width: 75vw;
-    padding: 5rem 2rem;
+    padding: 3rem 2rem 2rem;
     border-radius: 1rem;
     height: auto;
     background-color: $color-white;
     font-family: $fontBodiniLight;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
 }
 
 .submit-login {
+    margin: auto;
+    text-align: center;
     color: $color-white;
     background-color: $color-cerise;
     padding: 1rem 2rem;
     border-radius: 1rem;
 }
 
+.loginorregister {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .registeryou {
+    margin-top: 1rem;
+    text-align: center;
     text-decoration: none;
     color: black;
 }
