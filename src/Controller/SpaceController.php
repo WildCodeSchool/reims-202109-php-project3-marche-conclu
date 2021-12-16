@@ -27,15 +27,10 @@ class SpaceController extends AbstractController
 
     #[Route('/', name: 'index', methods: ['GET'])]
 
-    public function index(Request $request, SpaceRepository $spaceRepository, ?string $location): Response
+    public function index(SpaceRepository $spaceRepository): Response
     {
-        $form = $this->createForm(SearchType::class, null, array('method' => 'GET'));
-        $form->handleRequest($request);
-        $spaces = $spaceRepository->findBy(array(), null, 2);
-
-        return $this->renderForm('space/index.html.twig', [
-            'form' => $form,
-            'location' => $location, 'spaces' => $spaces, 'categories' => self::CATEGORIES
+        return $this->render('space/index.html.twig', [
+            'spaces' => $spaceRepository->findAll(),
         ]);
     }
 
