@@ -54,6 +54,12 @@ class Space
      */
     private Collection $slots;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="spaces")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private ?User $owner;
+
     public function __construct()
     {
         $this->slots = new ArrayCollection();
@@ -169,6 +175,18 @@ class Space
                 $slot->setSpace(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): self
+    {
+        $this->owner = $owner;
 
         return $this;
     }
