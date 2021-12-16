@@ -2,15 +2,17 @@
 
 namespace App\Controller;
 
-use App\Form\SearchType;
+use App\Entity\Slot;
 use App\Entity\Space;
+use App\Form\SlotType;
 use App\Form\SpaceType;
+use App\Form\SearchType;
 use App\Repository\SpaceRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SpaceController extends AbstractController
 {
@@ -36,8 +38,10 @@ class SpaceController extends AbstractController
             $spaces = $spaceRepository->findByLocation($location);
         }
 
-        return $this->renderForm('space/index.html.twig', ['form' => $form,
-        'location' => $location, 'spaces' => $spaces, 'categories' => self::CATEGORIES]);
+        return $this->renderForm('space/index.html.twig', [
+            'form' => $form,
+            'location' => $location, 'spaces' => $spaces, 'categories' => self::CATEGORIES
+        ]);
     }
 
     #[Route('/new', name: 'space_new', methods: ['GET', 'POST'])]
@@ -61,10 +65,24 @@ class SpaceController extends AbstractController
     }
 
     #[Route('/{id}', name: 'space_show', methods: ['GET'])]
-    public function show(Space $space): Response
+    public function show(Request $request, EntityManagerInterface $entityManager, Space $space, Slot $slot): Response
     {
-        return $this->render('space/show.html.twig', [
+        $slot = new Slot();
+        $form = $this->createForm(SlotType::class, $slot);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($slot);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('space_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('space/show.html.twig', [
             'space' => $space,
+            'slot' => $slot,
+            'form' => $form
+
         ]);
     }
 
