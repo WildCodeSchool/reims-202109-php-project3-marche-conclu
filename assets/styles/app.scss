@@ -127,7 +127,7 @@ body {
 }
 
 .space-pitch {
-    padding: 1rem 0;
+    padding: 1rem 0 2rem;
     font-size: 1.3rem;
     font-family: Abhaya;
     text-align: center;
@@ -137,8 +137,6 @@ body {
 .premium-title
 {
     margin-top: 3rem;
-    padding-top: 1rem;
-    border-top: .5px solid #ccc;
     font-size: 1.3rem;
     font-family: Abhaya;
     text-align: center;
@@ -223,8 +221,12 @@ body {
 
 .card-content-up {
     font-weight: bold;
-    padding-bottom: 1rem;
-    margin-top: 1rem;
+    padding-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.card-content-down {
+    margin-left: 1rem;
 }
 
 .spaceprice {
