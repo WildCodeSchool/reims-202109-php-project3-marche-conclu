@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% if app.user %}
+<div class="user-index-container">
+<div class="user-index-avatar">
+{% if app.user.avatar %}
+<img src="{{ app.user.avatar }}">
+{% endif %}
+</div>
+<h1>{{ "Bonjour" ~ " " ~ app.user.firstname ~ " " ~ app.user.lastname }}</h1>
+<p>{{ "Email :" ~ " " ~ app.user.email }}</p>
+{% if app.user.company %}
+<p>{{ "Société :" ~ " " ~ app.user.company }}</p>
+{% endif %}
+<a href="{{ path('space_index') }}">Retourner à la liste des espaces</a>
+</div>
+
+{% endif %}
+{% endblock %}
