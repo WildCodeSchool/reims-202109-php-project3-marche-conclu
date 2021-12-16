@@ -1,11 +1,11 @@
 @import "variables.scss";
 @import "carousel.scss";
 
-
 body {
     margin: 0;
     padding: 0;
     margin-bottom: 5rem;
+    text-align: center;
 }
 
 /* START NAVBAR */
@@ -117,13 +117,15 @@ body {
     margin: 0;
 }
 
+
 .form-search {
     padding-left: 5rem;
     padding-right: 5rem;
     text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 4px; /* Rounded borders */
-    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    border-radius: 4px;
+    /* Rounded borders */
+    box-sizing: border-box;
+    /* Make sure that padding and width stays in place */
 }
 
 .space-pitch {
@@ -134,15 +136,15 @@ body {
     color: $color-burgundy;
 }
 
-.premium-title
-{
+.premium-title {
     margin-top: 3rem;
     font-size: 1.3rem;
     font-family: $fontAbhaya;
     text-align: center;
     color: $color-burgundy;
 }
-/* START SPACE_INDEX */
+
+/* START HOME_INDEX */
 
 .offer {
     display: flex;
@@ -171,7 +173,7 @@ body {
     font-family: 'Work Sans', sans-serif;
     color: grey;
     margin-left: 1rem;
-    font-size: 0.8rem; 
+    font-size: 0.8rem;
     float: left
 }
 
@@ -184,18 +186,19 @@ body {
 }
 
 .div-btn {
-    display:flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
 }
 
 .spacename {
-    font-weight: bolder; font-size: 1.2rem
+    font-weight: bolder;
+    font-size: 1.2rem
 }
 
 .show-cardcontent {
-    margin-left: 1rem; 
+    margin-left: 1rem;
     padding: 0;
     font-family: 'Work Sans', sans-serif;
     font-weight: 100;
@@ -257,12 +260,16 @@ body {
     margin-top: 1rem;
     font-weight: bold;
 }
-/* END SPACE_INDEX */
+
+
+/* END HOME_INDEX */
+
 
 /* END OF CARD */
 
 
 /* Add Space Form */
+
 #space {
     display: flex;
 }
@@ -281,19 +288,32 @@ ul {
 }
 
 /* Style inputs with type="text", select elements and textareas */
-input[type=text], select, textarea, .form-content {
-    width: 100%; /* Full width */
-    padding: 12px; /* Some padding */ 
-    border: 1px solid #ccc; /* Gray border */
-    border-radius: 4px; /* Rounded borders */
-    box-sizing: border-box; /* Make sure that padding and width stays in place */
-    margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+
+input[type=text],
+select,
+textarea,
+.form-content {
+    width: 100%;
+    /* Full width */
+    padding: 12px;
+    /* Some padding */
+    border: 1px solid #ccc;
+    /* Gray border */
+    border-radius: 4px;
+    /* Rounded borders */
+    box-sizing: border-box;
+    /* Make sure that padding and width stays in place */
+    margin-top: 6px;
+    /* Add a top margin */
+    margin-bottom: 16px;
+    /* Bottom margin */
+    resize: vertical;/* Allow the user to vertically resize the textarea (not horizontally) */
 }
 
 /* Style the submit button with a specific background color etc */
-input[type=submit], .form-submit {
+
+input[type=submit],
+.form-submit {
     background-color: $color-burgundy;
     color: white;
     padding: 12px 20px;
@@ -301,10 +321,11 @@ input[type=submit], .form-submit {
     border-radius: 4px;
     cursor: pointer;
     text-decoration: none;
-
 }
 
+
 /* Add a background color and some padding around the form */
+
 .container {
     border-radius: 5px;
     background-color: #f2f2f2;
@@ -339,6 +360,37 @@ input[type=submit], .form-submit {
     text-decoration: none;
 }
 
+/* START SPACE_INDEX */
+
+.search {
+    background-color: $color-cerise;
+}
+
+.search-header {
+    padding-top: 2rem;
+    color: $color-white;
+    letter-spacing: 2px;
+}
+
+.search-header-h2 {
+    font-family: $font-family-second;
+}
+
+.search-header-market {
+    margin: 0;
+    font-size: xx-large;
+    font-weight: lighter;
+    letter-spacing: 2px;
+}
+
+.search-criteria {
+    background-color: $color-white;
+    border: $color-grey;
+    border-radius: 20px;
+    box-shadow: 2px -6px 10px 0px rgba(0, 0, 0, 0.84);
+    height: 80vh;
+}
+
 /* PROFILE */
 
 .user-index-container {
@@ -349,7 +401,6 @@ input[type=submit], .form-submit {
 }
 
 .user-index-avatar {
-    
     img {
         margin-top: 1rem;
         box-shadow: 10px 10px 5px #ccc;
