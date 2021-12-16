@@ -97,7 +97,7 @@ body {
 /* END NAVBAR */
 
 .header-home {
-    font-family: Abhaya;
+    font-family: $fontAbhaya;
     color: $color-white;
     padding: 1rem 0;
     display: flex;
@@ -129,7 +129,7 @@ body {
 .space-pitch {
     padding: 1rem 0 2rem;
     font-size: 1.3rem;
-    font-family: Abhaya;
+    font-family: $fontAbhaya;
     text-align: center;
     color: $color-burgundy;
 }
@@ -138,7 +138,7 @@ body {
 {
     margin-top: 3rem;
     font-size: 1.3rem;
-    font-family: Abhaya;
+    font-family: $fontAbhaya;
     text-align: center;
     color: $color-burgundy;
 }
