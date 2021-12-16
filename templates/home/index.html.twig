@@ -7,20 +7,12 @@
 			<br>
 			C O N C L U
 		</p>
-		{{ form_start(form) }}
-		<div class="my-custom-class-for-errors">
-			{{ form_errors(form) }}
-		</div>
-		<div class="row">
-			<div class="col">
-				{{ form_widget(form.location, {'attr': {'class': 'form-search'}}) }}
-			</div>
-			<div class="col" id="some-custom-id"></div>
-		</div>
-		<button class="btn form-submit">
-			{{ button_label|default('Chercher') }}
-		</button>
-		{{ form_end(form) }}
+		<form action="{{ path('home') }}" method="get" class="form-search">
+			<input type=" text" name=" location" value=" {{ location ?? '' }}">
+			<button class=" btn form-submit">
+				Chercher
+			</button>
+		</form>
 	</div>
 </header>
 <div class="space-pitch">
@@ -32,53 +24,48 @@
 </div>
 <div class="carousel">
 	{% for category in categories %}
-		{% if loop.index0 == 0 %}
-			<div class="carousel-item carousel-item-visible">
-			{% else %}
-				<div class="carousel-item">
-				{% endif %}
-				<img src="{{ asset('build/images/' ~ category|lower|replace({' ': '', '-': ''}) ~ '.jpg') }}" alt="{{ category|lower }}"/>
-				<a href="#">
-					<div class="texte-center">
-						<p>{{ category }}</p>
-					</div>
-				</a>
-			</div>
-
-		{% endfor %}
-		<div class="carousel-actions">
-			<button id="carousel-button-prev" aria-label="Previous"><</button><buttonid="carousel-button-next"aria-label="Next">></button>
+		<div class="carousel-item{{ loop.index0 == 0 ? ' carousel-item-visible' : '' }}">
+			<img src="{{ asset('build/images/' ~ category|lower|replace({' ': '', '-': ''}) ~ '.jpg') }}" alt="{{ category|lower }}"/>
+			<a href="#">
+				<div class="texte-center">
+					<p>{{ category }}</p>
+				</div>
+			</a>
 		</div>
+
+	{% endfor %}
+	<div class="carousel-actions">
+		<button id="carousel-button-prev" aria-label="Previous"><</button><buttonid="carousel-button-next"aria-label="Next">></button>
 	</div>
-	<div>
-		<h3 class="premium-title">Annonces premium</h3>
-		{% for space in spaces %}
-			<figure class="offer">
-				<img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" alt="Marché Conclu"/>
-				<figcaption class="text-offer">
-					<div class="card-border card-content-up cardcontent">
-						<div class="spacecategory card-content-up">{{ space.category }}
-							<span class="point">·</span>
-						</div>
-						<div class="spacecapacity card-content-up">{{ space.capacity }}
-							places
-							<span class="point">·</span>
-						</div>
-						<div class="spacesurface card-content-up">{{ space.surface }}
-							m²</div>
+</div>
+<div>
+	<h3 class="premium-title">Annonces premium</h3>
+	{% for space in spaces %}
+		<figure class="offer">
+			<img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" alt="Marché Conclu"/>
+			<figcaption class="text-offer">
+				<div class="card-border card-content-up cardcontent">
+					<div class="spacecategory card-content-up">{{ space.category }}
+						<span class="point">·</span>
 					</div>
-					<div class="spacelocation card-content-down">{{ space.location }}</div>
-					<div id="price">
-						<div class="spaceprice">
-							<span id="spanprice">{{ random(50, 250) }}
-								€</span>
-							<span id="spanpriceday">
-								/ jour</span>
-						</div>
-						<a class="form-submit" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
+					<div class="spacecapacity card-content-up">{{ space.capacity }}
+						places
+						<span class="point">·</span>
 					</div>
-				</figcaption>
-			</figure>
-		{% endfor %}
-	</div>
-{% endblock %}
+					<div class="spacesurface card-content-up">{{ space.surface }}
+						m²</div>
+				</div>
+				<div class="spacelocation card-content-down">{{ space.location }}</div>
+				<div id="price">
+					<div class="spaceprice">
+						<span id="spanprice">{{ random(50, 250) }}
+							€</span>
+						<span id="spanpriceday">
+							/ jour</span>
+					</div>
+					<a class="form-submit" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
+				</div>
+			</figcaption>
+		</figure>
+	{% endfor %}
+</div>{% endblock %}

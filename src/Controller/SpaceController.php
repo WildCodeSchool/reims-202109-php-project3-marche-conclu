@@ -26,7 +26,6 @@ class SpaceController extends AbstractController
     ];
 
     #[Route('/', name: 'index', methods: ['GET'])]
-
     public function index(SpaceRepository $spaceRepository): Response
     {
         return $this->render('space/index.html.twig', [
@@ -55,7 +54,7 @@ class SpaceController extends AbstractController
     }
 
     #[Route('/{id}', name: 'show', methods: ['GET'])]
-    public function show(Request $request, EntityManagerInterface $entityManager, Space $space, Slot $slot): Response
+    public function show(Request $request, EntityManagerInterface $entityManager, Space $space): Response
     {
         $slot = new Slot();
         $form = $this->createForm(SlotType::class, $slot);

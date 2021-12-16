@@ -20,17 +20,20 @@ class HomeController extends AbstractController
     ];
 
     #[Route('/', name: 'home')]
-
-    public function index(Request $request, SpaceRepository $spaceRepository, ?string $location): Response
+    public function index(Request $request, SpaceRepository $spaceRepository): Response
     {
-        $form = $this->createForm(SearchType::class, null, array('method' => 'GET'));
-        $form->handleRequest($request);
-        $spaces = $spaceRepository->findBy(array(), null, 2);
+        $location = $request->query->get('location');
+
+        if ($location == null) {
+            $spaces = $spaceRepository->findAll();
+        } else {
+            $spaces = $spaceRepository->findByLocation($location);
+        }
 
         return $this->renderForm('home/index.html.twig', [
-            'form' => $form,
-            'location' => $location, 'spaces' => $spaces, 'categories' => self::CATEGORIES
-
+            'location' => $location,
+            'spaces' => $spaces,
+            'categories' => self::CATEGORIES
         ]);
     }
 }
