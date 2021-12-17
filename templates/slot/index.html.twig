@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Slot index{% endblock %}
+
+{% block body %}
+    <h1>Slot index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Price</th>
+                <th>SlotTime</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for slot in slots %}
+            <tr>
+                <td>{{ slot.id }}</td>
+                <td>{{ slot.price }}</td>
+                <td>{{ slot.slotTime ? slot.slotTime|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('slot_show', {'id': slot.id}) }}">show</a>
+                    <a href="{{ path('slot_edit', {'id': slot.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('slot_new') }}">Create new</a>
+{% endblock %}
