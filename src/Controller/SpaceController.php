@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Form\SearchType;
 use App\Entity\Space;
+use App\Entity\User;
+use App\Form\SlotType;
 use App\Form\SpaceType;
 use App\Repository\SpaceRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -49,8 +51,10 @@ class SpaceController extends AbstractController
         $space = new Space();
         $form = $this->createForm(SpaceType::class, $space);
         $form->handleRequest($request);
+        $user = $this->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $space->setOwner((User)($user));
             $entityManager->persist($space);
             $entityManager->flush();
 
