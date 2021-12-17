@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\SearchType;
 use App\Entity\Space;
+use App\Entity\User;
 use App\Form\SpaceType;
 use App\Repository\SpaceRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -43,7 +44,7 @@ class SpaceController extends AbstractController
         $user = $this->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $space->setOwner($this->getUser());
+            $space->setOwner((User)($user));
             $entityManager->persist($space);
             $entityManager->flush();
 
