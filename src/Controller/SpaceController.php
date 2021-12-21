@@ -7,7 +7,6 @@ use App\Entity\Space;
 use App\Entity\User;
 use App\Form\SlotType;
 use App\Form\SpaceType;
-use App\Form\SearchType;
 use App\Repository\SpaceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,6 +52,18 @@ class SpaceController extends AbstractController
         return $this->renderForm('space/new.html.twig', [
             'space' => $space,
             'form' => $form,
+        ]);
+    }
+
+    #[Route('/search', name: 'search', methods: ['GET'])]
+    public function search(Request $request, SpaceRepository $spaceRepository, ?string $location): Response
+    {
+        $location = $request->query->get('location');
+
+        $spaces = $location ? $spaceRepository->findByLocation($location) : $spaceRepository->findAll();
+
+        return $this->renderForm('space/search.html.twig', [
+            'location' => $location, 'spaces' => $spaces, 'categories' => self::CATEGORIES
         ]);
     }
 

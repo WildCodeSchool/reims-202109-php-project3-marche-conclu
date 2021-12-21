@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Form\SearchType;
 use App\Repository\SpaceRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,11 +23,7 @@ class HomeController extends AbstractController
     {
         $location = $request->query->get('location');
 
-        if ($location == null) {
-            $spaces = $spaceRepository->findAll();
-        } else {
-            $spaces = $spaceRepository->findByLocation($location);
-        }
+        $spaces = $location ? $spaceRepository->findByLocation($location) : $spaceRepository->findAll();
 
         return $this->renderForm('home/index.html.twig', [
             'location' => $location,
