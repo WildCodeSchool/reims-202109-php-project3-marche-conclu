@@ -2,7 +2,7 @@
     {{ form_start(form) }}
 
     <label>
-        Nom de votre bureau :
+        Nom de votre éspace :
         {{ form_widget(form.name, {'attr': {'class': 'space_form_content'}}) }}
     </label>
     <label>
@@ -22,11 +22,11 @@
        {{ form_widget(form.photos, {'attr': {'class': 'space_form_content'}}) }}
     </label>
     <label>
-        Adresse :
+        Ville :
         {{ form_widget(form.location, {'attr': {'class': 'space_form_content'}}) }}
     </label>
-    <button class="space_form_btn space_form_submit">
-        {{ button_label|default('Save') }}
+    <button class="space_form_btn space_form_submit add-new-space">
+        {{ button_label|default('Ajouter') }}
     </button>
     {{ form_end(form) }}
 </div>
