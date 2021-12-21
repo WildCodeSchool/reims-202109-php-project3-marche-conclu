@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\SpaceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,31 +22,37 @@ class Space
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(message="Le champ nom ne peut être vide")
      */
     private string $name;
 
     /**
      * @ORM\Column(type="string", length=500)
+     * @Assert\NotBlank(message="Le champ photos ne peut être vide")
      */
     private string $photos;
 
     /**
      * @ORM\Column(type="string", length=10)
+    * @Assert\NotBlank(message="Le champ surface ne peut être vide")
      */
     private string $surface;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank(message="Le champ catégorie ne peut être vide")
      */
     private string $category;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Le champ capacité ne peut être vide")
      */
     private int $capacity;
 
     /**
      * @ORM\Column(type="string", length=500)
+     * @Assert\NotBlank(message="Le champ localisation ne peut être vide")
      */
     private string $location;
 

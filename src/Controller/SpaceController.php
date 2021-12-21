@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Entity\Slot;
 use App\Entity\Space;
 use App\Entity\User;
@@ -33,9 +34,13 @@ class SpaceController extends AbstractController
         ]);
     }
 
+    /**
+    * @IsGranted("ROLE_USER")
+    */
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+
         $space = new Space();
         $form = $this->createForm(SpaceType::class, $space);
         $form->handleRequest($request);
@@ -89,6 +94,9 @@ class SpaceController extends AbstractController
         ]);
     }
 
+    /**
+    * @IsGranted("ROLE_USER")
+    */
     #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Space $space, EntityManagerInterface $entityManager): Response
     {
@@ -107,6 +115,9 @@ class SpaceController extends AbstractController
         ]);
     }
 
+    /**
+    * @IsGranted("ROLE_USER")
+    */
     #[Route('/{id}', name: 'delete', methods: ['POST'])]
     public function delete(Request $request, Space $space, EntityManagerInterface $entityManager): Response
     {
