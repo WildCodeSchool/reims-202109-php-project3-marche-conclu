@@ -16,7 +16,7 @@ class SpaceType extends AbstractType
         $builder
             ->add('name')
             ->add('photos')
-            ->add('surface')
+            ->add('surface', IntegerType::class)
             ->add('location', ChoiceType::class, [
                 'choices'  => [
                     'Paris' => 'Paris',
