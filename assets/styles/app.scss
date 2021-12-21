@@ -453,7 +453,7 @@ input[type=submit],
 .new-space-form {
     margin: auto;
     width: 75vw;
-    padding: 2rem 2rem;
+    padding: 2rem 2rem 1rem;
     border-radius: 1rem;
     height: auto;
     background-color: $color-white;
@@ -464,12 +464,19 @@ input[type=submit],
 
 }
 
-.add-new-space {
-    margin-top: 1rem;
-    text-align: center;
-    text-decoration: none;
-    color: black;
+.div-add-new-space {
+    display: flex;
+    justify-content: flex-end;
 }
+
+.add-new-space {
+    text-align: center;
+    color: $color-white;
+    background-color: $color-cerise;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+}
+
 
 /* END NEW SPACE */
 

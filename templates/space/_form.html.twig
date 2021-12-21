@@ -2,7 +2,7 @@
     {{ form_start(form) }}
 
     <label>
-        Nom de votre éspace :
+        Nom de votre annonce :
         {{ form_widget(form.name, {'attr': {'class': 'space_form_content'}}) }}
     </label>
     <label>
@@ -14,19 +14,21 @@
         {{ form_widget(form.category, {'attr': {'class': 'space_form_content'}}) }}
     </label>
     <label>
-        Surface en m² :
+        Surface (en m²) :
         {{ form_widget(form.surface, {'attr': {'class': 'space_form_content'}}) }}
     </label>
     <label>
-       Photos :
+       Photo :
        {{ form_widget(form.photos, {'attr': {'class': 'space_form_content'}}) }}
     </label>
     <label>
         Ville :
         {{ form_widget(form.location, {'attr': {'class': 'space_form_content'}}) }}
     </label>
-    <button class="space_form_btn space_form_submit add-new-space">
-        {{ button_label|default('Ajouter') }}
-    </button>
+    <div class="div-add-new-space">
+        <button class="space_form_btn space_form_submit add-new-space">
+            {{ button_label|default('Ajouter') }}
+        </button>
+    <div>
     {{ form_end(form) }}
 </div>
