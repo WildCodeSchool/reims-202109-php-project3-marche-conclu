@@ -4,13 +4,12 @@
 body {
     margin: 0;
     padding: 0;
-    margin-bottom: 5rem;
 }
 
 /* START NAVBAR */
 
 .navbar_invisible {
-    bottom: 2px;
+    bottom: 5px;
     position: absolute;
     display: flex;
     justify-content: space-around;
@@ -62,15 +61,11 @@ body {
 }
 
 .navbar_navigation a {
-    padding: 1.5rem;
     display: block;
-    padding: 1.5em;
+    padding: 1em 2em 2em;
     position: relative;
     text-decoration: none;
-}
-
-.navbar_navigation ul li:first-child {
-    margin-left: 1rem;
+    border-right: 1px solid black;
 }
 
 .navbar_navigation a:focus::after,
@@ -89,8 +84,8 @@ body {
 .navbar_navigation--inline ul {
     margin: 0;
     display: flex;
+    justify-content: space-around;
     width: 100%;
-    padding-left: 1rem;
 }
 
 /* END NAVBAR */
