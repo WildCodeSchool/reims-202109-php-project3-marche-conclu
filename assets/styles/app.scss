@@ -4,6 +4,7 @@
 body {
     margin: 0;
     padding: 0;
+    padding-bottom: 5rem;
 }
 
 /* START NAVBAR */
@@ -52,6 +53,7 @@ body {
     width: 100%;
     bottom: 0;
     position: fixed;
+    overflow-y: scroll;
 }
 
 .navbar_navigation ul {
@@ -348,8 +350,8 @@ input[type=submit],
 
 /* LOGIN/REGISTER PAGE */
 .login-body {
-    height: 90vh;
     background-color: $color-cerise;
+    height: 92vh;
 }
 
 .login-title{
@@ -385,7 +387,7 @@ input[type=submit],
 
 .login-register {
     margin: auto;
-    width: 75vw;
+    width: 75%;
     padding: 3rem 2rem 2rem;
     border-radius: 1rem;
     height: auto;
@@ -422,8 +424,8 @@ input[type=submit],
 /* ADD NEW SPACE */
 
 .new-space-body {
-    height: 90vh;
     background-color: $color-cerise;
+    height: 92vh;
 }
 
 .new-space-title {
@@ -447,7 +449,7 @@ input[type=submit],
 
 .new-space-form {
     margin: auto;
-    width: 75vw;
+    width: 75%;
     padding: 2rem 2rem 1rem;
     border-radius: 1rem;
     height: auto;
@@ -510,7 +512,6 @@ input[type=submit],
 
 /* LOGIN/REGISTER PAGE */
 .login-body {
-    height: 90vh;
     background-color: $color-cerise;
 }
 
@@ -547,7 +548,7 @@ input[type=submit],
 
 .login-register {
     margin: auto;
-    width: 75vw;
+    width: 75%;
     padding: 3rem 2rem 2rem;
     border-radius: 1rem;
     height: auto;
