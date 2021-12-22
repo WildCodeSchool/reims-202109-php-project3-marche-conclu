@@ -1,14 +1,4 @@
 @font-face {
-    font-family: 'Actor';
-    src: url('../fonts/Actor-Regular.ttf');
-}
-
-@font-face {
-    font-family: 'Abhaya';
-    src: url('../fonts/AbhayaLibre-Regular.ttf');
-}
-
-@font-face {
     font-family: 'BodiniLight';
     src: url('../fonts/Becker Bodoni Light Regular.ttf');
 }
@@ -23,9 +13,7 @@
     src: url('../fonts/WorkSans-VariableFont_wght.ttf');
 }
 
-$fontActor : Actor;
-$fontAbhaya : Abhaya;
-$fontBodiniLight : BodiniLight; 
+$fontLogo : BodiniLight; 
 $fontBodini : Bodini; 
 $fontWorkSans : WorkSans; 
 
