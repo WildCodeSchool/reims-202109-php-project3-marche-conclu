@@ -3,8 +3,10 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
-
+    <div class="user_edit-h1">
+        <h1>Editer mon profil</h1>
+    </div>
+    <div class="user_edit-div-form">
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
@@ -18,4 +20,5 @@
 
         <button type="submit" class="btn">S'enregistrer</button>
     {{ form_end(registrationForm) }}
+    </div>
 {% endblock %}
