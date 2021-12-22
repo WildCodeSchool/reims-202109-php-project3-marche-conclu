@@ -529,7 +529,8 @@ input[type=submit],
     text-decoration: none;
     color: black;
 }
-/* PROFILE */
+
+/* START USER INDEX */
 
 .user_index-h1 {
     text-align: center;
@@ -575,3 +576,36 @@ input[type=submit],
     margin-top: 2rem;
     margin-left: 2rem;
 }
+
+.user_index-submit {
+    background-color: $color-cerise;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* END USER INDEX */
+
+/* START USER EDIT */
+
+.user_edit-h1 {
+    text-align: center;
+    background-color: $color-cerise;
+    margin: initial;
+    padding: 1rem 0;
+    color: $color-white;
+}
+
+.user_edit-div-form {
+    margin: 1rem;
+}
+
+.user_edit-return {
+    margin: 2rem;
+    text-align: center;
+}
+
+/* END USER EDIT */
