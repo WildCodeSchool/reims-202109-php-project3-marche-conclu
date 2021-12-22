@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Form\UserType;
 use App\Repository\SpaceRepository;
 use App\Repository\UserRepository;
@@ -15,12 +16,18 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/user')]
 class UserController extends AbstractController
 {
+    /**
+    * @IsGranted("ROLE_USER")
+    */
     #[Route('/profile', name: 'user_index', methods: ['GET'])]
     public function index(): Response
     {
         return $this->render('user/index.html.twig');
     }
 
+    /**
+    * @IsGranted("ROLE_USER")
+    */
     #[Route('/{id}/edit', name: 'user_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {

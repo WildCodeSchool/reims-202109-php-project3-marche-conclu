@@ -2,12 +2,12 @@
 
 namespace App\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Entity\Slot;
 use App\Entity\Space;
 use App\Entity\User;
 use App\Form\SlotType;
 use App\Form\SpaceType;
-use App\Form\SearchType;
 use App\Repository\SpaceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,9 +34,13 @@ class SpaceController extends AbstractController
         ]);
     }
 
+    /**
+    * @IsGranted("ROLE_USER")
+    */
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+
         $space = new Space();
         $form = $this->createForm(SpaceType::class, $space);
         $form->handleRequest($request);
@@ -53,6 +57,18 @@ class SpaceController extends AbstractController
         return $this->renderForm('space/new.html.twig', [
             'space' => $space,
             'form' => $form,
+        ]);
+    }
+
+    #[Route('/search', name: 'search', methods: ['GET'])]
+    public function search(Request $request, SpaceRepository $spaceRepository, ?string $location): Response
+    {
+        $location = $request->query->get('location');
+
+        $spaces = $location ? $spaceRepository->findByLocation($location) : $spaceRepository->findAll();
+
+        return $this->renderForm('space/search.html.twig', [
+            'location' => $location, 'spaces' => $spaces, 'categories' => self::CATEGORIES
         ]);
     }
 
@@ -78,6 +94,9 @@ class SpaceController extends AbstractController
         ]);
     }
 
+    /**
+    * @IsGranted("ROLE_USER")
+    */
     #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Space $space, EntityManagerInterface $entityManager): Response
     {
@@ -96,6 +115,9 @@ class SpaceController extends AbstractController
         ]);
     }
 
+    /**
+    * @IsGranted("ROLE_USER")
+    */
     #[Route('/{id}', name: 'delete', methods: ['POST'])]
     public function delete(Request $request, Space $space, EntityManagerInterface $entityManager): Response
     {

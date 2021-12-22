@@ -1,16 +1,17 @@
 @import "variables.scss";
 @import "carousel.scss";
+@import "autocomplete.scss";
 
 body {
     margin: 0;
     padding: 0;
-    margin-bottom: 5rem;
+    padding-bottom: 5rem;
 }
 
 /* START NAVBAR */
 
 .navbar_invisible {
-    bottom: 2px;
+    bottom: 5px;
     position: absolute;
     display: flex;
     justify-content: space-around;
@@ -53,6 +54,7 @@ body {
     width: 100%;
     bottom: 0;
     position: fixed;
+    overflow-y: scroll;
 }
 
 .navbar_navigation ul {
@@ -62,16 +64,12 @@ body {
 }
 
 .navbar_navigation a {
-    padding: 1.5rem;
     display: block;
-    padding: 1.5em;
+    padding: 1em 2em 2em;
     position: relative;
     text-decoration: none;
 }
 
-.navbar_navigation ul li:first-child {
-    margin-left: 1rem;
-}
 
 .navbar_navigation a:focus::after,
 .navbar_navigation a:hover::after {
@@ -89,8 +87,8 @@ body {
 .navbar_navigation--inline ul {
     margin: 0;
     display: flex;
+    justify-content: space-around;
     width: 100%;
-    padding-left: 1rem;
 }
 
 /* END NAVBAR */
@@ -289,7 +287,7 @@ ul {
 
 /* Style inputs with type="text", select elements and textareas */
 
-input[type=text], input[type=password], select, textarea, .form-content {
+input[type=text], input[type=password],input[type=number], select, textarea, .form-content {
     background-color: rgba(224, 224, 224, 0.87);
     width: 100%; /* Full width */
     padding: 12px; /* Some padding */ 
@@ -353,8 +351,8 @@ input[type=submit],
 
 /* LOGIN/REGISTER PAGE */
 .login-body {
-    height: 90vh;
     background-color: $color-cerise;
+    height: 92vh;
 }
 
 .login-title{
@@ -390,7 +388,7 @@ input[type=submit],
 
 .login-register {
     margin: auto;
-    width: 75vw;
+    width: 75%;
     padding: 3rem 2rem 2rem;
     border-radius: 1rem;
     height: auto;
@@ -423,6 +421,62 @@ input[type=submit],
     text-decoration: none;
     color: black;
 }
+
+/* ADD NEW SPACE */
+
+.new-space-body {
+    background-color: $color-cerise;
+    height: 92vh;
+}
+
+.new-space-title {
+    margin: 0;
+    padding-top: 1.5rem;
+    text-align: center;
+    font-family: $fontBodiniLight;
+    font-size: 3rem;
+    color: $color-white;
+    line-height: 1.5rem;
+}
+
+.create-new-space {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    font-family: $fontBodiniLight;
+    color: $color-white;
+}
+
+.new-space-form {
+    margin: auto;
+    width: 75%;
+    padding: 2rem 2rem 1rem;
+    border-radius: 1rem;
+    height: auto;
+    background-color: $color-white;
+    font-family: $fontBodiniLight;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.div-add-new-space {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add-new-space {
+    text-align: center;
+    color: $color-white;
+    background-color: $color-cerise;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+}
+
+
+/* END NEW SPACE */
 
 /* START SPACE_INDEX */
 
@@ -459,7 +513,6 @@ input[type=submit],
 
 /* LOGIN/REGISTER PAGE */
 .login-body {
-    height: 90vh;
     background-color: $color-cerise;
 }
 
@@ -496,7 +549,7 @@ input[type=submit],
 
 .login-register {
     margin: auto;
-    width: 75vw;
+    width: 75%;
     padding: 3rem 2rem 2rem;
     border-radius: 1rem;
     height: auto;

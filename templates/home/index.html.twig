@@ -7,11 +7,7 @@
 			<br>
 			C O N C L U
 		</p>
-		<form action="{{ path('home') }}" method="get" class="form-search">
-			<input type=" text" name=" location" value=" {{ location ?? '' }}">
-			<button class=" btn form-submit">
-				Chercher
-			</button>
+{% include '_searchbar.html.twig' %}
 		</form>
 	</header>
 	<div class="space-pitch">
