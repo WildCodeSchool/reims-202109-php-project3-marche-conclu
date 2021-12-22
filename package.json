@@ -24,5 +24,8 @@
     "dev": "encore dev",
     "watch": "encore dev --watch",
     "build": "encore production --progress"
+  },
+  "dependencies": {
+    "@tarekraafat/autocomplete.js": "^10.2.6"
   }
 }
