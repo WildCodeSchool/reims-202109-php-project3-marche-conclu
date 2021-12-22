@@ -5,7 +5,6 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
-import './autocomplete';
 import './bootstrap';
 import './carousel';
 
