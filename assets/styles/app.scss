@@ -614,16 +614,16 @@ input[type=submit],
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
-    
-    p {
-        text-align: center;
-    }
+}
 
-    div {
+.user_index-location-li p {
+        text-align: center;
+}
+
+.user_index-location-li div {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-    }
 }
 
 .user_index-location h3 {
