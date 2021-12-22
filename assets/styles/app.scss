@@ -1,16 +1,17 @@
 @import "variables.scss";
 @import "carousel.scss";
+@import "autocomplete.scss";
 
 body {
     margin: 0;
     padding: 0;
-    margin-bottom: 5rem;
+    padding-bottom: 5rem;
 }
 
 /* START NAVBAR */
 
 .navbar_invisible {
-    bottom: 2px;
+    bottom: 5px;
     position: absolute;
     display: flex;
     justify-content: space-around;
@@ -53,6 +54,7 @@ body {
     width: 100%;
     bottom: 0;
     position: fixed;
+    overflow-y: scroll;
 }
 
 .navbar_navigation ul {
@@ -62,16 +64,12 @@ body {
 }
 
 .navbar_navigation a {
-    padding: 1.5rem;
     display: block;
-    padding: 1.5em;
+    padding: 1em 2em 2em;
     position: relative;
     text-decoration: none;
 }
 
-.navbar_navigation ul li:first-child {
-    margin-left: 1rem;
-}
 
 .navbar_navigation a:focus::after,
 .navbar_navigation a:hover::after {
@@ -89,8 +87,8 @@ body {
 .navbar_navigation--inline ul {
     margin: 0;
     display: flex;
+    justify-content: space-around;
     width: 100%;
-    padding-left: 1rem;
 }
 
 /* END NAVBAR */
@@ -368,8 +366,8 @@ input[type=submit],
 
 /* LOGIN/REGISTER PAGE */
 .login-body {
-    height: 90vh;
     background-color: $color-cerise;
+    height: 92vh;
 }
 
 .login-title{
@@ -405,7 +403,7 @@ input[type=submit],
 
 .login-register {
     margin: auto;
-    width: 75vw;
+    width: 75%;
     padding: 3rem 2rem 2rem;
     border-radius: 1rem;
     height: auto;
@@ -442,8 +440,8 @@ input[type=submit],
 /* ADD NEW SPACE */
 
 .new-space-body {
-    height: 90vh;
     background-color: $color-cerise;
+    height: 92vh;
 }
 
 .new-space-title {
@@ -467,7 +465,7 @@ input[type=submit],
 
 .new-space-form {
     margin: auto;
-    width: 75vw;
+    width: 75%;
     padding: 2rem 2rem 1rem;
     border-radius: 1rem;
     height: auto;
@@ -526,7 +524,6 @@ input[type=submit],
 
 /* LOGIN/REGISTER PAGE */
 .login-body {
-    height: 90vh;
     background-color: $color-cerise;
 }
 
@@ -563,7 +560,7 @@ input[type=submit],
 
 .login-register {
     margin: auto;
-    width: 75vw;
+    width: 75%;
     padding: 3rem 2rem 2rem;
     border-radius: 1rem;
     height: auto;
