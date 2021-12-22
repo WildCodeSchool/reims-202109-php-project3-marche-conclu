@@ -1,16 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="user_index-h1">
+        <h1>Mon profil</h1>
+    </div>
     {% if app.user %}
-        <div class="user-index-container">
-            <div class="user-index-avatar">
-                {% if app.user.avatar %}
-                    <img src="{{ app.user.avatar }}">
-                    {% endif %}
-                </div>
-                <h1>
-                    {{ "Bonjour" ~ " " ~ app.user.firstname ~ " " ~ app.user.lastname }}
-                </h1>
+        <div class="user_index-container">
+            {% if app.user.avatar %}
+                <img class="user_index-avatar" src="{{ asset('build/images/visage.jpg') }}">
+            {% else %}
+                <img class="user_index-avatar" src="{{ asset('build/images/' ~ app.user.avatar) }}">
+            {% endif %}
+            <h2>
+                {{ app.user.firstname ~ " " ~ app.user.lastname }}
+            </h2>
+            <div>
                 <p>
                     {{ "Email :" ~ " " ~ app.user.email }}
                 </p>
@@ -20,24 +24,48 @@
                     </p>
                 {% endif %}
             </div>
-            {% for space in app.user.spaces %}
-                <figure class="offer">
-                    <div style="text-align: center; font-weight:bolder; margin-bottom: 2rem;">
-                        {{ "Nom de l'annonce :" ~ " " ~ space.name }}
+            <a class="form-submit" href="{{ path('app_register', {'id': app.user.id}) }}">Modifier mon profil</a>
+        </div>
+        <div class="user_index-location">
+            <h3>Mes locations :</h3>
+            <ul class="ulTEST user_index-location-ul">
+                <li class="user_index-location-li">
+                    <p>{{ "Bureau rue de st-brice" }}</p>
+                    <div>
+                        <a class="form-submit" href="{{ path("space_show", {id: 1}) }}">Voir l'annonce</a>
+                        <a class="form-submit" href="{{ path("space_edit", {id: 1}) }}">Modifier l'annonce</a>
                     </div>
-                    <img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" alt="Marché Conclu" />
-                    <figcaption class="text-offer">
-                        <div style="text-align: center">
-                            <div class="card-border card-content-up cardcontent"></figcaption>
-                        </figure>
-                        <div style="text-align:center;">
-                            <a class="form-submit" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">
-                                Voir l'annonce
-                            </a>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        {% endif %}
-    {% endblock %}
+                </li>
+                <li class="user_index-location-li">
+                    <p>{{ "Bureau du coin de la rue" }}</p>
+                    <div>
+                        <a class="form-submit" href="{{ path("space_show", {id: 1}) }}">Voir l'annonce</a>
+                        <a class="form-submit" href="{{ path("space_edit", {id: 1}) }}">Modifier l'annonce</a>
+                    </div>
+                </li>
+                <li class="user_index-location-li">
+                    <p>{{ "Salle de conférence" }}</p>
+                    <div>
+                        <a class="form-submit" href="{{ path("space_show", {id: 1}) }}">Voir l'annonce</a>
+                        <a class="form-submit" href="{{ path("space_edit", {id: 1}) }}">Modifier l'annonce</a>
+                    </div>
+                </li>
+            </ul>
+            {%if app.user.spaces is not empty %}
+                <h3>Mes locations :</h3>
+            {% endif %}
+            <ul class="user_index-location-ul">
+            {% for space in app.user.spaces %}
+                <li class="user_index-location-li">
+                    <p>{{ "Nom de l'annonce :" ~ " " ~ space.name }}</p>
+                    <div>
+                        <a class="form-submit" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
+                        <a class="form-submit" href="{{ path("space_edit", {id: space.id}) }}">Modifier l'annonce</a>
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endblock %}
 

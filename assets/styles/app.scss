@@ -531,17 +531,47 @@ input[type=submit],
 }
 /* PROFILE */
 
-.user-index-container {
-    display: flex;
+.user_index-h1 {
     text-align: center;
-    flex-direction: column;
-    font-weight: bolder;
+    background-color: $color-cerise;
+    margin: initial;
+    padding: 1rem 0;
+    color: $color-white;
 }
 
-.user-index-avatar {
-    img {
-        margin-top: 1rem;
-        box-shadow: 10px 10px 5px #ccc;
-        max-width: 200px;
+.user_index-container {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.user_index-avatar {
+    margin-top: 1rem;
+    border: 1px solid $color-cerise;
+    box-shadow: 10px 10px 5px rgb(196, 154, 154);
+    width: 100px;
+    height: 100px;
+    align-self: center;
+}
+
+.user_index-location-li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    p {
+        text-align: center;
     }
+
+    div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+.user_index-location h3 {
+    margin-top: 2rem;
+    margin-left: 2rem;
 }
