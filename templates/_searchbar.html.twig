@@ -1,5 +1,7 @@
 <form action="{{ path('space_search') }}" method="get" class="form-search">
-<input type="text" placeholder="Ou souhaitez-vous travailler ?" name="location" value="{{ location ?? '' }}">
+<div class="autoComplete_wrapper">
+<input type="text" id="autoComplete" placeholder="Ou souhaitez-vous travailler ?" name="location" value="{{ location ?? '' }}">
+</div>
 <button class="btn form-submit">
     Chercher
 </button>
