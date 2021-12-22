@@ -582,19 +582,84 @@ input[type=submit],
     text-decoration: none;
     color: black;
 }
-/* PROFILE */
 
-.user-index-container {
-    display: flex;
+/* START USER INDEX */
+
+.user_index-h1 {
     text-align: center;
-    flex-direction: column;
-    font-weight: bolder;
+    background-color: $color-cerise;
+    margin: initial;
+    padding: 1rem 0;
+    color: $color-white;
 }
 
-.user-index-avatar {
-    img {
-        margin-top: 1rem;
-        box-shadow: 10px 10px 5px #ccc;
-        max-width: 200px;
-    }
+.user_index-container {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
+
+.user_index-avatar {
+    margin-top: 1rem;
+    border: 1px solid $color-cerise;
+    box-shadow: 10px 10px 5px rgb(196, 154, 154);
+    width: 100px;
+    height: 100px;
+    align-self: center;
+}
+
+.user_index-location-li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.user_index-location-li p {
+    text-align: center;
+}
+
+.user_index-location-li div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.user_index-location h3 {
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+
+.user_index-submit {
+    background-color: $color-cerise;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* END USER INDEX */
+
+/* START USER EDIT */
+
+.user_edit-h1 {
+    text-align: center;
+    background-color: $color-cerise;
+    margin: initial;
+    padding: 1rem 0;
+    color: $color-white;
+}
+
+.user_edit-div-form {
+    margin: 1rem;
+}
+
+.user_edit-return {
+    margin: 2rem;
+    text-align: center;
+}
+
+/* END USER EDIT */
