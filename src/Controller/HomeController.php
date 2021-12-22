@@ -21,12 +21,10 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(Request $request, SpaceRepository $spaceRepository): Response
     {
-        $location = $request->query->get('location');
 
-        $spaces = $location ? $spaceRepository->findByLocation($location) : $spaceRepository->findAll();
+        $spaces = $spaceRepository->findBy(array(), null, 2);
 
         return $this->renderForm('home/index.html.twig', [
-            'location' => $location,
             'spaces' => $spaces,
             'categories' => self::CATEGORIES
         ]);
