@@ -110,18 +110,18 @@ body {
 .logo-title {
     font-family: $fontLogo;
     color: $color-white;
+
     h1 {
        
         margin: 0;
     }
+
     h2{
         font-size: 1em;
         margin: 0;  
         letter-spacing: 0.7rem;
     }
-   
-
-}
+   }
    
 .form-search {
     margin: 2rem 0 1rem 0;
@@ -132,6 +132,7 @@ body {
     /* Rounded borders */
     box-sizing: border-box;
     /* Make sure that padding and width stays in place */
+
     .search-bar{
         margin: 0;
         border-radius: 20px 0 0 20px;
@@ -499,7 +500,6 @@ input[type=submit],
 /* END NEW SPACE */
 
 /* START SPACE_SEARCH */
-
 .search{
     text-align: center;
     background-color: $color-cerise;
