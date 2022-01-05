@@ -313,6 +313,98 @@ p.p-flex {
 
 /* END FLEX OFFICE */
 
+/* START TESTIMONY */
+.testimony {
+    text-align: center;
+}
+
+.testimony-title {
+    font-family:  $fontBodini;
+    font-size: 1.5rem;
+    color: $color-cerise;
+    margin-bottom: 0.5rem;
+}
+
+.testimony-text {
+    margin: 0 4rem;
+    font-family: $fontWorkSans;
+
+}
+
+.marks-image-top {
+    text-align: left;
+}
+
+.p-testimony {
+    margin: 0.2rem;
+}
+
+.marks-image-bottom {
+    text-align: right;
+}
+
+.autor-image-crop {
+    border-radius: 100%;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    height: 10vh;
+    width: 10vh;
+}
+
+.florence {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+}
+
+.autor-name {
+    font-family: $fontWorkSans;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.autor-info {
+    font-family: $fontWorkSans;
+    font-weight: 200;
+    margin: 0;
+}
+
+/* END TESTIMONY */
+
+/* START PARTNER */
+
+.partner {
+    text-align: center;
+    background-color: $color-cerise;
+    font-family: $fontWorkSans;
+    margin-top: 3rem;
+    padding:1rem 0;
+}
+
+.partner-title {
+    font-weight: 300;
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    color: $color-white;
+}
+
+.partner-logos {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 0.5rem;
+}
+
+.partner-text{
+    color: $color-white;
+    margin: 0 2rem;
+    padding: 1rem 0;
+}
+/* END PARTNER */
+
+
 /* END SPACE_INDEX */
 
 /* END HOME_INDEX */
