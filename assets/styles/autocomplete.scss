@@ -29,13 +29,13 @@
 }
 
 .autoComplete_wrapper>input::placeholder {
-    color: rgba(255, 122, 122, 0.5);
+    color: dimgray;
     transition: all 0.3s ease;
     -webkit-transition: all -webkit-transform 0.3s ease;
 }
 
 .autoComplete_wrapper>input:hover::placeholder {
-    color: rgba(255, 122, 122, 0.6);
+    color: black;
     transition: all 0.3s ease;
     -webkit-transition: all -webkit-transform 0.3s ease;
 }
@@ -43,7 +43,7 @@
 .autoComplete_wrapper>input:focus::placeholder {
     padding: 0.1rem 0.6rem;
     font-size: 0.95rem;
-    color: rgba(255, 122, 122, 0.4);
+    color: dimgray;
 }
 
 .autoComplete_wrapper>input:focus::selection {
@@ -55,13 +55,13 @@
 }
 
 .autoComplete_wrapper>input:hover {
-    color: rgba(255, 122, 122, 0.8);
+    color: black;
     transition: all 0.3s ease;
     -webkit-transition: all -webkit-transform 0.3s ease;
 }
 
 .autoComplete_wrapper>input:focus {
-    color: #ff7a7a;
+    color: black;
     border: 0.06rem solid rgba(255, 122, 122, 0.8);
 }
 
