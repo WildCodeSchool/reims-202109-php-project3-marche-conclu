@@ -2,6 +2,9 @@ security:
     password_hashers:
         App\Entity\User:
             algorithm: auto
+    role_hierarchy:
+        ROLE_CONTRIBUTOR: ROLE_USER
+        ROLE_ADMIN: ROLE_CONTRIBUTOR
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:

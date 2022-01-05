@@ -28,32 +28,6 @@
             <a class="user_index-submit" href="{{ path('app_logout') }}">Deconnexion</a>
         </div>
         <div class="user_index-location">
-            <h3>Mes locations :</h3>
-            {# ul pour affichage de location a supprimer ensuite #}
-            <ul class="user_index-location-ul">
-                <li class="user_index-location-li">
-                    <p>{{ "Bureau rue de st-brice" }}</p>
-                    <div>
-                        <a class="user_index-submit" href="{{ path("space_show", {id: 1}) }}">Voir l'annonce</a>
-                        <a class="user_index-submit" href="{{ path("space_edit", {id: 1}) }}">Modifier l'annonce</a>
-                    </div>
-                </li>
-                <li class="user_index-location-li">
-                    <p>{{ "Bureau du coin de la rue" }}</p>
-                    <div>
-                        <a class="user_index-submit" href="{{ path("space_show", {id: 1}) }}">Voir l'annonce</a>
-                        <a class="user_index-submit" href="{{ path("space_edit", {id: 1}) }}">Modifier l'annonce</a>
-                    </div>
-                </li>
-                <li class="user_index-location-li">
-                    <p>{{ "Salle de conférence" }}</p>
-                    <div>
-                        <a class="user_index-submit" href="{{ path("space_show", {id: 1}) }}">Voir l'annonce</a>
-                        <a class="user_index-submit" href="{{ path("space_edit", {id: 1}) }}">Modifier l'annonce</a>
-                    </div>
-                </li>
-            </ul>
-            {# fin ul pour affichage de location a supprimer ensuite #}
             {%if app.user.spaces is not empty %}
                 <h3>Mes locations :</h3>
             {% endif %}
