@@ -27,7 +27,7 @@ class SlotFixtures extends Fixture implements DependentFixtureInterface
                 )
             );
             $slot->setSpace($this->getReference('Espace ' . rand(1, 30)));
-
+            $slot->setOwner($this->getReference('user_David@email.com'));
             $manager->persist($slot);
         }
 
