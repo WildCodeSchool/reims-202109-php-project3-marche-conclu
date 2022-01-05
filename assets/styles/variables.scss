@@ -1,21 +1,11 @@
-@font-face {
-    font-family: 'BodiniLight';
-    src: url('../fonts/Becker Bodoni Light Regular.ttf');
-}
+@import 'https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700;800;900&family=Work+Sans:ital,wght@0,100;0,900;1,700;1,800&display=swap';
 
-@font-face {
-    font-family: 'Bodini';
-    src: url('../fonts/Bodoni Becker Regular.ttf');
-}
 
-@font-face {
-    font-family: 'WorkSans';
-    src: url('../fonts/WorkSans-VariableFont_wght.ttf');
-}
 
-$fontLogo: BodiniLight; 
-$fontBodini: Bodini; 
-$fontWorkSans: WorkSans; 
+$fontLogo: Bodoni Moda; 
+$fontBodini: Bodoni Moda; 
+$fontWorkSans: Work Sans; 
 
 $color-white: #FAFAFA;
 $color-burgundy: #BD1110;
