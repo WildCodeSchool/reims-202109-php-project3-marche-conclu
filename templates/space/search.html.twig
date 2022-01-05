@@ -1,30 +1,49 @@
 {% extends 'base.html.twig' %}
-{% block body %}
-{% include '_searchbar.html.twig' %}
-{% if spaces %}
-<p>{{ spaces|length }} espaces trouvés</p>
-    {% for space in spaces %}
-      <figure class="offer">
-          <img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" alt="Marché Conclu" />
-          <figcaption class="text-offer">
-            <div class="card-border card-content-up cardcontent">
-                <div class="spacecategory card-content-up">{{ space.category }} <span class="point">·</span></div>
-                <div class="spacecapacity card-content-up">{{ space.capacity }} places <span class="point">·</span></div>
-                <div class="spacesurface card-content-up">{{ space.surface }} m²</div>
-            </div>
-            <div class="spacelocation card-content-down">{{ space.location }}</div>
-            <div id="price">
-              <div class="spaceprice">
-                <span id="spanprice">{{ random(50, 250) }} €</span>
-                <span id="spanpriceday"> / jour</span>
-              </div>
-              <a class="form-submit" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
-            </div>
-          </figcaption>
-      </figure>
-    {% endfor %}
-</div>
-{% else %}
-<p> Aucun espace trouvé </p>
-{% endif %}
+{% block title %}Trouvez votre espace de travail
 {% endblock %}
+{% block body %}
+	<div class="search">
+		{% include "_logoTitle.html.twig" %}
+		<p>Que recherchez - vous ?</p>
+		{% include '_searchbar.html.twig' %}
+		<button class="btn-filter">Filtres</button>
+	</div>
+
+
+	{% if spaces %}
+		<p>{{ spaces|length }}
+			espaces trouvés</p>
+		{% for space in spaces %}
+			<figure class="offer">
+				<img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" alt="Marché Conclu"/>
+				<figcaption class="text-offer">
+					<div class="card-border card-content-up cardcontent">
+						<div class="spacecategory card-content-up">{{ space.category }}
+							<span class="point">·</span>
+						</div>
+						<div class="spacecapacity card-content-up">{{ space.capacity }}
+							places
+							<span class="point">·</span>
+						</div>
+						<div class="spacesurface card-content-up">{{ space.surface }}
+							m²</div>
+					</div>
+					<div class="spacelocation card-content-down">{{ space.location }}</div>
+					<div id="price">
+						<div class="spaceprice">
+							<span id="spanprice">{{ random(50, 250) }}
+								€</span>
+							<span id="spanpriceday">
+								/ jour</span>
+						</div>
+						<a class="form-submit" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
+					</div>
+				</figcaption>
+			</figure>
+		{% endfor %}
+	</div>
+{% else %}
+	<p>
+		Aucun espace trouvé
+	</p>
+{% endif %}{% endblock %}

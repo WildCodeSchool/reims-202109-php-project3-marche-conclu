@@ -2,75 +2,68 @@
 {% block body %}
 	<header class="header-home">
 		<img class="logo" src="{{ asset('build/images/logo.png') }}" width="60" alt="Marché Conclu"/>
-		<p class="logo-title">
-			Marché
-			<br>
-			C O N C L U
-		</p>
-{% include '_searchbar.html.twig' %}
-		</form>
-	</header>
-	<div class="space-pitch">
-		<p>
-			Un accélérateur de business,
-			<br>
-			créé par vous, pour vous.
-		</p>
-	</div>
-	<div class="carousel">
-		{% for category in categories %}
-			<div class="carousel-item{{ loop.index0 == 0 ? ' carousel-item-visible' : '' }}">
-				<img src="{{ asset('build/images/' ~ category|lower|replace({' ': '', '-': ''}) ~ '.jpg') }}" alt="{{ category|lower }}"/>
-				<a href="#">
-					<div class="texte-center">
-						<p>{{ category }}</p>
-					</div>
-				</a>
-			</div>
-
-		{% endfor %}
-		<div class="carousel-actions">
-			<button id="carousel-button-prev" aria-label="Previous"><</button>
-			<button id="carousel-button-next"aria-label="Next">></button>
+		{% include "_logoTitle.html.twig" %}
+		{% include '_searchbar.html.twig' %}
+	</form>
+</header>
+<div class="space-pitch">
+	<p>
+		Un accélérateur de business,
+		<br>
+		créé par vous, pour vous.
+	</p>
+</div>
+<div class="carousel">
+	{% for category in categories %}
+		<div class="carousel-item{{ loop.index0 == 0 ? ' carousel-item-visible' : '' }}">
+			<img src="{{ asset('build/images/' ~ category|lower|replace({' ': '', '-': ''}) ~ '.jpg') }}" alt="{{ category|lower }}"/>
+			<a href="#">
+				<div class="texte-center">
+					<p>{{ category }}</p>
+				</div>
+			</a>
 		</div>
-	</div>
-	<div>
-		<h3 class="premium-title">Annonces premium</h3>
-		{% for space in spaces %}
-			<figure class="offer">
-				<img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" alt="Marché Conclu"/>
-				<figcaption class="text-offer">
-					<div class="card-border card-content-up cardcontent">
-						<div class="spacecategory card-content-up">{{ space.category }}
-							<span class="point">·</span>
-						</div>
-						<div class="spacecapacity card-content-up">{{ space.capacity }}
-							places
-							<span class="point">·</span>
-						</div>
-						<div class="spacesurface card-content-up">{{ space.surface }}
-							m²</div>
-					</div>
-					<div class="spacelocation card-content-down">{{ space.location }}</div>
-					<div id="price">
-						<div class="spaceprice">
-							<span id="spanprice">{{ random(50, 250) }}
-								€</span>
-							<span id="spanpriceday">
-								/ jour</span>
-						</div>
-						<a class="form-submit" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
-					</div>
-				</figcaption>
-			</figure>
-		{% endfor %}
-	</div>
-	<div class="flex-office" >
-		<h3 class="flex-subtitle">Découvrez</h3>
-		<h2 class="flex-title">Le flex office</h2>
-		<img src="{{ asset('build/images/flexoffice.png') }}" alt="flexoffice"/>
-		<h3 class="p-title">Trouvez votre bureau partout</h3>
-		<p>Une solution pour tous vos besoins qui s’adapte en fonction de l’évolution de votre business</p>
-	</div>
 
-{% endblock %}
+	{% endfor %}
+	<div class="carousel-actions">
+		<button id="carousel-button-prev" aria-label="Previous"><</button><buttonid="carousel-button-next"aria-label="Next">></button>
+	</div>
+</div>
+<div>
+	<h3 class="premium-title">Annonces premium</h3>
+	{% for space in spaces %}
+		<figure class="offer">
+			<img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" alt="Marché Conclu"/>
+			<figcaption class="text-offer">
+				<div class="card-border card-content-up cardcontent">
+					<div class="spacecategory card-content-up">{{ space.category }}
+						<span class="point">·</span>
+					</div>
+					<div class="spacecapacity card-content-up">{{ space.capacity }}
+						places
+						<span class="point">·</span>
+					</div>
+					<div class="spacesurface card-content-up">{{ space.surface }}
+						m²</div>
+				</div>
+				<div class="spacelocation card-content-down">{{ space.location }}</div>
+				<div id="price">
+					<div class="spaceprice">
+						<span id="spanprice">{{ random(50, 250) }}
+							€</span>
+						<span id="spanpriceday">
+							/ jour</span>
+					</div>
+					<a class="form-submit" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
+				</div>
+			</figcaption>
+		</figure>
+	{% endfor %}
+</div>
+<div class="flex-office">
+	<h3 class="flex-subtitle">Découvrez</h3>
+	<h2 class="flex-title">Le flex office</h2>
+	<img src="{{ asset('build/images/flexoffice.png') }}" alt="flexoffice"/>
+	<h3 class="p-title">Trouvez votre bureau partout</h3>
+	<p>Une solution pour tous vos besoins qui s’adapte en fonction de l’évolution de votre business</p>
+</div>{% endblock %}

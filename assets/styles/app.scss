@@ -94,9 +94,8 @@ body {
 /* END NAVBAR */
 
 .header-home {
-    font-family: $fontAbhaya;
     color: $color-white;
-    padding: 1rem 0;
+    padding: 3rem 3rem 2rem 3rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -105,30 +104,46 @@ body {
     background-image: url("/assets/images/header.png");
     background-size: cover;
     background-repeat: no-repeat;
-    font-size: 1.5rem;
     text-shadow: 1px 1px 1px #534f4c;
 }
 
 .logo-title {
+    font-family: $fontLogo;
     color: $color-white;
-    margin: 0;
-}
 
+    h1 {
+       
+        margin: 0;
+    }
+
+    h2{
+        font-size: 1em;
+        margin: 0;  
+        letter-spacing: 0.7rem;
+    }
+}
+  
 
 .form-search {
-    padding-left: 5rem;
-    padding-right: 5rem;
+    margin: 2rem 0 1rem 0;
+    display: flex;
+    flex-direction: row;
     text-align: center;
     border-radius: 4px;
     /* Rounded borders */
     box-sizing: border-box;
     /* Make sure that padding and width stays in place */
+
+    .search-bar{
+        margin: 0;
+        border-radius: 20px 0 0 20px;
+    }
 }
 
 .space-pitch {
     padding: 1rem 0 2rem;
     font-size: 1.3rem;
-    font-family: $fontAbhaya;
+    font-family: $fontLogo;
     text-align: center;
     color: $color-burgundy;
 }
@@ -136,7 +151,7 @@ body {
 .premium-title {
     margin-top: 3rem;
     font-size: 1.3rem;
-    font-family: $fontAbhaya;
+    font-family: $fontLogo;
     text-align: center;
     color: $color-burgundy;
 }
@@ -310,9 +325,11 @@ input[type=submit],
 .form-submit {
     background-color: $color-burgundy;
     color: white;
-    padding: 12px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    border-radius: 0 20px 20px 0;
+    padding: 10px;
+    box-shadow: 0px 1px 3px #535353;
     cursor: pointer;
     text-decoration: none;
 }
@@ -364,7 +381,7 @@ input[type=submit],
     margin: 0;
     padding-top: 1.5rem;
     text-align: center;
-    font-family: $fontBodiniLight;
+    font-family: $fontLogo;
     font-size: 3rem;
     color: $color-white;
     line-height: 1.5rem;
@@ -387,7 +404,7 @@ input[type=submit],
     margin-top: 7rem;
     display: flex;
     justify-content: center;
-    font-family: $fontBodiniLight;
+    font-family: $fontLogo;
     color: $color-white;
 }
 
@@ -398,7 +415,7 @@ input[type=submit],
     border-radius: 1rem;
     height: auto;
     background-color: $color-white;
-    font-family: $fontBodiniLight;
+    font-family: $fontLogo;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -438,7 +455,7 @@ input[type=submit],
     margin: 0;
     padding-top: 1.5rem;
     text-align: center;
-    font-family: $fontBodiniLight;
+    font-family: $fontLogo;
     font-size: 3rem;
     color: $color-white;
     line-height: 1.5rem;
@@ -449,7 +466,7 @@ input[type=submit],
     margin-top: 1rem;
     display: flex;
     justify-content: center;
-    font-family: $fontBodiniLight;
+    font-family: $fontLogo;
     color: $color-white;
 }
 
@@ -460,7 +477,7 @@ input[type=submit],
     border-radius: 1rem;
     height: auto;
     background-color: $color-white;
-    font-family: $fontBodiniLight;
+    font-family: $fontLogo;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -483,30 +500,25 @@ input[type=submit],
 
 /* END NEW SPACE */
 
-/* START SPACE_INDEX */
-
-.search {
+/* START SPACE_SEARCH */
+.search{
+    text-align: center;
     background-color: $color-cerise;
-}
-
-.search-header {
-    padding-top: 2rem;
+    padding: 4rem 3rem 2rem 3rem;
     color: $color-white;
     letter-spacing: 2px;
 }
 
-.search-header-h2 {
-    font-family: $fontBodiniLight;
+.search p{
+    font-family: $fontWorkSans;
 }
 
-.search-header-market {
-    margin: 0;
-    font-size: xx-large;
-    font-weight: lighter;
-    letter-spacing: 2px;
+.btn-filter{
+    margin-top: 1rem;
 }
 
-.search-criteria {
+
+.show-search {
     background-color: $color-white;
     border: $color-grey;
     border-radius: 20px;
@@ -525,7 +537,7 @@ input[type=submit],
     margin: 0;
     padding-top: 1.5rem;
     text-align: center;
-    font-family: $fontBodiniLight;
+    font-family: $fontLogo;
     font-size: 3rem;
     color: $color-white;
     line-height: 1.5rem;
@@ -548,7 +560,7 @@ input[type=submit],
     margin-top: 7rem;
     display: flex;
     justify-content: center;
-    font-family: $fontBodiniLight;
+    font-family: $fontLogo;
     color: $color-white;
 }
 
@@ -559,7 +571,7 @@ input[type=submit],
     border-radius: 1rem;
     height: auto;
     background-color: $color-white;
-    font-family: $fontBodiniLight;
+    font-family: $fontLogo;
     display: flex;
     flex-direction: column;
     justify-content: center;
