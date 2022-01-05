@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "variables.scss";
 @import "carousel.scss";
 @import "autocomplete.scss";
@@ -6,6 +7,15 @@ body {
     margin: 0;
     padding: 0;
     padding-bottom: 5rem;
+=======
+@import 'variables.scss';
+body {
+    margin: 0;
+    background-color: $color-white;
+    color: $color-grey;
+    font-family: Abhaya;
+    font-size: 24px;
+>>>>>>> 0513924b2104445ed92cb8cc0091c8fa455a3433
 }
 
 /* START NAVBAR */
@@ -243,6 +253,7 @@ body {
     }
 }
 
+<<<<<<< HEAD
 .card-content-up {
     font-weight: bold;
     padding-bottom: 0.5rem;
@@ -386,6 +397,9 @@ p.p-flex {
 /* START PARTNER */
 
 .partner {
+=======
+.header-text {
+>>>>>>> 0513924b2104445ed92cb8cc0091c8fa455a3433
     text-align: center;
     background-color: $color-cerise;
     font-family: $fontWorkSans;
