@@ -49,8 +49,12 @@ class UserType extends AbstractType
             ])
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
-            ->add('avatar', TextType::class)
-            ->add('company', TextType::class);
+            ->add('avatar', TextType::class, [
+                'required' => false,
+            ])
+            ->add('company', TextType::class, [
+                'required' => false,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
