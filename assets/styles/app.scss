@@ -358,12 +358,14 @@ p.p-flex {
     height: 10vh;
     width: 10vh;
 }
+
 .florence {
     display: inline;
     margin: 0 auto;
     height: 100%;
     width: auto;
 }
+
 .autor-name {
     font-family: $fontWorkSans;
     font-weight: 400;
@@ -381,6 +383,32 @@ p.p-flex {
 
 /* START PARTNER */
 
+.partner {
+    text-align: center;
+    background-color: $color-cerise;
+    font-family: $fontWorkSans;
+    margin-top: 3rem;
+    padding:1rem 0;
+}
+
+.partner-title {
+    font-weight: 300;
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    color: $color-white;
+}
+
+.partner-logos {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 0.5rem;
+}
+
+.partner-text{
+    color: $color-white;
+    margin: 0 2rem;
+    padding: 1rem 0;
+}
 /* END PARTNER */
 
 
