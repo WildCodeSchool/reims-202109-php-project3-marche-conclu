@@ -104,7 +104,7 @@ body {
 }
 
 .logo-title {
-    font-family: $fontLogo;
+    font-family: $fontlogo;
     color: $color-white;
 
     h1 {
@@ -147,7 +147,7 @@ body {
     font-size: 1.3rem;
     font-weight: 300;
     letter-spacing: .1rem;
-    font-family: $fontWorkSans;
+    font-family: $fontworksans;
     text-align: center;
     color: $color-burgundy;
 }
@@ -155,7 +155,7 @@ body {
 .premium-title {
     margin-top: 16rem;
     font-size: 1.3rem;
-    font-family: $fontWorkSans;
+    font-family: $fontworksans;
     font-weight: 400;
     text-align: center;
     color: $color-burgundy;
@@ -284,11 +284,11 @@ body {
     text-align: center;
     border-radius: 2em;
     padding-top: 0.5rem;
-    font-family: $fontWorkSans;
+    font-family: $fontworksans;
 }
 
 h4.flex-subtitle {
-    font-family: $fontWorkSans;
+    font-family: $fontworksans;
     margin-bottom: 0;
     font-size: 0.7rem;
     font-weight: 300;
@@ -296,7 +296,7 @@ h4.flex-subtitle {
 }
 
 h2.flex-title {
-    font-family: $fontBodini;
+    font-family: $fontbodini;
     margin-top: 0.5rem;
     font-size: 2rem;
     font-weight: 600;
@@ -324,7 +324,7 @@ p.p-flex {
 }
 
 .testimony-title {
-    font-family:  $fontBodini;
+    font-family:  $fontbodini;
     font-size: 1.5rem;
     color: $color-cerise;
     margin-bottom: 0.5rem;
@@ -332,7 +332,7 @@ p.p-flex {
 
 .testimony-text {
     margin: 0 4rem;
-    font-family: $fontWorkSans;
+    font-family: $fontworksans;
 
 }
 
@@ -364,14 +364,14 @@ p.p-flex {
 }
 
 .autor-name {
-    font-family: $fontWorkSans;
+    font-family: $fontworksans;
     font-weight: 400;
     letter-spacing: 0.1rem;
     margin-bottom: 0.3rem;
 }
 
 .autor-info {
-    font-family: $fontWorkSans;
+    font-family: $fontworksans;
     font-weight: 200;
     margin: 0;
 }
@@ -383,7 +383,7 @@ p.p-flex {
 .partner {
     text-align: center;
     background-color: $color-cerise;
-    font-family: $fontWorkSans;
+    font-family: $fontworksans;
     margin-top: 3rem;
     padding:1rem 0;
 }
@@ -511,7 +511,7 @@ input[type=submit],
     margin: 0;
     padding-top: 1.5rem;
     text-align: center;
-    font-family: $fontLogo;
+    font-family: $fontlogo;
     font-size: 3rem;
     color: $color-white;
     line-height: 1.5rem;
@@ -534,7 +534,7 @@ input[type=submit],
     margin-top: 7rem;
     display: flex;
     justify-content: center;
-    font-family: $fontLogo;
+    font-family: $fontlogo;
     color: $color-white;
 }
 
@@ -545,7 +545,7 @@ input[type=submit],
     border-radius: 1rem;
     height: auto;
     background-color: $color-white;
-    font-family: $fontLogo;
+    font-family: $fontlogo;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -585,7 +585,7 @@ input[type=submit],
     margin: 0;
     padding-top: 1.5rem;
     text-align: center;
-    font-family: $fontLogo;
+    font-family: $fontlogo;
     font-size: 3rem;
     color: $color-white;
     line-height: 1.5rem;
@@ -596,7 +596,7 @@ input[type=submit],
     margin-top: 1rem;
     display: flex;
     justify-content: center;
-    font-family: $fontLogo;
+    font-family: $fontlogo;
     color: $color-white;
 }
 
@@ -607,7 +607,7 @@ input[type=submit],
     border-radius: 1rem;
     height: auto;
     background-color: $color-white;
-    font-family: $fontLogo;
+    font-family: $fontlogo;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -640,7 +640,7 @@ input[type=submit],
 }
 
 .search p{
-    font-family: $fontWorkSans;
+    font-family: $fontworksans;
 }
 
 .show-search {
