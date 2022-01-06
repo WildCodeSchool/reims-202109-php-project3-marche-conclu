@@ -68,7 +68,7 @@ class SpaceController extends AbstractController
         $spaces = $location ? $spaceRepository->findByLocation($location) : $spaceRepository->findAll();
 
         return $this->renderForm('space/search.html.twig', [
-            'location' => $location, 'spaces' => $spaces, 'categories' => self::CATEGORIES
+            'location' => $location, 'spaces' => $spaces, 'categories' => self::CATEGORIES, 'api' => $_ENV["API_KEY"]
         ]);
     }
 

@@ -26,7 +26,8 @@ class HomeController extends AbstractController
 
         return $this->renderForm('home/index.html.twig', [
             'spaces' => $spaces,
-            'categories' => self::CATEGORIES
+            'categories' => self::CATEGORIES,
+            'api' => $_ENV["API_KEY"]
         ]);
     }
 }
