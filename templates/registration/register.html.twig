@@ -7,7 +7,7 @@
         <h1>Créér un compte</h1>
     </div>
     <div class="user_edit-div-form">
-    {{ form_start(registrationForm, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Mot de passe'
