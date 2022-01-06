@@ -4,6 +4,13 @@
     <div class="user_index-h1">
         <h1>Mes informations</h1>
     </div>
+    {% for category, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
     {% if app.user %}
         <div class="user_index-container">
             {% if app.user.avatar %}
