@@ -1,0 +1,69 @@
+<button class="returnButton" id="myModalBtn" type="submit">{% include "space/_filter_button.html.twig" %}</button>
+
+<div
+	id="myModal" class="modal">
+	<!-- Modal content -->
+	<div class="modal-content">
+		<form class="form-filters">
+			<label for="opt-in">
+				<input type="checkbox" name="my-checkbox" id="opt-in" class="hidden-checkbox">
+				Salle de réunion
+			</label>
+			<label for="opt-in">
+				<input type="checkbox" name="my-checkbox" id="opt-in" class="hidden-checkbox">
+				Co-working
+			</label>
+			<label for="opt-in">
+				<input type="checkbox" name="my-checkbox" id="opt-in" class="hidden-checkbox">
+				Bureau privé
+			</label>
+			<label for="opt-in">
+				<input type="checkbox" name="my-checkbox" id="opt-in" class="hidden-checkbox">
+				Open space
+			</label>
+			<label for="opt-in">
+				<input type="checkbox" name="my-checkbox" id="opt-in" class="hidden-checkbox">
+				Espace de stockage
+			</label>
+			<label for="opt-in">
+				<input type="checkbox" name="my-checkbox" id="opt-in" class="hidden-checkbox">
+				Plateaux vides
+			</label>
+
+			<label for="range">Prix</label>
+			<input type="range" id="range" name="price" min="10" max="1500" step="10">
+
+			<label for="range">Surface</label>
+			<input type="range" id="range" name="surface" min="5" max="1000" step="10">
+
+			<label for="start">Dates</label>
+			<input type="date" id="start" name="date" value="2022-01-15" min="2021-01-05" max="2024-12-31">
+
+			<button class="closeSearch" type="submit">
+				Chercher
+			</button>
+		</form>
+	</div>
+</div>
+<script>
+	// Get the modal
+var modal = document.getElementById("myModal");
+// Get the button that opens the modal
+var btn = document.getElementById("myModalBtn");
+// Get the button closeSearch element that closes the modal
+var closeSearch = document.getElementsByClassName("closeSearch")[0];
+// When the user clicks the button, open the modal
+btn.onclick = function () {
+modal.style.display = "block";
+}
+// When the user clicks on rechercher(x), close the modal
+closeSearch.onclick = function () {
+modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+if (event.target == modal) {
+modal.style.display = "none";
+}
+}
+</script>
