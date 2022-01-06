@@ -6,8 +6,9 @@
 
 // Search Bar
 
-.pac-container:after, .pac-icon {
+.pac-container:after,
+.pac-icon 
+{
     content: none !important;
     visibility: hidden;
 }
-
