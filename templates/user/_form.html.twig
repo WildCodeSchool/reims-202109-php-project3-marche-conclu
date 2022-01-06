@@ -1,4 +1,20 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div>
+    {% if not form.vars.valid %}
+        <div class="alert alert-error">
+            {{ form_errors(form) }}
+        </div>
+    {% endif %}
+</div>
+<div class="user_edit-div-form">
+    {{ form_start(form) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.plainPassword) }}
+    {{ form_row(form.firstname) }}
+    {{ form_row(form.lastname) }}
+    {{ form_row(form.avatar) }}
+    {{ form_row(form.company) }}
+
+    <button type="submit" class="btn">Enregistrer</button>
 {{ form_end(form) }}
+</div>
+
