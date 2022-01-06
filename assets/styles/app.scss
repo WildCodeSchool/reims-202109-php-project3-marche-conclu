@@ -132,7 +132,7 @@ body {
   
 
 .form-search {
-    margin: 2rem 0 1rem 0;
+    margin: 1rem 0 1rem 0;
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -639,7 +639,7 @@ input[type=submit],
 .search{
     text-align: center;
     background-color: $color-cerise;
-    padding: 4rem 3rem 2rem 3rem;
+    padding: 4rem 2rem 2rem 2rem;
     color: $color-white;
     letter-spacing: 2px;
 }
@@ -686,6 +686,16 @@ input[type=checkbox], input[type=range]{
     margin-top: 6px; /* Add a top margin */
     margin-bottom: 16px; /* Bottom margin */
 }
+
+.filter-button {
+    height: 2rem;
+}
+
+.searchbar-and-filter {
+    display: flex;
+    align-items: center;
+}
+
 
 /* LOGIN/REGISTER PAGE */
 .login-body {
@@ -858,6 +868,7 @@ input[type=checkbox], input[type=range]{
     padding:1rem;
     border: 1px solid #888;
     box-shadow: gray;
+    margin: 1rem;
   }
 
 /* The closeSearch Button */
@@ -876,5 +887,10 @@ input[type=checkbox], input[type=range]{
   }
 
 .returnButton{
-    width: 70%;
-  }
+    height: 100%;
+    margin-left: 1rem;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+}
