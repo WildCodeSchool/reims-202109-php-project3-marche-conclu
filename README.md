@@ -44,7 +44,7 @@ It's symfony website-skeleton project with some additional library (webpack, fix
 2. Run `php ./vendor/bin/phpstan analyse src --level max` to launch PHPStan
 3. Run `php ./vendor/bin/phpmd src text phpmd.xml` to launch PHP Mess Detector
 3. Run `./node_modules/.bin/eslint assets/js` to launch ESLint JS linter
-3. Run `../node_modules/.bin/sass-lint -c sass-linter.yml -v` to launch Sass-lint SASS/CSS linter
+3. Run `./node_modules/.bin/sass-lint -c sass-linter.yml -v` to launch Sass-lint SASS/CSS linter
 
 ### Windows Users
 

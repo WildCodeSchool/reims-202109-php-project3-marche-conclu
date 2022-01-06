@@ -648,11 +648,6 @@ input[type=submit],
     font-family: $fontWorkSans;
 }
 
-.btn-filter{
-    margin-top: 1rem;
-}
-
-
 .show-search {
     background-color: $color-white;
     border: $color-grey;
@@ -661,7 +656,36 @@ input[type=submit],
     height: 80vh;
 }
 
+.search-container{
+    display: flex;
+}
 
+.filters {
+    z-index: 3;
+    width: 90%;
+    border-radius: 20px;
+    position: absolute;
+    top: 40%;
+    background: yellow;
+}
+
+.form-filters{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: stretch;
+}
+
+input[type=checkbox], input[type=range]{
+    background-color: rgba(224, 224, 224, 0.87);
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+}
 
 /* LOGIN/REGISTER PAGE */
 .login-body {
@@ -815,3 +839,42 @@ input[type=submit],
 }
 
 /* END USER EDIT */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /*Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /*Black w/ opacity */
+  }
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: $color-grey;
+    padding:1rem;
+    border: 1px solid #888;
+    box-shadow: gray;
+  }
+
+/* The closeSearch Button */
+.closeSearch {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+.closeSearch:hover,
+.closeSearch:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+.returnButton{
+    width: 70%;
+  }
