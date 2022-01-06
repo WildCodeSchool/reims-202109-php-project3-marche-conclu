@@ -91,16 +91,16 @@ body {
 
 .header-home {
     align-items: center;
-    background-image: url("/assets/images/header.png");
+    background-image: url('/assets/images/header.png');
     background-repeat: no-repeat;
     background-size: cover;
     color: $color-white;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding: 3rem 3rem 2rem 3rem;
+    padding: 3rem 3rem 2rem;
     text-align: center;
-    text-shadow: 1px 1px 1px #534f4c;
+    text-shadow: 1px 1px 1px $color-light-grey;
 }
 
 .logo-title {
@@ -116,25 +116,24 @@ body {
 
     }
 
-    h2{
+    h2 {
         font-size: .7em;
-        font-weight: 400; 
+        font-weight: 400;
         letter-spacing: .7rem;
-        margin: 0; 
+        margin: 0;
         margin-right: -.7rem;
     }
 }
-  
 
 .form-search {
-    display: flex;
     border-radius: 4px; // Rounded borders
     box-sizing: border-box; // Make sure that padding and width stays in place
+    display: flex;
     flex-direction: row;
-    margin: 1rem 0 1rem 0;
+    margin: 1rem 0;
     text-align: center;
 
-    .search-bar{
+    .search-bar {
         border-radius: 20px 0 0 20px;
         margin: 0;
     }
@@ -152,11 +151,11 @@ body {
 
 .premium-title {
     color: $color-burgundy;
-    text-align: center;
     font-family: $fontworksans;
     font-size: 1.3rem;
     font-weight: 400;
     margin-top: 16rem;
+    text-align: center;
 }
 
 // START HOME_INDEX
@@ -185,7 +184,7 @@ body {
 }
 
 .show-title {
-    color: grey;
+    color: $color-grey;
     float: left;
     font-family: 'Work Sans', sans-serif;
     font-size: .8rem;
@@ -194,8 +193,8 @@ body {
 
 .cardcontent {
     font-family: 'Work Sans', sans-serif;
-    font-weight: 100;
     font-size: .75rem;
+    font-weight: 100;
     list-style-type: none;
     padding-left: 1rem;
 }
@@ -232,15 +231,15 @@ body {
     font-size: 1rem;
 
     span {
-        padding: 0 .2rem;
         font-weight: bolder;
+        padding: 0 .2rem;
     }
 }
 
 .card-content-up {
     font-weight: bold;
-    padding-bottom: .5rem;
     margin-top: .5rem;
+    padding-bottom: .5rem;
 }
 
 .card-content-down {
@@ -248,12 +247,12 @@ body {
 }
 
 .spaceprice {
-    margin-top: 1rem;
     list-style: none;
+    margin-top: 1rem;
 }
 
 #price {
-    border-top: .5px solid #eee;
+    border-top: .5px solid $color-white;
     display: flex;
     justify-content: space-between;
     margin: 1rem;
@@ -279,7 +278,7 @@ body {
 // START FLEX OFFICE
 
 .flex-office {
-    background-color: #E0C2C2;
+    background-color: $color-light-red;
     border-radius: 2em;
     font-family: $fontworksans;
     padding-top: .5rem;
@@ -321,9 +320,9 @@ p.p-flex {
 }
 
 .testimony-title {
+    color: $color-cerise;
     font-family:  $fontbodini;
     font-size: 1.5rem;
-    color: $color-cerise;
     margin-bottom: .5rem;
 }
 
@@ -380,14 +379,14 @@ p.p-flex {
     background-color: $color-cerise;
     font-family: $fontworksans;
     margin-top: 3rem;
-    padding:1rem 0;
+    padding: 1rem 0;
     text-align: center;
 }
 
 .partner-title {
     color: $color-white;
-    font-weight: 300;
     font-size: 1.5rem;
+    font-weight: 300;
     letter-spacing: .2rem;
 }
 
@@ -397,7 +396,7 @@ p.p-flex {
     margin: 0 .5rem;
 }
 
-.partner-text{
+.partner-text {
     color: $color-white;
     margin: 0 2rem;
     padding: 1rem 0;
@@ -426,13 +425,18 @@ ul {
 
 // Style inputs with type="text", select elements and textareas
 
-input[type=text], input[type=password],input[type=number], select, textarea, .form-content {
-    background-color: rgba(224, 224, 224, .87);
-    border: 1px solid #ccc; // Gray border
+input[type=text],
+input[type=password],
+input[type=number],
+select,
+textarea,
+.form-content {
+    background-color: $color-white;
+    border: 1px solid $color-light-grey; // Gray border
     border-radius: 4px; // Rounded borders
     box-sizing: border-box; // Make sure that padding and width stays in placewidth: 100%; // Full width
-    margin-top: 6px; // Add a top margin
     margin-bottom: 16px; // Bottom margin
+    margin-top: 6px; // Add a top margin
     padding: 12px; // Some padding 
     resize: vertical // Allow the user to vertically resize the textarea (not horizontally)
 }
@@ -442,10 +446,10 @@ input[type=text], input[type=password],input[type=number], select, textarea, .fo
 input[type=submit],
 .form-submit {
     background-color: $color-burgundy;
-    border: none;
+    border: 0;
     border-radius: 0 20px 20px 0;
-    box-shadow: 0px 1px 3px #535353;
-    color: white;
+    box-shadow: 0px 1px 3px $color-grey;
+    color: $color-white;
     cursor: pointer;
     padding: 10px;
     text-decoration: none;
@@ -455,7 +459,7 @@ input[type=submit],
 // Add a background color and some padding around the form
 
 .container {
-    background-color: #f2f2f2;
+    background-color: $color-white;
     border-radius: 5px;
     padding: 20px;
 }
@@ -473,16 +477,16 @@ input[type=submit],
 }
 
 .show-spaceprice {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid $color-black;
     padding-bottom: 2rem;
     width: 100%;
 }
 
 .space-form-submit {
     background-color: $color-grey;
-    border: none;
+    border: 0;
     border-radius: 4px;
-    color: white;
+    color: $color-white;
     cursor: pointer;
     padding: 12px 20px;
     text-decoration: none;
@@ -494,7 +498,7 @@ input[type=submit],
     height: 92vh;
 }
 
-.login-title{
+.login-title {
     color: $color-white;
     font-family: $fontlogo;
     font-size: 3rem;
@@ -518,8 +522,8 @@ input[type=submit],
 }
 
 .connect-you {
-    display: flex;
     color: $color-white;
+    display: flex;
     font-family: $fontlogo;
     justify-content: center;
     margin-top: 7rem;
@@ -543,8 +547,8 @@ input[type=submit],
     background-color: $color-cerise;
     border-radius: 1rem;
     color: $color-white;
-    padding: 1rem 2rem;
     margin: auto;
+    padding: 1rem 2rem;
     text-align: center;
 }
 
@@ -555,7 +559,7 @@ input[type=submit],
 }
 
 .registeryou {
-    color: black;
+    color: $color-black;
     margin-top: 1rem;
     text-align: center;
     text-decoration: none;
@@ -581,10 +585,10 @@ input[type=submit],
 .create-new-space {
     color: $color-white;
     display: flex;
+    font-family: $fontlogo;
     font-size: 1.5rem;
     justify-content: center;
     margin-top: 1rem;
-    font-family: $fontlogo;
 }
 
 .new-space-form {
@@ -617,15 +621,15 @@ input[type=submit],
 
 // START SPACE_SEARCH
 
-.search{
+.search {
     background-color: $color-cerise;
     color: $color-white;
     letter-spacing: 2px;
-    padding: 4rem 2rem 2rem 2rem;
+    padding: 4rem 2rem 2rem;
     text-align: center;
 }
 
-.search p{
+.search p {
     font-family: $fontworksans;
 }
 
@@ -633,16 +637,16 @@ input[type=submit],
     background-color: $color-white;
     border: $color-grey;
     border-radius: 20px;
-    box-shadow: 2px -6px 10px 0px rgba(0, 0, 0, .84);
+    box-shadow: 2px -6px 10px $color-black-opacity;
     height: 80vh;
 }
 
-.search-container{
+.search-container {
     display: flex;
 }
 
 .filters {
-    background: yellow;
+    background: $color-yellow;
     border-radius: 20px;
     position: absolute;
     top: 40%;
@@ -650,16 +654,17 @@ input[type=submit],
     z-index: 3;
 }
 
-.form-filters{
+.form-filters {
     align-items: stretch;
     display: flex;
     flex-direction: column;
     padding: 1rem;
 }
 
-input[type=checkbox], input[type=range]{
-    background-color: rgba(224, 224, 224, .87);
-    border: 1px solid #ccc; // Gray border
+input[type=checkbox],
+input[type=range] {
+    background-color: $color-white;
+    border: 1px solid $color-light-grey; // Gray border
     border-radius: 4px; // Rounded borders
     box-sizing: border-box; // Make sure that padding and width stays in place
     margin-bottom: 16px; // Bottom margin
@@ -679,7 +684,7 @@ input[type=checkbox], input[type=range]{
 
 // START USER INDEX
 
-.user_index-h1 {
+.user-index-h1 {
     background-color: $color-cerise;
     color: $color-white;
     margin: initial;
@@ -696,12 +701,12 @@ input[type=checkbox], input[type=range]{
 }
 
 .user-index-avatar {
-    margin-top: 1rem;
-    border: 1px solid $color-cerise;
-    box-shadow: 10px 10px 5px rgb(196, 154, 154);
-    width: 100px;
-    height: 100px;
     align-self: center;
+    border: 1px solid $color-cerise;
+    box-shadow: 10px 10px 5px $color-light-red;
+    height: 100px;
+    margin-top: 1rem;
+    width: 100px;
 }
 
 .user-index-location-li {
@@ -727,9 +732,9 @@ input[type=checkbox], input[type=range]{
 
 .user-index-submit {
     background-color: $color-cerise;
-    border: none;
+    border: 0;
     border-radius: 4px;
-    color: white;
+    color: $color-white;
     cursor: pointer;
     padding: 12px 20px;
     text-decoration: none;
@@ -751,7 +756,7 @@ input[type=checkbox], input[type=range]{
     margin: 1rem;
 }
 
-.user_edit-return {
+.user-edit-return {
     margin: 2rem;
     text-align: center;
 }
@@ -759,7 +764,7 @@ input[type=checkbox], input[type=range]{
 // END USER EDIT
 
 .modal {
-    background-color: rgba(0,0,0,.4); // Black w/ opacity
+    background-color: $color-black-opacity; // Black w/ opacity
     display: none; // Hidden by default
     height: 100%; // Full height
     left: 0;
@@ -772,15 +777,15 @@ input[type=checkbox], input[type=range]{
 // Modal Content/Box
 .modal-content {
     background-color: $color-grey;
-    border: 1px solid #888;
-    box-shadow: gray;
+    border: 1px solid $color-light-grey;
+    box-shadow: $color-light-grey;
     margin: 1rem;
     padding: 1rem;
   }
 
 // The close-search Button
 .close-search {
-    color: #aaa;
+    color: $color-black;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -788,15 +793,15 @@ input[type=checkbox], input[type=range]{
 
 .close-search:hover,
 .close-search:focus {
-    color: black;
-    text-decoration: none;
+    color: $color-black;
     cursor: pointer;
+    text-decoration: none;
   }
 
-.return-button{
+.return-button {
     background-color: Transparent;
     background-repeat: no-repeat;
-    border: none;
+    border: 0;
     cursor: pointer;
     height: 100%;
     margin-left: 1rem;
