@@ -4,24 +4,17 @@
     position: relative;
 }
 
-.carousel
-.carousel-item,
-.carousel
-.carousel-item-hidden
-{
+.carousel .carousel-item,
+.carousel .carousel-item-hidden {
     display: none; // hide all slide images not currently being viewed
 }
 
-.carousel
-.carousel-item-visible
-{
+.carousel .carousel-item-visible {
     animation: fadeVisibility 1s; // for fading effect when switching between slides
     display: block; // show current slide image
 }
 
-.carousel
-.carousel-item img
-{
+.carousel .carousel-item img {
     height: 25vh;
     object-fit: cover;
     width: 100%;
@@ -29,9 +22,7 @@
 
 // Navigation control styles
 
-.carousel
-.carousel-actions
-{
+.carousel .carousel-actions {
     display: flex;
     justify-content: space-between; // put space between the navigation buttons
     position: absolute; // position navigation buttons on top
@@ -40,9 +31,7 @@
     width: 100%;
 }
 
-.carousel 
-.carousel-actions button 
-{
+.carousel .carousel-actions button {
     background-color: white;
     border: 0;
     border-radius: 50px;
@@ -53,16 +42,12 @@
     width: 40px;
 }
 
-.carousel 
-.carousel-actions button#carousel-button-prev
-{
+.carousel .carousel-actions button#carousel-button-prev {
     margin-left: 20px; // prevent previous button from touching the side*/
     z-index: -1;
 }
 
-.carousel
-.carousel-actions button#carousel-button-next 
-{
+.carousel.carousel-actions button#carousel-button-next {
     margin-right: 20px;  // prevent next button from touching the side*/
     z-index: -1;
 }
@@ -80,13 +65,13 @@
 }
 
 .texte-center {
+    align-items: center;
+    background-color: $color-cerise;
+    color: $color-white;
     display: flex;
     justify-content: center;
-    align-items: center;
     text-align: center;
-    background-color: $color-cerise;
     text-decoration: none;
-    color: $color-white;
     font-family: $fontworksans;
     font-size: 1.75rem;
     height: 30vh;
