@@ -1,5 +1,5 @@
 <div class="user_edit-div-form">
-    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_start(form) }}
         {% if not form.vars.valid %}
             {{ form_errors(form) }}
         {% endif %}
