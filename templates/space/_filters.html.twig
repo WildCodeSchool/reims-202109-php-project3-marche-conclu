@@ -1,24 +1,23 @@
-<button class="returnButton" id="myModalBtn" type="submit">{% include "space/_filter_button.html.twig" %}</button>
+<span class="returnButton" id="myModalBtn">{% include "space/_filter_button.html.twig" %}</span>
 
 <div
 	id="myModal" class="modal">
 	<!-- Modal content -->
 	<div class="modal-content">
-		<form class="form-filters">
 			<label for="opt-in">
-				<input type="checkbox" name="my-checkbox" id="opt-in" class="hidden-checkbox">
+				<input type="checkbox" name="reunion" id="opt-in" class="hidden-checkbox">
 				Salle de réunion
 			</label>
 			<label for="opt-in">
-				<input type="checkbox" name="my-checkbox" id="opt-in" class="hidden-checkbox">
+				<input type="checkbox" name="coworking" id="opt-in" class="hidden-checkbox">
 				Co-working
 			</label>
 			<label for="opt-in">
-				<input type="checkbox" name="my-checkbox" id="opt-in" class="hidden-checkbox">
+				<input type="checkbox" name="bureauprive" id="opt-in" class="hidden-checkbox">
 				Bureau privé
 			</label>
 			<label for="opt-in">
-				<input type="checkbox" name="my-checkbox" id="opt-in" class="hidden-checkbox">
+				<input type="checkbox" name="opensp" id="opt-in" class="hidden-checkbox">
 				Open space
 			</label>
 			<label for="opt-in">
@@ -42,7 +41,6 @@
 			<button class="closeSearch" type="submit">
 				Chercher
 			</button>
-		</form>
 	</div>
 </div>
 <script>

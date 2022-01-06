@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Space;
+use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -31,7 +32,8 @@ class SpaceType extends AbstractType
                     'Espace fermé' => 'Espace fermé',
                     'Espace bureau' => 'Espace bureau',
                 ],
-            ]);
+            ])
+            ->add('price', IntegerType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

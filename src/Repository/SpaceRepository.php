@@ -22,19 +22,22 @@ class SpaceRepository extends ServiceEntityRepository
     // /**
     //  * @return Space[] Returns an array of Space objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function findByCriterias(array $options): mixed
     {
         return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
+            ->andWhere('s.location = :location')
+            ->andWhere('s.surface > :surface')
+            ->andWhere('s.price < :price')
+            ->setParameter('location', $options['location'] ?? null)
+            ->setParameter('price', $options['price'] ?? 0)
+            ->setParameter('surface', $options['surface'] ?? 0)
             ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
+
         ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Space

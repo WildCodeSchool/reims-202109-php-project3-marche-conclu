@@ -15,7 +15,7 @@
 
 	{% if spaces %}
 		<p>{{ spaces|length }}
-			espaces trouvés</p>
+			espaces trouvés à {{ location }}</p>
 		{% for space in spaces %}
 			<figure class="offer">
 				<img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" alt="Marché Conclu"/>
