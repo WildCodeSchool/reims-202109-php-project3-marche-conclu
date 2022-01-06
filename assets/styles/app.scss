@@ -147,6 +147,10 @@ body {
     }
 }
 
+.spaces-title {
+    text-align: center;
+    margin-top: 1rem;
+}
 .space-pitch {
     padding: 1rem 0 2rem;
     font-size: 1.3rem;
@@ -868,7 +872,6 @@ input[type=checkbox], input[type=range]{
     padding:1rem;
     border: 1px solid #888;
     box-shadow: gray;
-    margin: 1rem;
   }
 
 /* The closeSearch Button */
