@@ -1,4 +1,4 @@
-<button class="returnButton" id="myModalBtn" type="submit">{% include "space/_filter_button.html.twig" %}</button>
+<button class="return-button" id="myModalBtn" type="submit">{% include "space/_filter_button.html.twig" %}</button>
 
 <div
 	id="myModal" class="modal">
@@ -39,7 +39,7 @@
 			<label for="start">Dates</label>
 			<input type="date" id="start" name="date" value="2022-01-15" min="2021-01-05" max="2024-12-31">
 
-			<button class="closeSearch" type="submit">
+			<button class="close-search" type="submit">
 				Chercher
 			</button>
 		</form>
@@ -50,14 +50,14 @@
 var modal = document.getElementById("myModal");
 // Get the button that opens the modal
 var btn = document.getElementById("myModalBtn");
-// Get the button closeSearch element that closes the modal
-var closeSearch = document.getElementsByClassName("closeSearch")[0];
+// Get the button close-search element that closes the modal
+var closesearch = document.getElementsByClassName("close-search")[0];
 // When the user clicks the button, open the modal
 btn.onclick = function () {
 modal.style.display = "block";
 }
 // When the user clicks on rechercher(x), close the modal
-closeSearch.onclick = function () {
+closesearch.onclick = function () {
 modal.style.display = "none";
 }
 // When the user clicks anywhere outside of the modal, close it
