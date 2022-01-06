@@ -6,12 +6,12 @@
 
 .carousel .carousel-item,
 .carousel .carousel-item-hidden {
-    display: none; /* hide all slide images not currently being viewed */
+    display: none; // hide all slide images not currently being viewed
 }
 
 .carousel .carousel-item-visible {
-    display: block; /* show current slide image */
-    animation: fadeVisibility 1s; /* for fading effect when switching between slides */
+    display: block; // show current slide image
+    animation: fadeVisibility 1s; // for fading effect when switching between slides
 }
 
 .carousel .carousel-item img {
@@ -20,14 +20,14 @@
     height: 25vh;
 }
 
-/* Navigation control styles */
+// Navigation control styles
 .carousel .carousel-actions {
     display: flex;
     width: 100%;
-    justify-content: space-between; /* put space between the navigation buttons */
-    position: absolute; /* position navigation buttons on top */
-    top: 50%; /* center navigation buttons on the slide */
-    transform: translateY(200%); /* align navigation buttons */
+    justify-content: space-between; // put space between the navigation buttons
+    position: absolute; // position navigation buttons on top
+    top: 50%; // center navigation buttons on the slide
+    transform: translateY(200%); // align navigation buttons
 }
 
 .carousel .carousel-actions button {
@@ -42,16 +42,16 @@
 }
 
 .carousel .carousel-actions button#carousel-button-prev {
-    margin-left: 20px; /* prevent previous button from touching the side*/
+    margin-left: 20px; // prevent previous button from touching the side*/
     z-index: -1;
 }
 
 .carousel .carousel-actions button#carousel-button-next {
-    margin-right: 20px;  /* prevent next button from touching the side*/
+    margin-right: 20px;  // prevent next button from touching the side*/
     z-index: -1;
 }
 
-/* hanlde smooth transitions between slides */
+// hanlde smooth transitions between slides
 @keyframes fadeVisibility {
     0% {
         opacity: 0;
