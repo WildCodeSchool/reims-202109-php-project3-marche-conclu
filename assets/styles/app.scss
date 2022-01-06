@@ -686,6 +686,7 @@ input[type=checkbox], input[type=range]{
     margin-top: 6px; /* Add a top margin */
     margin-bottom: 16px; /* Bottom margin */
 }
+
 /* LOGIN/REGISTER PAGE */
 .login-body {
     background-color: $color-cerise;
@@ -851,29 +852,29 @@ input[type=checkbox], input[type=range]{
     background-color: rgba(0,0,0,0.4); /*Black w/ opacity */
   }
 
-  /* Modal Content/Box */
-  .modal-content {
+/* Modal Content/Box */
+.modal-content {
     background-color: $color-grey;
     padding:1rem;
     border: 1px solid #888;
     box-shadow: gray;
   }
 
-  /* The closeSearch Button */
-  .closeSearch {
+/* The closeSearch Button */
+.closeSearch {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
   }
 
-  .closeSearch:hover,
-  .closeSearch:focus {
+.closeSearch:hover,
+.closeSearch:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
   }
 
-  .returnButton{
-      width: 70%;
+.returnButton{
+    width: 70%;
   }
