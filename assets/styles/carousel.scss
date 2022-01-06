@@ -72,13 +72,13 @@
     font-family: $fontworksans;
     font-size: 1.75rem;
     height: 30vh;
-    width: 60vw;
     justify-content: center;
+    left: 50%;
+    position: absolute;
     text-align: center;
     text-decoration: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
+    width: 60vw;
+    top: 50%;
     z-index: 1;
   }
