@@ -6,8 +6,8 @@
 
 // Search Bar
 
-.pac-container::after { 
-    .pac-icon {
+.pac-icon {
+    .pac-container::after {
         content: none !important;
         visibility: hidden;
     }
