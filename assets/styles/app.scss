@@ -1,6 +1,7 @@
 @import "variables.scss";
 @import "carousel.scss";
 @import "autocomplete.scss";
+@import "~bootstrap/scss/bootstrap";
 
 body {
     margin: 0;
@@ -149,7 +150,7 @@ body {
 }
 
 .premium-title {
-    margin-top: 3rem;
+    margin-top: 16rem;
     font-size: 1.3rem;
     font-family: $fontLogo;
     text-align: center;

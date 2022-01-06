@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -40,16 +41,22 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setPassword(
-                strval($userPasswordHasher->hashPassword(
-                    $user,
-                    strval($form->get('plainPassword')->getData())
-                )),
-            );
-            $entityManager->persist($user);
-            $entityManager->flush();
+            try {
+                $user->setPassword(
+                    strval($userPasswordHasher->hashPassword(
+                        $user,
+                        strval($form->get('plainPassword')->getData())
+                    )),
+                );
+                $entityManager->persist($user);
+                $entityManager->flush();
 
-            return $this->redirectToRoute('home');
+                $this->addFlash('success', 'Modifications apportées!');
+
+                return $this->redirectToRoute('user_index');
+            } catch (Exception $e) {
+                $this->addFlash('danger', "Les modifications n'ont pas fonctionnées. Veuillez réessayer!");
+            }
         }
 
         return $this->renderForm('user/edit.html.twig', [

@@ -27,7 +27,7 @@
     justify-content: space-between; /* put space between the navigation buttons */
     position: absolute; /* position navigation buttons on top */
     top: 50%; /* center navigation buttons on the slide */
-    transform: translateY(-50%); /* align navigation buttons */
+    transform: translateY(200%); /* align navigation buttons */
 }
 
 .carousel .carousel-actions button {

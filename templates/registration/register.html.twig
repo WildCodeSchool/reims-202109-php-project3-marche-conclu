@@ -6,15 +6,8 @@
     <div class="user_edit-h1">
         <h1>Créér un compte</h1>
     </div>
-    <div>
-        {% if not registrationForm.vars.valid %}
-            <div class="alert alert-error">
-                {{ form_errors(registrationForm) }}
-            </div>
-        {% endif %}
-    </div>
     <div class="user_edit-div-form">
-    {{ form_start(registrationForm) }}
+    {{ form_start(registrationForm, {'attr': {'novalidate': 'novalidate'}}) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Mot de passe'
