@@ -14,8 +14,15 @@
 	</div>
 
 	{% if spaces %}
-		<p>{{ spaces|length }}
-			espaces trouvés à {{ location }}</p>
+	<h2 class="spaces-length">
+		{{ spaces|length }}
+			espaces trouvés
+			{% if location %}
+			à {{ location }}
+			</h2>
+			{% else %}
+			</h2>
+			{% endif %}
 		{% for space in spaces %}
 			<figure class="offer">
 				<img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" alt="Marché Conclu"/>
@@ -34,7 +41,7 @@
 					<div class="spacelocation card-content-down">{{ space.location }}</div>
 					<div id="price">
 						<div class="spaceprice">
-							<span id="spanprice">{{ random(50, 250) }}
+							<span id="spanprice">{{ space.price }}
 								€</span>
 							<span id="spanpriceday">
 								/ jour</span>
