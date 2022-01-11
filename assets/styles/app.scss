@@ -104,11 +104,12 @@ body {
 }
 
 .logo-title {
-    font-family: $fontlogo;
     color: $color-white;
+    font-family: $fontlogo;
+    
 
     h1 {
-        font-size: 2rem;
+        font-size: 2.7em;
         font-weight: 500;
         margin: 0;
         letter-spacing: .1rem;
@@ -445,16 +446,20 @@ ul {
 input[type=text], input[type=password],input[type=number], select, textarea, .form-content {
     background-color: rgba(224, 224, 224, 0.87);
     width: 100%; // Full width
-    padding: 12px; // Some padding 
+    padding: 11px; // Some padding 
     border: 1px solid #ccc; // Gray border
     border-radius: 4px; // Rounded borders
     box-sizing: border-box; // Make sure that padding and width stays in place
-    margin-top: 6px; // Add a top margin
-    margin-bottom: 16px; // Bottom margin
+    margin-top: 5px; // Add a top margin
+    margin-bottom: 8px; // Bottom margin
     resize: vertical // Allow the user to vertically resize the textarea (not horizontally)
 }
 
 // Style the submit button with a specific background color etc
+
+label{
+    display: block;
+}
 
 input[type=submit],
 .form-submit {
@@ -581,9 +586,15 @@ input[type=submit],
 
 // ADD NEW SPACE
 
+.title{
+   padding-bottom: 1rem;
+   padding-top: 4rem;
+   text-align: center;
+    
+}
+
 .new-space-body {
     background-color: $color-cerise;
-    height: 92vh;
 }
 
 .new-space-title {
@@ -597,18 +608,19 @@ input[type=submit],
 }
 
 .create-new-space {
-    font-size: 1.5rem;
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-    font-family: $fontlogo;
+    border-bottom: 1px solid;
+    margin: 2rem 3rem;
+    padding-bottom: 7px;
     color: $color-white;
+    display: flex;
+    font-size: 1.3rem; 
+    justify-content: center;   
 }
 
 .new-space-form {
     margin: auto;
     width: 75%;
-    padding: 2rem 2rem 1rem;
+    padding: 2rem;
     border-radius: 1rem;
     height: auto;
     background-color: $color-white;
@@ -639,13 +651,15 @@ input[type=submit],
 .search{
     text-align: center;
     background-color: $color-cerise;
-    padding: 4rem 2rem 2rem 2rem;
     color: $color-white;
     letter-spacing: 2px;
+    padding: 0 2rem 2rem 2rem;
 }
 
 .search p{
     font-family: $fontworksans;
+    margin-top: 1rem;
+    font-size: 1.3rem;
 }
 
 .show-search {
