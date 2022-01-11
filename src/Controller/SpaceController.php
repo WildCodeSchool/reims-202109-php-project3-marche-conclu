@@ -5,6 +5,7 @@ namespace App\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Entity\Slot;
 use App\Entity\Space;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use App\Entity\User;
 use App\Form\SlotType;
 use App\Form\SpaceType;
@@ -37,6 +38,7 @@ class SpaceController extends AbstractController
     /**
     * @IsGranted("ROLE_USER")
     */
+
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -47,7 +49,9 @@ class SpaceController extends AbstractController
         $user = $this->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $space->setOwner((USER)($user));
+            /** @var \App\Entity\User $user */
+            $space->setOwner($user);
+            $space->setPhotos('');
             $entityManager->persist($space);
             $entityManager->flush();
 
