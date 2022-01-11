@@ -442,7 +442,7 @@ ul {
 
 /* Style inputs with type="text", select elements and textareas */
 
-input[type=text], input[type=password],input[type=number], select, textarea, .form-content {
+input[type=text], input[type=password],input[type=number], input[type=email], select, textarea, .form-content {
     background-color: rgba(224, 224, 224, 0.87);
     width: 100%; /* Full width */
     padding: 12px; /* Some padding */ 

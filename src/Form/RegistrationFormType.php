@@ -64,7 +64,8 @@ class RegistrationFormType extends AbstractType
                         'message' => 'You should agree to our terms.',
                     ]),
                 ],
-            ]);
+            ])
+            ->add('enregistrer', SubmitType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
