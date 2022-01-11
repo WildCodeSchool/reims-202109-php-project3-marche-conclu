@@ -195,7 +195,7 @@ body {
     font-family: $fontworksans;
     flex-direction: row;
     justify-content: space-between;
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
     border-bottom: 1px solid $color-black;
     margin: 1rem;
 }
@@ -212,9 +212,16 @@ body {
     }
 }
 
-.show-space-location {
+.show-space-name {
     color: $color-cerise-btn;
+}
+
+.show-space-location {
     margin-bottom: 1rem;
+}
+
+.show-space-price {
+    color: $color-cerise-btn;
 }
 
 .show-space-head-right {
