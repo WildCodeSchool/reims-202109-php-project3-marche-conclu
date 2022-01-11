@@ -433,7 +433,6 @@ ul {
 input[type=text],
 input[type=password],
 input[type=number],
-<<<<<<< HEAD
 input[type=email],
 select,
 textarea,
@@ -446,19 +445,6 @@ textarea,
     padding: 11px; // Some padding 
     resize: vertical; // Allow the user to vertically resize the textarea (not horizontally)
     width: 100%;
-=======
-select,
-textarea,
-.form-content {
-    background-color: $color-white;
-    border: 1px solid $color-light-grey; // Gray border
-    border-radius: 4px; // Rounded borders
-    box-sizing: border-box; // Make sure that padding and width stays in placewidth: 100%; // Full width
-    margin-bottom: 16px; // Bottom margin
-    margin-top: 6px; // Add a top margin
-    padding: 12px; // Some padding 
-    resize: vertical // Allow the user to vertically resize the textarea (not horizontally)
->>>>>>> f484669 (corrected Warning on app scss file)
 }
 
 // Style the submit button with a specific background color etc
@@ -615,17 +601,10 @@ input[type=submit],
     border-bottom: 1px solid;
     color: $color-white;
     display: flex;
-<<<<<<< HEAD
     font-size: 1.3rem; 
     justify-content: center;
     margin: 2rem 3rem;
     padding-bottom: 7px;  
-=======
-    font-family: $fontlogo;
-    font-size: 1.5rem;
-    justify-content: center;
-    margin-top: 1rem;
->>>>>>> f484669 (corrected Warning on app scss file)
 }
 
 .new-space-form {
@@ -662,11 +641,7 @@ input[type=submit],
     background-color: $color-cerise;
     color: $color-white;
     letter-spacing: 2px;
-<<<<<<< HEAD
-    padding: 0 2rem 2rem 2rem;
-=======
     padding: 4rem 2rem 2rem;
->>>>>>> f484669 (corrected Warning on app scss file)
     text-align: center;
 }
 
@@ -750,15 +725,6 @@ input[type=range] {
     height: 100px;
     margin-top: 1rem;
     width: 100px;
-<<<<<<< HEAD
-}
-
-
-.user-title-spaces {
-    text-align: center; 
-    margin-right: 1.4rem;
-=======
->>>>>>> f484669 (corrected Warning on app scss file)
 }
 
 .user-index-location-li {
