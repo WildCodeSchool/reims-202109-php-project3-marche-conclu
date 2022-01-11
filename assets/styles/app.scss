@@ -764,13 +764,13 @@ input[type=range] {
     }
   }
 
-.space-filter{
+.space-filter {
     display: flex;
     border-bottom: 2px solid rgba(219, 218, 218, 0.883);
     flex-wrap: wrap;
     padding-bottom: .8rem;
 
-    label{
+    label {
         border: 1px solid $color-light-grey;
         border-radius: 5px;
         margin: 6px auto;
@@ -784,9 +784,11 @@ input[type=range] {
     input:checked + label {
         border: 3px solid $color-burgundy;
     }
+    
   }
 
 // The close-search Button
+
 .closeSearch {
     color: $color-black;
     font-size: 28px;
