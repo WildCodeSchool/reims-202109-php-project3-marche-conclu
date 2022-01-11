@@ -191,8 +191,66 @@ body {
 // SHOW SPACE 
 
 .show-space-head {
-    margin-top: 3rem;
+    display: flex;
+    font-family: $fontworksans;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $color-black;
+    margin: 1rem;
 }
+
+
+.show-space-head-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+
+    h1 {
+        margin: 0;
+    }
+}
+
+.show-space-location {
+    color: $color-cerise-btn;
+    margin-bottom: 1rem;
+}
+
+.show-space-head-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+}
+
+.show-space-head-right {
+    h2 {
+        margin: 0;
+    }
+}
+
+.show-space-btn-edit {
+    margin-top: .75em;
+}
+
+.show-space-btn-locate {
+    margin-top: .75em;
+}
+
+.show-space-link-edit, .show-space-link-locate {
+    background-color: $color-cerise-btn;
+    border-radius: 4px;
+    color: $color-white;
+    padding: .75rem 1rem;
+    text-decoration: none;
+}
+
+.show-space-location {
+    font-size: .9rem;
+}
+
+// END SHOW SPACE
 
 .cardcontent {
     font-family: 'Work Sans', sans-serif;
