@@ -1,7 +1,7 @@
-@import "variables.scss";
-@import "carousel.scss";
-@import "autocomplete.scss";
-@import "~bootstrap/scss/bootstrap";
+@import 'variables';
+@import 'carousel';
+@import 'autocomplete';
+@import '~bootstrap/scss/bootstrap';
 
 body {
     margin: 0;
@@ -13,10 +13,10 @@ body {
 
 .navbar-invisible {
     bottom: 5px;
-    position: absolute;
     display: flex;
     justify-content: space-around;
-    padding-left: 0.7rem;
+    padding-left: .7rem;
+    position: absolute;
 }
 
 .navbar-a {
@@ -45,12 +45,12 @@ body {
 }
 
 .navbar-navigation {
-    background-color: #f0f6ff;
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
-    width: 100%;
+    background-color: $color-background-navbar;
     bottom: 0;
-    position: fixed;
+    box-shadow: 0 .5em 1em $color-black-opacity;
     overflow-y: scroll;
+    position: fixed;
+    width: 100%;
 }
 
 .navbar-navigation ul {
@@ -74,72 +74,68 @@ body {
 
 .navbar-navigation a::after {
     block-size: 100%;
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+    box-shadow: 0 .5em 1em $color-black-opacity;
     inline-size: 100%;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity .3s;
 }
 
 .navbar-navigation--inline ul {
-    margin: 0;
     display: flex;
     justify-content: space-around;
+    margin: 0;
     width: 100%;
 }
 
 // END NAVBAR
 
 .header-home {
+    align-items: center;
+    background-image: url('/assets/images/header.png');
+    background-repeat: no-repeat;
+    background-size: cover;
     color: $color-white;
-    padding: 3rem 3rem 2rem 3rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    padding: 3rem 3rem 2rem;
     text-align: center;
-    background-image: url("/assets/images/header.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    text-shadow: 1px 1px 1px #534f4c;
+    text-shadow: 1px 1px 1px $color-light-grey;
 }
 
 .logo-title {
     color: $color-white;
     font-family: $fontlogo;
-    
 
     h1 {
         font-size: 2.7em;
         font-weight: 500;
-        margin: 0;
         letter-spacing: .1rem;
+        margin: 0;
         margin-right: .1rem;
 
     }
 
-    h2{
+    h2 {
         font-size: .7em;
-        margin: 0; 
-        font-weight: 400; 
+        font-weight: 400;
         letter-spacing: .7rem;
+        margin: 0;
         margin-right: -.7rem;
     }
 }
-  
 
 .form-search {
-    margin: 1rem 0 1rem 0;
+    border-radius: 4px; // Rounded borders
+    box-sizing: border-box; // Make sure that padding and width stays in place
     display: flex;
     flex-direction: row;
+    margin: 1rem 0;
     text-align: center;
-    border-radius: 4px;
-    // Rounded borders
-    box-sizing: border-box;
-    // Make sure that padding and width stays in place
 
-    .search-bar{
-        margin: 0;
+    .search-bar {
         border-radius: 20px 0 0 20px;
+        margin: 0;
     }
 }
 
@@ -149,22 +145,22 @@ body {
 }
 
 .space-pitch {
-    padding: 1rem 0 2rem;
+    color: $color-burgundy;
+    font-family: $fontworksans;
     font-size: 1.3rem;
     font-weight: 300;
     letter-spacing: .1rem;
-    font-family: $fontworksans;
+    padding: 1rem 0 2rem;
     text-align: center;
-    color: $color-burgundy;
 }
 
 .premium-title {
-    margin-top: 16rem;
-    font-size: 1.3rem;
-    font-family: $fontworksans;
-    font-weight: 400;
-    text-align: center;
     color: $color-burgundy;
+    font-family: $fontworksans;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 16rem;
+    text-align: center;
 }
 
 // START HOME_INDEX
@@ -177,15 +173,15 @@ body {
 }
 
 .show-offer {
+    color: $color-burgundy;
     display: flex;
     flex-direction: column;
-    color: $color-burgundy;
     margin: 1rem;
 }
 
 .image-offer {
-    object-fit: cover;
     border-radius: 1rem;
+    object-fit: cover;
 }
 
 .show-image-offer {
@@ -193,43 +189,43 @@ body {
 }
 
 .show-title {
+    color: $color-grey;
+    float: left;
     font-family: 'Work Sans', sans-serif;
-    color: grey;
+    font-size: .8rem;
     margin-left: 1rem;
-    font-size: 0.8rem;
-    float: left
 }
 
 .cardcontent {
     font-family: 'Work Sans', sans-serif;
+    font-size: .75rem;
     font-weight: 100;
-    font-size: 0.75rem;
     list-style-type: none;
     padding-left: 1rem;
 }
 
 .div-btn {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
     margin-bottom: 1rem;
 }
 
 .spacename {
+    font-size: 1.2rem;
     font-weight: bolder;
-    font-size: 1.2rem
 }
 
 .show-cardcontent {
-    margin-left: 1rem;
-    padding: 0;
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 100;
-    font-size: 0.75rem;
-    list-style-type: none;
     display: flex;
     flex-direction: column;
     float: left;
+    font-family: 'Work Sans', sans-serif;
+    font-size: .75rem;
+    font-weight: 100;
+    list-style-type: none;
+    margin-left: 1rem;
+    padding: 0;
     text-align: justify;
 }
 
@@ -240,15 +236,15 @@ body {
     font-size: 1rem;
 
     span {
-        padding: 0 0.2rem;
         font-weight: bolder;
+        padding: 0 .2rem;
     }
 }
 
 .card-content-up {
     font-weight: bold;
-    padding-bottom: 0.5rem;
-    margin-top: 0.5rem;
+    margin-top: .5rem;
+    padding-bottom: .5rem;
 }
 
 .card-content-down {
@@ -256,16 +252,16 @@ body {
 }
 
 .spaceprice {
-    margin-top: 1rem;
     list-style: none;
+    margin-top: 1rem;
 }
 
 #price {
-    padding-left: 0;
+    border-top: .5px solid $color-white;
     display: flex;
     justify-content: space-between;
-    border-top: 0.5px solid #eee;
     margin: 1rem;
+    padding-left: 0;
 }
 
 #spanprice {
@@ -278,48 +274,47 @@ body {
 }
 
 #buttonCardShow {
-    background-color: #eee;
+    background-color: $color-white;
     color: $color-grey;
-    margin-top: 1rem;
     font-weight: bold;
+    margin-top: 1rem;
 }
+
 // START FLEX OFFICE
 
 .flex-office {
-    background-color: #E0C2C2;
-    text-align: center;
+    background-color: $color-light-red;
     border-radius: 2em;
-    padding-top: 0.5rem;
     font-family: $fontworksans;
+    padding-top: .5rem;
+    text-align: center;
 }
 
 h4.flex-subtitle {
     font-family: $fontworksans;
-    margin-bottom: 0;
-    font-size: 0.7rem;
+    font-size: .7rem;
     font-weight: 300;
-    letter-spacing: 0.3rem;
+    letter-spacing: .3rem;
+    margin-bottom: 0;
 }
 
 h2.flex-title {
     font-family: $fontbodini;
-    margin-top: 0.5rem;
     font-size: 2rem;
     font-weight: 600;
+    margin-top: .5rem;
 }
 
 h4.p-title {
-    margin-top: 0.5rem;
-
+    margin-top: .5rem;
 }
 
 p.p-flex {
+    color: $color-cerise;
+    font-size: .8rem;
+    font-weight: 500;
     margin: 1rem;
     padding-bottom: 2rem;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: $color-cerise;
-
 }
 
 // END FLEX OFFICE
@@ -330,16 +325,15 @@ p.p-flex {
 }
 
 .testimony-title {
+    color: $color-cerise;
     font-family:  $fontbodini;
     font-size: 1.5rem;
-    color: $color-cerise;
-    margin-bottom: 0.5rem;
+    margin-bottom: .5rem;
 }
 
 .testimony-text {
-    margin: 0 4rem;
     font-family: $fontworksans;
-
+    margin: 0 4rem;
 }
 
 .marks-image-top {
@@ -347,7 +341,7 @@ p.p-flex {
 }
 
 .p-testimony {
-    margin: 0.2rem;
+    margin: .2rem;
 }
 
 .marks-image-bottom {
@@ -356,24 +350,24 @@ p.p-flex {
 
 .autor-image-crop {
     border-radius: 100%;
-    overflow: hidden;
     display: inline-block;
     height: 10vh;
+    overflow: hidden;
     width: 10vh;
 }
 
 .florence {
     display: inline;
-    margin: 0 auto;
     height: 100%;
+    margin: 0 auto;
     width: auto;
 }
 
 .autor-name {
     font-family: $fontworksans;
     font-weight: 400;
-    letter-spacing: 0.1rem;
-    margin-bottom: 0.3rem;
+    letter-spacing: .1rem;
+    margin-bottom: .3rem;
 }
 
 .autor-info {
@@ -387,40 +381,33 @@ p.p-flex {
 // START PARTNER
 
 .partner {
-    text-align: center;
     background-color: $color-cerise;
     font-family: $fontworksans;
     margin-top: 3rem;
-    padding:1rem 0;
+    padding: 1rem 0;
+    text-align: center;
 }
 
 .partner-title {
-    font-weight: 300;
-    font-size: 1.5rem;
-    letter-spacing: 0.2rem;
     color: $color-white;
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: .2rem;
 }
 
 .partner-logos {
     display: flex;
     justify-content: space-around;
-    margin: 0 0.5rem;
+    margin: 0 .5rem;
 }
 
-.partner-text{
+.partner-text {
     color: $color-white;
     margin: 0 2rem;
     padding: 1rem 0;
 }
+
 // END PARTNER
-
-
-// END SPACE_INDEX
-
-// END HOME_INDEX
-
-// END OF CARD
-
 
 // Add Space Form
 
@@ -443,16 +430,20 @@ ul {
 
 // Style inputs with type="text", select elements and textareas
 
-input[type=text], input[type=password],input[type=number], select, textarea, .form-content {
-    background-color: rgba(224, 224, 224, 0.87);
-    width: 100%; // Full width
-    padding: 11px; // Some padding 
-    border: 1px solid #ccc; // Gray border
+input[type=text],
+input[type=password],
+input[type=number],
+select,
+textarea,
+.form-content {
+    background-color: rgba(224, 224, 224, 0.979);
+    border: 1px solid $color-light-grey; // Gray border
     border-radius: 4px; // Rounded borders
-    box-sizing: border-box; // Make sure that padding and width stays in place
-    margin-top: 5px; // Add a top margin
-    margin-bottom: 8px; // Bottom margin
-    resize: vertical // Allow the user to vertically resize the textarea (not horizontally)
+    box-sizing: border-box; // Make sure that padding and width stays in placewidth: 100%; // Full width
+    margin: 8px 0 5px 0;
+    padding: 11px; // Some padding 
+    resize: vertical; // Allow the user to vertically resize the textarea (not horizontally)
+    width: 100%;
 }
 
 // Style the submit button with a specific background color etc
@@ -464,13 +455,12 @@ label{
 input[type=submit],
 .form-submit {
     background-color: $color-burgundy;
-    color: white;
-    border: none;
-    border-radius: 5px;
+    border: 0;
     border-radius: 0 20px 20px 0;
-    padding: 10px;
-    box-shadow: 0px 1px 3px #535353;
+    box-shadow: 0px 1px 3px $color-grey;
+    color: $color-white;
     cursor: pointer;
+    padding: 10px;
     text-decoration: none;
 }
 
@@ -478,8 +468,8 @@ input[type=submit],
 // Add a background color and some padding around the form
 
 .container {
+    background-color: $color-white;
     border-radius: 5px;
-    background-color: #f2f2f2;
     padding: 20px;
 }
 
@@ -496,18 +486,18 @@ input[type=submit],
 }
 
 .show-spaceprice {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid $color-black;
     padding-bottom: 2rem;
     width: 100%;
 }
 
 .space-form-submit {
     background-color: $color-grey;
-    color: white;
-    padding: 12px 20px;
-    border: none;
+    border: 0;
     border-radius: 4px;
+    color: $color-white;
     cursor: pointer;
+    padding: 12px 20px;
     text-decoration: none;
 }
 
@@ -517,14 +507,14 @@ input[type=submit],
     height: 92vh;
 }
 
-.login-title{
+.login-title {
+    color: $color-white;
+    font-family: $fontlogo;
+    font-size: 3rem;
+    line-height: 1.5rem;
     margin: 0;
     padding-top: 1.5rem;
     text-align: center;
-    font-family: $fontlogo;
-    font-size: 3rem;
-    color: $color-white;
-    line-height: 1.5rem;
 }
 
 .conclu {
@@ -532,43 +522,43 @@ input[type=submit],
 }
 
 .invalidlogin {
-    display: flex;
-    justify-content: center;
     background-color: $color-burgundy;
     color: $color-white;
-    padding: 2rem;
+    display: flex;
+    justify-content: center;
     margin-top: 1rem;
+    padding: 2rem;
 }
 
 .connect-you {
-    margin-top: 7rem;
-    display: flex;
-    justify-content: center;
-    font-family: $fontlogo;
     color: $color-white;
+    display: flex;
+    font-family: $fontlogo;
+    justify-content: center;
+    margin-top: 7rem;
 }
 
 .login-register {
-    margin: auto;
-    width: 75%;
-    padding: 3rem 2rem 2rem;
-    border-radius: 1rem;
-    height: auto;
     background-color: $color-white;
-    font-family: $fontlogo;
+    border-radius: 1rem;
     display: flex;
     flex-direction: column;
+    font-family: $fontlogo;
+    height: auto;
     justify-content: center;
+    margin: auto;
+    padding: 3rem 2rem 2rem;
+    width: 75%;
 
 }
 
 .submit-login {
-    margin: auto;
-    text-align: center;
-    color: $color-white;
     background-color: $color-cerise;
-    padding: 1rem 2rem;
     border-radius: 1rem;
+    color: $color-white;
+    margin: auto;
+    padding: 1rem 2rem;
+    text-align: center;
 }
 
 .loginorregister {
@@ -578,10 +568,10 @@ input[type=submit],
 }
 
 .registeryou {
+    color: $color-black;
     margin-top: 1rem;
     text-align: center;
     text-decoration: none;
-    color: black;
 }
 
 // ADD NEW SPACE
@@ -598,37 +588,36 @@ input[type=submit],
 }
 
 .new-space-title {
+    color: $color-white;
+    font-family: $fontlogo;
+    font-size: 3rem;
+    line-height: 1.5rem;
     margin: 0;
     padding-top: 1.5rem;
     text-align: center;
-    font-family: $fontlogo;
-    font-size: 3rem;
-    color: $color-white;
-    line-height: 1.5rem;
 }
 
 .create-new-space {
     border-bottom: 1px solid;
-    margin: 2rem 3rem;
-    padding-bottom: 7px;
     color: $color-white;
     display: flex;
     font-size: 1.3rem; 
-    justify-content: center;   
+    justify-content: center;
+    margin: 2rem 3rem;
+    padding-bottom: 7px;  
 }
 
 .new-space-form {
-    margin: auto;
-    width: 75%;
-    padding: 2rem;
-    border-radius: 1rem;
-    height: auto;
     background-color: $color-white;
-    font-family: $fontlogo;
+    border-radius: 1rem;
     display: flex;
     flex-direction: column;
+    font-family: $fontlogo;
+    height: auto;
     justify-content: center;
-
+    margin: auto;
+    padding: 2rem;
+    width: 75%;
 }
 
 .div-add-new-space {
@@ -637,26 +626,26 @@ input[type=submit],
 }
 
 .add-new-space {
-    text-align: center;
-    color: $color-white;
     background-color: $color-cerise;
-    padding: 1rem 2rem;
     border-radius: 1rem;
+    color: $color-white;
+    padding: 1rem 2rem;
+    text-align: center;
 }
-
 
 // END NEW SPACE
 
 // START SPACE_SEARCH
-.search{
-    text-align: center;
+
+.search {
     background-color: $color-cerise;
     color: $color-white;
     letter-spacing: 2px;
     padding: 0 2rem 2rem 2rem;
+    text-align: center;
 }
 
-.search p{
+.search p {
     font-family: $fontworksans;
     margin-top: 1rem;
     font-size: 1.3rem;
@@ -666,39 +655,40 @@ input[type=submit],
     background-color: $color-white;
     border: $color-grey;
     border-radius: 20px;
-    box-shadow: 2px -6px 10px 0px rgba(0, 0, 0, 0.84);
+    box-shadow: 2px -6px 10px $color-black-opacity;
     height: 80vh;
 }
 
-.search-container{
+.search-container {
     display: flex;
 }
 
 .filters {
-    z-index: 3;
-    width: 90%;
+    background: $color-yellow;
     border-radius: 20px;
     position: absolute;
     top: 40%;
-    background: yellow;
+    width: 90%;
+    z-index: 3;
 }
 
-.form-filters{
+.form-filters {
+    align-items: stretch;
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    align-items: stretch;
 }
 
-input[type=checkbox], input[type=range]{
-    background-color: rgba(224, 224, 224, 0.87);
-    width: 100%; // Full width
-    padding: 12px; // Some padding 
-    border: 1px solid #ccc; // Gray border
+input[type=checkbox],
+input[type=range] {
+    background-color: $color-white;
+    border: 1px solid $color-light-grey; // Gray border
     border-radius: 4px; // Rounded borders
     box-sizing: border-box; // Make sure that padding and width stays in place
-    margin-top: 6px; // Add a top margin
     margin-bottom: 16px; // Bottom margin
+    margin-top: 6px; // Add a top margin
+    padding: 12px; // Some padding
+    width: 100%; // Full width
 }
 
 .filter-button {
@@ -706,35 +696,35 @@ input[type=checkbox], input[type=range]{
 }
 
 .searchbar-and-filter {
-    display: flex;
     align-items: center;
+    display: flex;
 }
 
 // START USER INDEX
 
-.user_index-h1 {
-    text-align: center;
+.user-index-h1 {
     background-color: $color-cerise;
+    color: $color-white;
     margin: initial;
     padding: 1rem 0;
-    color: $color-white;
+    text-align: center;
 }
 
 .user-index-container {
-    height: 50vh;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    height: 50vh;
     justify-content: space-around;
 }
 
 .user-index-avatar {
-    margin-top: 1rem;
-    border: 1px solid $color-cerise;
-    box-shadow: 10px 10px 5px rgb(196, 154, 154);
-    width: 100px;
-    height: 100px;
     align-self: center;
+    border: 1px solid $color-cerise;
+    box-shadow: 10px 10px 5px $color-light-red;
+    height: 100px;
+    margin-top: 1rem;
+    width: 100px;
 }
 
 
@@ -760,17 +750,17 @@ input[type=checkbox], input[type=range]{
 }
 
 .user-index-location h3 {
-    margin-top: 2rem;
     margin-left: 2rem;
+    margin-top: 2rem;
 }
 
 .user-index-submit {
     background-color: $color-cerise;
-    color: white;
-    padding: 12px 20px;
-    border: none;
+    border: 0;
     border-radius: 4px;
+    color: $color-white;
     cursor: pointer;
+    padding: 12px 20px;
     text-decoration: none;
 }
 
@@ -779,18 +769,18 @@ input[type=checkbox], input[type=range]{
 // START USER EDIT
 
 .user-edit-h1 {
-    text-align: center;
     background-color: $color-cerise;
+    color: $color-white;
     margin: initial;
     padding: 1rem 0;
-    color: $color-white;
+    text-align: center;
 }
 
 .user-edit-div-form {
     margin: 1rem;
 }
 
-.user_edit-return {
+.user-edit-return {
     margin: 2rem;
     text-align: center;
 }
@@ -798,28 +788,28 @@ input[type=checkbox], input[type=range]{
 // END USER EDIT
 
 .modal {
+    background-color: $color-black-opacity; // Black w/ opacity
     display: none; // Hidden by default
-    position: fixed; // Stay in place
-    z-index: 1; // Sit on top
+    height: 100%; // Full height
     left: 0;
+    position: fixed; // Stay in place
     top: 0;
     width: 100%; // Full width
-    height: 100%; // Full height
-    background-color: rgb(0,0,0); // Fallback color
-    background-color: rgba(0,0,0,0.4); // Black w/ opacity
-  }
+    z-index: 1; // Sit on top
+}
 
 // Modal Content/Box
 .modal-content {
     background-color: $color-grey;
+    border: 1px solid $color-light-grey;
+    box-shadow: $color-light-grey;
+    margin: 1rem;
     padding: 1rem;
-    border: 1px solid #888;
-    box-shadow: gray;
   }
 
 // The close-search Button
 .close-search {
-    color: #aaa;
+    color: $color-black;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -827,16 +817,16 @@ input[type=checkbox], input[type=range]{
 
 .close-search:hover,
 .close-search:focus {
-    color: black;
-    text-decoration: none;
+    color: $color-black;
     cursor: pointer;
+    text-decoration: none;
   }
 
-.return-button{
-    height: 100%;
-    margin-left: 1rem;
+.return-button {
     background-color: Transparent;
     background-repeat: no-repeat;
-    border: none;
-    cursor:pointer;
+    border: 0;
+    cursor: pointer;
+    height: 100%;
+    margin-left: 1rem;
 }
