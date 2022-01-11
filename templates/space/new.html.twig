@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    New Space
+	New Space
 {% endblock %}
 {% block body %}
-<div class="new-space-body">
-<p class="new-space-title">Marché<br>
-    <span class="conclu">C O N C L U</span>
-</p>
-    <h1 class="create-new-space">Ajouter une nouvelle annonce</h1>
-    <div class="new-space-form">
-        {{ include('space/_form.html.twig') }}
-    </div>
-<div>
-{% endblock %}
+	<div class="new-space-body">
+		<div class="title">
+			{% include "_logotitle.html.twig" %}
+		</div>
+		<h1 class="create-new-space">Déposer une annonce</h1>
+		<div class="new-space-form">
+			{{ include('space/_form.html.twig') }}
+		</div>
+		<div>
+		{% endblock %}

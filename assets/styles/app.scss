@@ -108,7 +108,7 @@ body {
     font-family: $fontlogo;
 
     h1 {
-        font-size: 2rem;
+        font-size: 2.7em;
         font-weight: 500;
         letter-spacing: .1rem;
         margin: 0;
@@ -437,17 +437,21 @@ input[type=email],
 select,
 textarea,
 .form-content {
-    background-color: $color-white;
+    background-color: rgba(224, 224, 224, 0.979);
     border: 1px solid $color-light-grey; // Gray border
     border-radius: 4px; // Rounded borders
     box-sizing: border-box; // Make sure that padding and width stays in placewidth: 100%; // Full width
-    margin-bottom: 16px; // Bottom margin
-    margin-top: 6px; // Add a top margin
-    padding: 12px; // Some padding 
-    resize: vertical // Allow the user to vertically resize the textarea (not horizontally)
+    margin: 8px 0 5px 0;
+    padding: 11px; // Some padding 
+    resize: vertical; // Allow the user to vertically resize the textarea (not horizontally)
+    width: 100%;
 }
 
 // Style the submit button with a specific background color etc
+
+label{
+    display: block;
+}
 
 input[type=submit],
 .form-submit {
@@ -573,9 +577,14 @@ input[type=submit],
 
 // ADD NEW SPACE
 
+.title{
+    padding-bottom: 1rem;
+    padding-top: 4rem;
+    text-align: center;
+}
+
 .new-space-body {
     background-color: $color-cerise;
-    height: 92vh;
 }
 
 .new-space-title {
@@ -589,12 +598,13 @@ input[type=submit],
 }
 
 .create-new-space {
+    border-bottom: 1px solid;
     color: $color-white;
     display: flex;
-    font-family: $fontlogo;
-    font-size: 1.5rem;
+    font-size: 1.3rem; 
     justify-content: center;
-    margin-top: 1rem;
+    margin: 2rem 3rem;
+    padding-bottom: 7px;  
 }
 
 .new-space-form {
@@ -606,7 +616,7 @@ input[type=submit],
     height: auto;
     justify-content: center;
     margin: auto;
-    padding: 2rem 2rem 1rem;
+    padding: 2rem;
     width: 75%;
 }
 
@@ -631,12 +641,14 @@ input[type=submit],
     background-color: $color-cerise;
     color: $color-white;
     letter-spacing: 2px;
-    padding: 4rem 2rem 2rem;
+    padding: 0 2rem 2rem 2rem;
     text-align: center;
 }
 
 .search p {
     font-family: $fontworksans;
+    margin-top: 1rem;
+    font-size: 1.3rem;
 }
 
 .show-search {
