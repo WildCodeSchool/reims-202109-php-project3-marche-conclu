@@ -1,14 +1,13 @@
-/**
-* Minified by jsDelivr using clean-css v4.2.3.
-* Original file: /npm/@tarekraafat/autocomplete.js@10.2.6/dist/css/autoComplete.css
-*
-* Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
-*/
+// Minified by jsDelivr using clean-css v4.2.3.
+// Original file: /npm/@tarekraafat/autocomplete.js@10.2.6/dist/css/autoComplete.css
+
+// Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
+
 
 // Search Bar
 
-.pac-container:after, .pac-icon {
+.pac-container::after,
+.pac-icon {
     content: none !important;
     visibility: hidden;
 }
-

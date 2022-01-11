@@ -9,9 +9,9 @@ body {
     padding-bottom: 5rem;
 }
 
-/* START NAVBAR */
+// START NAVBAR
 
-.navbar_invisible {
+.navbar-invisible {
     bottom: 5px;
     position: absolute;
     display: flex;
@@ -19,21 +19,16 @@ body {
     padding-left: 0.7rem;
 }
 
-.navbar_align {
-    display: grid;
-    place-items: center;
-}
-
-.navbar_a {
+.navbar-a {
     color: inherit;
     outline: 0;
 }
 
-.navbar_icons {
+.navbar-icons {
     display: none;
 }
 
-.navbar_icon {
+.navbar-icon {
     block-size: 1em;
     display: inline-block;
     fill: currentcolor;
@@ -41,15 +36,15 @@ body {
     vertical-align: middle;
 }
 
-.navbar_icon--2x {
+.navbar-icon--2x {
     font-size: 2rem;
 }
 
-.navbar_svg {
+.navbar-svg {
     max-inline-size: 100%;
 }
 
-.navbar_navigation {
+.navbar-navigation {
     background-color: #f0f6ff;
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
     width: 100%;
@@ -58,13 +53,13 @@ body {
     overflow-y: scroll;
 }
 
-.navbar_navigation ul {
+.navbar-navigation ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.navbar_navigation a {
+.navbar-navigation a {
     display: block;
     padding: 1em 2em 2em;
     position: relative;
@@ -72,12 +67,12 @@ body {
 }
 
 
-.navbar_navigation a:focus::after,
-.navbar_navigation a:hover::after {
+.navbar-navigation a:focus::after,
+.navbar-navigation a:hover::after {
     opacity: 1;
 }
 
-.navbar_navigation a::after {
+.navbar-navigation a::after {
     block-size: 100%;
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
     inline-size: 100%;
@@ -85,14 +80,14 @@ body {
     transition: opacity 0.3s;
 }
 
-.navbar_navigation--inline ul {
+.navbar-navigation--inline ul {
     margin: 0;
     display: flex;
     justify-content: space-around;
     width: 100%;
 }
 
-/* END NAVBAR */
+// END NAVBAR
 
 .header-home {
     color: $color-white;
@@ -109,7 +104,7 @@ body {
 }
 
 .logo-title {
-    font-family: $fontLogo;
+    font-family: $fontlogo;
     color: $color-white;
 
     h1 {
@@ -137,9 +132,9 @@ body {
     flex-direction: row;
     text-align: center;
     border-radius: 4px;
-    /* Rounded borders */
+    // Rounded borders
     box-sizing: border-box;
-    /* Make sure that padding and width stays in place */
+    // Make sure that padding and width stays in place
 
     .search-bar{
         margin: 0;
@@ -147,12 +142,17 @@ body {
     }
 }
 
+.spaces-title {
+    text-align: center;
+    margin-top: 1rem;
+}
+
 .space-pitch {
     padding: 1rem 0 2rem;
     font-size: 1.3rem;
     font-weight: 300;
     letter-spacing: .1rem;
-    font-family: $fontWorkSans;
+    font-family: $fontworksans;
     text-align: center;
     color: $color-burgundy;
 }
@@ -160,13 +160,13 @@ body {
 .premium-title {
     margin-top: 16rem;
     font-size: 1.3rem;
-    font-family: $fontWorkSans;
+    font-family: $fontworksans;
     font-weight: 400;
     text-align: center;
     color: $color-burgundy;
 }
 
-/* START HOME_INDEX */
+// START HOME_INDEX
 
 .offer {
     display: flex;
@@ -282,18 +282,18 @@ body {
     margin-top: 1rem;
     font-weight: bold;
 }
-/* START FLEX OFFICE */
+// START FLEX OFFICE
 
 .flex-office {
     background-color: #E0C2C2;
     text-align: center;
     border-radius: 2em;
     padding-top: 0.5rem;
-    font-family: $fontWorkSans;
+    font-family: $fontworksans;
 }
 
 h4.flex-subtitle {
-    font-family: $fontWorkSans;
+    font-family: $fontworksans;
     margin-bottom: 0;
     font-size: 0.7rem;
     font-weight: 300;
@@ -301,7 +301,7 @@ h4.flex-subtitle {
 }
 
 h2.flex-title {
-    font-family: $fontBodini;
+    font-family: $fontbodini;
     margin-top: 0.5rem;
     font-size: 2rem;
     font-weight: 600;
@@ -321,15 +321,15 @@ p.p-flex {
 
 }
 
-/* END FLEX OFFICE */
+// END FLEX OFFICE
 
-/* START TESTIMONY */
+// START TESTIMONY
 .testimony {
     text-align: center;
 }
 
 .testimony-title {
-    font-family:  $fontBodini;
+    font-family:  $fontbodini;
     font-size: 1.5rem;
     color: $color-cerise;
     margin-bottom: 0.5rem;
@@ -337,7 +337,7 @@ p.p-flex {
 
 .testimony-text {
     margin: 0 4rem;
-    font-family: $fontWorkSans;
+    font-family: $fontworksans;
 
 }
 
@@ -369,26 +369,26 @@ p.p-flex {
 }
 
 .autor-name {
-    font-family: $fontWorkSans;
+    font-family: $fontworksans;
     font-weight: 400;
     letter-spacing: 0.1rem;
     margin-bottom: 0.3rem;
 }
 
 .autor-info {
-    font-family: $fontWorkSans;
+    font-family: $fontworksans;
     font-weight: 200;
     margin: 0;
 }
 
-/* END TESTIMONY */
+// END TESTIMONY
 
-/* START PARTNER */
+// START PARTNER
 
 .partner {
     text-align: center;
     background-color: $color-cerise;
-    font-family: $fontWorkSans;
+    font-family: $fontworksans;
     margin-top: 3rem;
     padding:1rem 0;
 }
@@ -411,17 +411,17 @@ p.p-flex {
     margin: 0 2rem;
     padding: 1rem 0;
 }
-/* END PARTNER */
+// END PARTNER
 
 
-/* END SPACE_INDEX */
+// END SPACE_INDEX
 
-/* END HOME_INDEX */
+// END HOME_INDEX
 
-/* END OF CARD */
+// END OF CARD
 
 
-/* Add Space Form */
+// Add Space Form
 
 #space {
     display: flex;
@@ -440,21 +440,21 @@ ul {
     padding: 0;
 }
 
-/* Style inputs with type="text", select elements and textareas */
+// Style inputs with type="text", select elements and textareas
 
 input[type=text], input[type=password],input[type=number], input[type=email], select, textarea, .form-content {
     background-color: rgba(224, 224, 224, 0.87);
-    width: 100%; /* Full width */
-    padding: 12px; /* Some padding */ 
-    border: 1px solid #ccc; /* Gray border */
-    border-radius: 4px; /* Rounded borders */
-    box-sizing: border-box; /* Make sure that padding and width stays in place */
-    margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+    width: 100%; // Full width
+    padding: 12px; // Some padding 
+    border: 1px solid #ccc; // Gray border
+    border-radius: 4px; // Rounded borders
+    box-sizing: border-box; // Make sure that padding and width stays in place
+    margin-top: 6px; // Add a top margin
+    margin-bottom: 16px; // Bottom margin
+    resize: vertical // Allow the user to vertically resize the textarea (not horizontally)
 }
 
-/* Style the submit button with a specific background color etc */
+// Style the submit button with a specific background color etc
 
 input[type=submit],
 .form-submit {
@@ -470,7 +470,7 @@ input[type=submit],
 }
 
 
-/* Add a background color and some padding around the form */
+// Add a background color and some padding around the form
 
 .container {
     border-radius: 5px;
@@ -506,7 +506,7 @@ input[type=submit],
     text-decoration: none;
 }
 
-/* LOGIN/REGISTER PAGE */
+// LOGIN/REGISTER PAGE
 .login-body {
     background-color: $color-cerise;
     height: 92vh;
@@ -516,7 +516,7 @@ input[type=submit],
     margin: 0;
     padding-top: 1.5rem;
     text-align: center;
-    font-family: $fontLogo;
+    font-family: $fontlogo;
     font-size: 3rem;
     color: $color-white;
     line-height: 1.5rem;
@@ -539,7 +539,7 @@ input[type=submit],
     margin-top: 7rem;
     display: flex;
     justify-content: center;
-    font-family: $fontLogo;
+    font-family: $fontlogo;
     color: $color-white;
 }
 
@@ -550,7 +550,7 @@ input[type=submit],
     border-radius: 1rem;
     height: auto;
     background-color: $color-white;
-    font-family: $fontLogo;
+    font-family: $fontlogo;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -579,7 +579,7 @@ input[type=submit],
     color: black;
 }
 
-/* ADD NEW SPACE */
+// ADD NEW SPACE
 
 .new-space-body {
     background-color: $color-cerise;
@@ -590,7 +590,7 @@ input[type=submit],
     margin: 0;
     padding-top: 1.5rem;
     text-align: center;
-    font-family: $fontLogo;
+    font-family: $fontlogo;
     font-size: 3rem;
     color: $color-white;
     line-height: 1.5rem;
@@ -601,7 +601,7 @@ input[type=submit],
     margin-top: 1rem;
     display: flex;
     justify-content: center;
-    font-family: $fontLogo;
+    font-family: $fontlogo;
     color: $color-white;
 }
 
@@ -612,7 +612,7 @@ input[type=submit],
     border-radius: 1rem;
     height: auto;
     background-color: $color-white;
-    font-family: $fontLogo;
+    font-family: $fontlogo;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -633,9 +633,9 @@ input[type=submit],
 }
 
 
-/* END NEW SPACE */
+// END NEW SPACE
 
-/* START SPACE_SEARCH */
+// START SPACE_SEARCH
 .search{
     text-align: center;
     background-color: $color-cerise;
@@ -645,7 +645,7 @@ input[type=submit],
 }
 
 .search p{
-    font-family: $fontWorkSans;
+    font-family: $fontworksans;
 }
 
 .show-search {
@@ -678,13 +678,13 @@ input[type=submit],
 
 input[type=checkbox], input[type=range]{
     background-color: rgba(224, 224, 224, 0.87);
-    width: 100%; /* Full width */
-    padding: 12px; /* Some padding */ 
-    border: 1px solid #ccc; /* Gray border */
-    border-radius: 4px; /* Rounded borders */
-    box-sizing: border-box; /* Make sure that padding and width stays in place */
-    margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
+    width: 100%; // Full width
+    padding: 12px; // Some padding 
+    border: 1px solid #ccc; // Gray border
+    border-radius: 4px; // Rounded borders
+    box-sizing: border-box; // Make sure that padding and width stays in place
+    margin-top: 6px; // Add a top margin
+    margin-bottom: 16px; // Bottom margin
 }
 
 .filter-button {
@@ -696,80 +696,7 @@ input[type=checkbox], input[type=range]{
     align-items: center;
 }
 
-
-/* LOGIN/REGISTER PAGE */
-.login-body {
-    background-color: $color-cerise;
-}
-
-.login-title{
-    margin: 0;
-    padding-top: 1.5rem;
-    text-align: center;
-    font-family: $fontLogo;
-    font-size: 3rem;
-    color: $color-white;
-    line-height: 1.5rem;
-}
-
-.conclu {
-    font-size: 1rem;
-}
-
-.invalidlogin {
-    display: flex;
-    justify-content: center;
-    background-color: $color-burgundy;
-    color: $color-white;
-    padding: 2rem;
-    margin-top: 1rem;
-}
-
-.connect-you {
-    margin-top: 7rem;
-    display: flex;
-    justify-content: center;
-    font-family: $fontLogo;
-    color: $color-white;
-}
-
-.login-register {
-    margin: auto;
-    width: 75%;
-    padding: 3rem 2rem 2rem;
-    border-radius: 1rem;
-    height: auto;
-    background-color: $color-white;
-    font-family: $fontLogo;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-}
-
-.submit-login {
-    margin: auto;
-    text-align: center;
-    color: $color-white;
-    background-color: $color-cerise;
-    padding: 1rem 2rem;
-    border-radius: 1rem;
-}
-
-.loginorregister {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.registeryou {
-    margin-top: 1rem;
-    text-align: center;
-    text-decoration: none;
-    color: black;
-}
-
-/* START USER INDEX */
+// START USER INDEX
 
 .user_index-h1 {
     text-align: center;
@@ -779,7 +706,7 @@ input[type=checkbox], input[type=range]{
     color: $color-white;
 }
 
-.user_index-container {
+.user-index-container {
     height: 50vh;
     display: flex;
     flex-direction: column;
@@ -787,7 +714,7 @@ input[type=checkbox], input[type=range]{
     justify-content: space-around;
 }
 
-.user_index-avatar {
+.user-index-avatar {
     margin-top: 1rem;
     border: 1px solid $color-cerise;
     box-shadow: 10px 10px 5px rgb(196, 154, 154);
@@ -796,28 +723,34 @@ input[type=checkbox], input[type=range]{
     align-self: center;
 }
 
-.user_index-location-li {
+
+.user-title-spaces {
+    text-align: center; 
+    margin-right: 1.4rem;
+}
+
+.user-index-location-li {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
 }
 
-.user_index-location-li p {
+.user-index-location-li p {
     text-align: center;
 }
 
-.user_index-location-li div {
+.user-index-location-li div {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-.user_index-location h3 {
+.user-index-location h3 {
     margin-top: 2rem;
     margin-left: 2rem;
 }
 
-.user_index-submit {
+.user-index-submit {
     background-color: $color-cerise;
     color: white;
     padding: 12px 20px;
@@ -827,11 +760,11 @@ input[type=checkbox], input[type=range]{
     text-decoration: none;
 }
 
-/* END USER INDEX */
+// END USER INDEX
 
-/* START USER EDIT */
+// START USER EDIT
 
-.user_edit-h1 {
+.user-edit-h1 {
     text-align: center;
     background-color: $color-cerise;
     margin: initial;
@@ -839,7 +772,7 @@ input[type=checkbox], input[type=range]{
     color: $color-white;
 }
 
-.user_edit-div-form {
+.user-edit-div-form {
     margin: 1rem;
 }
 
@@ -848,49 +781,48 @@ input[type=checkbox], input[type=range]{
     text-align: center;
 }
 
-/* END USER EDIT */
+// END USER EDIT
 
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /*Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none; // Hidden by default
+    position: fixed; // Stay in place
+    z-index: 1; // Sit on top
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /*Black w/ opacity */
+    width: 100%; // Full width
+    height: 100%; // Full height
+    background-color: rgb(0,0,0); // Fallback color
+    background-color: rgba(0,0,0,0.4); // Black w/ opacity
   }
 
-/* Modal Content/Box */
+// Modal Content/Box
 .modal-content {
     background-color: $color-grey;
-    padding:1rem;
+    padding: 1rem;
     border: 1px solid #888;
     box-shadow: gray;
-    margin: 1rem;
   }
 
-/* The closeSearch Button */
-.closeSearch {
+// The close-search Button
+.close-search {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
   }
 
-.closeSearch:hover,
-.closeSearch:focus {
+.close-search:hover,
+.close-search:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
   }
 
-.returnButton{
+.return-button{
     height: 100%;
     margin-left: 1rem;
     background-color: Transparent;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     border: none;
     cursor:pointer;
 }
