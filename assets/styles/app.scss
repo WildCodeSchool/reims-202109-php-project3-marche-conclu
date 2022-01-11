@@ -724,7 +724,7 @@ input[type=range] {
 }
 
 .returnButton{
-background-color: Transparent;
+    background-color: Transparent;
     background-repeat: no-repeat;
     border: 0;
     cursor: pointer;
@@ -760,30 +760,31 @@ background-color: Transparent;
     }
 
     label{
-       padding: 2px 3px 5px 3px; 
+        padding: 2px 3px 5px 3px; 
     }
   }
 
-  .space-filter{
+.space-filter{
     display: flex;
     border-bottom: 2px solid rgba(219, 218, 218, 0.883);
     flex-wrap: wrap;
     padding-bottom: .8rem;
 
-      label{
+    label{
         border: 1px solid $color-light-grey;
         border-radius: 5px;
         margin: 6px auto;
         padding: 8px;
-      }
+    }
 
-      input[type="checkbox"] {
+    input[type="checkbox"] {
         visibility: hidden;
-      }
-      
-      input:checked + label {
+    }
+    
+    input:checked + label {
         border: 3px solid $color-burgundy;
-      }
+    }
+
   }
 
 // The close-search Button
