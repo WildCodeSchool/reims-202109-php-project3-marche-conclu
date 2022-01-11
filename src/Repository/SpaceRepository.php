@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Space;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use PhpParser\Node\Expr\Cast\Array_;
 
 /**
  * @method Space|null find($id, $lockMode = null, $lockVersion = null)
@@ -26,20 +27,24 @@ class SpaceRepository extends ServiceEntityRepository
     public function findByCriterias(array $options): mixed
     {
         $query = $this->createQueryBuilder('s');
-        if (isset($options['location']) && !empty($options['location'])) {
-            $query->where('s.location = :location')
-            ->setParameter('location', $options['location']);
+        foreach ($options as $key => $option) {
+            if (
+                $key !== 'surface' && $key !== 'price'
+                && $key !== 'date' && !empty($option)
+            ) {
+                $query->where("s.$key = :$key")
+                    ->setParameter($key, $option);
+            }
         }
-        if (isset($options['surface']) && !empty($options['surface'])) {
-            $query->andWhere('s.surface >= :surface');
-            $query->setParameter('surface', $options['surface']);
+        if (isset($options['surface'])) {
+            $query->andWhere('s.surface >= :surface')
+                ->setParameter('surface', $options['surface']);
         }
-        if (isset($options['price']) && !empty($options['price'])) {
-            $query->andWhere('s.price <= :price');
-            $query->setParameter('price', $options['price']);
+        if (isset($options['price'])) {
+            $query->andWhere("s.price <= :price")
+                ->setParameter('price', $options['price']);
         }
-        return $query->getQuery()->getResult()
-        ;
+        return $query->getQuery()->getResult();
     }
 
     /*

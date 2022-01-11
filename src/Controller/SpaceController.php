@@ -35,8 +35,8 @@ class SpaceController extends AbstractController
     }
 
     /**
-    * @IsGranted("ROLE_USER")
-    */
+     * @IsGranted("ROLE_USER")
+     */
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -64,6 +64,15 @@ class SpaceController extends AbstractController
     public function search(Request $request, SpaceRepository $spaceRepository): Response
     {
         $options = $request->query->all();
+        foreach ($options as $key => $option) {
+            if ($option === "") {
+                unset($options[$key]);
+            }
+            if ($option === "on") {
+                $options['category'] = $key;
+                unset($options[$key]);
+            }
+        }
         $spaces = $options ? $spaceRepository->findByCriterias($options) : $spaceRepository->findAll();
 
         return $this->renderForm('space/search.html.twig', [
@@ -96,8 +105,8 @@ class SpaceController extends AbstractController
     }
 
     /**
-    * @IsGranted("ROLE_USER")
-    */
+     * @IsGranted("ROLE_USER")
+     */
     #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Space $space, EntityManagerInterface $entityManager): Response
     {
@@ -117,8 +126,8 @@ class SpaceController extends AbstractController
     }
 
     /**
-    * @IsGranted("ROLE_USER")
-    */
+     * @IsGranted("ROLE_USER")
+     */
     #[Route('/{id}', name: 'delete', methods: ['POST'])]
     public function delete(Request $request, Space $space, EntityManagerInterface $entityManager): Response
     {
