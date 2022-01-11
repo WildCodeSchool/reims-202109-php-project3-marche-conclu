@@ -256,6 +256,10 @@ body {
     text-decoration: none;
 }
 
+.show-space-link-edit:hover, .show-space-link-locate:hover {
+    color: $color-black;
+} 
+
 .show-space-location {
     font-size: .9rem;
 }
