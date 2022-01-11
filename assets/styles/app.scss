@@ -264,6 +264,16 @@ body {
     font-size: .9rem;
 }
 
+.show-space-details-list {
+    border-bottom: 1px solid $color-black;
+    color: $color-cerise-btn;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding-bottom: 1rem;
+    margin: 1rem;
+}
+
 // END SHOW SPACE
 
 .cardcontent {
