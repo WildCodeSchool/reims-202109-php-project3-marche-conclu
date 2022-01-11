@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="user_index-h1">
+    <div class="user-index-h1">
         <h1>Mes informations</h1>
     </div>
     {% for category, messages in app.flashes %}
@@ -12,11 +12,11 @@
         {% endfor %}
     {% endfor %}
     {% if app.user %}
-        <div class="user_index-container">
+        <div class="user-index-container">
             {% if app.user.avatar %}
-                <img class="user_index-avatar" src="{{ asset('build/images/' ~ app.user.avatar) }}">
+                <img class="user-index-avatar" src="{{ asset('build/images/' ~ app.user.avatar) }}">
             {% else %}
-                <img class="user_index-avatar" src="{{ asset('build/images/logoMarcheConclu.png') }}">
+                <img class="user-index-avatar" src="{{ asset('build/images/logoMarcheConclu.png') }}">
             {% endif %}
             <h2>
                 {{ app.user.firstname ~ " " ~ app.user.lastname }}
@@ -31,20 +31,21 @@
                     </p>
                 {% endif %}
             </div>
-            <a class="user_index-submit" href="{{ path('user_edit', {'id': app.user.id}) }}">Modifier mon profil</a>
-            <a class="user_index-submit" href="{{ path('app_logout') }}">Deconnexion</a>
+            <a class="user-index-submit" href="{{ path('user_edit', {'id': app.user.id}) }}">Modifier mon profil</a>
+            <a class="user-index-submit" href="{{ path('app_logout') }}">Deconnexion</a>
         </div>
-        <div class="user_index-location">
+
+        <div class="user-index-location">
             {%if app.user.spaces is not empty %}
-                <h3>Mes locations :</h3>
+                <h3>Mes annonces :</h3>
             {% endif %}
-            <ul class="user_index-location-ul">
+            <ul class="user-index-location-ul">
             {% for space in app.user.spaces %}
-                <li class="user_index-location-li">
+                <li class="user-index-location-li">
                     <p>{{ "Nom de l'annonce :" ~ " " ~ space.name }}</p>
                     <div>
-                        <a class="user_index-submit" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
-                        <a class="user_index-submit" href="{{ path("space_edit", {id: space.id}) }}">Modifier l'annonce</a>
+                        <a class="user-index-submit" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
+                        <a class="user-index-submit" href="{{ path("space_edit", {id: space.id}) }}">Modifier l'annonce</a>
                     </div>
                 </li>
             {% endfor %}

@@ -23,6 +23,17 @@
 			{% else %}
 			</h2>
 			{% endif %}
+		<p class="spaces-title">
+			{{ spaces|length }}
+			{% if spaces|length > 1 %}
+				espaces disponibles
+			{% else %}
+				espace disponible
+			{% endif %}
+			{% if location %}
+				à {{ location }}
+			{% endif %}
+		</p>
 		{% for space in spaces %}
 			<figure class="offer">
 				<img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" alt="Marché Conclu"/>
@@ -53,8 +64,9 @@
 			</figure>
 		{% endfor %}
 	</div>
-{% else %}
+{% elseif location %}
 	<p>
-		Aucun espace trouvé
+		Aucun espace trouvé à {{ location }}
 	</p>
-{% endif %}{% endblock %}
+{% endif %}
+{% endblock %}

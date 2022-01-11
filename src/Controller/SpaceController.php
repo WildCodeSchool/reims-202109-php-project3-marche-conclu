@@ -51,7 +51,7 @@ class SpaceController extends AbstractController
             $entityManager->persist($space);
             $entityManager->flush();
 
-            return $this->redirectToRoute('space_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('space/new.html.twig', [

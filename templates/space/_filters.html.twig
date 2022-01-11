@@ -28,28 +28,28 @@
 				<input type="checkbox" name="my-checkbox" id="opt-in" class="hidden-checkbox">
 				Plateaux vides
 			</label>
-
-			<label for="range">Prix</label>
-			<input type="range" id="price" name="price" min="10" max="1500" step="10">
-
-			<label for="range">Surface</label>
-			<input type="range" id="surface" name="surface" min="5" max="1000" step="10">
-
-			<label for="start">Dates</label>
-			<input type="date" id="start" name="date" value="2022-01-15" min="2021-01-05" max="2024-12-31">
-
+			<label for="range">Prix maximum</label>
+			<input type="range" id="range" name="price" min="10" max="1500" step="10"  oninput="this.form.priceInput.value=this.value">
+			<input type="number" name="priceInput" min="0" max="20" value="0" oninput="this.form.priceRange.value=this.value" />
+			<label for="range">Surface minimum</label>
+			<input type="range" id="range" name="surface" min="5" max="1000" step="10"  oninput="this.form.amountInput.value=this.value">
+    		<input type="number" name="amountInput" min="0" max="20" value="0" oninput="this.form.amountRange.value=this.value" />
 			<button class="closeSearch" type="submit">
 				Chercher
 			</button>
+			<label for="start">Dates</label>
+			<input type="date" id="start" name="date" placeholder="m²" value="2022-01-15" min="2021-01-05" max="2024-12-31">
+		</form>
+     		<span class='closeSearch' onclick='closeModal()'>&times;</span>
 	</div>
 </div>
-<script>
+ <script>
 	// Get the modal
-var modal = document.getElementById("myModal");
+const modal = document.getElementById("myModal");
 // Get the button that opens the modal
-var btn = document.getElementById("myModalBtn");
+const btn = document.getElementById("myModalBtn");
 // Get the button closeSearch element that closes the modal
-var closeSearch = document.getElementsByClassName("closeSearch")[0];
+const closeSearch = document.getElementsByClassName("closeSearch")[0];
 // When the user clicks the button, open the modal
 btn.onclick = function () {
 modal.style.display = "block";
