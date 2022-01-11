@@ -689,10 +689,26 @@ input[type=submit],
 
 
 .form-filters {
-    align-items: stretch;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
+    button{
+        background-color: rgba(99, 35, 35, 0.75);
+        border-radius: 1rem;
+        color: #fafafa;
+        margin: 1rem;
+        padding: 1rem 5rem;
+        }
+
+    padding: 1rem 0.5;
+
+    p{
+        border-top: 2px solid rgba(219, 218, 218, 0.883);
+        padding-top: .8rem;
+    }
+
+    .filter-range{
+        margin-top: 1rem;
+        border-bottom: 2px solid rgba(219, 218, 218, 0.883);
+        padding-bottom: .8rem;
+    }
 }
 
 input[type=checkbox],
@@ -705,6 +721,13 @@ input[type=range] {
     margin-top: 6px; // Add a top margin
     padding: 12px; // Some padding
     width: 100%; // Full width
+}
+
+.returnButton{
+background-color: Transparent;
+    background-repeat: no-repeat;
+    border: 0;
+    cursor: pointer;
 }
 
 .modal {
@@ -724,14 +747,16 @@ input[type=range] {
     border: 1px solid $color-light-grey;
     box-shadow: $color-light-grey;
     color: $color-grey;
-    height: 90%;
-    margin: 1rem auto;
-    padding: .5rem;
     display: flex;
-    width: 90%;
+    font-size: 1.1rem;
+    height: 95vh;
+    align-items: stretch;
+    margin: .5rem auto;
+    padding: 1rem;
+    width: 90vw;
 
-    div{
-        margin: 1.5rem 1rem;
+    input[type="range"]{
+        margin: 0;
     }
 
     label{
@@ -740,35 +765,43 @@ input[type=range] {
   }
 
   .space-filter{
+    display: flex;
+    border-bottom: 2px solid rgba(219, 218, 218, 0.883);
+    flex-wrap: wrap;
+    padding-bottom: .8rem;
+
       label{
-        border: 1px solid red;
-        margin: 3px auto;
+        border: 1px solid $color-light-grey;
+        border-radius: 5px;
+        margin: 6px auto;
+        padding: 8px;
+      }
+
+      input[type="checkbox"] {
+        visibility: hidden;
+      }
+      
+      input:checked + label {
+        border: 3px solid $color-burgundy;
       }
   }
 
 // The close-search Button
-.close-search {
+.closeSearch {
     color: $color-black;
-    float: right;
     font-size: 28px;
-    font-weight: bold;
+    position: absolute;
+    top:0;
+    right:1rem;
   }
 
-.close-search:hover,
-.close-search:focus {
+.closeSearch:hover,
+.closeSearch:focus {
     color: $color-black;
     cursor: pointer;
     text-decoration: none;
   }
 
-.return-button {
-    background-color: Transparent;
-    background-repeat: no-repeat;
-    border: 0;
-    cursor: pointer;
-    height: 100%;
-    margin-left: 1rem;
-}
 // START USER INDEX
 
 .user-index-h1 {

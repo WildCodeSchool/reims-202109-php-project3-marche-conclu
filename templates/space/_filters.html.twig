@@ -9,38 +9,40 @@
 				<label for="start">Dates</label>
 				<input type="date" id="start" name="date" placeholder="m²" value="2022-01-15" min="2021-01-05" max="2024-12-31">
 			</div>
+			<p>Types d'espaces</p>
 			<div class="space-filter">
-				<label for="opt-in">
-					<input type="checkbox" name="my-checkbox" id="opt-in" class="hidden-checkbox" hidden>
-					Salle de réunion
-				</label>
-				<label for="opt-in">
-					<input type="checkbox" name="my-checkbox" id="opt-in" class="hidden-checkbox" hidden>
-					Co-working
-				</label>
-				<label for="opt-in">
-					<input type="checkbox" name="my-checkbox" id="opt-in" class="hidden-checkbox" hidden>
-					Bureau privé
-				</label>
-				<label for="opt-in">
-					<input type="checkbox" name="my-checkbox" id="opt-in" class="hidden-checkbox" hidden>
-					Open space
-				</label>
-				<label for="opt-in">
-					<input type="checkbox" name="my-checkbox" id="opt-in" class="hidden-checkbox" hidden>
-					Espace de stockage
-				</label>
-				<label for="opt-in">
-					<input type="checkbox" name="my-checkbox" id="opt-in" class="hidden-checkbox" hidden>
-					Plateaux vides
-				</label>
+
+				<input type="checkbox" name="my-checkbox" id="meeting" class="hidden-checkbox" hidden>
+				<label for="meeting">Salle de réunion</label>
+
+				<input type="checkbox" name="my-checkbox" id="private" class="hidden-checkbox" hidden>
+				<label for="private">Bureau privé</label>
+
+				<input type="checkbox" name="my-checkbox" id="open-space" class="hidden-checkbox" hidden>
+				<label for="open-space">Open space</label>
+
+				<input type="checkbox" name="my-checkbox" id="co-working" class="hidden-checkbox" hidden>
+				<label for="co-working">Co-working</label>
+
+				<input type="checkbox" name="my-checkbox" id="storage" class="hidden-checkbox" hidden>
+				<label for="storage">Espace de stockage</label>
+
+				<input type="checkbox" name="my-checkbox" id="plateau" class="hidden-checkbox" hidden>
+				<label for="plateau">Plateaux vides</label>
 			</div>
-			<label for="range">Prix maximum</label>
-			<input type="range" id="range" name="price" min="10" max="1500" step="10" oninput="this.form.priceInput.value=this.value">
-			<input type="number" name="priceInput" min="0" max="20" value="0" oninput="this.form.priceRange.value=this.value"/>
-			<label for="range">Surface minimum</label>
-			<input type="range" id="range" name="surface" min="5" max="1000" step="10" oninput="this.form.amountInput.value=this.value">
-			<input type="number" name="amountInput" min="0" max="20" value="0" oninput="this.form.amountRange.value=this.value"/>
+			<div class="filter-range">
+				<label for="range">Prix max</label>
+				<input type="range" id="range" name="price" min="10" max="1500" step="10" oninput="this.form.priceInput.value=this.value">
+				<input type="number" name="priceInput" min="0" max="20" value="0" oninput="this.form.priceRange.value=this.value"/>
+			</div>
+			<div>
+				<label for="range">Surface minimum</label>
+				<input type="range" id="range" name="surface" min="5" max="1000" step="10" oninput="this.form.amountInput.value=this.value">
+				<input type="number" name="amountInput" min="0" max="20" value="0" oninput="this.form.amountRange.value=this.value"/>
+			</div>
+			<button type="submit">
+				Chercher
+			</button>
 		</form>
 		<span class='closeSearch' onclick='closeModal()'>&times;</span>
 	</div>
