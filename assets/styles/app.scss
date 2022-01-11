@@ -142,6 +142,11 @@ body {
     }
 }
 
+.spaces-title {
+    text-align: center;
+    margin-top: 1rem;
+}
+
 .space-pitch {
     padding: 1rem 0 2rem;
     font-size: 1.3rem;
@@ -718,6 +723,12 @@ input[type=checkbox], input[type=range]{
     align-self: center;
 }
 
+
+.user-title-spaces {
+    text-align: center; 
+    margin-right: 1.4rem;
+}
+
 .user-index-location-li {
     display: flex;
     flex-direction: column;
@@ -790,7 +801,6 @@ input[type=checkbox], input[type=range]{
     padding: 1rem;
     border: 1px solid #888;
     box-shadow: gray;
-    margin: 1rem;
   }
 
 // The close-search Button
@@ -814,5 +824,5 @@ input[type=checkbox], input[type=range]{
     background-color: Transparent;
     background-repeat: no-repeat;
     border: none;
-    cursor: pointer;
+    cursor:pointer;
 }

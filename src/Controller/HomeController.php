@@ -19,7 +19,7 @@ class HomeController extends AbstractController
     ];
 
     #[Route('/', name: 'home')]
-    public function index(Request $request, SpaceRepository $spaceRepository): Response
+    public function index(SpaceRepository $spaceRepository): Response
     {
 
         $spaces = $spaceRepository->findBy(array(), null, 2);
