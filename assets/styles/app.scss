@@ -532,11 +532,13 @@ input[type=submit],
 }
 
 .connect-you {
+    border-bottom: 1px solid;
     color: $color-white;
     display: flex;
     font-family: $fontlogo;
     justify-content: center;
-    margin-top: 7rem;
+    margin: 2rem 5rem;
+    padding-bottom: 7px;
 }
 
 .login-register {
@@ -601,6 +603,7 @@ input[type=submit],
     border-bottom: 1px solid;
     color: $color-white;
     display: flex;
+    font-family: $fontlogo;
     font-size: 1.3rem; 
     justify-content: center;
     margin: 2rem 3rem;
@@ -663,6 +666,18 @@ input[type=submit],
     display: flex;
 }
 
+
+.filter-button {
+    height: 2rem;
+}
+
+.searchbar-and-filter {
+    align-items: center;
+    display: flex;
+}
+
+// FILTER CONTAINER
+
 .filters {
     background: $color-yellow;
     border-radius: 20px;
@@ -671,6 +686,7 @@ input[type=submit],
     width: 90%;
     z-index: 3;
 }
+
 
 .form-filters {
     align-items: stretch;
@@ -691,15 +707,68 @@ input[type=range] {
     width: 100%; // Full width
 }
 
-.filter-button {
-    height: 2rem;
+.modal {
+    background-color: $color-black-opacity; // Black w/ opacity
+    display: none; // Hidden by default
+    height: 100%; // Full height
+    left: 0;
+    position: fixed; // Stay in place
+    top: 0;
+    width: 100%; // Full width
+    z-index: 1; // Sit on top
 }
 
-.searchbar-and-filter {
-    align-items: center;
+// Modal Content/Box
+.modal-content {
+    background-color: $color-white;
+    border: 1px solid $color-light-grey;
+    box-shadow: $color-light-grey;
+    color: $color-grey;
+    height: 90%;
+    margin: 1rem auto;
+    padding: .5rem;
     display: flex;
-}
+    width: 90%;
 
+    div{
+        margin: 1.5rem 1rem;
+    }
+
+    label{
+       padding: 2px 3px 5px 3px; 
+    }
+  }
+
+  .space-filter{
+      label{
+        border: 1px solid red;
+        margin: 3px auto;
+      }
+  }
+
+// The close-search Button
+.close-search {
+    color: $color-black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+.close-search:hover,
+.close-search:focus {
+    color: $color-black;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+.return-button {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: 0;
+    cursor: pointer;
+    height: 100%;
+    margin-left: 1rem;
+}
 // START USER INDEX
 
 .user-index-h1 {
@@ -787,46 +856,3 @@ input[type=range] {
 
 // END USER EDIT
 
-.modal {
-    background-color: $color-black-opacity; // Black w/ opacity
-    display: none; // Hidden by default
-    height: 100%; // Full height
-    left: 0;
-    position: fixed; // Stay in place
-    top: 0;
-    width: 100%; // Full width
-    z-index: 1; // Sit on top
-}
-
-// Modal Content/Box
-.modal-content {
-    background-color: $color-grey;
-    border: 1px solid $color-light-grey;
-    box-shadow: $color-light-grey;
-    margin: 1rem;
-    padding: 1rem;
-  }
-
-// The close-search Button
-.close-search {
-    color: $color-black;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-
-.close-search:hover,
-.close-search:focus {
-    color: $color-black;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
-.return-button {
-    background-color: Transparent;
-    background-repeat: no-repeat;
-    border: 0;
-    cursor: pointer;
-    height: 100%;
-    margin-left: 1rem;
-}
