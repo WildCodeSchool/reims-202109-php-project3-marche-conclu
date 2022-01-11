@@ -1,7 +1,7 @@
+@import '~bootstrap/scss/bootstrap';
 @import 'variables';
 @import 'carousel';
 @import 'autocomplete';
-@import '~bootstrap/scss/bootstrap';
 
 body {
     margin: 0;
@@ -159,7 +159,7 @@ body {
     font-family: $fontworksans;
     font-size: 1.3rem;
     font-weight: 400;
-    margin-top: 16rem;
+    margin-top: 3rem;
     text-align: center;
 }
 
@@ -188,12 +188,10 @@ body {
     width: 100%;
 }
 
-.show-title {
-    color: $color-grey;
-    float: left;
-    font-family: 'Work Sans', sans-serif;
-    font-size: .8rem;
-    margin-left: 1rem;
+// SHOW SPACE 
+
+.show-space-head {
+    margin-top: 3rem;
 }
 
 .cardcontent {
