@@ -290,6 +290,37 @@ body {
     text-align: center;
 }
 
+.show-space-availability {
+    margin: 1rem;
+}
+
+.show-space-availability-list {
+    color: $color-white;
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+
+    .monday,
+    .tuesday,
+    .wednesday,
+    .thursday,
+    .friday,
+    .saturday,
+    .sunday {
+        background-color: $color-cerise-btn;
+        border-radius: 100%;
+        padding: 1rem;
+    }
+}
+
+.show-space-availability-hours-list {
+    color: $color-black;
+    display: flex;
+    font-size: .75rem;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
 // END SHOW SPACE
 
 .cardcontent {
