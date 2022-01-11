@@ -139,6 +139,11 @@ body {
     }
 }
 
+.spaces-title {
+    text-align: center;
+    margin-top: 1rem;
+}
+
 .space-pitch {
     color: $color-burgundy;
     font-family: $fontworksans;
@@ -707,6 +712,12 @@ input[type=range] {
     height: 100px;
     margin-top: 1rem;
     width: 100px;
+}
+
+
+.user-title-spaces {
+    text-align: center; 
+    margin-right: 1.4rem;
 }
 
 .user-index-location-li {

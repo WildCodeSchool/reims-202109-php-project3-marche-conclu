@@ -34,9 +34,10 @@
             <a class="user-index-submit" href="{{ path('user_edit', {'id': app.user.id}) }}">Modifier mon profil</a>
             <a class="user-index-submit" href="{{ path('app_logout') }}">Deconnexion</a>
         </div>
+
         <div class="user-index-location">
             {%if app.user.spaces is not empty %}
-                <h3>Mes locations :</h3>
+                <h3>Mes annonces :</h3>
             {% endif %}
             <ul class="user-index-location-ul">
             {% for space in app.user.spaces %}
