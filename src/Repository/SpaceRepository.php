@@ -28,12 +28,9 @@ class SpaceRepository extends ServiceEntityRepository
     {
         $query = $this->createQueryBuilder('s');
         foreach ($options as $key => $option) {
-            if (
-                $key !== 'surface' && $key !== 'price'
-                && $key !== 'date' && !empty($option)
-            ) {
+            if ($key !== 'surface' && $key !== 'price' && $key !== 'date') {
                 $query->where("s.$key = :$key")
-                    ->setParameter($key, $option);
+                ->setParameter($key, $option);
             }
         }
         if (isset($options['surface'])) {
