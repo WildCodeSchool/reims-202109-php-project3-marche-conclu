@@ -27,3 +27,6 @@ yarn-error.log
 /phpcs.xml
 ###< squizlabs/php_codesniffer ###
 .DS_Store
+
+###< Uploads ###
+/public/uploads/

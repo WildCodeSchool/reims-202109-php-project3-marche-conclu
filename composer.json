@@ -45,7 +45,8 @@
         "symfony/webpack-encore-bundle": "^1.13",
         "symfony/yaml": "5.3.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "vich/uploader-bundle": "^1.19"
     },
     "require-dev": {
         "friendsoftwig/twigcs": ">=4",

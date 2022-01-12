@@ -756,11 +756,13 @@ input[type=submit],
 }
 
 .connect-you {
+    border-bottom: 1px solid;
     color: $color-white;
     display: flex;
     font-family: $fontlogo;
     justify-content: center;
-    margin-top: 7rem;
+    margin: 2rem 5rem;
+    padding-bottom: 7px;
 }
 
 .login-register {
@@ -825,6 +827,7 @@ input[type=submit],
     border-bottom: 1px solid;
     color: $color-white;
     display: flex;
+    font-family: $fontlogo;
     font-size: 1.3rem; 
     justify-content: center;
     margin: 2rem 3rem;
@@ -887,6 +890,18 @@ input[type=submit],
     display: flex;
 }
 
+
+.filter-button {
+    height: 2rem;
+}
+
+.searchbar-and-filter {
+    align-items: center;
+    display: flex;
+}
+
+// FILTER CONTAINER
+
 .filters {
     background: $color-yellow;
     border-radius: 20px;
@@ -896,11 +911,28 @@ input[type=submit],
     z-index: 3;
 }
 
+
 .form-filters {
-    align-items: stretch;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
+    button{
+        background-color: rgba(99, 35, 35, 0.75);
+        border-radius: 1rem;
+        color: #fafafa;
+        margin: 1rem;
+        padding: 1rem 5rem;
+        }
+
+    padding: 1rem 0.5;
+
+    p{
+        border-top: 2px solid rgba(219, 218, 218, 0.883);
+        padding-top: .8rem;
+    }
+
+    .filter-range{
+        margin-top: 1rem;
+        border-bottom: 2px solid rgba(219, 218, 218, 0.883);
+        padding-bottom: .8rem;
+    }
 }
 
 input[type=checkbox],
@@ -915,14 +947,86 @@ input[type=range] {
     width: 100%; // Full width
 }
 
-.filter-button {
-    height: 2rem;
+.returnButton{
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: 0;
+    cursor: pointer;
 }
 
-.searchbar-and-filter {
-    align-items: center;
-    display: flex;
+.modal {
+    background-color: $color-black-opacity; // Black w/ opacity
+    display: none; // Hidden by default
+    height: 100%; // Full height
+    left: 0;
+    position: fixed; // Stay in place
+    top: 0;
+    width: 100%; // Full width
+    z-index: 1; // Sit on top
 }
+
+// Modal Content/Box
+.modal-content {
+    background-color: $color-white;
+    border: 1px solid $color-light-grey;
+    box-shadow: $color-light-grey;
+    color: $color-grey;
+    display: flex;
+    font-size: 1.1rem;
+    height: 95vh;
+    align-items: stretch;
+    margin: .5rem auto;
+    padding: 1rem;
+    width: 90vw;
+
+    input[type="range"]{
+        margin: 0;
+    }
+
+    label{
+        padding: 2px 3px 5px 3px; 
+    }
+  }
+
+.space-filter {
+    display: flex;
+    border-bottom: 2px solid rgba(219, 218, 218, 0.883);
+    flex-wrap: wrap;
+    padding-bottom: .8rem;
+
+    label {
+        border: 1px solid $color-light-grey;
+        border-radius: 5px;
+        margin: 6px auto;
+        padding: 8px;
+    }
+
+    input[type="checkbox"] {
+        visibility: hidden;
+    }
+
+    input:checked + label {
+        border: 3px solid $color-burgundy;
+    }
+    
+  }
+
+// The close-search Button
+
+.closeSearch {
+    color: $color-black;
+    font-size: 28px;
+    position: absolute;
+    top:0;
+    right:1rem;
+  }
+
+.closeSearch:hover,
+.closeSearch:focus {
+    color: $color-black;
+    cursor: pointer;
+    text-decoration: none;
+  }
 
 // START USER INDEX
 
@@ -1005,46 +1109,3 @@ input[type=range] {
 
 // END USER EDIT
 
-.modal {
-    background-color: $color-black-opacity; // Black w/ opacity
-    display: none; // Hidden by default
-    height: 100%; // Full height
-    left: 0;
-    position: fixed; // Stay in place
-    top: 0;
-    width: 100%; // Full width
-    z-index: 1; // Sit on top
-}
-
-// Modal Content/Box
-.modal-content {
-    background-color: $color-grey;
-    border: 1px solid $color-light-grey;
-    box-shadow: $color-light-grey;
-    margin: 1rem;
-    padding: 1rem;
-  }
-
-// The close-search Button
-.close-search {
-    color: $color-black;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-
-.close-search:hover,
-.close-search:focus {
-    color: $color-black;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
-.return-button {
-    background-color: Transparent;
-    background-repeat: no-repeat;
-    border: 0;
-    cursor: pointer;
-    height: 100%;
-    margin-left: 1rem;
-}

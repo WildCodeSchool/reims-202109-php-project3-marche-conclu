@@ -30,7 +30,7 @@
 		</p>
 		{% for space in spaces %}
 			<figure class="offer">
-				<img class="image-offer" src="{{ asset('build/images/imageHome.svg') }}" alt="Marché Conclu"/>
+				<img class="image-offer" src="{{ vich_uploader_asset(space) }}" alt="Marché Conclu"/>
 				<figcaption class="text-offer">
 					<div class="card-border card-content-up cardcontent">
 						<div class="spacecategory card-content-up">{{ space.category }}
