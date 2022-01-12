@@ -1,4 +1,4 @@
-{{ form_start(form) }}
+{{ form_start(form, {'attr': {'onsubmit': "return confirm('Veuillez confirmer votre réservation');"}}) }}
     {{ form_widget(form) }}
     <input type="submit" class="show-reservation-submit" value="Réserver"></input>
 {{ form_end(form) }}

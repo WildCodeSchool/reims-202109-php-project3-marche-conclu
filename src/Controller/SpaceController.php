@@ -105,7 +105,7 @@ class SpaceController extends AbstractController
             $slot->setPrice(0);
             $entityManager->persist($slot);
 
-            if (!$slotrepository->findBy(["slotTime" => $slot->getSlotTime(), "space" => $slot->getSpace()])) {
+            if ($slotrepository->findBy(["slotTime" => $slot->getSlotTime(), "space" => $slot->getSpace()])) {
                 $this->addFlash("error", "Ce créneau est déjà réservé pour cette date.");
             } else {
                 $entityManager->flush();
