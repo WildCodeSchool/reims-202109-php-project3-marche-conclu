@@ -18,7 +18,7 @@
 			<div class="carousel-item{{ loop.index0 == 0 ? ' carousel-item-visible' : '' }}">
 				<img src="{{ asset('build/images/' ~ category|lower|replace({' ': '', '-': ''}) ~ '.jpg') }}" alt="{{ category|lower }}"/>
 				<a href="#">
-					<div class="texte-center">
+					<div class="text-center">
 						<p>{{ category }}</p>
 					</div>
 				</a>
@@ -61,13 +61,7 @@
 	{% endfor %}
 </div>
 <div class="flex-office">
-	<div class="flex-titles">
-		<h4 class="flex-subtitle">Découvrez</h3>
-		<h2 class="flex-title">Le flex office</h2>
-	</div>
-	<img src="{{ asset('build/images/flexoffice.png') }}" alt="flexoffice"/>
-	<h4 class="p-title">Trouvez votre bureau partout</h3>
-	<p class="p-flex">Une solution pour tous vos besoins qui s’adapte en fonction de l’évolution de votre business</p>
+		<iframe src="https://www.youtube.com/embed/qxTaXktrZTM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 <div class="testimony">
 		<h4 class="testimony-title">Ils en parlent</h1>

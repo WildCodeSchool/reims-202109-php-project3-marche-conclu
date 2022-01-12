@@ -64,21 +64,25 @@
     }
 }
 
-.texte-center {
+.text-center {
     align-items: center;
     background-color: $color-cerise;
+    border-radius: 1.5rem;
     color: $color-white;
     display: flex;
     font-family: $fontworksans;
     font-size: 1.75rem;
-    height: 30vh;
     justify-content: center;
     left: 50%;
     position: absolute;
+    padding: .8rem;
     text-align: center;
     text-decoration: none;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 60vw;
     z-index: 1;
+
+    p{
+        margin: 0;
+    }
   }
