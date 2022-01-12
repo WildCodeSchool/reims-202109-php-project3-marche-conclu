@@ -267,6 +267,8 @@ body {
 .show-space-details-list {
     border-bottom: 1px solid $color-black;
     color: $color-cerise-btn;
+    font-family: $fontworksans;
+    font-weight: 500;
     display: flex;
     font-size: .75rem;
     justify-content: space-between;
@@ -293,6 +295,7 @@ body {
 
 .show-space-availability {
     border-bottom: 1px solid $color-black;
+    font-family: $fontworksans;
     margin: 1rem;
     padding-bottom: .75rem;
 }
@@ -378,6 +381,7 @@ body {
 }
 
 .show-reservation-modal-content {
+    font-family: $fontworksans;
     display: flex;
     flex-direction: column;
     justify-content: center;
