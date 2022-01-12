@@ -4,31 +4,29 @@
 {# ... #}
 
 {% block body %}
-    <div class="login-body">
-    <p class="login-title">
-    Marché
-    <br>
-    <span class="conclu">C O N C L U</span>
-    </p>
-    <h1 class="connect-you">Se connecter</h1>
-    <div class="login-register">
-    <form action="{{ path('login') }}" method="post">
+	<div class="login-body">
+		<div class="title">
+			{% include "_logoTitle.html.twig" %}
+		</div>
+		<h1 class="connect-you">Se connecter</h1>
+		<div class="login-register">
+			<form action="{{ path('login') }}" method="post">
+				<label for="username">Email</label>
+				<input type="text" id="username" name="_username" value="{{ last_username }}"/>
 
-        <label for="username">Email</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+				<label for="password">Mot de passe</label><br>
+				<input
+				type="password" id="password" name="_password"/>
 
-        <label for="password">Mot de passe</label><br>
-        <input type="password" id="password" name="_password"/>
-
-        {# If you want to control the URL the user is redirected to on success
-        <input type="hidden" name="_target_path" value="/account"/> #}
-        <div class="loginorregister">
-            <button class="submit-login" type="submit">Connexion</button>
-            <a class="registeryou" href="{{ path('app_register') }}">Créer un compte</a>
-        </div>
-    </form>
-    </div>
-    {% if error %}
-        <div class="invalidlogin">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
-{% endblock %}
+				{# If you want to control the URL the user is redirected to on success
+								        <input type="hidden" name="_target_path" value="/account"/> #}
+				<div class="loginorregister">
+					<button class="submit-login" type="submit">Connexion</button>
+					<a class="registeryou" href="{{ path('app_register') }}">Créer un compte</a>
+				</div>
+			</form>
+		</div>
+		{% if error %}
+			<div class="invalidlogin">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
+	{% endblock %}

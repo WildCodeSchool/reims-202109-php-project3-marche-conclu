@@ -24,6 +24,7 @@ class SpaceFixtures extends Fixture implements DependentFixtureInterface
             $space->setName('Espace ' . $i);
             $randImage = array_rand(self::SPACE_IMAGES);
             $space->setPhotos(self::SPACE_IMAGES[$randImage]);
+            $space->setPrice((rand(1, 10) / 10) * rand(100, 200));
             $space->setSurface(rand(5, 200));
             $typespace = array_rand(self::TYPESPACE);
             $space->setCategory(self::TYPESPACE[$typespace]);

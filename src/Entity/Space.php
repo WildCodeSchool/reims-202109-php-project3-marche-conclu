@@ -7,9 +7,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=SpaceRepository::class)
+ * @Vich\Uploadable
  */
 class Space
 {
@@ -27,10 +30,16 @@ class Space
     private string $name;
 
     /**
-     * @ORM\Column(type="string", length=500)
+     * @ORM\Column(type="string", length=500, nullable="true")
      * @Assert\NotBlank(message="Le champ photos ne peut être vide")
      */
     private string $photos;
+
+     /**
+      * @Vich\UploadableField(mapping="photos_file", fileNameProperty="photos")
+      * @var File
+      */
+    private ?File $photosFile;
 
     /**
      * @ORM\Column(type="integer", length=10)
@@ -72,9 +81,20 @@ class Space
      */
     private int $price;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private ?string $description;
+
+    /**
+     * @ORM\OneToOne(targetEntity=SpaceDisponibility::class, mappedBy="space", cascade={"persist", "remove"})
+     */
+    private SpaceDisponibility $spaceDisponibility;
+
     public function __construct()
     {
         $this->slots = new ArrayCollection();
+        $this->photosFile = null;
     }
 
     public function getId(): ?int
@@ -213,5 +233,49 @@ class Space
         $this->price = $price;
 
         return $this;
+    }
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getSpaceDisponibility(): ?SpaceDisponibility
+    {
+        return $this->spaceDisponibility;
+    }
+
+    public function setSpaceDisponibility(SpaceDisponibility $spaceDisponibility): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($spaceDisponibility == null && $this->spaceDisponibility !== null) {
+            $this->spaceDisponibility->setSpace(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($spaceDisponibility !== null && $spaceDisponibility->getSpace() !== $this) {
+            $spaceDisponibility->setSpace($this);
+        }
+
+        $this->spaceDisponibility = $spaceDisponibility;
+
+        return $this;
+    }
+
+    public function setPhotosFile(?File $photos = null): Space
+    {
+        $this->photosFile = $photos;
+        return $this;
+    }
+
+    public function getPhotosFile(): ?File
+    {
+        return $this->photosFile;
     }
 }
