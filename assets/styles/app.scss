@@ -780,7 +780,7 @@ input[type=range] {
     input[type="checkbox"] {
         visibility: hidden;
     }
-    
+
     input:checked + label {
         border: 3px solid $color-burgundy;
     }
