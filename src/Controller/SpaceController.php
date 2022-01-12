@@ -10,6 +10,7 @@ use App\Entity\User;
 use App\Form\SlotType;
 use App\Form\SpaceType;
 use App\Repository\SpaceRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -85,18 +86,21 @@ class SpaceController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'show', methods: ['GET'])]
-    public function show(Request $request, EntityManagerInterface $entityManager, Space $space): Response
+    #[Route('/{id}', name: 'show', methods: ['POST', 'GET'])]
+    public function show(Request $request, EntityManagerInterface $entityManager, Space $space, User $user): Response
     {
         $slot = new Slot();
         $form = $this->createForm(SlotType::class, $slot);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $slot->setOwner($user);
+            $slot->setSpace($space);
+            $slot->setPrice(0);
             $entityManager->persist($slot);
             $entityManager->flush();
 
-            return $this->redirectToRoute('space_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('space_show', ['id' => $space->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('space/show.html.twig', [

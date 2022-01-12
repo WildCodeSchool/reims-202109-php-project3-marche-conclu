@@ -6,12 +6,8 @@
 {% block body %}
 <div class="carousel">
             <div class="carousel-item-mc carousel-item-visible">
-                <img src="{{ asset('build/images/' ~ space.photos) }}"
-                    alt="bureau privee" />
-            </div>
-            <div class="carousel-item-mc">
                 <img src="{{ asset('build/images/coworking.jpg') }}"
-                    alt="co-working" />
+                    alt="bureau privee" />
             </div>
             <div class="carousel-item-mc">
                 <img src="{{ asset('build/images/salledereunion.jpg') }}"
@@ -44,7 +40,7 @@
 				<a class="show-space-link-edit" href="{{ path('space_edit', {'id': space.id}) }}">Éditer</a>
 			{% endif %}
 		</div>
-		<h2 class="show-space-price">59€/<span>j</span></h1>
+		<h2 class="show-space-price">{{ space.price }}€/<span>j</span></h1>
 	</div>
 </div>
 <ul class="show-space-details-list">
@@ -106,15 +102,19 @@
 		<button class="show-space-reservation-btn" id="reservation-btn" type="submit">Choisir une date de réservation</button>
 	</div>
 	<div class="show-reservation" id="show-reservation-modal">
-		<form class="show-reservation-modal-content">
+		{# <form class="show-reservation-modal-content">
 			<div class="show-reservation-text">
 				<label class="reservation-choose-date" for="date">Choisir une date de réservation :</label>
 				<span class='show-reservation-modal-close' onclick='closeModal()'>&times;</span>
-			</div>
-			<input type="date" id="date" name="date" value="2022-01-15">
-			<input class="show-reservation-submit" type="submit" value="Réserver"></input>
-		</form>
-	</div>
+			</div> #}
+			{% include "slot/_form.html.twig" %}
+			{# <input type="date" id="date" name="date" value="2022-01-15">
+			<input class="show-reservation-submit" type="submit" value="Réserver"></input> #}
+{# 		</form>
+ #}	</div>
+	<pre>
+		{{ dump() }}
+	</pre>
 	<script>
 		const modal = document.getElementById("show-reservation-modal");
 		const btn = document.getElementById("reservation-btn");
