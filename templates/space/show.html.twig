@@ -100,54 +100,31 @@
 	</ul>
 </div>
 <div class="show-space-reservation">
-	<h2>Réserver</h2>
+	<button class="show-space-reservation-btn" id="reservation-btn" type="submit">Choisir une date de réservation</button>
 </div>
-{# 
-	<h1 class="show-title">Accueil /
-		{{ space.location }}
-		/
-		{{ space.category }}
-	</h1>
-	<figure>
-		<img class="show-image-offer" src="{{ asset('build/images/' ~ space.photos) }}" alt="Marché Conclu"/>
-		<figcaption class="text-offer">
-			<ul class="show-cardcontent">
-				<li class="spacename">
-					{{ space.name }}
-				</li>
-				<li class="spacecategory">
-					{{ space.category }}
-				</li>
-				<li class="spacelocation">
-					6 avenue de Champagne,
-					{{ space.location }}, 51200
-				</li>
-				<li class="spacesurface">
-					{{ space.surface }}
-					m² -
-					{{ space.capacity }}
-					postes de travail
-				</li>
-				<li class="show-spaceprice">
-					<span style="font-weight: bolder; font-size: 1rem">{{ random(50, 250) }}
-						€
-					</span>/jour
-				</li>
-			</ul>
-		</figcaption>
-	</figure>
-	{{ include('slot/_form.html.twig') }}<div class="mapouter">
-		<div class="gmap_canvas">
-			<iframe width="350" height="150" id="gmap_canvas" src="https://maps.google.com/maps?q={{ space.location }}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-		</div>
-	</div>
-	<div class="form-container">
-		<div class="div-btn">
-			<a class="space-form-submit" href="{{ path('space_index') }}">Retourner sur la liste des espaces</a>
-		</div>
-		<div class="div-btn">
-			<a class="form-submit" href="{{ path('space_edit', {'id': space.id}) }}">Modifier votre annonce</a>
-		</div>
-	</div>
-	{{ include('space/_delete_form.html.twig') }} #}
+<div class="show-reservation" id="show-reservation-modal">
+    <span class='show-reservation-modal-close' onclick='closeModal()'>&times;</span>
+	<form class="show-reservation-modal-content">
+		<label class="reservation-choose-date" for="date">Choisir une date de réservation :</label>
+        <input type="date" id="date" name="date" value="2022-01-15">
+		<input type="submit" value="Réserver">
+    </form>
+</div>
+<script>
+	const modal = document.getElementById("show-reservation-modal");
+	const btn = document.getElementById("reservation-btn");
+	const closeSearch = document.getElementsByClassName("show-reservation-modal-close")[0];
+	btn.onclick = function () {
+		modal.style.display = "block";
+	}
+	closeSearch.onclick = function () {
+		modal.style.display = "none";
+	}
+	window.onclick = function (event) {
+		if (event.target == modal) {
+		modal.style.display = "none";
+		}
+	}
+</script>
 {% endblock %}
+ 

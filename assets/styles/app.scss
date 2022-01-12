@@ -349,16 +349,60 @@ body {
 }
 
 .show-space-reservation {
-    background-color: $color-cerise-btn;
-    border-radius: 4px;
-    color: $color-white;
-    margin: 0 1rem;
-    padding: .75rem;
     text-align: center;
 
-    h2 {
-        margin-bottom: 0;
+    .show-space-reservation-btn {
+        background-color: $color-cerise-btn;
+        border-radius: 4px;
+        color: $color-white;
+        margin: 0 1rem;
+        padding: 1rem 3rem;
+        text-align: center;
+        border: initial;
     }
+}
+
+.show-reservation {
+    background-color: $color-black-modal-reservation; // Black w/ opacity
+    display: none; // Hidden by default
+    height: 100%; // Full height
+    left: 0;
+    position: fixed; // Stay in place
+    top: 0;
+    width: 100%; // Full width
+    z-index: 1; // Sit on top
+}
+
+
+// Modal Content/Box
+.show-reservation-modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $color-grey;
+    border: 1px solid $color-light-grey;
+    box-shadow: $color-light-grey;
+    margin: 40vh 1rem;
+    padding: 1rem;
+
+    input[type=submit] {
+        background-color: $color-cerise-btn;
+        border-radius: 4px;
+        margin-top: 1rem;
+    }
+  }
+
+// The close-search Button
+.show-reservation-modal-close {
+    color: $color-white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+.reservation-choose-date {
+    color: $color-white;
+    margin-bottom: 1rem;
 }
 
 // END SHOW SPACE
