@@ -42,10 +42,10 @@ class Space
     private ?File $photosFile;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="integer", length=10)
     * @Assert\NotBlank(message="Le champ surface ne peut être vide")
      */
-    private string $surface;
+    private int $surface;
 
     /**
      * @ORM\Column(type="string", length=50)
@@ -77,6 +77,11 @@ class Space
     private ?User $owner;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private int $price;
+
+    /**
      * @ORM\Column(type="text", nullable=true)
      */
     private ?string $description;
@@ -89,6 +94,7 @@ class Space
     public function __construct()
     {
         $this->slots = new ArrayCollection();
+        $this->photosFile = null;
     }
 
     public function getId(): ?int
@@ -127,12 +133,12 @@ class Space
         return $this;
     }
 
-    public function getSurface(): ?string
+    public function getSurface(): ?int
     {
         return $this->surface;
     }
 
-    public function setSurface(string $surface): self
+    public function setSurface(int $surface): self
     {
         $this->surface = $surface;
 
@@ -217,6 +223,17 @@ class Space
         return $this;
     }
 
+    public function getPrice(): ?int
+    {
+        return $this->price;
+    }
+
+    public function setPrice(int $price): self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
     public function getDescription(): ?string
     {
         return $this->description;

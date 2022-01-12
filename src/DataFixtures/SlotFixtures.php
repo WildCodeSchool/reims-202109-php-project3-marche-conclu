@@ -10,7 +10,6 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
 class SlotFixtures extends Fixture implements DependentFixtureInterface
 {
-
     private const SPACE_COUNT = 30;
     private const TIMESTAMP_START = 1638316800;
     private const TIMESTAMP_END = 1638921600;

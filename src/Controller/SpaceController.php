@@ -36,9 +36,8 @@ class SpaceController extends AbstractController
     }
 
     /**
-    * @IsGranted("ROLE_USER")
-    */
-
+     * @IsGranted("ROLE_USER")
+     */
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -65,14 +64,24 @@ class SpaceController extends AbstractController
     }
 
     #[Route('/search', name: 'search', methods: ['GET'])]
-    public function search(Request $request, SpaceRepository $spaceRepository, ?string $location): Response
+    public function search(Request $request, SpaceRepository $spaceRepository): Response
     {
-        $location = $request->query->get('location');
-
-        $spaces = $location ? $spaceRepository->findByLocation($location) : $spaceRepository->findAll();
+        $options = $request->query->all();
+        foreach ($options as $key => $option) {
+            if ($option === "") {
+                unset($options[$key]);
+            }
+            if ($option === "on") {
+                $options['category'] = $key;
+                unset($options[$key]);
+            }
+        }
+        $spaces = $options ? $spaceRepository->findByCriterias($options) : $spaceRepository->findAll();
 
         return $this->renderForm('space/search.html.twig', [
-            'location' => $location, 'spaces' => $spaces, 'categories' => self::CATEGORIES, 'api' => $_ENV["API_KEY"]
+            'location' => $options['location'] ?? null,
+            'spaces' => $spaces, 'categories' => self::CATEGORIES,
+            'api' => $_ENV['API_KEY']
         ]);
     }
 
@@ -99,8 +108,8 @@ class SpaceController extends AbstractController
     }
 
     /**
-    * @IsGranted("ROLE_USER")
-    */
+     * @IsGranted("ROLE_USER")
+     */
     #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Space $space, EntityManagerInterface $entityManager): Response
     {
@@ -120,8 +129,8 @@ class SpaceController extends AbstractController
     }
 
     /**
-    * @IsGranted("ROLE_USER")
-    */
+     * @IsGranted("ROLE_USER")
+     */
     #[Route('/{id}', name: 'delete', methods: ['POST'])]
     public function delete(Request $request, Space $space, EntityManagerInterface $entityManager): Response
     {

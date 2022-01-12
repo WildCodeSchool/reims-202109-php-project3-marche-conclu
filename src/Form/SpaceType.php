@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Space;
+use phpDocumentor\Reflection\Types\Integer;
 use App\Entity\SpaceDisponibility;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -36,11 +37,14 @@ class SpaceType extends AbstractType
             ->add('capacity', IntegerType::class)
             ->add('category', ChoiceType::class, [
                 'choices'  => [
-                    'Espace ouvert' => 'Espace ouvert',
-                    'Espace fermé' => 'Espace fermé',
-                    'Espace bureau' => 'Espace bureau',
+                    'Salle de réunion' => 'reunion',
+                    'Co-working' => 'coworking',
+                    'Bureau privé' => 'private-desk',
+                    'Open Space' => 'open-space',
+                    'Plateaux vides' => 'empty-plates'
                 ],
-            ]);
+            ])
+            ->add('price', IntegerType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
