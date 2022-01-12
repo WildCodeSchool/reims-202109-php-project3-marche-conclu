@@ -92,10 +92,10 @@
 							<div class="spacelocationcard-content-down">{{ space.location }}</div>
 							<div id="price">
 								<div class="spaceprice">
-									<span id="spanprice">{{ random(50,250) }} €</span>
+									<span id="spanprice">{{ random(50, 250) }} €</span>
 									<span id="spanpriceday">/jour</span>
 								</div>
-								<a class="form-submit" id="buttonCardShow" href="{{ path("space_show",{id:space.id}) }}">Voir l'annonce</a>
+								<a class="form-submit" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
 							</div>
 						</figcaption>
 					</figure>
@@ -103,7 +103,7 @@
 			</div>
 		{% elseif location %}
 			<p>Aucun espace trouvé à
-				{{location}}</p>
+				{{ location }}</p>
 		{% endif %}
 	</div>
 

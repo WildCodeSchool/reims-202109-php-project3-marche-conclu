@@ -9,6 +9,13 @@ body {
     padding-bottom: 5rem;
 }
 
+label,
+input,
+button,
+a {
+    font-family: $fontbodini;
+}
+
 // START NAVBAR
 
 .navbar-invisible {
@@ -511,6 +518,7 @@ input[type=submit],
 .login-body {
     background-color: $color-cerise;
     height: 92vh;
+    font-family: $fontbodini;
 }
 
 .login-title {
@@ -567,6 +575,7 @@ input[type=submit],
     margin: auto;
     padding: 1rem 2rem;
     text-align: center;
+    margin-top: 2rem;
 }
 
 .loginorregister {
@@ -883,6 +892,7 @@ input[type=range] {
     margin: initial;
     padding: 1rem 0;
     text-align: center;
+    font-family: $fontbodini;
 }
 
 .user-edit-div-form {
@@ -892,6 +902,14 @@ input[type=range] {
 .user-edit-return {
     margin: 2rem;
     text-align: center;
+}
+
+.user-form-enregistrer {
+    margin-top: 1rem;
+}
+
+.registration-form-agreeTerms {
+    width: 25%;
 }
 
 // END USER EDIT
