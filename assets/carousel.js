@@ -1,4 +1,4 @@
-const slides = document.getElementsByClassName('carousel-item');
+const slides = document.getElementsByClassName('carousel-item-mc');
 const nextButton = document.getElementById('carousel-button-next');
 const prevButton = document.getElementById('carousel-button-prev');
 let position = 0;

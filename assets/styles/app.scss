@@ -1,7 +1,7 @@
+@import '~bootstrap/scss/bootstrap';
 @import 'variables';
 @import 'carousel';
 @import 'autocomplete';
-@import '~bootstrap/scss/bootstrap';
 
 body {
     margin: 0;
@@ -166,7 +166,7 @@ a {
     font-family: $fontworksans;
     font-size: 1.3rem;
     font-weight: 400;
-    margin-top: 16rem;
+    margin-top: 3rem;
     text-align: center;
 }
 
@@ -195,13 +195,240 @@ a {
     width: 100%;
 }
 
-.show-title {
-    color: $color-grey;
-    float: left;
-    font-family: 'Work Sans', sans-serif;
-    font-size: .8rem;
-    margin-left: 1rem;
+// SHOW SPACE 
+
+.show-space-head {
+    display: flex;
+    font-family: $fontworksans;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid $color-black;
+    margin: 1rem;
 }
+
+
+.show-space-head-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+
+    h1 {
+        margin: 0;
+    }
+}
+
+.show-space-name {
+    color: $color-cerise-btn;
+}
+
+.show-space-location {
+    margin-bottom: 1rem;
+}
+
+.show-space-price {
+    color: $color-cerise-btn;
+}
+
+.show-space-head-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+}
+
+.show-space-head-right {
+    h2 {
+        margin: 0;
+
+        span {
+            font-size: 1.25rem;
+        } 
+    }
+}
+
+.show-space-btn-edit {
+    margin-top: .75em;
+}
+
+.show-space-btn-locate {
+    margin-top: .75em;
+}
+
+.show-space-link-edit, .show-space-link-locate {
+    background-color: $color-cerise-btn;
+    border-radius: 4px;
+    color: $color-white;
+    padding: .75rem 1rem;
+    text-decoration: none;
+}
+
+.show-space-link-edit:hover, .show-space-link-locate:hover {
+    color: $color-black;
+} 
+
+.show-space-location {
+    font-size: .9rem;
+}
+
+.show-space-details-list {
+    border-bottom: 1px solid $color-black;
+    color: $color-cerise-btn;
+    font-family: $fontworksans;
+    font-weight: 500;
+    display: flex;
+    font-size: .75rem;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 1rem 1rem 0;
+    padding-bottom: 1rem;
+}
+
+.show-space-description {
+    border-bottom: 1px solid $color-black;
+    margin: .3rem 1rem;
+    padding-bottom: .5rem;
+
+    p {
+        margin-bottom: 0;
+    }
+
+}
+
+.show-space-description-text {
+    font-size: .75rem;
+    margin: 0 1rem;
+    text-align: center;
+
+}
+
+.show-space-availability {
+    border-bottom: 1px solid $color-black;
+    font-family: $fontworksans;
+    margin: 1rem;
+    padding-bottom: .75rem;
+}
+
+.show-space-availability-week {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+
+    .day-letter {
+        color: $color-white;
+        position: inherit;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: $color-cerise-btn;
+        text-align: center;
+        line-height: 2.7rem;
+    }
+
+    .day-hours {
+        margin-top: .25rem;
+        text-align: center;
+        font-size: .75rem;
+        color: $color-black;
+    }
+}
+
+.show-space-availability-hours-list {
+    color: $color-black;
+    display: flex;
+    font-size: .75rem;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.show-space-owner {
+    color: $color-cerise-btn;
+    display: flex;
+    font-family: $fontworksans;
+    font-size: .75rem;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem;
+
+    .show-space-owner-details {
+        list-style-type: none;
+    }
+
+    .show-space-owner-contact {
+        list-style-type: none;
+        text-align: right;
+    }
+}
+
+.show-space-reservation {
+    text-align: center;
+
+    .show-space-reservation-btn {
+        background-color: $color-cerise-btn;
+        border-radius: 4px;
+        color: $color-white;
+        margin: 0 1rem;
+        padding: 1rem 3rem;
+        text-align: center;
+        border: initial;
+    }
+
+    .show-space-reservation-btn:hover {
+        color: $color-black;
+    }
+}
+
+.show-reservation {
+    background-color: $color-black-modal-reservation; // Black w/ opacity
+    display: none; // Hidden by default
+    height: 100%; // Full height
+    left: 0;
+    position: fixed; // Stay in place
+    top: 0;
+    width: 100%; // Full width
+    z-index: 1; // Sit on top
+}
+
+.show-reservation-modal-content {
+    font-family: $fontworksans;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $color-grey;
+    border: 1px solid $color-light-grey;
+    box-shadow: $color-light-grey;
+    margin: 40vh 1rem;
+    padding: 1rem;
+
+    input[type=submit] {
+        background-color: $color-cerise-btn;
+        border-radius: 4px;
+        margin-top: 1rem;
+    }
+  }
+
+.show-reservation-modal-close {
+    color: $color-white;
+    font-weight: bold;
+  }
+
+.show-reservation-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.reservation-choose-date {
+    color: $color-white;
+}
+
+.show-reservation-submit:hover {
+    color: $color-black;
+}
+
+// END SHOW SPACE
 
 .cardcontent {
     font-family: 'Work Sans', sans-serif;
@@ -658,7 +885,7 @@ input[type=submit],
     background-color: $color-cerise;
     color: $color-white;
     letter-spacing: 2px;
-    padding: 0 2rem 2rem 2rem;
+    padding: 4rem 2rem 2rem;
     text-align: center;
 }
 
@@ -843,12 +1070,6 @@ input[type=range] {
     height: 100px;
     margin-top: 1rem;
     width: 100px;
-}
-
-
-.user-title-spaces {
-    text-align: center; 
-    margin-right: 1.4rem;
 }
 
 .user-index-location-li {
