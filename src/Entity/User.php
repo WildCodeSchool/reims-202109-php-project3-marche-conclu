@@ -73,6 +73,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private ?string $company;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private string $job;
+
     public function __construct()
     {
         $this->slots = new ArrayCollection();
@@ -279,6 +284,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCompany(?string $company): self
     {
         $this->company = $company;
+
+        return $this;
+    }
+
+    public function getJob(): ?string
+    {
+        return $this->job;
+    }
+
+    public function setJob(string $job): self
+    {
+        $this->job = $job;
 
         return $this;
     }

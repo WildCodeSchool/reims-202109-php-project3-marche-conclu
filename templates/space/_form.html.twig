@@ -1,6 +1,5 @@
 <div class="space_form_container">
     {{ form_start(form) }}
-
     <label>
         Nom de votre annonce :
         {{ form_widget(form.name, {'attr': {'class': 'space_form_content'}}) }}
@@ -18,9 +17,9 @@
         {{ form_widget(form.surface, {'attr': {'class': 'space_form_content'}}) }}
     </label>
     <label>
-       Photo :
-       {{ form_widget(form.photos, {'attr': {'class': 'space_form_content'}}) }}
-    </label>
+        Photo :
+        {{ form_widget(form.photosFile, {'attr': {'class': 'space_form_content'}}) }}
+     </label>
     <label>
         Ville :
         {{ form_widget(form.location, {'attr': {'class': 'space_form_content'}}) }}
