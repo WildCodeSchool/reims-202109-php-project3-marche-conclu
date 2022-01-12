@@ -15,7 +15,7 @@
 </div>
 	<div class="carousel">
 		{% for category in categories %}
-			<div class="carousel-item{{ loop.index0 == 0 ? ' carousel-item-visible' : '' }}">
+			<div class="carousel-item-mc{{ loop.index0 == 0 ? ' carousel-item-visible' : '' }}">
 				<img src="{{ asset('build/images/' ~ category|lower|replace({' ': '', '-': ''}) ~ '.jpg') }}" alt="{{ category|lower }}"/>
 				<a href="#">
 					<div class="texte-center">
@@ -26,7 +26,7 @@
 		{% endfor %}
 	<div class="carousel-actions">
 		<button id="carousel-button-prev" aria-label="Previous"><</button>
-		<button id="carousel-button-next"aria-label="Next">></button>
+		<button id="carousel-button-next" aria-label="Next">></button>
 	</div>
 </div>
 <div>
