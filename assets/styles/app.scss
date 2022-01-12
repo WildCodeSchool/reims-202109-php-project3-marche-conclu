@@ -293,23 +293,17 @@ body {
 
 .show-space-availability {
     border-bottom: 1px solid $color-black;
-    margin: .5rem 1rem;
-    padding-bottom: .5rem;
+    margin: 1rem;
+    padding-bottom: .75rem;
 }
 
-.show-space-availability-list {
-    color: $color-white;
+.show-space-availability-week {
     display: flex;
     justify-content: space-around;
     list-style-type: none;
 
-    .monday,
-    .tuesday,
-    .wednesday,
-    .thursday,
-    .friday,
-    .saturday,
-    .sunday {
+    .day-letter {
+        color: $color-white;
         position: inherit;
         width: 45px;
         height: 45px;
@@ -317,6 +311,13 @@ body {
         background-color: $color-cerise-btn;
         text-align: center;
         line-height: 2.7rem;
+    }
+
+    .day-hours {
+        margin-top: .25rem;
+        text-align: center;
+        font-size: .75rem;
+        color: $color-black;
     }
 }
 
