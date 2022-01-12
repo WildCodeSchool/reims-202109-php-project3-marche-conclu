@@ -40,7 +40,9 @@
 	</div>
 	<div class="show-space-head-right">
 		<div class="show-space-btn-edit">
-			<a class="show-space-link-edit" href="{{ path('space_edit', {'id': space.id}) }}">Éditer</a>
+			{% if app.user == space.owner %}
+				<a class="show-space-link-edit" href="{{ path('space_edit', {'id': space.id}) }}">Éditer</a>
+			{% endif %}
 		</div>
 		<h2 class="show-space-price">59€/<span>j</span></h1>
 	</div>
@@ -99,34 +101,36 @@
 		<li>06 27 98 04 43</li>
 	</ul>
 </div>
-<div class="show-space-reservation">
-	<button class="show-space-reservation-btn" id="reservation-btn" type="submit">Choisir une date de réservation</button>
-</div>
-<div class="show-reservation" id="show-reservation-modal">
-	<form class="show-reservation-modal-content">
-		<div class="show-reservation-text">
-			<label class="reservation-choose-date" for="date">Choisir une date de réservation :</label>
-	    	<span class='show-reservation-modal-close' onclick='closeModal()'>&times;</span>
-        </div>
-		<input type="date" id="date" name="date" value="2022-01-15">
-		<input class="show-reservation-submit" type="submit" value="Réserver"></input>
-    </form>
-</div>
-<script>
-	const modal = document.getElementById("show-reservation-modal");
-	const btn = document.getElementById("reservation-btn");
-	const closeSearch = document.getElementsByClassName("show-reservation-modal-close")[0];
-	btn.onclick = function () {
-		modal.style.display = "block";
-	}
-	closeSearch.onclick = function () {
-		modal.style.display = "none";
-	}
-	window.onclick = function (event) {
-		if (event.target == modal) {
-		modal.style.display = "none";
+{% if app.user and app.user != space.owner %}
+	<div class="show-space-reservation">
+		<button class="show-space-reservation-btn" id="reservation-btn" type="submit">Choisir une date de réservation</button>
+	</div>
+	<div class="show-reservation" id="show-reservation-modal">
+		<form class="show-reservation-modal-content">
+			<div class="show-reservation-text">
+				<label class="reservation-choose-date" for="date">Choisir une date de réservation :</label>
+				<span class='show-reservation-modal-close' onclick='closeModal()'>&times;</span>
+			</div>
+			<input type="date" id="date" name="date" value="2022-01-15">
+			<input class="show-reservation-submit" type="submit" value="Réserver"></input>
+		</form>
+	</div>
+	<script>
+		const modal = document.getElementById("show-reservation-modal");
+		const btn = document.getElementById("reservation-btn");
+		const closeSearch = document.getElementsByClassName("show-reservation-modal-close")[0];
+		btn.onclick = function () {
+			modal.style.display = "block";
 		}
-	}
-</script>
+		closeSearch.onclick = function () {
+			modal.style.display = "none";
+		}
+		window.onclick = function (event) {
+			if (event.target == modal) {
+			modal.style.display = "none";
+			}
+		}
+	</script>
+{% endif %}
 {% endblock %}
  
