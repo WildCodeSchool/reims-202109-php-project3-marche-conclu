@@ -393,12 +393,20 @@ body {
     box-shadow: $color-light-grey;
     margin: 40vh 1rem;
     padding: 1rem;
+    text-align: center;
 
     input[type=submit] {
         background-color: $color-cerise-btn;
         border-radius: 4px;
         margin-top: 1rem;
+        padding: .5rem 8rem;
     }
+
+    input[type=date] {
+        border-radius: 4px;
+        padding: .5rem 6rem;
+    }
+
   }
 
 .show-reservation-modal-close {

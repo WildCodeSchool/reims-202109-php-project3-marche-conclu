@@ -14,6 +14,7 @@ class SlotType extends AbstractType
     {
         $builder
             ->add('slotTime', DateType::class, [
+                'label' => ' ',
                 'widget' => 'single_text',
                 // this is actually the default format for single_text
                 'format' => 'yyyy-MM-dd',
