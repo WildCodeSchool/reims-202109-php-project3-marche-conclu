@@ -86,15 +86,18 @@
 			<div class="day-hours">09h-18h</div>
 		</div>
 	</div>
-{# 	<ul class="show-space-availability-hours-list">
-		<li class="monday">09h|18h</li>
-		<li class="tuesday">09h|18h</li>
-		<li class="wednesday">09h|18h</li>
-		<li class="thursday">09h|18h</li>
-		<li class="friday">09h|18h</li>
-		<li class="saturday">09h|18h</li>
-		<li class="sunday">09h|18h</li>
-	</ul> #}
+
+</div>
+<div class="show-space-owner">
+	<ul class="show-space-owner-details">
+		<li>{{ space.owner.firstname }} {{ space.owner.lastname }}</li>
+		<li>Secrétaire Générale</li>
+		<li>{{ space.owner.company }}</li>
+	</ul>
+	<ul class="show-space-owner-contact">
+		<li>06 27 98 04 43</li>
+		<li>{{ space.owner.email }}</li>
+	</ul>
 </div>
 {# 
 	<h1 class="show-title">Accueil /

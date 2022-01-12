@@ -329,6 +329,27 @@ body {
     list-style-type: none;
 }
 
+.show-space-owner {
+    color: $color-cerise-btn;
+    display: flex;
+    font-family: $fontworksans;
+    font-size: .75rem;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+    margin: 1rem;
+
+    .show-space-owner-details {
+        list-style-type: none;
+    }
+
+    .show-space-owner-contact {
+        list-style-type: none;
+        text-align: right;
+    }
+}
+
+
 // END SHOW SPACE
 
 .cardcontent {
