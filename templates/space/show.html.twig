@@ -103,11 +103,13 @@
 	<button class="show-space-reservation-btn" id="reservation-btn" type="submit">Choisir une date de réservation</button>
 </div>
 <div class="show-reservation" id="show-reservation-modal">
-    <span class='show-reservation-modal-close' onclick='closeModal()'>&times;</span>
 	<form class="show-reservation-modal-content">
-		<label class="reservation-choose-date" for="date">Choisir une date de réservation :</label>
-        <input type="date" id="date" name="date" value="2022-01-15">
-		<input type="submit" value="Réserver">
+		<div class="show-reservation-text">
+			<label class="reservation-choose-date" for="date">Choisir une date de réservation :</label>
+	    	<span class='show-reservation-modal-close' onclick='closeModal()'>&times;</span>
+        </div>
+		<input type="date" id="date" name="date" value="2022-01-15">
+		<input class="show-reservation-submit" type="submit" value="Réserver">Réserver</input>
     </form>
 </div>
 <script>

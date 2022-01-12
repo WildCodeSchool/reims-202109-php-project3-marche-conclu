@@ -360,6 +360,10 @@ body {
         text-align: center;
         border: initial;
     }
+
+    .show-space-reservation-btn:hover {
+        color: $color-black;
+    }
 }
 
 .show-reservation {
@@ -373,8 +377,6 @@ body {
     z-index: 1; // Sit on top
 }
 
-
-// Modal Content/Box
 .show-reservation-modal-content {
     display: flex;
     flex-direction: column;
@@ -392,17 +394,24 @@ body {
     }
   }
 
-// The close-search Button
 .show-reservation-modal-close {
     color: $color-white;
-    float: right;
-    font-size: 28px;
     font-weight: bold;
   }
 
+.show-reservation-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
 .reservation-choose-date {
     color: $color-white;
-    margin-bottom: 1rem;
+}
+
+.show-reservation-submit:hover {
+    color: $color-black;
 }
 
 // END SHOW SPACE
