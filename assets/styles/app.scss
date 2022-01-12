@@ -336,7 +336,6 @@ body {
     font-size: .75rem;
     flex-direction: row;
     justify-content: space-between;
-    padding-bottom: 1.5rem;
     margin: 1rem;
 
     .show-space-owner-details {
@@ -349,6 +348,18 @@ body {
     }
 }
 
+.show-space-reservation {
+    background-color: $color-cerise-btn;
+    border-radius: 4px;
+    color: $color-white;
+    margin: 0 1rem;
+    padding: .75rem;
+    text-align: center;
+
+    h2 {
+        margin-bottom: 0;
+    }
+}
 
 // END SHOW SPACE
 
