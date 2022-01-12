@@ -271,14 +271,14 @@ body {
     font-size: .75rem;
     justify-content: space-between;
     list-style-type: none;
-    padding-bottom: 1rem;
     margin: 1rem 1rem 0;
+    padding-bottom: 1rem;
 }
 
 .show-space-description {
     border-bottom: 1px solid $color-black;
-    padding-bottom: 0.5rem;
     margin: .3rem 1rem;
+    padding-bottom: .5rem;
     p {
         margin-bottom: 0;
     }
@@ -288,10 +288,13 @@ body {
     font-size: .75rem;
     margin: 0 1rem;
     text-align: center;
+
 }
 
 .show-space-availability {
-    margin: 1rem;
+    border-bottom: 1px solid $color-black;
+    margin: .5rem 1rem;
+    padding-bottom: .5rem;
 }
 
 .show-space-availability-list {
@@ -307,9 +310,13 @@ body {
     .friday,
     .saturday,
     .sunday {
+        position: inherit;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
         background-color: $color-cerise-btn;
-        border-radius: 100%;
-        padding: 1rem;
+        text-align: center;
+        line-height: 2.7rem;
     }
 }
 
