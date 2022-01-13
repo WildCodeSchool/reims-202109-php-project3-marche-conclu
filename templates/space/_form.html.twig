@@ -1,33 +1,14 @@
-<div class="space_form_container">
+<div class="space-form-container">
     {{ form_start(form) }}
-    <label>
-        Nom de votre annonce :
-        {{ form_widget(form.name, {'attr': {'class': 'space_form_content'}}) }}
-    </label>
-    <label>
-        Capacité :
-        {{ form_widget(form.capacity, {'attr': {'class': 'space_form_content'}}) }}
-    </label>
-    <label>
-        Catégorie :
-        {{ form_widget(form.category, {'attr': {'class': 'space_form_content'}}) }}
-    </label>
-    <label>
-        Surface (en m²) :
-        {{ form_widget(form.surface, {'attr': {'class': 'space_form_content'}}) }}
-    </label>
-    <label>
-        Photo :
-        {{ form_widget(form.photosFile, {'attr': {'class': 'space_form_content'}}) }}
-     </label>
-    <label>
-        Ville :
-        {{ form_widget(form.location, {'attr': {'class': 'space_form_content'}}) }}
-    </label>
-    <div class="div-add-new-space">
-        <button class="space_form_btn space_form_submit add-new-space">
-            {{ button_label|default('Ajouter') }}
-        </button>
-    <div>
+        {% if not form.vars.valid %}
+            {{ form_errors(form) }}
+        {% endif %}
+        {{ form_row(form.name) }}
+        {{ form_row(form.capacity, {'attr': {'class': 'space-form-content'}}) }}
+        {{ form_row(form.category, {'attr': {'class': 'space-form-content'}}) }}
+        {{ form_row(form.surface, {'attr': {'class': 'space-form-content'}}) }}
+        {{ form_row(form.location, {'attr': {'class': 'space-form-content'}}) }}
+        {{ form_row(form.price, {'attr': {'class': 'space-form-content'}}) }}
+        {{ form_row(form.photosFile, {'attr': {'class': 'space-form-content'}}) }}
+        {{ form_row(form.enregistrer, {'attr': {'class': 'user-form-enregistrer'}}) }}
     {{ form_end(form) }}
-</div>
