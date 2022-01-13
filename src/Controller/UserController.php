@@ -14,6 +14,7 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Flasher\Toastr\Prime\ToastrFactory;
 
 #[Route('/user')]
 class UserController extends AbstractController
@@ -35,7 +36,8 @@ class UserController extends AbstractController
         Request $request,
         User $user,
         UserPasswordHasherInterface $userPasswordHasher,
-        EntityManagerInterface $entityManager
+        EntityManagerInterface $entityManager,
+        ToastrFactory $flasher
     ): Response {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
@@ -50,12 +52,11 @@ class UserController extends AbstractController
                 );
                 $entityManager->persist($user);
                 $entityManager->flush();
-
-                $this->addFlash('success', 'Modifications apportées!');
+                $flasher->addSuccess('Votre profil utilisateur a été modifié !');
 
                 return $this->redirectToRoute('user_index');
             } catch (Exception $e) {
-                $this->addFlash('danger', "Les modifications n'ont pas fonctionnées. Veuillez réessayer!");
+                $flasher->addError("Les modifications n'ont pas fonctionnées. Veuillez réessayer!");
             }
         }
 
