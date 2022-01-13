@@ -32,8 +32,9 @@ class Space
     /**
      * @ORM\Column(type="string", length=500, nullable="true")
      * @Assert\NotBlank(message="Le champ photos ne peut être vide")
+     *  @var string $photos
      */
-    private string $photos;
+    private $photos;
 
      /**
       * @Vich\UploadableField(mapping="photos_file", fileNameProperty="photos")
@@ -90,6 +91,11 @@ class Space
      * @ORM\OneToOne(targetEntity=SpaceDisponibility::class, mappedBy="space", cascade={"persist", "remove"})
      */
     private SpaceDisponibility $spaceDisponibility;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $address;
 
     public function __construct()
     {
@@ -277,5 +283,17 @@ class Space
     public function getPhotosFile(): ?File
     {
         return $this->photosFile;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
     }
 }

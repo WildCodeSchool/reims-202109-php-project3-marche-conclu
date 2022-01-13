@@ -8,35 +8,35 @@
 		<h1 class="create-new-space">Mes informations</h1>
 	</div>
 	{% for category, messages in app.flashes %}
-		{% for message in messages %}
-			<div class="alert alert-{{ category }}">
-				{{ message }}
-			</div>
-		{% endfor %}
-	{% endfor %}
-	{% if app.user %}
-		<div class="user-index-container">
-			{% if app.user.avatar %}
-				<img class="user-index-avatar" src="{{ asset('build/images/' ~ app.user.avatar) }}">
-			{% else %}
-				<img class="user-index-avatar" src="{{ asset('build/images/logoMarcheConclu.png') }}">
-			{% endif %}
-			<h2>
-				{{ app.user.firstname ~ " " ~ app.user.lastname }}
-			</h2>
-			<div>
-				<p>
-					{{ "Email :" ~ " " ~ app.user.email }}
-				</p>
-				{% if app.user.company %}
-					<p>
-						{{ "Société :" ~ " " ~ app.user.company }}
-					</p>
-				{% endif %}
-			</div>
-			<a class="user-index-submit" href="{{ path('user_edit', {'id': app.user.id}) }}">Modifier mon profil</a>
-			<a class="user-index-submit" href="{{ path('app_logout') }}">Deconnexion</a>
-		</div>
+        {% for message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% if app.user %}
+        <div class="user-index-container">
+            {% if app.user.avatar %}
+                <img class="user-index-avatar" src="{{ asset('build/images/' ~ app.user.avatar) }}">
+            {% else %}
+                <img class="user-index-avatar" src="{{ asset('build/images/logoMarcheConcluXL.png') }}">
+            {% endif %}
+            <h2>
+                {{ app.user.firstname ~ " " ~ app.user.lastname }}
+            </h2>
+            <div>
+                <p>
+                    {{ "Email :" ~ " " ~ app.user.email }}
+                </p>
+                {% if app.user.company %}
+                    <p>
+                        {{ "Société :" ~ " " ~ app.user.company }}
+                    </p>
+                {% endif %}
+            </div>
+            <a class="user-index-submit" href="{{ path('user_edit', {'id': app.user.id}) }}">Modifier mon profil</a>
+            <a class="user-index-submit" href="{{ path('app_logout') }}">Deconnexion</a>
+        </div>
 
 		<div class="user-index-location">
 			{%if app.user.spaces is not empty %}

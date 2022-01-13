@@ -128,7 +128,6 @@ a {
         font-weight: 400;
         letter-spacing: .7rem;
         margin: 0;
-        margin-right: -.7rem;
     }
 }
 
@@ -407,12 +406,18 @@ a {
     box-shadow: $color-light-grey;
     margin: 40vh 1rem;
     padding: 1rem;
+    text-align: center;
 
     input[type=submit] {
         background-color: $color-cerise-btn;
         border-radius: 4px;
         margin-top: 1rem;
     }
+
+    input[type=date] {
+        border-radius: 4px;
+    }
+
   }
 
 .show-reservation-modal-close {
@@ -704,8 +709,13 @@ input[type=submit],
     width: 100%;
 }
 
+.space-form-submit-div {
+    margin-top: 2rem;
+    text-align: center;
+}
+
 .space-form-submit {
-    background-color: $color-grey;
+    background-color: $color-cerise-btn;
     border: 0;
     border-radius: 4px;
     color: $color-white;
@@ -714,10 +724,14 @@ input[type=submit],
     text-decoration: none;
 }
 
+.space-form-container {
+    margin: 1rem;
+}
+
 // LOGIN/REGISTER PAGE
 .login-body {
     background-color: $color-cerise;
-    height: 92vh;
+    height: 93vh;
     font-family: $fontbodini;
 }
 
@@ -764,7 +778,7 @@ input[type=submit],
     justify-content: center;
     margin: auto;
     padding: 3rem 2rem 2rem;
-    width: 75%;
+    width: 85%;
 
 }
 
@@ -923,7 +937,6 @@ input[type=submit],
 input[type=checkbox],
 input[type=range] {
     background-color: $color-white;
-    border: 1px solid $color-light-grey; // Gray border
     border-radius: 4px; // Rounded borders
     box-sizing: border-box; // Make sure that padding and width stays in place
     margin-bottom: 16px; // Bottom margin
@@ -958,7 +971,6 @@ input[type=range] {
     color: $color-grey;
     display: flex;
     font-size: 1.1rem;
-    height: 95vh;
     align-items: stretch;
     margin: .5rem auto;
     padding: 1rem;
@@ -971,6 +983,101 @@ input[type=range] {
     label{
         padding: 2px 3px 5px 3px; 
     }
+  }
+
+input[type=range] {
+    height: 34px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+  }
+
+input[type=range]:focus {
+    outline: none;
+  }
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 12px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #002200;
+    background: #632323;
+    border-radius: 12px;
+  }
+
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: 3px 3px 3px #FFFFFF;
+    border: 2px solid #E5E5E5;
+    height: 23px;
+    width: 23px;
+    border-radius: 23px;
+    background: #FFFFFF;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -7px;
+  }
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #632323;
+  }
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 12px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #002200;
+    background: #632323;
+    border-radius: 12px;
+}
+
+input[type=range]::-moz-range-thumb {
+    box-shadow: 3px 3px 3px #FFFFFF;
+    border: 2px solid #E5E5E5;
+    height: 23px;
+    width: 23px;
+    border-radius: 23px;
+    background: #FFFFFF;
+    cursor: pointer;
+  }
+
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 12px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+
+input[type=range]::-ms-fill-lower {
+    background: #632323;
+    border-radius: 24px;
+    box-shadow: 1px 1px 1px #002200;
+  }
+
+input[type=range]::-ms-fill-upper {
+    background: #632323;
+    border-radius: 24px;
+    box-shadow: 1px 1px 1px #002200;
+  }
+
+input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 3px 3px 3px #FFFFFF;
+    border: 2px solid #E5E5E5;
+    height: 23px;
+    width: 23px;
+    border-radius: 23px;
+    background: #FFFFFF;
+    cursor: pointer;
+  }
+
+input[type=range]:focus::-ms-fill-lower {
+    background: #632323;
+  }
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #632323;
   }
 
 .space-filter {
@@ -1026,6 +1133,7 @@ input[type=range] {
 .user-index-avatar {
     align-self: center;
     border: 1px solid $color-cerise;
+    border-radius: 30px;
     box-shadow: 10px 10px 5px $color-light-red;
     height: 100px;
     margin-top: 1rem;
@@ -1054,7 +1162,7 @@ input[type=range] {
 }
 
 .user-index-submit {
-    background-color: $color-cerise;
+    background-color: $color-cerise-btn;
     border: 0;
     border-radius: 4px;
     color: $color-white;
@@ -1078,6 +1186,11 @@ input[type=range] {
 
 .user-edit-div-form {
     margin: 1rem;
+
+    input[type="checkbox"],
+    input[type="range"] {
+        width: 25%;
+    }
 }
 
 .user-edit-return {
@@ -1087,10 +1200,6 @@ input[type=range] {
 
 .user-form-enregistrer {
     margin-top: 1rem;
-}
-
-.registration-form-agreeTerms {
-    width: 25%;
 }
 
 // END USER EDIT

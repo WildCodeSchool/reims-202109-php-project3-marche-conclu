@@ -27,19 +27,21 @@ class SpaceRepository extends ServiceEntityRepository
     public function findByCriterias(array $options): mixed
     {
         $query = $this->createQueryBuilder('s');
-        foreach ($options as $key => $option) {
-            if ($key !== 'surface' && $key !== 'price' && $key !== 'date') {
-                $query->where("s.$key = :$key")
-                ->setParameter($key, $option);
-            }
+        if (isset($options['category'])) {
+            $query->andWhere('s.category = :category')
+                ->setParameter('category', $options['category']);
         }
-        if (isset($options['surface'])) {
+        if (isset($options['location'])) {
+            $query->andWhere('s.location = :location')
+                ->setParameter('location', $options['location']);
+        }
+        if (isset($options['minsurface'])) {
             $query->andWhere('s.surface >= :surface')
-                ->setParameter('surface', $options['surface']);
+                ->setParameter('surface', $options['minsurface']);
         }
-        if (isset($options['price'])) {
+        if (isset($options['maxprice'])) {
             $query->andWhere("s.price <= :price")
-                ->setParameter('price', $options['price']);
+            ->setParameter('price', $options['maxprice']);
         }
         return $query->getQuery()->getResult();
     }
