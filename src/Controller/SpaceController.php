@@ -9,12 +9,16 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use App\Entity\User;
 use App\Form\SlotType;
 use App\Form\SpaceType;
+use App\Repository\SlotRepository;
 use App\Repository\SpaceRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Flasher\Prime\FlasherInterface;
+use Flasher\Toastr\Prime\ToastrFactory;
 
 #[Route('/space', name: 'space_')]
 class SpaceController extends AbstractController
@@ -85,18 +89,33 @@ class SpaceController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'show', methods: ['GET'])]
-    public function show(Request $request, EntityManagerInterface $entityManager, Space $space): Response
-    {
+    #[Route('/{id}', name: 'show', methods: ['POST', 'GET'])]
+    public function show(
+        Request $request,
+        EntityManagerInterface $entityManager,
+        Space $space,
+        User $user,
+        SlotRepository $slotrepository,
+        ToastrFactory $flasher
+    ): Response {
         $slot = new Slot();
         $form = $this->createForm(SlotType::class, $slot);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $slot->setOwner($user);
+            $slot->setSpace($space);
+            $slot->setPrice(0);
             $entityManager->persist($slot);
-            $entityManager->flush();
 
-            return $this->redirectToRoute('space_index', [], Response::HTTP_SEE_OTHER);
+            if ($slotrepository->findBy(["slotTime" => $slot->getSlotTime(), "space" => $slot->getSpace()])) {
+                $flasher->addError("Votre réservation ne peut être enregistré ! Ce créneau est indisponible.");
+            } else {
+                $flasher->addSuccess('Votre réservation a été enregistré !');
+                $entityManager->flush();
+            }
+
+            return $this->redirectToRoute('space_show', ['id' => $space->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('space/show.html.twig', [
