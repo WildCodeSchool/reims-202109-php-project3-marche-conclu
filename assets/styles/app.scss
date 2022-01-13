@@ -31,6 +31,10 @@ a {
     outline: 0;
 }
 
+.navbar-a:hover {
+    color: $color-cerise-btn;
+}
+
 .navbar-icons {
     display: none;
 }
@@ -1130,12 +1134,55 @@ input[type=range]:focus::-ms-fill-upper {
 
 // START USER INDEX
 
-.user-index-container {
+.user-index-h1 {
+    background-color: $color-cerise;
+    color: $color-white;
+    margin: initial;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.show-user-main-datas {
     align-items: center;
     display: flex;
-    flex-direction: column;
-    height: 50vh;
-    justify-content: space-around;
+    margin: 1rem 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $color-black;
+}
+
+.show-user-fullname {
+    color: $fontbodini;
+    margin-left: 2rem;
+}
+
+.show-user-secondary-datas {
+    margin: 1rem 2rem;
+}
+
+.show-user-contacts,
+.show-user-job {
+    display: flex;
+    justify-content: space-between;
+}
+
+.show-user-modify {
+    border-bottom: 1px solid $color-black;
+    margin: 2rem 2rem 1rem;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+.show-user-modify-btn {
+    background-color: $color-cerise-btn;
+    border-radius: 4px;
+    color: $color-white;
+    padding: 1rem 6rem;
+    text-decoration: none;
+}
+
+.show-user-modify-btn:hover,
+.user-index-submit:hover {
+    color: $color-black;
 }
 
 .user-index-avatar {
@@ -1144,14 +1191,18 @@ input[type=range]:focus::-ms-fill-upper {
     border-radius: 30px;
     box-shadow: 10px 10px 5px $color-light-red;
     height: 100px;
-    margin-top: 1rem;
     width: 100px;
+}
+
+.user-index-location {
+    border-bottom: 1px solid $color-black;
+    margin: 0 2rem
 }
 
 .user-index-location-li {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1rem;
+    margin: 1rem;
 }
 
 .user-index-location-li p {
@@ -1166,12 +1217,17 @@ input[type=range]:focus::-ms-fill-upper {
 
 .user-index-location h3 {
     margin-left: 2rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
+}
+
+.show-user-disconnect {
+    display: flex;
+    justify-content: end;
+    margin: 1rem;
 }
 
 .user-index-submit {
     background-color: $color-cerise-btn;
-    border: 0;
     border-radius: 4px;
     color: $color-white;
     cursor: pointer;
