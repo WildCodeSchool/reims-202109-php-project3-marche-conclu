@@ -6,7 +6,7 @@
 		<div class="title">
 			{% include "_logoTitle.html.twig" %}
 		</div>
-		<h1 class="create-new-space">Que recherchez - vous ?</h1>
+		<h1 class="create-new-space">Que recherchez-vous ?</h1>
 		<div class="searchbar-and-filter">
 			<div class="search-container">
 				<form action="{{ path('space_search') }}" method="get" class="form-search">
@@ -67,14 +67,7 @@
 	</div>
 	<div>
 		{% if spaces %}
-			<h2 class="spaces-length">
-				{{ spaces|length }}
-				espaces trouvés
-				{% if location %}
-					à
-					{{ location }}
-				{% endif %}
-			</h2>
+			<h2 class="spaces-length">{{ spaces|length }} espace(s) trouvé(s) {% if location %} à {{ location }}{% endif %}</h2>
 			{% for space in spaces %}
 				<div>
 					<figure class="offer">
