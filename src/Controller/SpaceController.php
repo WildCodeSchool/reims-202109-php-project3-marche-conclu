@@ -135,7 +135,7 @@ class SpaceController extends AbstractController
         Space $space,
         EntityManagerInterface $entityManager,
         ToastrFactory $flasher
-        ): Response {
+    ): Response {
         $form = $this->createForm(SpaceType::class, $space);
         $form->handleRequest($request);
 
@@ -161,14 +161,14 @@ class SpaceController extends AbstractController
         Space $space,
         EntityManagerInterface $entityManager,
         ToastrFactory $flasher
-        ): Response {
+    ): Response {
 
         if ($this->isCsrfTokenValid('delete' . $space->getId(), strval($request->request->get('_token')))) {
             $entityManager->remove($space);
             $entityManager->flush();
             $flasher->addSuccess('Votre réservation a été supprimé !');
-
         }
+
         return $this->redirectToRoute('space_index', [], Response::HTTP_SEE_OTHER);
     }
 }
