@@ -17,7 +17,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Flasher\Prime\FlasherInterface;
 use Flasher\Toastr\Prime\ToastrFactory;
 
 #[Route('/space', name: 'space_')]
@@ -43,7 +42,7 @@ class SpaceController extends AbstractController
      * @IsGranted("ROLE_USER")
      */
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, ToastrFactory $flasher): Response
     {
 
         $space = new Space();
@@ -57,6 +56,7 @@ class SpaceController extends AbstractController
             $space->setPhotos('');
             $entityManager->persist($space);
             $entityManager->flush();
+            $flasher->addSuccess('Votre annonce a bien été crée !');
 
             return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
@@ -130,13 +130,18 @@ class SpaceController extends AbstractController
      * @IsGranted("ROLE_USER")
      */
     #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Space $space, EntityManagerInterface $entityManager): Response
-    {
+    public function edit(
+        Request $request,
+        Space $space,
+        EntityManagerInterface $entityManager,
+        ToastrFactory $flasher
+    ): Response {
         $form = $this->createForm(SpaceType::class, $space);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
+            $flasher->addSuccess('Votre réservation a été modifié !');
 
             return $this->redirectToRoute('space_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -151,12 +156,17 @@ class SpaceController extends AbstractController
      * @IsGranted("ROLE_USER")
      */
     #[Route('/{id}', name: 'delete', methods: ['POST'])]
-    public function delete(Request $request, Space $space, EntityManagerInterface $entityManager): Response
-    {
+    public function delete(
+        Request $request,
+        Space $space,
+        EntityManagerInterface $entityManager,
+        ToastrFactory $flasher
+    ): Response {
 
         if ($this->isCsrfTokenValid('delete' . $space->getId(), strval($request->request->get('_token')))) {
             $entityManager->remove($space);
             $entityManager->flush();
+            $flasher->addSuccess('Votre réservation a été supprimé !');
         }
 
         return $this->redirectToRoute('space_index', [], Response::HTTP_SEE_OTHER);
