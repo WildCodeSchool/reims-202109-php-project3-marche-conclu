@@ -109,9 +109,9 @@ class SpaceController extends AbstractController
             $entityManager->persist($slot);
 
             if ($slotrepository->findBy(["slotTime" => $slot->getSlotTime(), "space" => $slot->getSpace()])) {
-                $flasher->addError("Votre réservation ne peut être enregistré. Ce créneau est indisponible.");
+                $flasher->addError("Votre réservation ne peut être enregistré ! Ce créneau est indisponible.");
             } else {
-                $flasher->addSuccess('Votre réservation a été enregistré');
+                $flasher->addSuccess('Votre réservation a été enregistré !');
                 $entityManager->flush();
             }
 
