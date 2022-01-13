@@ -41,7 +41,7 @@ class SpaceType extends AbstractType
                     'Plateaux vides' => 'plates'
                 ],
             ])
-            ->add('address'),
+            ->add('address')
             ->add('surface', IntegerType::class, [
                 'required' => true,
                 'label' => 'Surface (en m²)'
