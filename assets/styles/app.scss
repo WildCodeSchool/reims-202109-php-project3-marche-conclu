@@ -523,13 +523,12 @@ a {
 
 .flex-office {
     background-color: $color-cerise;
-    
     height: 35vh;
     margin-bottom: 2rem;
     padding: 1rem .5rem;
 }
 
-iframe {
+video {
     border-radius: 2em;
     height: 100%;
     width: 100%;
@@ -864,7 +863,7 @@ input[type=submit],
     background-color: $color-cerise;
     color: $color-white;
     letter-spacing: 2px;
-    padding: 4rem 2rem 2rem;
+    padding: 0 2rem 2rem;
     text-align: center;
 }
 
