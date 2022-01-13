@@ -800,7 +800,7 @@ input[type=submit],
 
 .title{
     padding-bottom: 1rem;
-    padding-top: 4rem;
+    padding-top: 3rem;
     text-align: center;
 }
 
@@ -825,7 +825,8 @@ input[type=submit],
     font-family: $fontlogo;
     font-size: 1.3rem; 
     justify-content: center;
-    margin: 2rem 3rem;
+    letter-spacing: 2px;
+    margin: 2rem 1rem 1rem 1rem;
     padding-bottom: 7px;  
 }
 
@@ -863,14 +864,8 @@ input[type=submit],
     background-color: $color-cerise;
     color: $color-white;
     letter-spacing: 2px;
-    padding: 0 2rem 2rem;
+    padding: 0 1.5rem 1.5rem;
     text-align: center;
-}
-
-.search p {
-    font-family: $fontworksans;
-    margin-top: 1rem;
-    font-size: 1.3rem;
 }
 
 .show-search {
@@ -1024,14 +1019,6 @@ input[type=range] {
   }
 
 // START USER INDEX
-
-.user-index-h1 {
-    background-color: $color-cerise;
-    color: $color-white;
-    margin: initial;
-    padding: 1rem 0;
-    text-align: center;
-}
 
 .user-index-container {
     align-items: center;
