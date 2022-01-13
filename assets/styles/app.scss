@@ -738,7 +738,7 @@ input[type=submit],
 // LOGIN/REGISTER PAGE
 .login-body {
     background-color: $color-cerise;
-    height: 92vh;
+    height: 93vh;
     font-family: $fontbodini;
 }
 
@@ -785,7 +785,7 @@ input[type=submit],
     justify-content: center;
     margin: auto;
     padding: 3rem 2rem 2rem;
-    width: 75%;
+    width: 85%;
 
 }
 
@@ -1060,6 +1060,7 @@ input[type=range] {
 .user-index-avatar {
     align-self: center;
     border: 1px solid $color-cerise;
+    border-radius: 30px;
     box-shadow: 10px 10px 5px $color-light-red;
     height: 100px;
     margin-top: 1rem;
@@ -1088,7 +1089,7 @@ input[type=range] {
 }
 
 .user-index-submit {
-    background-color: $color-cerise;
+    background-color: $color-cerise-btn;
     border: 0;
     border-radius: 4px;
     color: $color-white;
@@ -1112,6 +1113,11 @@ input[type=range] {
 
 .user-edit-div-form {
     margin: 1rem;
+
+    input[type="checkbox"],
+    input[type="range"] {
+        width: 25%;
+    }
 }
 
 .user-edit-return {
@@ -1121,10 +1127,6 @@ input[type=range] {
 
 .user-form-enregistrer {
     margin-top: 1rem;
-}
-
-.registration-form-agreeTerms {
-    width: 25%;
 }
 
 // END USER EDIT

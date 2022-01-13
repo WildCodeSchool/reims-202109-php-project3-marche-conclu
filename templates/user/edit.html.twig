@@ -4,10 +4,10 @@
 
 {% block body %}
     <div class="user-edit-h1">
-        <h1>Mon profil</h1>
+        <h1>Modifier mon profil</h1>
     </div>
     <div class="user-edit-div-form">
-        {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+        {{ include('user/_form.html.twig') }}
     </div>
     <div class="user-edit-return">
         <a class="user-index-submit" href="{{ path('user_index') }}">Retour à mes informations</a>
