@@ -982,16 +982,18 @@ input[type=range] {
     }
   }
 
-  input[type=range] {
+input[type=range] {
     height: 34px;
     -webkit-appearance: none;
     margin: 10px 0;
     width: 100%;
   }
-  input[type=range]:focus {
+
+input[type=range]:focus {
     outline: none;
   }
-  input[type=range]::-webkit-slider-runnable-track {
+
+input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 12px;
     cursor: pointer;
@@ -999,7 +1001,8 @@ input[type=range] {
     background: #632323;
     border-radius: 12px;
   }
-  input[type=range]::-webkit-slider-thumb {
+
+input[type=range]::-webkit-slider-thumb {
     box-shadow: 3px 3px 3px #FFFFFF;
     border: 2px solid #E5E5E5;
     height: 23px;
@@ -1010,18 +1013,21 @@ input[type=range] {
     -webkit-appearance: none;
     margin-top: -7px;
   }
-  input[type=range]:focus::-webkit-slider-runnable-track {
+
+input[type=range]:focus::-webkit-slider-runnable-track {
     background: #632323;
   }
-  input[type=range]::-moz-range-track {
+
+input[type=range]::-moz-range-track {
     width: 100%;
     height: 12px;
     cursor: pointer;
     box-shadow: 1px 1px 1px #002200;
     background: #632323;
     border-radius: 12px;
-  }
-  input[type=range]::-moz-range-thumb {
+}
+
+input[type=range]::-moz-range-thumb {
     box-shadow: 3px 3px 3px #FFFFFF;
     border: 2px solid #E5E5E5;
     height: 23px;
@@ -1030,7 +1036,8 @@ input[type=range] {
     background: #FFFFFF;
     cursor: pointer;
   }
-  input[type=range]::-ms-track {
+
+input[type=range]::-ms-track {
     width: 100%;
     height: 12px;
     cursor: pointer;
@@ -1038,17 +1045,20 @@ input[type=range] {
     border-color: transparent;
     color: transparent;
   }
-  input[type=range]::-ms-fill-lower {
+
+input[type=range]::-ms-fill-lower {
     background: #632323;
     border-radius: 24px;
     box-shadow: 1px 1px 1px #002200;
   }
-  input[type=range]::-ms-fill-upper {
+
+input[type=range]::-ms-fill-upper {
     background: #632323;
     border-radius: 24px;
     box-shadow: 1px 1px 1px #002200;
   }
-  input[type=range]::-ms-thumb {
+
+input[type=range]::-ms-thumb {
     margin-top: 1px;
     box-shadow: 3px 3px 3px #FFFFFF;
     border: 2px solid #E5E5E5;
@@ -1058,10 +1068,12 @@ input[type=range] {
     background: #FFFFFF;
     cursor: pointer;
   }
-  input[type=range]:focus::-ms-fill-lower {
+
+input[type=range]:focus::-ms-fill-lower {
     background: #632323;
   }
-  input[type=range]:focus::-ms-fill-upper {
+
+input[type=range]:focus::-ms-fill-upper {
     background: #632323;
   }
 
