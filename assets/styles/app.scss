@@ -710,14 +710,23 @@ input[type=submit],
     width: 100%;
 }
 
+.space-form-submit-div {
+    margin-top: 2rem;
+    text-align: center;
+}
+
 .space-form-submit {
-    background-color: $color-grey;
+    background-color: $color-cerise-btn;
     border: 0;
     border-radius: 4px;
     color: $color-white;
     cursor: pointer;
     padding: 12px 20px;
     text-decoration: none;
+}
+
+.space-form-container {
+    margin: 1rem;
 }
 
 // LOGIN/REGISTER PAGE
