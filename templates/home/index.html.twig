@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+{# HEADER SECTION #}
 	<header class="header-home">
 		<img class="logo" src="{{ asset('build/images/logo.png') }}" width="60" alt="Marché Conclu"/>
 		{% include "_logoTitle.html.twig" %}
@@ -13,6 +14,7 @@
 		créé par vous, pour vous.
 	</p>
 </div>
+{# CAROUSEL SECTION #}
 <div class="carousel">
 	{% for category in categories %}
 		<div class="carousel-item-mc{{ loop.index0 == 0 ? ' carousel-item-visible' : '' }}">
@@ -25,11 +27,13 @@
 		</div>
 	{% endfor %}
 	<div class="carousel-actions">
-		<button id="carousel-button-prev" aria-label="Previous"><</button><buttonid="carousel-button-next"aria-label="Next">></button>
+		<button id="carousel-button-prev" aria-label="Previous"><</button>
+		<button id="carousel-button-next" aria-label="Next">></button>
 	</div>
 </div>
 <div>
-	<h3 class="premium-title">Annonces premium</h3>
+{# ANNONCES PREMIUM SECTION #}
+	<h2 class="premium-title">ANNONCES PREMIUM</h2>
 	{% for space in spaces %}
 		<figure class="offer">
 			<img class="image-offer" src="{{ vich_uploader_asset(space) }}" alt="Marché Conclu"/>
@@ -59,13 +63,17 @@
 		</figure>
 	{% endfor %}
 </div>
+{# FLEX OFFICE SECTION #}
 <div class="flex-office">
+	<h2 class="create-new-space">LE FLEX OFFICE</h2>
 	<video src="assets/video/flexoffice.mp4" type="video/mp4" controls>
 		<p>Votre navigateur ne prend pas en charge la vidéo. Voici
 			<a href="https://www.youtube.com/embed/qxTaXktrZTM">un lien pour visionner la vidéo</a>.
 		</p>
 	</video>
+	{# <iframe src="https://www.youtube.com/embed/qxTaXktrZTM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> #}
 </div>
+{# TESTIMONY SECTION #}
 <div class="testimony">
 	<h4 class="testimony-title">Ils en parlent</h1>
 	<div class="testimony-text">
@@ -80,9 +88,9 @@
 	</div>
 
 </div>
-
+{# PARTNER SECTION #}
 <div class="partner">
-	<h4 class="partner-title">Nos partenaires</h1>
+	<h2 class="create-new-space">NOS PARTENAIRES</h2>
 	<div class="partner-logos">
 		<img src="{{ asset('build/images/Allianz.png') }}" alt="Alliance-logo"/>
 		<img src="{{ asset('build/images/cic.png') }}" alt="cic-logo"/>
