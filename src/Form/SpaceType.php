@@ -65,7 +65,9 @@ class SpaceType extends AbstractType
                 'allow_delete'  => false, // not mandatory, default is true
                 'download_uri' => false, // not mandatory, default is true
             ])
-            ->add('enregistrer', SubmitType::class);
+            ->add('enregistrer', SubmitType::class, [
+                'label' => "Poster",
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
