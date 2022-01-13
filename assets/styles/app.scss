@@ -136,6 +136,7 @@ a {
 }
 
 .form-search {
+    align-items: center;
     border-radius: 4px; // Rounded borders
     box-sizing: border-box; // Make sure that padding and width stays in place
     display: flex;
@@ -962,6 +963,7 @@ input[type=range] {
     background-repeat: no-repeat;
     border: 0;
     cursor: pointer;
+    margin: 0 1rem;
 }
 
 .modal {
