@@ -688,7 +688,7 @@ input[type=submit],
 .form-submit {
     background-color: $color-cerise-btn;
     border: 0;
-    border-radius: 4px;
+    border-radius: 0 20px 20px 0;
     box-shadow: 0px 1px 3px $color-grey;
     color: $color-white;
     cursor: pointer;
@@ -696,7 +696,16 @@ input[type=submit],
     text-decoration: none;
 }
 
-
+.show-space-link {
+    background-color: $color-cerise-btn;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px $color-grey;
+    color: $color-white;
+    cursor: pointer;
+    padding: 10px;
+    text-decoration: none;
+}
 // Add a background color and some padding around the form
 
 .container {

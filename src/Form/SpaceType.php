@@ -66,7 +66,7 @@ class SpaceType extends AbstractType
                 'download_uri' => false, // not mandatory, default is true
             ])
             ->add('enregistrer', SubmitType::class, [
-                'label' => "Poster",
+                'label' => "Poster l'annonce",
             ]);
     }
 

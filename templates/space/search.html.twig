@@ -10,7 +10,7 @@
 		<div class="searchbar-and-filter">
 			<div class="search-container">
 				<form action="{{ path('space_search') }}" method="get" class="form-search">
-					<input class="search-bar" type="text" id="autocomplete" placeholder="Ou souhaitez-vous travailler ?" name="location" value="{{ location ?? '' }}">
+					<input class="search-bar" type="text" id="autocomplete" placeholder="Où souhaitez-vous louer ?" name="location" value="{{ location ?? '' }}">
 					<button class="btn form-submit">
 						Chercher
 					</button>
@@ -92,7 +92,7 @@
 									<span id="spanprice">{{ random(50, 250) }} €</span>
 									<span id="spanpriceday"> / jour</span>
 								</div>
-								<a class="form-submit" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
+								<a class="show-space-link" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
 							</div>
 						</figcaption>
 					</figure>
