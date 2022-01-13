@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+{# HEADER SECTION #}
 	<header class="header-home">
 		<img class="logo" src="{{ asset('build/images/logo.png') }}" width="60" alt="Marché Conclu"/>
 		{% include "_logoTitle.html.twig" %}
@@ -13,27 +14,33 @@
 		créé par vous, pour vous.
 	</p>
 </div>
-	<div class="carousel">
-		{% for category in categories %}
-			<div class="carousel-item-mc{{ loop.index0 == 0 ? ' carousel-item-visible' : '' }}">
-				<img src="{{ asset('build/images/' ~ category|lower|replace({' ': '', '-': ''}) ~ '.jpg') }}" alt="{{ category|lower }}"/>
-				<a href="#">
-					<div class="text-center">
-						<p>{{ category }}</p>
-					</div>
-				</a>
-			</div>
-		{% endfor %}
+{# CAROUSEL SECTION #}
+<div class="carousel">
+	{% for category in categories %}
+		<div class="carousel-item-mc{{ loop.index0 == 0 ? ' carousel-item-visible' : '' }}">
+			<img src="{{ asset('build/images/' ~ category|lower|replace({' ': '', '-': ''}) ~ '.jpg') }}" alt="{{ category|lower }}"/>
+			<a href="#">
+				<div class="text-center">
+					<p>{{ category }}</p>
+				</div>
+			</a>
+		</div>
+	{% endfor %}
 	<div class="carousel-actions">
 		<button id="carousel-button-prev" aria-label="Previous"><</button>
 		<button id="carousel-button-next" aria-label="Next">></button>
 	</div>
 </div>
 <div>
-	<h3 class="premium-title">Annonces premium</h3>
+{# ANNONCES PREMIUM SECTION #}
+	<h2 class="premium-title">ANNONCES PREMIUM</h2>
 	{% for space in spaces %}
-		<figure class="offer">
-			<img class="image-offer" src="{{ vich_uploader_asset(space) }}" alt="Marché Conclu"/>
+		<figure class="offer premium">
+			{# {% if app.space.photos %}
+			<img class="image-offer" src="{{ vich_uploader_asset(space) }}" alt="Photo de l'espace"/>
+            {% else %} #}
+                <img class="image-offer" src="{{ asset('build/images/bureauprivee.jpg') }}">
+		    {# {% endif %} #}
 			<figcaption class="text-offer">
 				<div class="card-border card-content-up cardcontent">
 					<div class="spacecategory card-content-up">{{ space.category }}
@@ -60,36 +67,41 @@
 		</figure>
 	{% endfor %}
 </div>
+{# FLEX OFFICE SECTION #}
 <div class="flex-office">
-		<iframe src="https://www.youtube.com/embed/qxTaXktrZTM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<h2 class="create-new-space">LE FLEX OFFICE</h2>
+	<video src="assets/video/flexoffice.mp4" type="video/mp4" controls>
+		<p>Votre navigateur ne prend pas en charge la vidéo. Voici
+			<a href="https://www.youtube.com/embed/qxTaXktrZTM">un lien pour visionner la vidéo</a>.
+		</p>
+	</video>
+	{# <iframe src="https://www.youtube.com/embed/qxTaXktrZTM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> #}
 </div>
+{# TESTIMONY SECTION #}
 <div class="testimony">
-		<h4 class="testimony-title">Ils en parlent</h1>
-		<div class="testimony-text">
-			<div class="marks-image-top"><img src="{{ asset('build/images/mark1.png') }}" alt="marks"/></div>
-				<p class="p-testimony">Marché Conclu a résolu mon probleme d'espace pour reloger des clients et faire face en toute sérénité aux retards sur mes chantiers.</p>
-			<div class="marks-image-bottom"><img src="{{ asset('build/images/mark2.png') }}" alt="marks"/></div>
-		</div>
-		<div class="testimony-autor">
-			<div class="autor-image-crop"><img class="florence" src="{{ asset('build/images/Florence.png') }}" alt="testimomy"/></div>
-			<h3 class="autor-name">Florence Chombinho</h3>
-			<p class="autor-info">49 ans, Présidente chez CITANIUM - REIMS</p>
-		</div>
+	<h4 class="testimony-title">Ils en parlent</h1>
+	<div class="testimony-text">
+		<div class="marks-image-top"><img src="{{ asset('build/images/mark1.png') }}" alt="marks"/></div>
+		<p class="p-testimony">Marché Conclu a résolu mon probleme d'espace pour reloger des clients et faire face en toute sérénité aux retards sur mes chantiers.</p>
+		<div class="marks-image-bottom"><img src="{{ asset('build/images/mark2.png') }}" alt="marks"/></div>
+	</div>
+	<div class="testimony-autor">
+		<div class="autor-image-crop"><img class="florence" src="{{ asset('build/images/Florence.png') }}" alt="testimomy"/></div>
+		<h3 class="autor-name">Florence Chombinho</h3>
+		<p class="autor-info">49 ans, Présidente chez CITANIUM - REIMS</p>
+	</div>
 
 </div>
-
+{# PARTNER SECTION #}
 <div class="partner">
-		<h4 class="partner-title">Nos partenaires</h1>
-		<div class="partner-logos">
-			<img src="{{ asset('build/images/Allianz.png') }}" alt="Alliance-logo"/>
-			<img src="{{ asset('build/images/cic.png') }}" alt="cic-logo"/>
-			<img src="{{ asset('build/images/axa.png') }}" alt="axa-logo"/>
-		</div>
-		<div class="partner-text">
-			<p class="partner-info">Pour vous assurer une expériance toujours plus simple et sécurisé, nous avons travaillé avec nos partnaires a devolopper des outils pour vous accompagner avec toujours plus de flexibilité dans votre location ou gestion de vos espaces de travail.</p>
-		</div>
+	<h2 class="create-new-space">NOS PARTENAIRES</h2>
+	<div class="partner-logos">
+		<img src="{{ asset('build/images/Allianz.png') }}" alt="Alliance-logo"/>
+		<img src="{{ asset('build/images/cic.png') }}" alt="cic-logo"/>
+		<img src="{{ asset('build/images/axa.png') }}" alt="axa-logo"/>
+	</div>
+	<div class="partner-text">
+		<p class="partner-info">Pour vous assurer une expériance toujours plus simple et sécurisé, nous avons travaillé avec nos partnaires a devolopper des outils pour vous accompagner avec toujours plus de flexibilité dans votre location ou gestion de vos espaces de travail.</p>
+	</div>
 
-</div>
-
-
-</div>{% endblock %}
+</div></div>{% endblock %}

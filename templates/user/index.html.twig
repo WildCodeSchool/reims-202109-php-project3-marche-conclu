@@ -1,10 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="user-index-h1">
-        <h1>Mes informations</h1>
-    </div>
-    {% for category, messages in app.flashes %}
+	<div class="search">
+		<div class="title">
+			{% include "_logotitle.html.twig" %}
+		</div>
+		<h1 class="create-new-space">Mes informations</h1>
+	</div>
+	{% for category, messages in app.flashes %}
         {% for message in messages %}
             <div class="alert alert-{{ category }}">
                 {{ message }}
@@ -35,22 +38,21 @@
             <a class="user-index-submit" href="{{ path('app_logout') }}">Deconnexion</a>
         </div>
 
-        <div class="user-index-location">
-            {%if app.user.spaces is not empty %}
-                <h3>Mes annonces :</h3>
-            {% endif %}
-            <ul class="user-index-location-ul">
-            {% for space in app.user.spaces %}
-                <li class="user-index-location-li">
-                    <p>{{ "Nom de l'annonce :" ~ " " ~ space.name }}</p>
-                    <div>
-                        <a class="user-index-submit" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
-                        <a class="user-index-submit" href="{{ path("space_edit", {id: space.id}) }}">Modifier l'annonce</a>
-                    </div>
-                </li>
-            {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
+		<div class="user-index-location">
+			{%if app.user.spaces is not empty %}
+				<h3>Mes annonces :</h3>
+			{% endif %}
+			<ul class="user-index-location-ul">
+				{% for space in app.user.spaces %}
+					<li class="user-index-location-li">
+						<p>{{ "Nom de l'annonce :" ~ " " ~ space.name }}</p>
+						<div>
+							<a class="user-index-submit" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
+							<a class="user-index-submit" href="{{ path("space_edit", {id: space.id}) }}">Modifier l'annonce</a>
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% endif %}
 {% endblock %}
-
