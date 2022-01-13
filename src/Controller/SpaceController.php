@@ -17,6 +17,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Flasher\Prime\FlasherInterface;
+use Flasher\Toastr\Prime\ToastrFactory;
 
 #[Route('/space', name: 'space_')]
 class SpaceController extends AbstractController
@@ -93,7 +95,8 @@ class SpaceController extends AbstractController
         EntityManagerInterface $entityManager,
         Space $space,
         User $user,
-        SlotRepository $slotrepository
+        SlotRepository $slotrepository,
+        ToastrFactory $flasher
     ): Response {
         $slot = new Slot();
         $form = $this->createForm(SlotType::class, $slot);
@@ -106,8 +109,9 @@ class SpaceController extends AbstractController
             $entityManager->persist($slot);
 
             if ($slotrepository->findBy(["slotTime" => $slot->getSlotTime(), "space" => $slot->getSpace()])) {
-                $this->addFlash("error", "Ce créneau est déjà réservé pour cette date.");
+                $flasher->addError("Votre réservation ne peut être enregistré. Ce créneau est indisponible.");
             } else {
+                $flasher->addSuccess('Votre réservation a été enregistré');
                 $entityManager->flush();
             }
 
