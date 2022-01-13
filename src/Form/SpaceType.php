@@ -35,12 +35,13 @@ class SpaceType extends AbstractType
                 'label' => 'Catégorie',
                 'choices'  => [
                     'Salle de réunion' => 'reunion',
-                    'Co-working' => 'coworking',
-                    'Bureau privé' => 'private-desk',
+                    'Co-working' => 'co-working',
+                    'Bureau privé' => 'private',
                     'Open Space' => 'open-space',
-                    'Plateaux vides' => 'empty-plates'
+                    'Plateaux vides' => 'plates'
                 ],
             ])
+            ->add('address')
             ->add('surface', IntegerType::class, [
                 'required' => true,
                 'label' => 'Surface (en m²)'

@@ -55,6 +55,8 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('firstname', TextType::class, ['label' => 'Prénom'])
             ->add('lastname', TextType::class, ['label' => 'Nom de famille'])
+            ->add('phone_number', TextType::class, ['label' => 'Numéro de téléphone'])
+            ->add('job', TextType::class, ['label' => 'Profession'])
             ->add('avatar', TextType::class, ['label' => 'Photo de profil', 'required' => false])
             ->add('company', TextType::class, ['label' => 'Nom de votre société', 'required' => false])
             ->add('agreeTerms', CheckboxType::class, [

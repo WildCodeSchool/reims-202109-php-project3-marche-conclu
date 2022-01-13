@@ -21,41 +21,41 @@
 						<!-- Modal content -->
 						<div class="modal-content">
 							<div>
-								<label for="start">Dates</label>
+								<label for="start">Dates d'entrées</label>
 								<input type="date" id="start" name="date" placeholder="m²" value="2022-01-15" min="2021-01-05" max="2024-12-31">
 							</div>
 							<p>Types d'espaces</p>
 							<div class="space-filter">
 
-								<input type="checkbox" name="my-checkbox" id="meeting" class="hidden-checkbox" hidden>
+								<input type="checkbox" name="meeting" id="meeting" class="hidden-checkbox" hidden>
 								<label for="meeting">Salle de réunion</label>
 
-								<input type="checkbox" name="my-checkbox" id="private" class="hidden-checkbox" hidden>
+								<input type="checkbox" name="private" id="private" class="hidden-checkbox" hidden>
 								<label for="private">Bureau privé</label>
 
-								<input type="checkbox" name="my-checkbox" id="open-space" class="hidden-checkbox" hidden>
+								<input type="checkbox" name="open-space" id="open-space" class="hidden-checkbox" hidden>
 								<label for="open-space">Open space</label>
 
-								<input type="checkbox" name="my-checkbox" id="co-working" class="hidden-checkbox" hidden>
+								<input type="checkbox" name="co-working" id="co-working" class="hidden-checkbox" hidden>
 								<label for="co-working">Co-working</label>
 
-								<input type="checkbox" name="my-checkbox" id="storage" class="hidden-checkbox" hidden>
+								<input type="checkbox" name="storage" id="storage" class="hidden-checkbox" hidden>
 								<label for="storage">Espace de stockage</label>
 
-								<input type="checkbox" name="my-checkbox" id="plateau" class="hidden-checkbox" hidden>
+								<input type="checkbox" name="plate" id="plate" class="hidden-checkbox" hidden>
 								<label for="plateau">Plateaux vides</label>
 							</div>
 							<div class="filter-range">
-								<label for="range">Prix max</label>
-								<input type="range" id="range" name="price" min="10" max="1500" step="10" oninput="this.form.priceInput.value=this.value">
-								<input type="number" name="priceInput" min="0" max="20" value="0" oninput="this.form.priceRange.value=this.value"/>
+								<label for="range">Prix maximum</label>
+								<input type="range" id="range" min="10" max="1500" step="10" oninput="this.form.maxprice.value=this.value">
+								<input type="number" name="maxprice" min="0" max="1500" value="0" oninput="this.form.priceRange.value=this.value"/>
 							</div>
 							<div>
 								<label for="range">Surface minimum</label>
-								<input type="range" id="range" name="surface" min="5" max="1000" step="10" oninput="this.form.amountInput.value=this.value">
-								<input type="number" name="amountInput" min="0" max="20" value="0" oninput="this.form.amountRange.value=this.value"/>
+								<input type="range" id="range" min="5" max="1000" step="10" oninput="this.form.minsurface.value=this.value">
+								<input type="number" name="minsurface" min="0" max="1000" value="0" oninput="this.form.amountRange.value=this.value"/>
 							</div>
-							<button type="submit">
+							<button style="margin-top:1rem; margin-bottom: 1rem;"class="add-new-space" type="submit">
 								Chercher
 							</button>
 							<span class='closeSearch' onclick='closeModal()'>&times;</span>
@@ -104,6 +104,8 @@
 		{% elseif location %}
 			<p>Aucun espace trouvé à
 				{{ location }}</p>
+		{% else %}
+		<p> Aucun espace trouvé </p>
 		{% endif %}
 	</div>
 
