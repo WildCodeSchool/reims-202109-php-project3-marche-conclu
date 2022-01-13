@@ -68,7 +68,7 @@ class SpaceController extends AbstractController
     {
         $options = $request->query->all();
         foreach ($options as $key => $option) {
-            if ($option === "") {
+            if ($option === "" || $option == 0) {
                 unset($options[$key]);
             }
             if ($option === "on") {
