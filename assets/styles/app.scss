@@ -400,12 +400,18 @@ a {
     box-shadow: $color-light-grey;
     margin: 40vh 1rem;
     padding: 1rem;
+    text-align: center;
 
     input[type=submit] {
         background-color: $color-cerise-btn;
         border-radius: 4px;
         margin-top: 1rem;
     }
+
+    input[type=date] {
+        border-radius: 4px;
+    }
+
   }
 
 .show-reservation-modal-close {
@@ -710,8 +716,13 @@ input[type=submit],
     width: 100%;
 }
 
+.space-form-submit-div {
+    margin-top: 2rem;
+    text-align: center;
+}
+
 .space-form-submit {
-    background-color: $color-grey;
+    background-color: $color-cerise-btn;
     border: 0;
     border-radius: 4px;
     color: $color-white;
@@ -720,10 +731,14 @@ input[type=submit],
     text-decoration: none;
 }
 
+.space-form-container {
+    margin: 1rem;
+}
+
 // LOGIN/REGISTER PAGE
 .login-body {
     background-color: $color-cerise;
-    height: 92vh;
+    height: 93vh;
     font-family: $fontbodini;
 }
 
@@ -770,7 +785,7 @@ input[type=submit],
     justify-content: center;
     margin: auto;
     padding: 3rem 2rem 2rem;
-    width: 75%;
+    width: 85%;
 
 }
 
@@ -1138,6 +1153,7 @@ input[type=range]:focus::-ms-fill-upper {
 .user-index-avatar {
     align-self: center;
     border: 1px solid $color-cerise;
+    border-radius: 30px;
     box-shadow: 10px 10px 5px $color-light-red;
     height: 100px;
     margin-top: 1rem;
@@ -1166,7 +1182,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .user-index-submit {
-    background-color: $color-cerise;
+    background-color: $color-cerise-btn;
     border: 0;
     border-radius: 4px;
     color: $color-white;
@@ -1190,6 +1206,11 @@ input[type=range]:focus::-ms-fill-upper {
 
 .user-edit-div-form {
     margin: 1rem;
+
+    input[type="checkbox"],
+    input[type="range"] {
+        width: 25%;
+    }
 }
 
 .user-edit-return {
@@ -1199,10 +1220,6 @@ input[type=range]:focus::-ms-fill-upper {
 
 .user-form-enregistrer {
     margin-top: 1rem;
-}
-
-.registration-form-agreeTerms {
-    width: 25%;
 }
 
 // END USER EDIT
