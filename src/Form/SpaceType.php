@@ -48,12 +48,7 @@ class SpaceType extends AbstractType
             ])
             ->add('location', ChoiceType::class, [
                 'required' => true,
-                'label' => 'Ville',
-                'choices'  => [
-                    'Paris' => 'Paris',
-                    'Marseille' => 'Marseille',
-                    'Lyon' => 'Lyon',
-                ],
+                'label' => 'Ville'
             ])
             ->add('price', IntegerType::class, [
                 'required' => true,

@@ -10,12 +10,13 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 class SpaceFixtures extends Fixture implements DependentFixtureInterface
 {
     private const TYPESPACE = ['Bureau privé', 'Co-Working', 'Salle de réunion', 'Open Space', 'Espace de stockage'];
-    private const LOCATION = ['Reims', 'Charleville', 'Lyon', 'Paris', 'Epernay'];
+    private const LOCATION = ['Reims', 'Charleville', 'Metz'];
     private const SPACE_COUNT = 30;
     private const SPACE_IMAGES = [
         'dane-deaner.jpg', 'coworking.jpeg', 'open_space.jpg',
         'openspace.jpg', 'salle_de_reunion.jpg', 'stockage.jpg'
     ];
+    private const ADDRESS = ['6 rue de Saint Brice', '4 rue Emile Nivelet', '12 Rue Pasteur'];
 
     public function load(ObjectManager $manager): void
     {
@@ -32,8 +33,10 @@ class SpaceFixtures extends Fixture implements DependentFixtureInterface
             $location = array_rand(self::LOCATION);
             $space->setLocation(self::LOCATION[$location]);
             $this->addReference($space->getName(), $space);
-            $space->setOwner($this->getReference('user_David@email.com'));
+            $space->setOwner($this->getReference('user_j.v@gmail.com'));
             $manager->persist($space);
+            $address = array_rand(self::ADDRESS);
+            $space->setAddress(self::ADDRESS[$address]);
         }
 
         $manager->flush();
