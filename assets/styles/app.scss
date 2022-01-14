@@ -136,6 +136,7 @@ a {
 }
 
 .form-search {
+    align-items: center;
     border-radius: 4px; // Rounded borders
     box-sizing: border-box; // Make sure that padding and width stays in place
     display: flex;
@@ -191,7 +192,7 @@ a {
 }
 
 .premium {
-    border: 2px solid $color-burgundy;
+    border: 2px solid $color-cerise-btn;
     box-shadow: 0px 1px 20px -12px #bd1110;
 }
 
@@ -203,9 +204,10 @@ a {
 }
 
 .image-offer {
-    border: 1px solid gray;
+    border: 1px solid $color-black;
     border-radius: 1rem;
     object-fit: cover;
+    height: 25vh;
 }
 
 .show-image-offer {
@@ -537,23 +539,23 @@ a {
 }
 
 #buttonCardShow {
-    background-color: $color-white;
-    color: $color-grey;
     font-weight: bold;
     margin-top: 1rem;
+}
+
+#buttonCardShow:hover {
+    color: black;
 }
 
 // START FLEX OFFICE
 
 .flex-office {
     background-color: $color-cerise;
-    padding: 1rem 1.5rem;
-    height: 45vh;
+    padding: .25rem 1.5rem 2rem;
 }
 
 video {
     border-radius: 2em;
-    height: 75%;
     width: 100%;
 }
 
@@ -684,7 +686,7 @@ label{
 
 input[type=submit],
 .form-submit {
-    background-color: $color-burgundy;
+    background-color: $color-cerise-btn;
     border: 0;
     border-radius: 0 20px 20px 0;
     box-shadow: 0px 1px 3px $color-grey;
@@ -694,7 +696,16 @@ input[type=submit],
     text-decoration: none;
 }
 
-
+.show-space-link {
+    background-color: $color-cerise-btn;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px $color-grey;
+    color: $color-white;
+    cursor: pointer;
+    padding: 10px;
+    text-decoration: none;
+}
 // Add a background color and some padding around the form
 
 .container {
@@ -847,7 +858,7 @@ input[type=submit],
     font-size: 1.3rem; 
     justify-content: center;
     letter-spacing: 2px;
-    margin: 2rem 1rem 1rem 1rem;
+    margin: 2rem;
     padding-bottom: 7px;  
 }
 
@@ -860,8 +871,8 @@ input[type=submit],
     height: auto;
     justify-content: center;
     margin: auto;
-    padding: 2rem;
-    width: 75%;
+    padding: 2rem 1rem 0;
+    width: 85%;
 }
 
 .div-add-new-space {
@@ -874,6 +885,11 @@ input[type=submit],
     border-radius: 1rem;
     color: $color-white;
     padding: 1rem 2rem;
+    text-align: center;
+}
+
+.new-space-submit {
+    margin-top: 1rem;
     text-align: center;
 }
 
@@ -962,6 +978,7 @@ input[type=range] {
     background-repeat: no-repeat;
     border: 0;
     cursor: pointer;
+    margin: 0 1rem;
 }
 
 .modal {
@@ -1233,6 +1250,10 @@ input[type=range]:focus::-ms-fill-upper {
     cursor: pointer;
     padding: 12px 20px;
     text-decoration: none;
+}
+
+.user-index-submit:hover {
+    color: $color-black;
 }
 
 // END USER INDEX

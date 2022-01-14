@@ -41,10 +41,10 @@
         <div class="show-user-modify">
             <a class="show-user-modify-btn" href="{{ path('user_edit', {'id': app.user.id}) }}">Modifier mon profil</a>
         </div>
+        {% if app.user.spaces is not empty %}
         <div class="user-index-location">
-            {%if app.user.spaces is not empty %}
                 <h3>Mes annonces proposées :</h3>
-            {% endif %}
+
             <ul class="user-index-location-ul">
             {% for space in app.user.spaces %}
                 <li class="user-index-location-li">
@@ -56,6 +56,7 @@
                 </li>
             {% endfor %}
             </ul>
+        {% endif %}
         </div>
     {% endif %}
 {% endblock %}

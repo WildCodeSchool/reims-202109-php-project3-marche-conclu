@@ -61,7 +61,7 @@
 						<span id="spanpriceday">
 							/ jour</span>
 					</div>
-					<a class="form-submit" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
+					<a class="show-space-link" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
 				</div>
 			</figcaption>
 		</figure>
@@ -70,10 +70,8 @@
 {# FLEX OFFICE SECTION #}
 <div class="flex-office">
 	<h2 class="create-new-space">LE FLEX OFFICE</h2>
-	<video src="assets/video/flexoffice.mp4" type="video/mp4" controls>
-		<p>Votre navigateur ne prend pas en charge la vidéo. Voici
-			<a href="https://www.youtube.com/embed/qxTaXktrZTM">un lien pour visionner la vidéo</a>.
-		</p>
+	<video controls>
+		<source src="{{ asset('build/flexoffice.webm') }}" type="video/webm">
 	</video>
 	{# <iframe src="https://www.youtube.com/embed/qxTaXktrZTM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> #}
 </div>
