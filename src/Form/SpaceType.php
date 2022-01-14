@@ -54,6 +54,7 @@ class SpaceType extends AbstractType
                 'required' => true,
                 'label' => 'Prix par jour'
             ])
+            ->add('photos')
             ->add('photosFile', VichFileType::class, [
                 'required' => true,
                 'label' => 'Photo',
