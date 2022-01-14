@@ -17,6 +17,10 @@ class SlotType extends AbstractType
             ->add('slotTime', DateType::class, [
                 'label' => ' ',
                 'widget' => 'single_text',
+                //'widget' => 'choice',
+                //'years' => [2021,2022],
+                //'months' => [10,11,12],
+                //'days' => [10,11,12],
                 // this is actually the default format for single_text
                 'format' => 'yyyy-MM-dd',
                 'attr' =>  array(
