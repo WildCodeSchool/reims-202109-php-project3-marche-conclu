@@ -1184,7 +1184,6 @@ input[type=range]:focus::-ms-fill-upper {
 
 .show-user-modify {
     border-bottom: 1px solid $color-black;
-    font-size: .8rem;
     margin: 0 2rem;
     padding-bottom: 2rem;
     text-align: center;
@@ -1194,7 +1193,7 @@ input[type=range]:focus::-ms-fill-upper {
     background-color: $color-cerise-btn;
     border-radius: 4px;
     color: $color-white;
-    padding: 1rem 6rem;
+    padding: 1rem 4rem;
     text-decoration: none;
 }
 
