@@ -49,7 +49,7 @@
             {% for space in app.user.spaces %}
                 <li class="user-index-location-li">
                     <p>{{ "Nom de l'annonce :" ~ " " ~ space.name }}</p>
-                    <div>
+                    <div class="show-user-annonce-btns">
                         <a class="user-index-submit" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
                         <a class="user-index-submit" href="{{ path("space_edit", {id: space.id}) }}">Modifier l'annonce</a>
                     </div>
