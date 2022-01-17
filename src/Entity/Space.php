@@ -2,16 +2,18 @@
 
 namespace App\Entity;
 
-use App\Repository\SpaceRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Symfony\Component\Validator\Constraints as Assert;
+use DateTime;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\SpaceRepository;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass=SpaceRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\SpaceRepository")
  * @Vich\Uploadable
  */
 class Space
@@ -30,17 +32,25 @@ class Space
     private string $name;
 
     /**
-     * @ORM\Column(type="string", length=500, nullable="true")
-     * @Assert\NotBlank(message="Le champ photos ne peut être vide")
-     *  @var string $photos
+     * @ORM\Column(type="string", length=255)
+     * @var string
      */
-    private $photos;
+    private $photo;
 
-     /**
-      * @Vich\UploadableField(mapping="photos_file", fileNameProperty="photos")
-      * @var File
-      */
-    private ?File $photosFile;
+    /**
+     * @Vich\UploadableField(mapping="poster_file", fileNameProperty="photo")
+     * @Assert\File(
+     * maxSize = "1M",
+     * mimeTypes = {"image/jpeg", "image/png", "image/webp"},
+     * )
+     * @var File
+     */
+    private $photoFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private DateTimeInterface $updatedAt;
 
     /**
      * @ORM\Column(type="integer", length=10)
@@ -100,7 +110,6 @@ class Space
     public function __construct()
     {
         $this->slots = new ArrayCollection();
-        $this->photosFile = null;
     }
 
     public function getId(): ?int
@@ -123,18 +132,6 @@ class Space
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getPhotos(): ?string
-    {
-        return $this->photos;
-    }
-
-    public function setPhotos(string $photos): self
-    {
-        $this->photos = $photos;
 
         return $this;
     }
@@ -274,15 +271,29 @@ class Space
         return $this;
     }
 
-    public function setPhotosFile(?File $photos = null): Space
+    public function getPhoto(): ?string
     {
-        $this->photosFile = $photos;
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): self
+    {
+        $this->photo = $photo;
+
         return $this;
     }
 
-    public function getPhotosFile(): ?File
+    public function setPhotoFile(File $image): Space
     {
-        return $this->photosFile;
+        $this->photoFile = $image;
+        $this->updatedAt = new DateTime('now');
+
+        return $this;
+    }
+
+    public function getPhotoFile(): ?File
+    {
+        return $this->photoFile;
     }
 
     public function getAddress(): ?string
@@ -293,6 +304,30 @@ class Space
     public function setAddress(string $address): self
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of updatedAt
+     *
+     * @return DateTimeInterface
+     */
+    public function getUpdatedAt(): DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set the value of updatedAt
+     *
+     * @param DateTimeInterface $updatedAt
+     *
+     * @return self
+     */
+    public function setUpdatedAt(DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
