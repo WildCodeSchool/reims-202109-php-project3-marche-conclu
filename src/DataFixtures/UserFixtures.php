@@ -18,11 +18,34 @@ class UserFixtures extends Fixture
 
     public const USERS = [
         [
+            "email" => "m.p@gmail.com",
+            "password" => "marion",
+            "role" => ["ROLE_CONTRIBUTOR"],
+            "firstname" => "Marion",
+            "lastname" => "PATINET",
+            "phoneNumber" => "0688225932",
+            "job" => "Chef de projet",
+            "company" => "Champagne Ruinart"
+        ],
+        [
+            "email" => "j.v@gmail.com",
+            "password" => "jordan",
+            "role" => ["ROLE_ADMIN"],
+            "firstname" => "Jordan",
+            "lastname" => "VERREAUX",
+            "phoneNumber" => "0618225933",
+            "job" => "Chef d'entreprise",
+            "company" => "ConnecT"
+        ],
+        [
             "email" => "David@email.com",
             "password" => "David",
             "role" => ["ROLE_ADMIN"],
             "firstname" => "David",
             "lastname" => "ADMIN",
+            "phoneNumber" => "0688775932",
+            "job" => "Comptable",
+            "company" => "Champagne Krug"
         ],
         [
             "email" => "Robert@email.com",
@@ -30,6 +53,9 @@ class UserFixtures extends Fixture
             "role" => ["ROLE_CONTRIBUTOR"],
             "firstname" => "Robert",
             "lastname" => "CONTRIB",
+            "phoneNumber" => "0688224932",
+            "job" => "Salarié",
+            "company" => "Forbo"
         ],
     ];
 
@@ -41,6 +67,9 @@ class UserFixtures extends Fixture
             $contributor->setRoles($userData['role']);
             $contributor->setFirstname($userData['firstname']);
             $contributor->setLastname($userData['lastname']);
+            $contributor->setphoneNumber($userData['phoneNumber']);
+            $contributor->setJob($userData['job']);
+            $contributor->setCompany($userData['company']);
 
             $hashedPassword = $this->passwordHasher->hashPassword(
                 $contributor,

@@ -53,7 +53,7 @@ class SpaceController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var \App\Entity\User $user */
             $space->setOwner($user);
-            $space->setPhotos('');
+            $space->setPhoto('');
             $entityManager->persist($space);
             $entityManager->flush();
             $flasher->addSuccess('Votre annonce a bien été crée !');
@@ -143,7 +143,7 @@ class SpaceController extends AbstractController
             $entityManager->flush();
             $flasher->addSuccess('Votre réservation a été modifié !');
 
-            return $this->redirectToRoute('space_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('space_show', ['id' => $space->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('space/edit.html.twig', [
