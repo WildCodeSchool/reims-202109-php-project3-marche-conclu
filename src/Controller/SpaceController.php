@@ -103,23 +103,28 @@ class SpaceController extends AbstractController
         $form = $this->createForm(SlotType::class, $slot);
         $form->handleRequest($request);
         $user = $this->getUser();
-
         $availability = array_map("trim", explode(',', $space->getAvailability() ?? ""));
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var \App\Entity\User $user */
 
-            $reservations = array_map('trim', explode(',', strval($form->get('slotTime')->getData())));
+            $slottime = $form->get('slotTime')->getData();
 
-            foreach ($reservations as $reservation) {
-                $slot = new Slot();
-                $slot->setOwner($user);
-                $slot->setSpace($space);
-                $slot->setPrice(0);
-                $slot->setSlotTime($reservation);
-                $key = array_search($reservation, $availability);
-                unset($availability[$key]);
-                $entityManager->persist($slot);
+            $reservations = array_map('trim', explode(',', strval($form->get('slotTime')->getData())));
+            if (!empty($slottime) && $slottime !== null) {
+                foreach ($reservations as $reservation) {
+                    $slot = new Slot();
+                    $slot->setOwner($user);
+                    $slot->setSpace($space);
+                    $slot->setPrice(0);
+                    $slot->setSlotTime($reservation);
+                    $key = array_search($reservation, $availability);
+                    unset($availability[$key]);
+                    $entityManager->persist($slot);
+                }
+            } else {
+                $flasher->addError('Veuillez renseigner une date !');
+                return $this->redirectToRoute('space_show', ['id' => $space->getId()], Response::HTTP_SEE_OTHER);
             }
             $space->setAvailability(implode(", ", $availability));
             $entityManager->flush();
