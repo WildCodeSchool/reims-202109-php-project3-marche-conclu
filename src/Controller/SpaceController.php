@@ -115,7 +115,6 @@ class SpaceController extends AbstractController
         $availability = array_map("trim", explode(',', $space->getAvailability() ?? ""));
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $slottime = $form->get('slotTime')->getData();
 
             $reservations = array_map('trim', explode(',', strval($form->get('slotTime')->getData())));
