@@ -121,11 +121,13 @@ class SpaceController extends AbstractController
             return $this->redirectToRoute('space_show', ['id' => $space->getId()], Response::HTTP_SEE_OTHER);
         }
 
+        $availability = explode(',', $space->getAvailability() ?? "");
+
         return $this->renderForm('space/show.html.twig', [
             'space' => $space,
             'slot' => $slot,
-            'form' => $form
-
+            'form' => $form,
+            'availability' => $availability
         ]);
     }
 
