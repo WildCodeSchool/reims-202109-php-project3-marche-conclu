@@ -115,7 +115,6 @@ class SpaceController extends AbstractController
         $availability = array_map("trim", explode(',', $space->getAvailability() ?? ""));
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var \App\Entity\User $user */
 
             $slottime = $form->get('slotTime')->getData();
 
