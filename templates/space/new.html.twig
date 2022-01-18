@@ -1,15 +1,32 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-	New Space
+Nouvel espace
 {% endblock %}
 {% block body %}
 	<div class="new-space-body">
 		<div class="title">
-			{% include "_logoTitle.html.twig" %}
-		</div>
-		<h1 class="create-new-space">Déposer une annonce</h1>
-		<div class="new-space-form">
-			{{ include('space/_form.html.twig') }}
-		</div>
-		<div>
-		{% endblock %}
+{% include "_logoTitle.html.twig" %}
+	</div>
+	<h1 class="create-new-space"> Déposer une annonce </h1>
+	<div class="new-space-form">
+		{{ include('space/_form.html.twig') }}
+	</div>
+	<div>
+		<script type="text/javascript" src="{{ api }}">
+		</script>
+		<script>
+			function initialize() {
+				const options = {
+					types: ['(cities)'],
+					componentRestrictions: {
+					country: 'fr',
+				},
+				};
+				const { google } = window;
+				const input = document.getElementById('autocomplete');
+				const autocomplete = new google.maps.places.Autocomplete(input, options);
+		}
+
+		initialize();
+		</script>
+{% endblock %}

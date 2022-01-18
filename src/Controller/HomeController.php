@@ -11,11 +11,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HomeController extends AbstractController
 {
     public const CATEGORIES = [
-        'BUREAU PRIVEE',
-        'CO-WORKING',
-        'SALLE DE REUNION',
-        'OPEN SPACE',
-        'ESPACE DE STOCKAGE',
+        'reunion' => 'Salle de reunion',
+        'coworking' => 'Co-Working',
+        'private' => 'Bureau privee',
+        'open-space' => 'Open-Space',
+        'stockage' => 'Plateaux vides'
     ];
 
     #[Route('/', name: 'home')]
