@@ -49,7 +49,7 @@
 </ul>
 <div class="show-space-description">
 	<div class="marks-image-top"><img src="{{ asset('build/images/mark1.png') }}" alt="marks"/></div>
-	<p class="show-space-description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	<p class="show-space-description-text">{{ space.description }}</p>
 	<div class="marks-image-bottom"><img src="{{ asset('build/images/mark2.png') }}" alt="marks"/></div>
 </div>
 <div class="show-space-availability">
@@ -88,12 +88,12 @@
 <div class="show-space-owner">
 	<ul class="show-space-owner-details">
 		<li>{{ space.owner.firstname }} {{ space.owner.lastname }}</li>
-		<li>Secrétaire Générale</li>
+		<li>{{ space.owner.job }}</li>
 		<li>{{ space.owner.company }}</li>
 	</ul>
 	<ul class="show-space-owner-contact">
 		<li>{{ space.owner.email }}</li>
-		<li>06 27 98 04 43</li>
+		<li>{{ space.owner.phonenumber }}</li>
 	</ul>
 </div>
 {% if app.user and app.user != space.owner %}
