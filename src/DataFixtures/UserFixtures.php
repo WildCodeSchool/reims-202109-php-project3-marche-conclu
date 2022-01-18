@@ -2,10 +2,11 @@
 
 namespace App\DataFixtures;
 
-use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use DateTime;
 use App\Entity\User;
+use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserFixtures extends Fixture
 {
@@ -70,6 +71,8 @@ class UserFixtures extends Fixture
             $contributor->setphoneNumber($userData['phoneNumber']);
             $contributor->setJob($userData['job']);
             $contributor->setCompany($userData['company']);
+            $contributor->setPhoto('symbole-github-bleu-61e6d56a9a578776627036.png');
+            $contributor->setUpdatedAt(new DateTime('now'));
 
             $hashedPassword = $this->passwordHasher->hashPassword(
                 $contributor,
