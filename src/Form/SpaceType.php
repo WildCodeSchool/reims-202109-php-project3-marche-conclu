@@ -67,6 +67,10 @@ class SpaceType extends AbstractType
                 ),
                 'required' => true,
                 ])
+            ->add('location', TextType::class, [
+                'required' => true,
+                'label' => 'Ville',
+            ])
             ->add('price', IntegerType::class, [
                 'required' => true,
                 'attr' => array(
@@ -74,12 +78,11 @@ class SpaceType extends AbstractType
                 ),
                 'label' => 'Prix par jour'
             ])
-            ->add('photos')
-            ->add('photosFile', VichFileType::class, [
-                'required' => true,
+            ->add('photoFile', VichFileType::class, [
+                'required' => false,
                 'label' => 'Photo',
-                'allow_delete'  => false, // not mandatory, default is true
-                'download_uri' => false, // not mandatory, default is true
+                'allow_delete'  => true, // not mandatory, default is true
+                'download_uri' => true, // not mandatory, default is true
             ])
             ->add('enregistrer', SubmitType::class, [
                 'label' => "Poster l'annonce",
