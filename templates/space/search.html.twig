@@ -27,8 +27,8 @@
 							<p>Types d'espaces</p>
 							<div class="space-filter">
 
-								<input type="checkbox" name="meeting" id="meeting" class="hidden-checkbox" hidden>
-								<label for="meeting">Salle de réunion</label>
+								<input type="checkbox" name="reunion" id="reunion" class="hidden-checkbox" hidden>
+								<label for="reunion">Salle de réunion</label>
 
 								<input type="checkbox" name="private" id="private" class="hidden-checkbox" hidden>
 								<label for="private">Bureau privé</label>
@@ -46,6 +46,13 @@
 								<label for="plateau">Plateaux vides</label>
 							</div>
 							<div class="filter-range">
+								<label for="job">Profession recherchée</label>
+								<select name="job" type="text">
+								<option value="">Selectionner une profession</option>
+								{% for job in jobs %}}
+								<option value="{{ job }}"> {{ job }} </option>
+								{% endfor %}
+								</select>
 								<label for="range">Prix maximum</label>
 								<input type="range" id="range" min="10" max="1500" step="10" oninput="this.form.maxprice.value=this.value">
 								<input type="number" name="maxprice" min="0" max="1500" value="0" oninput="this.form.priceRange.value=this.value"/>
@@ -71,11 +78,7 @@
 			{% for space in spaces %}
 				<div>
 					<figure class="offer">
-						{# {% if app.space.photos %}
 								<img class="image-offer" src="{{ vich_uploader_asset(space) }}" alt="Photo de l'espace"/>
-							{% else %} #}
-								<img class="image-offer" src="{{ asset('build/images/coworking.jpeg') }}">
-						{# {% endif %} #}
 						<figcaption class="text-offer">
 							<div class="card-border card-content-up cardcontent">
 								<div class="spacecategory card-content-up">{{ space.category|capitalize }}
@@ -87,6 +90,11 @@
 								<div class="spacesurface card-content-up">{{ space.surface }} m²</div>
 							</div>
 							<div class="spacelocation card-content-down">{{ space.location }}</div>
+							{% if options.job is defined %}
+								{% if space.owner.job %}
+							<div class="spacelocation card-content-down">{{ space.owner.job }}</div>
+						{% endif %}
+							{% endif %}
 							<div id="price">
 								<div class="spaceprice">
 									<span id="spanprice">{{ random(50, 250) }} €</span>
@@ -105,7 +113,22 @@
 		<p> Aucun espace trouvé </p>
 		{% endif %}
 	</div>
+<script type="text/javascript" src="{{ api }}"></script>
+	<script>
+		function initialize() {
+			const options = {
+				types: ['(cities)'],
+				componentRestrictions: {
+				country: 'fr',
+			},
+			};
+			const { google } = window;
+			const input = document.getElementById('autocomplete');
+			const autocomplete = new google.maps.places.Autocomplete(input, options);
+	}
 
+	initialize();
+	</script>
 	<script>
 		// Get the modal
 const modal = document.getElementById("myModal");
