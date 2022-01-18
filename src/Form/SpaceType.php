@@ -16,6 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class SpaceType extends AbstractType
 {
@@ -24,11 +25,17 @@ class SpaceType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'required' => true,
+                'attr' => array(
+                    'placeholder' => 'Petit bureau..',
+                ),
                 'label' => 'Nom de votre annonce'
             ])
             ->add('capacity', IntegerType::class, [
                 'required' => true,
-                'label' => 'Capacité'
+                'attr' => array(
+                    'placeholder' => '250',
+                ),
+                'label' => 'Nombre de postes disponibles'
             ])
             ->add('category', ChoiceType::class, [
                 'required' => true,
@@ -41,25 +48,41 @@ class SpaceType extends AbstractType
                     'Plateaux vides' => 'plates'
                 ],
             ])
-            ->add('address')
+            ->add('address', TextType::class, [
+                'attr' => array(
+                    'placeholder' => '6 rue de Saint-Brice',
+                ),
+                'label' => 'Adresse'])
             ->add('surface', IntegerType::class, [
                 'required' => true,
+                'attr' => array(
+                    'placeholder' => '300',
+                ),
                 'label' => 'Surface (en m²)'
             ])
-            ->add('location', ChoiceType::class, [
+            ->add('description', TextareaType::class)
+            ->add('location', TextType::class, [
+                'attr' => array(
+                    'placeholder' => 'Reims',
+                ),
                 'required' => true,
-                'label' => 'Ville'
+                ])
+            ->add('location', TextType::class, [
+                'required' => true,
+                'label' => 'Ville',
             ])
             ->add('price', IntegerType::class, [
                 'required' => true,
+                'attr' => array(
+                    'placeholder' => '250',
+                ),
                 'label' => 'Prix par jour'
             ])
-            ->add('photos')
-            ->add('photosFile', VichFileType::class, [
-                'required' => true,
+            ->add('photoFile', VichFileType::class, [
+                'required' => false,
                 'label' => 'Photo',
-                'allow_delete'  => false, // not mandatory, default is true
-                'download_uri' => false, // not mandatory, default is true
+                'allow_delete'  => true, // not mandatory, default is true
+                'download_uri' => true, // not mandatory, default is true
             ])
             ->add('enregistrer', SubmitType::class, [
                 'label' => "Poster l'annonce",

@@ -16,12 +16,12 @@
 </div>
 {# CAROUSEL SECTION #}
 <div class="carousel">
-	{% for category in categories %}
+	{% for category, name in categories %}
 		<div class="carousel-item-mc{{ loop.index0 == 0 ? ' carousel-item-visible' : '' }}">
-			<img src="{{ asset('build/images/' ~ category|lower|replace({' ': '', '-': ''}) ~ '.jpg') }}" alt="{{ category|lower }}"/>
-			<a href="#">
+			<img src="{{ asset('build/images/' ~ name|lower|replace({' ': '', '-': ''}) ~ '.jpg') }}" alt="{{ category|lower }}"/>
+			<a href="{{ path('space_search', {category: category}) }}">
 				<div class="text-center">
-					<p>{{ category }}</p>
+					<p>{{ name }}</p>
 				</div>
 			</a>
 		</div>

@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use DateTime;
 use App\Entity\Space;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -24,16 +25,18 @@ class SpaceFixtures extends Fixture implements DependentFixtureInterface
             $space = new Space();
             $space->setName('Espace ' . $i);
             $randImage = array_rand(self::SPACE_IMAGES);
-            $space->setPhotos(self::SPACE_IMAGES[$randImage]);
+            $space->setPhoto(self::SPACE_IMAGES[$randImage]);
             $space->setPrice((rand(1, 10) / 10) * rand(100, 200));
             $space->setSurface(rand(5, 200));
             $typespace = array_rand(self::TYPESPACE);
             $space->setCategory(self::TYPESPACE[$typespace]);
             $space->setCapacity(rand(10, 100));
-            $location = array_rand(self::LOCATION);
-            $space->setLocation(self::LOCATION[$location]);
+            $locationAndAdress = array_rand(self::LOCATION);
+            $space->setLocation(self::LOCATION[$locationAndAdress]);
             $this->addReference($space->getName(), $space);
             $space->setOwner($this->getReference('user_j.v@gmail.com'));
+            $space->setAddress(self::ADDRESS[$locationAndAdress]);
+            $space->setUpdatedAt(new DateTime('now'));
             $manager->persist($space);
             $address = array_rand(self::ADDRESS);
             $space->setAddress(self::ADDRESS[$address]);

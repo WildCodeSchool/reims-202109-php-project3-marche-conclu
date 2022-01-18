@@ -71,8 +71,6 @@ class UserFixtures extends Fixture
             $contributor->setJob($userData['job']);
             $contributor->setCompany($userData['company']);
 
-
-
             $hashedPassword = $this->passwordHasher->hashPassword(
                 $contributor,
                 $userData['password']

@@ -6,7 +6,6 @@
  */
 import './bootstrap';
 import './carousel';
-import './modal';
 import './autocomplete';
 
 // any CSS you import will output into a single css file (app.css in this case)

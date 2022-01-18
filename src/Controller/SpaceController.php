@@ -53,7 +53,7 @@ class SpaceController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var \App\Entity\User $user */
             $space->setOwner($user);
-            $space->setPhotos('');
+            $space->setPhoto('');
             $entityManager->persist($space);
             $entityManager->flush();
             $flasher->addSuccess('Votre annonce a bien été crée !');
@@ -64,29 +64,39 @@ class SpaceController extends AbstractController
         return $this->renderForm('space/new.html.twig', [
             'space' => $space,
             'form' => $form,
+            'api' => $_ENV['API_KEY']
         ]);
     }
 
     #[Route('/search', name: 'search', methods: ['GET'])]
-    public function search(Request $request, SpaceRepository $spaceRepository): Response
+    public function search(UserRepository $userRepository, Request $request, SpaceRepository $spaceRepository): Response
     {
+        $users = $userRepository->findAll();
+        $jobs = [];
+        foreach ($users as $user) {
+            if (!in_array($user->getJob(), $jobs)) {
+                $jobs[] = $user->getJob();
+            }
+        }
+
         $options = $request->query->all();
         foreach ($options as $key => $option) {
             if ($option === "" || $option == 0) {
                 unset($options[$key]);
             }
-            if ($option === "on") {
+            if ($option === "on" or $option === "category") {
                 $options['category'] = $key;
                 unset($options[$key]);
             }
         }
         $spaces = $options ? $spaceRepository->findByCriterias($options) : $spaceRepository->findAll();
-
         return $this->renderForm('space/search.html.twig', [
             'location' => $options['location'] ?? null,
             'spaces' => $spaces, 'categories' => self::CATEGORIES,
-            'api' => $_ENV['API_KEY']
-        ]);
+            'api' => $_ENV['API_KEY'],
+            'jobs' => $jobs,
+            'options' => $options
+            ]);
     }
 
     #[Route('/{id}', name: 'show', methods: ['POST', 'GET'])]
@@ -94,26 +104,21 @@ class SpaceController extends AbstractController
         Request $request,
         EntityManagerInterface $entityManager,
         Space $space,
-        User $user,
         SlotRepository $slotrepository,
         ToastrFactory $flasher
     ): Response {
+
         $slot = new Slot();
         $form = $this->createForm(SlotType::class, $slot);
         $form->handleRequest($request);
+        $user = $this->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var \App\Entity\User $user */
             $slot->setOwner($user);
             $slot->setSpace($space);
             $slot->setPrice(0);
             $entityManager->persist($slot);
-
-            if ($slotrepository->findBy(["slotTime" => $slot->getSlotTime(), "space" => $slot->getSpace()])) {
-                $flasher->addError("Votre réservation ne peut être enregistré ! Ce créneau est indisponible.");
-            } else {
-                $flasher->addSuccess('Votre réservation a été enregistré !');
-                $entityManager->flush();
-            }
 
             return $this->redirectToRoute('space_show', ['id' => $space->getId()], Response::HTTP_SEE_OTHER);
         }
@@ -122,7 +127,6 @@ class SpaceController extends AbstractController
             'space' => $space,
             'slot' => $slot,
             'form' => $form
-
         ]);
     }
 
@@ -141,9 +145,9 @@ class SpaceController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
-            $flasher->addSuccess('Votre réservation a été modifié !');
+            $flasher->addSuccess('Votre réservation a été modifiée !');
 
-            return $this->redirectToRoute('space_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('space_show', ['id' => $space->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('space/edit.html.twig', [
@@ -166,7 +170,7 @@ class SpaceController extends AbstractController
         if ($this->isCsrfTokenValid('delete' . $space->getId(), strval($request->request->get('_token')))) {
             $entityManager->remove($space);
             $entityManager->flush();
-            $flasher->addSuccess('Votre réservation a été supprimé !');
+            $flasher->addSuccess('Votre réservation a été supprimée !');
         }
 
         return $this->redirectToRoute('space_index', [], Response::HTTP_SEE_OTHER);
