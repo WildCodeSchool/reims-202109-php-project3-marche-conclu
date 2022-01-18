@@ -39,6 +39,8 @@ class SpaceFixtures extends Fixture implements DependentFixtureInterface
             $space->setAvailability("");
             $space->setUpdatedAt(new DateTime('now'));
             $manager->persist($space);
+            $address = array_rand(self::ADDRESS);
+            $space->setAddress(self::ADDRESS[$address]);
         }
 
         $manager->flush();
