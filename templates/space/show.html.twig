@@ -6,8 +6,8 @@
 {% block body %}
 <div class="carousel">
             <div class="carousel-item-mc carousel-item-visible">
-					<img class="image-offer" src="{{ vich_uploader_asset(space) }}" alt="Photo de l'espace"/>
-			</div>
+                <img src="{{ asset('uploads/' ~ space.photo) }}" alt="bureau privee" />
+            </div>
             <div class="carousel-item-mc">
                 <img src="{{ asset('build/images/salledereunion.jpg') }}"
                     alt="salle de reunion" />
@@ -126,5 +126,16 @@
 		}
 	</script>
 {% endif %}
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+		<script>
+		flatpickr('.flatpick-reserve', {
+		mode: "multiple",
+		enable: [
+			{% for slot in availability %}
+			"{{ slot }}",
+			{% endfor %}
+		]
+		}
+		)
+		</script>
 {% endblock %}
- 

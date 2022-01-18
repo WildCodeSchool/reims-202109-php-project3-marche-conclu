@@ -84,6 +84,10 @@ class SpaceType extends AbstractType
                 'allow_delete'  => true, // not mandatory, default is true
                 'download_uri' => true, // not mandatory, default is true
             ])
+            ->add('availability', TextType::class, [
+                'required' => true,
+                'label' => 'Disponibilités',
+            ])
             ->add('enregistrer', SubmitType::class, [
                 'label' => "Poster l'annonce",
             ]);
