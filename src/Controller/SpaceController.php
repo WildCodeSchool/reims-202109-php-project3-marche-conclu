@@ -100,6 +100,7 @@ class SpaceController extends AbstractController
         $slot = new Slot();
         $form = $this->createForm(SlotType::class, $slot);
         $form->handleRequest($request);
+        $user = $this->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var \App\Entity\User $user */
