@@ -23,9 +23,9 @@ class Slot
     private float $price;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="text")
      */
-    private \DateTimeInterface $slotTime;
+    private string $slotTime;
 
     /**
      * @ORM\ManyToOne(targetEntity=Space::class, inversedBy="slots")
@@ -63,12 +63,12 @@ class Slot
         return $this;
     }
 
-    public function getSlotTime(): ?\DateTimeInterface
+    public function getSlotTime(): ?string
     {
         return $this->slotTime;
     }
 
-    public function setSlotTime(\DateTimeInterface $slotTime): self
+    public function setSlotTime(string $slotTime): self
     {
         $this->slotTime = $slotTime;
 
