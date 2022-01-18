@@ -8,15 +8,17 @@
             <div class="carousel-item-mc carousel-item-visible">
                 <img src="{{ asset('uploads/' ~ space.photo) }}" alt="bureau privee" />
             </div>
+			{% if space.photo|length > 1 %}
             <div class="carousel-actions">
                 <button id="carousel-button-prev" aria-label="Previous"><</button>
                 <button id="carousel-button-next" aria-label="Next">></button>
             </div>
+			{% endif %}
 </div>
 <div class="show-space-head">
 	<div class="show-space-head-left">
 		<h1 class="show-space-name">{{ space.name|upper }}</h1>
-		<h3 class="show-space-location">6 Rue de Saint-Brice, 51100 Reims</h3>
+		<h3 class="show-space-location">{{ space.address|title }}, {{ space.location|title }}</h3>
 		<div class="show-space-btn-locate">
 			<a class="show-space-link-locate" href="https://www.google.fr/maps/place/ {{ space.address }} {{ space.location }}" target="_blank">Localiser</a>
 		</div>
@@ -35,11 +37,13 @@
 		<li>{{ space.surface }}m²</li>
 		<li>{{ space.capacity }} postes</li>
 </ul>
+{% if space.description %}
 <div class="show-space-description">
 	<div class="marks-image-top"><img src="{{ asset('build/images/mark1.png') }}" alt="marks"/></div>
 	<p class="show-space-description-text">{{ space.description }}</p>
 	<div class="marks-image-bottom"><img src="{{ asset('build/images/mark2.png') }}" alt="marks"/></div>
 </div>
+{% endif %}
 <div class="show-space-availability">
 	<div class="show-space-availability-week">
 		<div class="show-space-day">
