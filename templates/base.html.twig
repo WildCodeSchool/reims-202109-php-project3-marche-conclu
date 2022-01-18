@@ -19,11 +19,5 @@
 		{% include '_navbar.html.twig' %}
 		{% block body %}{% endblock %}
 		{{ flasher_render() }}
-		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-		<script>flatpickr('.flatpick-add', {
-			mode: "multiple",
-			dateFormat: "Y-m-d"
-		})
-		</script>
 	</body>
 </html>

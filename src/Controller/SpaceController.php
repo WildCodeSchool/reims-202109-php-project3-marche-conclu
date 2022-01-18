@@ -151,6 +151,7 @@ class SpaceController extends AbstractController
         $form = $this->createForm(SpaceType::class, $space);
         $form->handleRequest($request);
 
+        $availability = $space->getAvailability();
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
             $flasher->addSuccess('Votre réservation a été modifiée !');
@@ -161,6 +162,7 @@ class SpaceController extends AbstractController
         return $this->renderForm('space/edit.html.twig', [
             'space' => $space,
             'form' => $form,
+            'availability' => $availability,
         ]);
     }
 
