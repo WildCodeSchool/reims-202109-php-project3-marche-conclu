@@ -99,6 +99,7 @@ class SpaceController extends AbstractController
             ]);
     }
 
+    
     #[Route('/{id}', name: 'show', methods: ['POST', 'GET'])]
     public function show(
         Request $request,
@@ -119,6 +120,13 @@ class SpaceController extends AbstractController
             $slot->setSpace($space);
             $slot->setPrice(0);
             $entityManager->persist($slot);
+
+            if ($slotrepository->findBy(["slotTime" => $slot->getSlotTime(), "space" => $slot->getSpace()])) {
+                $flasher->addError("Votre réservation ne peut être enregistrée ! Ce créneau est indisponible.");
+            } else {
+                $flasher->addSuccess('Votre réservation a été enregistré !');
+                $entityManager->flush();
+            }
 
             return $this->redirectToRoute('space_show', ['id' => $space->getId()], Response::HTTP_SEE_OTHER);
         }

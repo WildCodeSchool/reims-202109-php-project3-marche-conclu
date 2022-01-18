@@ -78,20 +78,4 @@ class SlotController extends AbstractController
 
         return $this->redirectToRoute('slot_index', [], Response::HTTP_SEE_OTHER);
     }
-
-    // #[Route('/{id}/book', name: 'slot_book', methods: ['GET'])]
-    // public function book(Slot $slot, EntityManagerInterface $entityManager, ToastrFactory $flasher): Response
-    // {
-    //     if ($slot->isBooked()) {
-    //         $flasher->addError("Votre réservation ne peut être enregistrée ! Ce créneau est indisponible.");
-    //     } else {
-    //         $user = $this->getUser();
-    //         $slot->setTenant($user);
-    //         $flasher->addSuccess('Votre réservation a été enregistré !');
-
-    //         $entityManager->flush();
-    //     }
-
-    //     return $this->redirectToRoute('space_show', ['id' => $slot->getSpace->getId()], Response::HTTP_SEE_OTHER);
-    // }
 }

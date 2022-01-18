@@ -141,12 +141,13 @@ a {
     box-sizing: border-box; // Make sure that padding and width stays in place
     display: flex;
     flex-direction: row;
-    margin: 1rem 0;
+    margin: 2rem 0 0rem 0;
     text-align: center;
 
     .search-bar {
         border-radius: 20px 0 0 20px;
         margin: 0;
+        text-align: center;
     }
 }
 
@@ -551,12 +552,14 @@ a {
 
 .flex-office {
     background-color: $color-cerise;
-    padding: .25rem 1.5rem 2rem;
+    padding: 2rem 1.5rem;
+    
 }
 
 video {
     border-radius: 2em;
     width: 100%;
+    margin-top: 1.5rem;
 }
 
 // END FLEX OFFICE
@@ -627,15 +630,15 @@ video {
     background-color: $color-cerise;
     color: $color-white;
     font-family: $fontworksans;
-    margin: 2.5 auto;
-    padding: 1rem 1.5rem;
+  
+    padding: 2rem 1.5rem;
     text-align: justify;
 }
 
 .partner-logos {
     display: flex;
     justify-content: space-around;
-    margin: 2rem 0 1.5rem 0;
+    margin: 3rem 0 1.5rem 0;
 }
 
 // END PARTNER
@@ -833,11 +836,13 @@ input[type=submit],
 .title{
     padding-bottom: 1rem;
     padding-top: 3rem;
+    padding: 3rem 0 1rem 0;
     text-align: center;
 }
 
 .new-space-body {
     background-color: $color-cerise;
+    padding-bottom: 2.5rem;
 }
 
 .new-space-title {
@@ -858,7 +863,7 @@ input[type=submit],
     font-size: 1.3rem; 
     justify-content: center;
     letter-spacing: 2px;
-    margin: 2rem;
+    margin: 1rem 1.7rem 0 1.7rem;
     padding-bottom: 7px;  
 }
 
@@ -870,7 +875,7 @@ input[type=submit],
     font-family: $fontlogo;
     height: auto;
     justify-content: center;
-    margin: auto;
+    margin: 2rem auto auto;
     padding: 2rem 1rem 0;
     width: 85%;
 }
@@ -978,7 +983,7 @@ input[type=range] {
     background-repeat: no-repeat;
     border: 0;
     cursor: pointer;
-    margin: 0 1rem;
+    margin: 0 0 0 .5rem;
 }
 
 .modal {
@@ -1155,7 +1160,7 @@ input[type=range]:focus::-ms-fill-upper {
     background-color: $color-cerise;
     color: $color-white;
     margin: initial;
-    padding: 1rem 0;
+    padding: 2rem 0;
     text-align: center;
 }
 
@@ -1182,6 +1187,14 @@ input[type=range]:focus::-ms-fill-upper {
     justify-content: space-between;
 }
 
+.user-spaces {
+    border: 1px solid grey;
+    padding: .5rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+
+}
 .show-user-modify {
     border-bottom: 1px solid $color-black;
     margin: 0 2rem;
@@ -1191,7 +1204,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .show-user-modify-btn {
     background-color: $color-cerise-btn;
-    border-radius: 4px;
+    border-radius: .5rem;
     color: $color-white;
     padding: 1rem 4rem;
     text-decoration: none;
@@ -1199,7 +1212,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .show-user-annonce-btns {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .show-user-modify-btn:hover,
@@ -1218,7 +1231,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .user-index-location {
     border-bottom: 1px solid $color-black;
-    margin: 0 2rem
+    margin: 1rem 2rem
 }
 
 .user-index-location-li {
@@ -1229,12 +1242,6 @@ input[type=range]:focus::-ms-fill-upper {
 
 .user-index-location-li p {
     text-align: center;
-}
-
-.user-index-location-li div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
 }
 
 .user-index-location h3 {
@@ -1250,10 +1257,10 @@ input[type=range]:focus::-ms-fill-upper {
 
 .user-index-submit {
     background-color: $color-cerise-btn;
-    border-radius: 4px;
+    border-radius: .5rem;
     color: $color-white;
     cursor: pointer;
-    padding: .8rem;
+    padding: .5rem;
     text-align: center;
     text-decoration: none;
 }
@@ -1265,15 +1272,6 @@ input[type=range]:focus::-ms-fill-upper {
 // END USER INDEX
 
 // START USER EDIT
-
-.user-edit-h1 {
-    background-color: $color-cerise;
-    color: $color-white;
-    margin: initial;
-    padding: 1rem 0;
-    text-align: center;
-    font-family: $fontbodini;
-}
 
 .user-edit-div-form {
     margin: 1rem;
