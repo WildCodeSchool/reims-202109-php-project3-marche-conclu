@@ -10,6 +10,7 @@
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
 		{% endblock %}
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 		{% block javascripts %}
 			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
@@ -18,5 +19,11 @@
 		{% include '_navbar.html.twig' %}
 		{% block body %}{% endblock %}
 		{{ flasher_render() }}
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+		<script>flatpickr('.flatpick-add', {
+			mode: "multiple",
+			dateFormat: "Y-m-d"
+		})
+	</script>
 	</body>
 </html>
