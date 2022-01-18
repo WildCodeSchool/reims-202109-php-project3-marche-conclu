@@ -69,8 +69,16 @@ class SpaceController extends AbstractController
     }
 
     #[Route('/search', name: 'search', methods: ['GET'])]
-    public function search(Request $request, SpaceRepository $spaceRepository): Response
+    public function search(UserRepository $userRepository, Request $request, SpaceRepository $spaceRepository): Response
     {
+        $users = $userRepository->findAll();
+        $jobs = [];
+        foreach ($users as $user) {
+            if (!in_array($user->getJob(), $jobs)) {
+                $jobs[] = $user->getJob();
+            }
+        }
+
         $options = $request->query->all();
         foreach ($options as $key => $option) {
             if ($option === "" || $option == 0) {
@@ -82,12 +90,13 @@ class SpaceController extends AbstractController
             }
         }
         $spaces = $options ? $spaceRepository->findByCriterias($options) : $spaceRepository->findAll();
-
         return $this->renderForm('space/search.html.twig', [
             'location' => $options['location'] ?? null,
             'spaces' => $spaces, 'categories' => self::CATEGORIES,
-            'api' => $_ENV['API_KEY']
-        ]);
+            'api' => $_ENV['API_KEY'],
+            'jobs' => $jobs,
+            'options' => $options
+            ]);
     }
 
     #[Route('/{id}', name: 'show', methods: ['POST', 'GET'])]
@@ -125,7 +134,6 @@ class SpaceController extends AbstractController
             'space' => $space,
             'slot' => $slot,
             'form' => $form
-
         ]);
     }
 

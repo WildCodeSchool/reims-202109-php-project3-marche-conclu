@@ -6,8 +6,8 @@
 {% block body %}
 <div class="carousel">
             <div class="carousel-item-mc carousel-item-visible">
-                <img src="{{ asset('uploads/' ~ space.photo ) }}" alt="bureau privee" />
-            </div>
+					<img class="image-offer" src="{{ vich_uploader_asset(space) }}" alt="Photo de l'espace"/>
+			</div>
             <div class="carousel-item-mc">
                 <img src="{{ asset('build/images/salledereunion.jpg') }}"
                     alt="salle de reunion" />
