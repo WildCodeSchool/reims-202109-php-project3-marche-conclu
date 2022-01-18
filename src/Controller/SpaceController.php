@@ -104,24 +104,28 @@ class SpaceController extends AbstractController
         $form->handleRequest($request);
         $user = $this->getUser();
 
+        $availability = explode(',', $space->getAvailability() ?? "");
+
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var \App\Entity\User $user */
-            $slot->setOwner($user);
-            $slot->setSpace($space);
-            $slot->setPrice(0);
-            $entityManager->persist($slot);
 
-            if ($slotrepository->findBy(["slotTime" => $slot->getSlotTime(), "space" => $slot->getSpace()])) {
-                $flasher->addError("Votre réservation ne peut être enregistrée ! Ce créneau est indisponible.");
-            } else {
-                $flasher->addSuccess('Votre réservation a été enregistré !');
-                $entityManager->flush();
+            $reservations = array_map('trim', explode(',', strval($form->get('slotTime')->getData())));
+
+            foreach ($reservations as $reservation) {
+                $slot = new Slot();
+                $slot->setOwner($user);
+                $slot->setSpace($space);
+                $slot->setPrice(0);
+                $slot->setSlotTime($reservation);
+                $entityManager->persist($slot);
             }
+            $entityManager->flush();
+
+            $flasher->addSuccess('Votre réservation a été enregistré !');
 
             return $this->redirectToRoute('space_show', ['id' => $space->getId()], Response::HTTP_SEE_OTHER);
         }
 
-        $availability = explode(',', $space->getAvailability() ?? "");
 
         return $this->renderForm('space/show.html.twig', [
             'space' => $space,
