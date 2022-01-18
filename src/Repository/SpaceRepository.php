@@ -29,19 +29,23 @@ class SpaceRepository extends ServiceEntityRepository
         $query = $this->createQueryBuilder('s');
         if (isset($options['category'])) {
             $query->andWhere('s.category = :category')
-                ->setParameter('category', $options['category']);
+            ->setParameter('category', $options['category']);
         }
         if (isset($options['location'])) {
             $query->andWhere('s.location = :location')
-                ->setParameter('location', $options['location']);
+            ->setParameter('location', $options['location']);
         }
         if (isset($options['minsurface'])) {
             $query->andWhere('s.surface >= :surface')
-                ->setParameter('surface', $options['minsurface']);
+            ->setParameter('surface', $options['minsurface']);
         }
         if (isset($options['maxprice'])) {
             $query->andWhere("s.price <= :price")
             ->setParameter('price', $options['maxprice']);
+        }
+        if (isset($options['job'])) {
+            $query->join('s.owner', 'o')->orderBy('CASE WHEN o.job=:job then 0 else 1 end')
+            ->setParameter('job', $options['job']);
         }
         return $query->getQuery()->getResult();
     }
