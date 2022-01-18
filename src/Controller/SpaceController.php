@@ -94,7 +94,6 @@ class SpaceController extends AbstractController
         Request $request,
         EntityManagerInterface $entityManager,
         Space $space,
-        User $user,
         SlotRepository $slotrepository,
         ToastrFactory $flasher
     ): Response {
@@ -103,7 +102,8 @@ class SpaceController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $slot->setOwner($user);
+            /** @var \App\Entity\User $user */
+            $space->setOwner($user);
             $slot->setSpace($space);
             $slot->setPrice(0);
             $entityManager->persist($slot);

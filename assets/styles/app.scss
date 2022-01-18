@@ -1164,7 +1164,7 @@ input[type=range]:focus::-ms-fill-upper {
     display: flex;
     margin: 1rem 2rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid $color-black;
+    border-bottom: 1px solid #d0d0d0;
 }
 
 .show-user-fullname {
@@ -1183,7 +1183,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .show-user-modify {
-    border-bottom: 1px solid $color-black;
+    border-bottom: 1px solid #d0d0d0;
     margin: 0 2rem;
     padding-bottom: 2rem;
     text-align: center;
@@ -1204,7 +1204,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .show-user-modify-btn:hover,
 .user-index-submit:hover {
-    color: $color-black;
+    color: $color-grey;
 }
 
 .user-index-avatar {
