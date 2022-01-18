@@ -104,7 +104,7 @@ class SpaceController extends AbstractController
         $form->handleRequest($request);
         $user = $this->getUser();
 
-        $availability = explode(',', $space->getAvailability() ?? "");
+        $availability = array_map("trim", explode(',', $space->getAvailability() ?? ""));
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var \App\Entity\User $user */
@@ -117,8 +117,11 @@ class SpaceController extends AbstractController
                 $slot->setSpace($space);
                 $slot->setPrice(0);
                 $slot->setSlotTime($reservation);
+                $key = array_search($reservation, $availability);
+                unset($availability[$key]);
                 $entityManager->persist($slot);
             }
+            $space->setAvailability(implode(", ", $availability));
             $entityManager->flush();
 
             $flasher->addSuccess('Votre réservation a été enregistré !');
