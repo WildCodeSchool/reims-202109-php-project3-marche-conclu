@@ -121,6 +121,7 @@ class SpaceController extends AbstractController
             if (!empty($slottime) && $slottime !== null) {
                 foreach ($reservations as $reservation) {
                     $slot = new Slot();
+                    /** @var \App\Entity\User $user */
                     $slot->setOwner($user);
                     $slot->setSpace($space);
                     $slot->setPrice(0);
