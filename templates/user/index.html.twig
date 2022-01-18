@@ -57,6 +57,14 @@
                 </div>
                 </li>
             {% endfor %}
+        <h3>Mes resérvations  :</h3>
+            {% for slot in app.user.slots %}
+        <p>{{ slot.space.name }}</p>
+        <p>Jour de la réservation : {{ slot.slottime }}</p>
+            <div class="show-user-annonce-btns">
+        <a class="user-index-submit" href="{{ path("slot_delete", {id: slot.id}) }}">Annuler la réservation</a>
+    </div>
+        {% endfor %}
             </ul>
         {% endif %}
         </div>
