@@ -36,6 +36,7 @@ class SpaceFixtures extends Fixture implements DependentFixtureInterface
             $this->addReference($space->getName(), $space);
             $space->setOwner($this->getReference('user_j.v@gmail.com'));
             $space->setAddress(self::ADDRESS[$locationAndAdress]);
+            $space->setAvailability("");
             $space->setUpdatedAt(new DateTime('now'));
             $manager->persist($space);
         }
