@@ -43,18 +43,28 @@
         </div>
         {% if app.user.spaces is not empty %}
         <div class="user-index-location">
-                <h3>Mes annonces proposées :</h3>
+                <h3>Mes annonces</h3>
 
             <ul class="user-index-location-ul">
             {% for space in app.user.spaces %}
                 <li class="user-index-location-li">
+                <div class="user-spaces">
                     <p>{{ "Nom de l'annonce :" ~ " " ~ space.name }}</p>
                     <div class="show-user-annonce-btns">
                         <a class="user-index-submit" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
                         <a class="user-index-submit" href="{{ path("space_edit", {id: space.id}) }}">Modifier l'annonce</a>
                     </div>
+                </div>
                 </li>
             {% endfor %}
+        <h3>Mes resérvations  :</h3>
+            {% for slot in app.user.slots %}
+        <p>{{ slot.space.name }}</p>
+        <p>Jour de la réservation : {{ slot.slottime }}</p>
+            <div class="show-user-annonce-btns">
+        <a class="user-index-submit" href="{{ path("slot_delete", {id: slot.id}) }}">Annuler la réservation</a>
+    </div>
+        {% endfor %}
             </ul>
         {% endif %}
         </div>

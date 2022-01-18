@@ -26,7 +26,7 @@
 	<div class="show-space-head-right">
 		<div class="show-space-btn-edit">
 			{% if app.user == space.owner %}
-				<a class="show-space-link-edit" href="{{ path('space_edit', {'id': space.id}) }}">Éditer</a>
+				<a class="show-space-link-edit" href="{{ path('space_edit', {'id': space.id}) }}">Modifier</a>
 			{% endif %}
 		</div>
 		<h2 class="show-space-price">{{ space.price }}€/<span>j</span></h1>
