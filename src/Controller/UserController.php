@@ -65,4 +65,14 @@ class UserController extends AbstractController
             'form' => $form,
         ]);
     }
+
+    #[Route('/{id}', name: 'user_show', methods: ['GET', 'POST'])]
+    public function show(int $id, UserRepository $userrepository): Response
+    {
+        $user = $userrepository->findOneById($id);
+
+        return $this->renderForm('user/show.html.twig', [
+            'user' => $user,
+        ]);
+    }
 }

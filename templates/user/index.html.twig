@@ -55,7 +55,7 @@
                         <a class="user-index-submit" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
                         <a class="user-index-submit" href="{{ path("space_edit", {id: space.id}) }}">Modifier l'annonce</a>
                     </div>
-                    {% if space.slots %}
+                    {% if space.slots is not empty %}
                     <div class="show-user-annonce-reserved">
                         <table>
                             <thead>
