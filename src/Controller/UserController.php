@@ -15,6 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Flasher\Toastr\Prime\ToastrFactory;
+use App\Service\Slugify;
 
 #[Route('/user')]
 class UserController extends AbstractController
