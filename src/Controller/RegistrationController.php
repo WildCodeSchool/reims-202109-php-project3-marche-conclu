@@ -13,6 +13,8 @@ use Symfony\Component\Mime\Address;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
+use App\Service\Slugify;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 
 class RegistrationController extends AbstractController
 {
@@ -20,7 +22,8 @@ class RegistrationController extends AbstractController
     public function register(
         Request $request,
         UserPasswordHasherInterface $userPasswordHasher,
-        EntityManagerInterface $entityManager
+        EntityManagerInterface $entityManager,
+        Slugify $slugify
     ): Response {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -33,6 +36,7 @@ class RegistrationController extends AbstractController
                     strval($form->get('plainPassword')->getData())
                 )),
             );
+            $user->setSlug($slugify->generate($user->getLastname() ?? "", $user->getFirstname() ?? ""));
             $entityManager->persist($user);
             $entityManager->flush();
 

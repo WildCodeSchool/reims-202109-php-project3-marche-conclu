@@ -41,7 +41,8 @@ class UserController extends AbstractController
         User $user,
         UserPasswordHasherInterface $userPasswordHasher,
         EntityManagerInterface $entityManager,
-        ToastrFactory $flasher
+        ToastrFactory $flasher,
+        Slugify $slugify
     ): Response {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
@@ -54,6 +55,7 @@ class UserController extends AbstractController
                         strval($form->get('plainPassword')->getData())
                     )),
                 );
+                $user->setSlug($slugify->generate($user->getLastname() ?? "", $user->getFirstname() ?? ""));
                 $entityManager->persist($user);
                 $entityManager->flush();
                 $flasher->addSuccess('Votre profil utilisateur a été modifié !');
