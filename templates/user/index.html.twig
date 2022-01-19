@@ -65,7 +65,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            {% for slot in space.slots|sort %}
+                            {% for slot in space.slots|sort((a, b) => a.slotTime <=> b.slotTime) %}
                                 <tr>
                                     <td>{{ slot.owner.firstname }} {{ slot.owner.lastname }}</td>
                                     <td>{{ slot.slotTime }}</td>
