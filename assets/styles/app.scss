@@ -459,7 +459,9 @@ a {
 // END SHOW SPACE
 
 .cardcontent {
-    font-family: 'Work Sans', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    font-family: $fontworksans;
     font-size: .75rem;
     font-weight: 100;
     list-style-type: none;
@@ -478,11 +480,17 @@ a {
     font-weight: bolder;
 }
 
+.text-offer-name {
+    color: $color-cerise-btn;
+    font-family: $fontbodini;
+    font-weight: 800;
+    text-align: center;
+}
+
 .show-cardcontent {
     display: flex;
     flex-direction: column;
     float: left;
-    font-family: 'Work Sans', sans-serif;
     font-size: .75rem;
     font-weight: 100;
     list-style-type: none;
@@ -495,6 +503,7 @@ a {
 .card-content-down {
     display: flex;
     flex-direction: row;
+    font-family: $fontworksans;
     font-size: 1rem;
 
     span {

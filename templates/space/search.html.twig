@@ -80,6 +80,7 @@
 					<figure class="offer">
 								<img class="image-offer" src="{{ vich_uploader_asset(space) }}" alt="Photo de l'espace"/>
 						<figcaption class="text-offer">
+							<div class="text-offer-name">{{ space.name|upper }}</div>
 							<div class="card-border card-content-up cardcontent">
 								<div class="spacecategory card-content-up">{{ space.category|capitalize }}
 									<span class="point">·</span>
