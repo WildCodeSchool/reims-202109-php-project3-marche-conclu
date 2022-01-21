@@ -20,7 +20,7 @@
             {% for image in space.images %}
                 <div>
                     <img src="{{ asset('/uploads/' ~ image.name) }}" alt="Image" width="150">
-                    <a href="{{ path('space_delete_image', {id: image.id}) }}"
+                    <a href="{{ path('image_delete', {id: image.id}) }}"
                     data-delete data-token="{{ csrf_token('delete' ~ image.id) }}
                     ">Supprimer</a>
                 </div>
