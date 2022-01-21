@@ -2,22 +2,25 @@
 
 namespace App\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Entity\Slot;
-use App\Entity\Space;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use App\Entity\User;
+use App\Entity\Space;
+use App\Entity\Images;
 use App\Form\SlotType;
 use App\Form\SpaceType;
 use App\Repository\SlotRepository;
-use App\Repository\SpaceRepository;
 use App\Repository\UserRepository;
+use App\Repository\SpaceRepository;
+use Flasher\Toastr\Prime\ToastrFactory;
+use Symfony\Component\DomCrawler\Image;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Flasher\Toastr\Prime\ToastrFactory;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 #[Route('/space', name: 'space_')]
 class SpaceController extends AbstractController
@@ -51,9 +54,27 @@ class SpaceController extends AbstractController
         $user = $this->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // on récupère les images transmises
+            $images = $form['images']->getData();
+
+            // on boucle sur les images
+            foreach ($images as $image) {
+                // on génère un nouveau nom de fichier
+                $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+
+                // on copie le fichier dans le dossier uploads
+                $image->move(
+                    $this->getParameter('upload_directory'),
+                    $fichier
+                );
+
+                // on stocke l'image dans la base de donnée (son nom)
+                $img = new Images();
+                $img->setName($fichier);
+                $space->addImage($img);
+            }
             /** @var \App\Entity\User $user */
             $space->setOwner($user);
-            $space->setPhoto('');
             $entityManager->persist($space);
             $entityManager->flush();
             $flasher->addSuccess('Votre annonce a bien été crée !');
@@ -151,6 +172,25 @@ class SpaceController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // on récupère les images transmises
+            $images = $form['images']->getData();
+
+            // on boucle sur les images
+            foreach ($images as $image) {
+                // on génère un nouveau nom de fichier
+                $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+
+                // on copie le fichier dans le dossier uploads
+                $image->move(
+                    $this->getParameter('upload_directory'),
+                    $fichier
+                );
+
+                // on stocke l'image dans la base de donnée (son nom)
+                $img = new Images();
+                $img->setName($fichier);
+                $space->addImage($img);
+            }
             $entityManager->flush();
             $flasher->addSuccess('Votre réservation a été modifiée !');
 
@@ -182,4 +222,30 @@ class SpaceController extends AbstractController
 
         return $this->redirectToRoute('space_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    // /**
+    //  * @IsGranted("ROLE_USER")
+    //  */
+    // #[Route('/delete/image/{id}', name: 'delete_image', methods: ['DELETE'])]
+    // public function deleteImage(Images $image, Request $request): Response
+    // {
+    //     $data = json_decode($request->getContent(), true);
+
+    //     // on vérifie si le token est valide
+    //     if ($this->isCsrfTokenValid('delete' . $image->getId(), $data['_token'])) {
+    //         // on récupère le nom de l'image
+    //         $nom = $image->getName();
+    //         // on supprime le fichier
+    //         unlink($this->getParameter('upload_directory') . '/' . $nom);
+    //         // on supprime l'entrée de la base
+    //         $del = $this->getDoctrine()->getManager();
+    //         $del->remove($image);
+    //         $del->flush();
+
+    //         // on répond en json
+    //         return new JsonResponse(['success' => 1]);
+    //     } else {
+    //         return new JsonResponse(['error' => 'Token Invalide'], 400);
+    //     }
+    // }
 }

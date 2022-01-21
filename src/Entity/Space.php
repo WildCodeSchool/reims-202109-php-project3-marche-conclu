@@ -9,12 +9,10 @@ use App\Repository\SpaceRepository;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\Common\Collections\ArrayCollection;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SpaceRepository")
- * @Vich\Uploadable
  */
 class Space
 {
@@ -32,25 +30,9 @@ class Space
     private string $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @var string
+     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="space", orphanRemoval=true, cascade={"persist"})
      */
-    private $photo;
-
-    /**
-     * @Vich\UploadableField(mapping="poster_file", fileNameProperty="photo")
-     * @Assert\File(
-     * maxSize = "1M",
-     * mimeTypes = {"image/jpeg", "image/png", "image/webp"},
-     * )
-     * @var File
-     */
-    private $photoFile;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private DateTimeInterface $updatedAt;
+    private Collection $images;
 
     /**
      * @ORM\Column(type="integer", length=10)
@@ -110,6 +92,7 @@ class Space
     public function __construct()
     {
         $this->slots = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -271,31 +254,6 @@ class Space
         return $this;
     }
 
-    public function getPhoto(): ?string
-    {
-        return $this->photo;
-    }
-
-    public function setPhoto(string $photo): self
-    {
-        $this->photo = $photo;
-
-        return $this;
-    }
-
-    public function setPhotoFile(File $image): Space
-    {
-        $this->photoFile = $image;
-        $this->updatedAt = new DateTime('now');
-
-        return $this;
-    }
-
-    public function getPhotoFile(): ?File
-    {
-        return $this->photoFile;
-    }
-
     public function getAddress(): ?string
     {
         return $this->address;
@@ -309,25 +267,31 @@ class Space
     }
 
     /**
-     * Get the value of updatedAt
-     *
-     * @return DateTimeInterface
+     * @return Collection|Images[]
      */
-    public function getUpdatedAt(): DateTimeInterface
+    public function getImages(): Collection
     {
-        return $this->updatedAt;
+        return $this->images;
     }
 
-    /**
-     * Set the value of updatedAt
-     *
-     * @param DateTimeInterface $updatedAt
-     *
-     * @return self
-     */
-    public function setUpdatedAt(DateTimeInterface $updatedAt): self
+    public function addImage(Images $image): self
     {
-        $this->updatedAt = $updatedAt;
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setSpace($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getSpace() === $this) {
+                $image->setSpace(null);
+            }
+        }
 
         return $this;
     }

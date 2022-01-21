@@ -11,6 +11,7 @@ use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -78,11 +79,14 @@ class SpaceType extends AbstractType
                 ),
                 'label' => 'Prix par jour'
             ])
-            ->add('photoFile', VichFileType::class, [
+            // on ajoute le champs 'images' dans le formulaire
+            // il n'est pas lié à la base de données (mapped à false)
+            ->add('images', FileType::class, [
+                'label' => 'Images à ajoutées',
+                'multiple' => true,
+                'mapped' => false,
                 'required' => false,
-                'label' => 'Photo',
-                'allow_delete'  => true, // not mandatory, default is true
-                'download_uri' => true, // not mandatory, default is true
+
             ])
             ->add('enregistrer', SubmitType::class, [
                 'label' => "Poster l'annonce",

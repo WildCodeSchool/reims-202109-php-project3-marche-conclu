@@ -78,7 +78,8 @@
 			{% for space in spaces %}
 				<div>
 					<figure class="offer">
-								<img class="image-offer" src="{{ vich_uploader_asset(space) }}" alt="Photo de l'espace"/>
+								<img class="image-offer" src="{{ asset('build/images/bureauprivee.eb2e582d.jpg') }}" alt="Image"/>
+								{# <img class="image-offer" src="{{ asset('/uploads/' ~ space.images.name[0]) }}" alt="Image"/> #}
 						<figcaption class="text-offer">
 							<div class="card-border card-content-up cardcontent">
 								<div class="spacecategory card-content-up">{{ space.category|capitalize }}
