@@ -12,7 +12,7 @@
         {{ form_row(form.location, {'id': 'autocomplete', 'attr': {'class': 'space-form-content'}}) }}
         {{ form_row(form.price, {'attr': {'class': 'space-form-content'}}) }}
         {{ form_row(form.images, {'attr': {'class': 'space-form-content'}}) }}
-
+        {{ form_row(form.availability, {'attr': {'class': 'flatpick-add'}}) }}
         {# vérifier si la route est "space_edit" on affiche les images #}
         {% if app.request.attributes.get('_route') == 'space_edit' %}
             </br>
@@ -32,3 +32,9 @@
         <div>
     {{ form_end(form) }}
 </div>
+ <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+		<script>flatpickr('.flatpick-add', {
+			mode: "multiple",
+			dateFormat: "Y-m-d"
+		})
+        </script>

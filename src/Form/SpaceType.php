@@ -88,6 +88,10 @@ class SpaceType extends AbstractType
                 'required' => false,
 
             ])
+            ->add('availability', TextType::class, [
+                'required' => true,
+                'label' => 'Disponibilités',
+            ])
             ->add('enregistrer', SubmitType::class, [
                 'label' => "Poster l'annonce",
             ]);

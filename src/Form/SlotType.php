@@ -7,25 +7,16 @@ use Datetime;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class SlotType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('slotTime', DateType::class, [
+            ->add('slotTime', TextType::class, [
+                'required' => true,
                 'label' => ' ',
-                'widget' => 'single_text',
-                //'widget' => 'choice',
-                //'years' => [2021,2022],
-                //'months' => [10,11,12],
-                //'days' => [10,11,12],
-                // this is actually the default format for single_text
-                'format' => 'yyyy-MM-dd',
-                'attr' =>  array(
-                    'min' => (new DateTime('+1 day'))->format('Y-m-d'),
-                )
             ]);
     }
 

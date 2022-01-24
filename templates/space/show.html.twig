@@ -6,7 +6,7 @@
 {% block body %}
 <div class="carousel">
 	{% for image in space.images %}
-		{% if loop.index == 0 %}
+		{% if loop.index == 1 %}
 			<div class="carousel-item-mc carousel-item-visible">
 					<img class="image-offer" src="{{ asset('/uploads/' ~ image.name) }}" alt="Image"/>
 			</div>
@@ -24,7 +24,7 @@
 <div class="show-space-head">
 	<div class="show-space-head-left">
 		<h1 class="show-space-name">{{ space.name|upper }}</h1>
-		<h3 class="show-space-location">6 Rue de Saint-Brice, 51100 Reims</h3>
+		<h3 class="show-space-location">{{ space.address }} {{ space.location }}</h3>
 		<div class="show-space-btn-locate">
 			<a class="show-space-link-locate" href="https://www.google.fr/maps/place/ {{ space.address }} {{ space.location }}" target="_blank">Localiser</a>
 		</div>
@@ -32,7 +32,7 @@
 	<div class="show-space-head-right">
 		<div class="show-space-btn-edit">
 			{% if app.user == space.owner %}
-				<a class="show-space-link-edit" href="{{ path('space_edit', {'id': space.id}) }}">Éditer</a>
+				<a class="show-space-link-edit" href="{{ path('space_edit', {'id': space.id}) }}">Modifier</a>
 			{% endif %}
 		</div>
 		<h2 class="show-space-price">{{ space.price }}€/<span>j</span></h1>
@@ -122,5 +122,16 @@
 		}
 	</script>
 {% endif %}
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+		<script>
+		flatpickr('.flatpick-reserve', {
+		mode: "multiple",
+		enable: [
+			{% for slot in availability %}
+			"{{ slot }}",
+			{% endfor %}
+		]
+		}
+		)
+		</script>
 {% endblock %}
- 

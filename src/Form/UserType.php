@@ -69,8 +69,8 @@ class UserType extends AbstractType
             ->add('photoFile', VichFileType::class, [
                 'required' => false,
                 'label' => 'Photo',
-                'allow_delete'  => true, // not mandatory, default is true
-                'download_uri' => true, // not mandatory, default is true
+                'allow_delete'  => false, // not mandatory, default is true
+                'download_uri' => false, // not mandatory, default is true
             ])
             ->add('phone_number', TextType::class, ['label' => 'Numéro de téléphone'])
             ->add('company', TextType::class, [

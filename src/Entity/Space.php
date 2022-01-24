@@ -89,6 +89,11 @@ class Space
      */
     private string $address;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private string $availability;
+
     public function __construct()
     {
         $this->slots = new ArrayCollection();
@@ -292,6 +297,18 @@ class Space
                 $image->setSpace(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAvailability(): ?string
+    {
+        return $this->availability;
+    }
+
+    public function setAvailability(string $availability): self
+    {
+        $this->availability = $availability;
 
         return $this;
     }

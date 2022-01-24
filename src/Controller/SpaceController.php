@@ -133,28 +133,42 @@ class SpaceController extends AbstractController
         $form = $this->createForm(SlotType::class, $slot);
         $form->handleRequest($request);
         $user = $this->getUser();
+        $availability = array_map("trim", explode(',', $space->getAvailability() ?? ""));
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var \App\Entity\User $user */
-            $slot->setOwner($user);
-            $slot->setSpace($space);
-            $slot->setPrice(0);
-            $entityManager->persist($slot);
+            $slottime = $form->get('slotTime')->getData();
 
-            if ($slotrepository->findBy(["slotTime" => $slot->getSlotTime(), "space" => $slot->getSpace()])) {
-                $flasher->addError("Votre réservation ne peut être enregistrée ! Ce créneau est indisponible.");
+            $reservations = array_map('trim', explode(',', strval($form->get('slotTime')->getData())));
+            if (!empty($slottime) && $slottime !== null) {
+                foreach ($reservations as $reservation) {
+                    $slot = new Slot();
+                    /** @var \App\Entity\User $user */
+                    $slot->setOwner($user);
+                    $slot->setSpace($space);
+                    $slot->setPrice(0);
+                    $slot->setSlotTime($reservation);
+                    $key = array_search($reservation, $availability);
+                    unset($availability[$key]);
+                    $entityManager->persist($slot);
+                }
             } else {
-                $flasher->addSuccess('Votre réservation a été enregistré !');
-                $entityManager->flush();
+                $flasher->addError('Veuillez renseigner une date !');
+                return $this->redirectToRoute('space_show', ['id' => $space->getId()], Response::HTTP_SEE_OTHER);
             }
+            $space->setAvailability(implode(", ", $availability));
+            $entityManager->flush();
+
+            $flasher->addSuccess('Votre réservation a été enregistré !');
 
             return $this->redirectToRoute('space_show', ['id' => $space->getId()], Response::HTTP_SEE_OTHER);
         }
 
+
         return $this->renderForm('space/show.html.twig', [
             'space' => $space,
             'slot' => $slot,
-            'form' => $form
+            'form' => $form,
+            'availability' => $availability
         ]);
     }
 
@@ -171,6 +185,7 @@ class SpaceController extends AbstractController
         $form = $this->createForm(SpaceType::class, $space);
         $form->handleRequest($request);
 
+        $availability = $space->getAvailability();
         if ($form->isSubmitted() && $form->isValid()) {
             // on récupère les images transmises
             $images = $form['images']->getData();
@@ -200,6 +215,7 @@ class SpaceController extends AbstractController
         return $this->renderForm('space/edit.html.twig', [
             'space' => $space,
             'form' => $form,
+            'availability' => $availability,
         ]);
     }
 
