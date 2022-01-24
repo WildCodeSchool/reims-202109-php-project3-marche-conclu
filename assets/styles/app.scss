@@ -822,7 +822,6 @@ input[type=submit],
     margin: auto;
     padding: 3rem 2rem 2rem;
     width: 85%;
-
 }
 
 .submit-login {
@@ -1311,3 +1310,59 @@ input[type=range]:focus::-ms-fill-upper {
 
 // END USER EDIT
 
+// PREMIUM OFFER
+
+.premium-body {
+    background-color: $color-cerise;
+    height: 93vh;
+    font-family: $fontbodini;
+}
+
+.show-premium-offer-title {
+    border-bottom: 1px solid;
+    color: $color-white;
+    display: flex;
+    font-family: $fontlogo;
+    font-size: 1.3rem; 
+    justify-content: center;
+    letter-spacing: 2px;
+    margin: 1rem 1.7rem 0 1.7rem;
+    padding-bottom: 7px;  
+}
+
+.show-premium-offer-advantage {
+    background-color: $color-white;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    margin: 1rem;
+
+    ul {
+        font-size: 1.5rem;
+        list-style-type: none;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+}
+
+.show-premium-offer-contact-mailto {
+    background-color: $color-cerise-btn;
+}
+
+.show-premium-offer-contact {
+    background-color: $color-cerise-btn;
+    border-radius: .5rem;
+    color: $color-white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: .5rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.show-premium-offer-contact:hover {
+    color: $color-black;
+}
