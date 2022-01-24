@@ -30,4 +30,10 @@ class HomeController extends AbstractController
             'api' => $_ENV["API_KEY"]
         ]);
     }
+
+    #[Route('/premium', name: 'premium')]
+    public function premium(): Response
+    {
+        return $this->renderForm('premiumoffer.html.twig');
+    }
 }
