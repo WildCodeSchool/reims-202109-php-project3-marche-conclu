@@ -645,6 +645,22 @@ video {
 
 // END PARTNER
 
+
+// START ABOUT US
+
+.about-us {
+    border-bottom: 1px solid;
+    color: $color-white;
+    display: flex;
+    font-family: $fontlogo;
+    justify-content: center;
+    margin: 2rem 5rem;
+    padding-bottom: 7px;
+}
+
+// END ABOUT US
+
+
 // Add Space Form
 
 #space {
