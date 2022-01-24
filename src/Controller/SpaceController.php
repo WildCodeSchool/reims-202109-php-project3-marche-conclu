@@ -47,7 +47,7 @@ class SpaceController extends AbstractController
         $user = $this->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $space->setOwner((USER)($user));
+            $space->setOwner(($user));
             $entityManager->persist($space);
             $entityManager->flush();
 
