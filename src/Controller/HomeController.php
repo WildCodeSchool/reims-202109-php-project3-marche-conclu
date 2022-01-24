@@ -30,4 +30,10 @@ class HomeController extends AbstractController
             'api' => $_ENV["API_KEY"]
         ]);
     }
+
+    #[Route('/contact', name: 'contact')]
+    public function contact(): Response
+    {
+        return $this->renderForm('contact.html.twig');
+    }
 }
