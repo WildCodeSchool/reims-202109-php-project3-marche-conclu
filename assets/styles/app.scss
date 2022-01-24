@@ -1336,14 +1336,19 @@ input[type=range]:focus::-ms-fill-upper {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1rem;
+    padding: .5rem;
     margin: 1rem;
 
     ul {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         list-style-type: none;
         margin-bottom: 1rem;
         text-align: center;
+
+        li {
+            font-family: $fontworksans;
+            padding: 1rem;
+        }
     }
 
 }
@@ -1356,7 +1361,8 @@ input[type=range]:focus::-ms-fill-upper {
     background-color: $color-cerise-btn;
     border-radius: .5rem;
     color: $color-white;
-    font-size: 1.5rem;
+    font-family: $fontworksans;
+    font-size: 1.25rem;
     cursor: pointer;
     padding: .5rem;
     text-align: center;
