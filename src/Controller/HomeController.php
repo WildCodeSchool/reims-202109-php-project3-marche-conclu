@@ -34,6 +34,6 @@ class HomeController extends AbstractController
     #[Route('/premium', name: 'premium')]
     public function premium(): Response
     {
-        return $this->renderForm('premium.html.twig');
+        return $this->render('premium.html.twig');
     }
 }
