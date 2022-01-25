@@ -5,7 +5,7 @@
 
 {% block body %}
 <div class="carousel">
-	{% if space.images[0] is defined %}
+	{% if space.images|length > 0 %}
 		{% for image in space.images %}
 			{% if loop.index == 1 %}
 				<div class="carousel-item-mc carousel-item-visible">
