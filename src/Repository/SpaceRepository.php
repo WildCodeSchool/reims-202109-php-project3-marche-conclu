@@ -43,9 +43,17 @@ class SpaceRepository extends ServiceEntityRepository
             $query->andWhere("s.price <= :price")
             ->setParameter('price', $options['maxprice']);
         }
+        if (isset($options['capacity'])) {
+            $query->andWhere("s.capacity > :capacity")
+            ->setParameter('capacity', $options['capacity']);
+        }
         if (isset($options['job'])) {
             $query->join('s.owner', 'o')->orderBy('CASE WHEN o.job=:job then 0 else 1 end')
             ->setParameter('job', $options['job']);
+        }
+        if (isset($options['date'])) {
+            $query->andWhere("s.availability LIKE :date")
+            ->setParameter('date', "%" . $options['date'] . "%");
         }
         return $query->getQuery()->getResult();
     }

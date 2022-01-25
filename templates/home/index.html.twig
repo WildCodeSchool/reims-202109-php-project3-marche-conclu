@@ -36,19 +36,17 @@
 	<h2 class="premium-title">ANNONCES PREMIUM</h2>
 	{% for space in spaces %}
 		<figure class="offer premium">
-			{# {% if app.space.photos %}
 			<img class="image-offer" src="{{ vich_uploader_asset(space) }}" alt="Photo de l'espace"/>
             {% else %} #}
                 <img class="image-offer" src="{{ asset('build/images/space_image.jpg') }}">
 		    {# {% endif %} #}
 			<figcaption class="text-offer">
+				<div class="text-offer-name">{{ space.name|upper }}</div>
 				<div class="card-border card-content-up cardcontent">
 					<div class="spacecategory card-content-up">{{ space.category|capitalize }}
-						<span class="point">·</span>
 					</div>
 					<div class="spacecapacity card-content-up">{{ space.capacity }}
 						places
-						<span class="point">·</span>
 					</div>
 					<div class="spacesurface card-content-up">{{ space.surface }}
 						m²</div>
@@ -56,10 +54,7 @@
 				<div class="spacelocation card-content-down">{{ space.location }}</div>
 				<div id="price">
 					<div class="spaceprice">
-						<span id="spanprice">{{ random(50, 250) }}
-							€</span>
-						<span id="spanpriceday">
-							/ jour</span>
+						<span id="spanprice">{{ space.price }}€</span><span id="spanpriceday">/jour</span>
 					</div>
 					<a class="show-space-link" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
 				</div>
@@ -100,5 +95,13 @@
 	<div class="partner-text">
 		<p class="partner-info">Pour vous assurer une expérience toujours plus simple et sécurisé, nous avons travaillé avec nos partnaires a devolopper des outils pour vous accompagner avec toujours plus de flexibilité dans votre location ou gestion de vos espaces de travail.</p>
 	</div>
-
+</div>
+{# FOOTER #}
+<footer>
+	<ul class="footer-list">
+		<li><a href="{{ path('about') }}">À Propos</a><li>
+		<li><a href="{{ path('premium') }}">Offre Premium</a><li>
+		<li><a href="{{ path('contact') }}">Nous Contacter</a><li>
+	</ul>
+</footer>
 </div></div>{% endblock %}
