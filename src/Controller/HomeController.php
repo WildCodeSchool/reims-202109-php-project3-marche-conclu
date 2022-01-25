@@ -31,6 +31,7 @@ class HomeController extends AbstractController
         ]);
     }
 
+
     #[Route('/contact', name: 'contact')]
     public function contact(): Response
     {
@@ -40,6 +41,12 @@ class HomeController extends AbstractController
     #[Route('/about', name: 'about')]
     public function about(): Response
     {
-        return $this->renderForm('about.html.twig');
+        return $this->render('about.html.twig');
+    }
+
+     #[Route('/premium', name: 'premium')]
+    public function premium(): Response
+    {
+        return $this->render('premium.html.twig');
     }
 }

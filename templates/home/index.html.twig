@@ -38,13 +38,12 @@
 		<figure class="offer premium">
 			<img class="image-offer" src="{{ vich_uploader_asset(space) }}" alt="Photo de l'espace"/>
 			<figcaption class="text-offer">
+				<div class="text-offer-name">{{ space.name|upper }}</div>
 				<div class="card-border card-content-up cardcontent">
 					<div class="spacecategory card-content-up">{{ space.category|capitalize }}
-						<span class="point">·</span>
 					</div>
 					<div class="spacecapacity card-content-up">{{ space.capacity }}
 						places
-						<span class="point">·</span>
 					</div>
 					<div class="spacesurface card-content-up">{{ space.surface }}
 						m²</div>
@@ -93,5 +92,13 @@
 	<div class="partner-text">
 		<p class="partner-info">Pour vous assurer une expérience toujours plus simple et sécurisé, nous avons travaillé avec nos partnaires a devolopper des outils pour vous accompagner avec toujours plus de flexibilité dans votre location ou gestion de vos espaces de travail.</p>
 	</div>
-
+</div>
+{# FOOTER #}
+<footer>
+	<ul class="footer-list">
+		<li><a href="{{ path('about') }}">À Propos</a><li>
+		<li><a href="{{ path('premium') }}">Offre Premium</a><li>
+		<li><a href="{{ path('contact') }}">Nous Contacter</a><li>
+	</ul>
+</footer>
 </div></div>{% endblock %}
