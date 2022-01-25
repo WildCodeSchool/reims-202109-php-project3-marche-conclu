@@ -1,0 +1,6 @@
+.pac-container::after,
+.pac-icon {
+  content: none !important;
+  visibility: hidden;
+}
+/*# sourceMappingURL=autocomplete.css.map */
