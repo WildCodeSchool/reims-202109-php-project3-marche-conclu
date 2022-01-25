@@ -2,18 +2,24 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use DateTime;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UserRepository;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @Vich\Uploadable
+
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -64,9 +70,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private string $lastname;
 
     /**
-     * @ORM\Column(type="string", length=500, nullable=true)
+     * @ORM\Column(type="string", length=255)
+     * @var string
      */
-    private ?string $avatar;
+    private $photo;
+
+    /**
+     * @Vich\UploadableField(mapping="poster_file", fileNameProperty="photo")
+     * @Assert\File(
+     * maxSize = "1M",
+     * mimeTypes = {"image/jpeg", "image/png", "image/webp"},
+     * )
+     * @var File
+     */
+    private $photoFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private DateTimeInterface $updatedAt;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -273,18 +295,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getAvatar(): ?string
-    {
-        return $this->avatar;
-    }
-
-    public function setAvatar(?string $avatar): self
-    {
-        $this->avatar = $avatar;
-
-        return $this;
-    }
-
     public function getCompany(): ?string
     {
         return $this->company;
@@ -320,6 +330,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    /**
+     * Get the value of photo
+     */
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    /**
+     * Set the value of photo
+     */
+    public function setPhoto(string $photo): self
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of photoFile
+     */
+    public function getPhotoFile(): ?File
+    {
+        return $this->photoFile;
+    }
+
+    /**
+     * Set the value of photoFile
+     */
+    public function setPhotoFile(File $image): User
+    {
+        $this->photoFile = $image;
+        $this->updatedAt = new DateTime('now');
+
+        return $this;
+    }
+
+    /**
+     * Get the value of updatedAt
+     *
+     * @return DateTimeInterface
+     */
+    public function getUpdatedAt(): DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set the value of updatedAt
+     *
+     * @param DateTimeInterface $updatedAt
+     *
+     * @return self
+     */
+    public function setUpdatedAt(DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+        return $this;
+    }
+
     public function getSlug(): ?string
     {
         return $this->slug;
@@ -328,6 +398,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
 
         return $this;
     }

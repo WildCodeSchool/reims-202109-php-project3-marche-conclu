@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
@@ -65,10 +66,13 @@ class UserType extends AbstractType
                     'label' => 'Confirmer votre mot de passe'
                 ]
             ])
-            ->add('avatar', TextType::class, [
+            ->add('photoFile', VichFileType::class, [
                 'required' => false,
-                'label' => 'Photo de profil'
+                'label' => 'Photo',
+                'allow_delete'  => false, // not mandatory, default is true
+                'download_uri' => false, // not mandatory, default is true
             ])
+            ->add('phone_number', TextType::class, ['label' => 'Numéro de téléphone'])
             ->add('company', TextType::class, [
                 'required' => false,
                 'label' => 'Nom de votre société'

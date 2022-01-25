@@ -12,10 +12,10 @@
         {{ form_row(registrationForm.firstname) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword) }}
-        {{ form_row(registrationForm.avatar) }}
         {{ form_row(registrationForm.company) }}
         {{ form_row(registrationForm.phone_number) }}
         {{ form_row(registrationForm.job) }}
+        {{ form_row(registrationForm.photoFile, {'attr': {'class': 'space-form-content'}}) }}
         {{ form_row(registrationForm.agreeTerms, {'attr': {'class': 'registration-form-agreeTerms'}}) }}
         {{ form_row(registrationForm.enregistrer) }}
     {{ form_end(registrationForm) }}

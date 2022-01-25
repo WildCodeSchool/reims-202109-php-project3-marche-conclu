@@ -7,10 +7,10 @@
         {{ form_row(form.firstname) }}
         {{ form_row(form.email) }}
         {{ form_row(form.plainPassword) }}
-        {{ form_row(form.avatar) }}
         {{ form_row(form.company) }}
+        {{ form_row(form.phone_number) }}
         {{ form_row(form.job) }}
-        {{ form_row(form.enregistrer, {'attr': {'class': 'user-index-submit'}}) }}
+        {{ form_row(form.photoFile, {'attr': {'class': 'space-form-content'}}) }}
+        {{ form_row(form.enregistrer, {'attr': {'class': 'user-form-enregistrer'}}) }}
     {{ form_end(form) }}
 </div>
-

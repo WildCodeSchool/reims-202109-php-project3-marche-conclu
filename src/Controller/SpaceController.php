@@ -2,25 +2,26 @@
 
 namespace App\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Entity\Slot;
 use App\Entity\Space;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use App\Entity\SpaceDisponibility;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use App\Entity\User;
+use App\Entity\Image;
 use App\Form\SlotType;
 use App\Form\SpaceDisponibilityType;
 use App\Form\SpaceType;
 use App\Repository\SlotRepository;
-use App\Repository\SpaceRepository;
 use App\Repository\UserRepository;
+use App\Repository\SpaceRepository;
+use Flasher\Toastr\Prime\ToastrFactory;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Flasher\Toastr\Prime\ToastrFactory;
 
 #[Route('/space', name: 'space_')]
 class SpaceController extends AbstractController
@@ -54,9 +55,27 @@ class SpaceController extends AbstractController
         $user = $this->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // on récupère les image transmises
+            $images = $form['images']->getData();
+
+            // on boucle sur les images
+            foreach ($images as $image) {
+                // on génère un nouveau nom de fichier
+                $file = md5(uniqid()) . '.' . $image->guessExtension();
+
+                // on copie le fichier dans le dossier uploads
+                $image->move(
+                    $this->getParameter('upload_directory'),
+                    $file
+                );
+
+                // on stocke l'image dans la base de donnée (son nom)
+                $img = new Image();
+                $img->setName($file);
+                $space->addImage($img);
+            }
             /** @var \App\Entity\User $user */
             $space->setOwner($user);
-            $space->setPhoto('');
             $entityManager->persist($space);
             $entityManager->flush();
             $flasher->addSuccess('Votre annonce a bien été crée !');
@@ -199,6 +218,25 @@ class SpaceController extends AbstractController
 
         $availability = $space->getAvailability();
         if ($form->isSubmitted() && $form->isValid()) {
+            // on récupère les images transmises
+            $images = $form['images']->getData();
+
+            // on boucle sur les images
+            foreach ($images as $image) {
+                // on génère un nouveau nom de fichier
+                $file = md5(uniqid()) . '.' . $image->guessExtension();
+
+                // on copie le fichier dans le dossier uploads
+                $image->move(
+                    $this->getParameter('upload_directory'),
+                    $file
+                );
+
+                // on stocke l'image dans la base de donnée (son nom)
+                $img = new Image();
+                $img->setName($file);
+                $space->addImage($img);
+            }
             $entityManager->flush();
             $flasher->addSuccess('Votre réservation a été modifiée !');
 
