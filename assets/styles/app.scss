@@ -457,7 +457,9 @@ a {
 // END SHOW SPACE
 
 .cardcontent {
-    font-family: 'Work Sans', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    font-family: $fontworksans;
     font-size: .75rem;
     font-weight: 100;
     list-style-type: none;
@@ -476,11 +478,17 @@ a {
     font-weight: bolder;
 }
 
+.text-offer-name {
+    color: $color-cerise-btn;
+    font-family: $fontbodini;
+    font-weight: 800;
+    margin: 1rem 0rem 0rem 1rem;
+}
+
 .show-cardcontent {
     display: flex;
     flex-direction: column;
     float: left;
-    font-family: 'Work Sans', sans-serif;
     font-size: .75rem;
     font-weight: 100;
     list-style-type: none;
@@ -493,6 +501,7 @@ a {
 .card-content-down {
     display: flex;
     flex-direction: row;
+    font-family: $fontworksans;
     font-size: 1rem;
 
     span {
@@ -643,6 +652,111 @@ video {
 
 // END PARTNER
 
+// START FOOTER
+
+.footer-list {
+    display: flex;
+    justify-content: center;
+    padding: 1rem .5rem .5rem;
+
+    li {
+        border-right: 1px solid $color-black;
+        font-family: $fontworksans;
+        list-style-type: none;
+
+        a {
+            color: $color-black;
+            font-size: .8rem;
+            padding: .75rem;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: $color-cerise-btn;
+            text-decoration: underline;
+            text-decoration-color: $color-cerise-btn;
+        }
+
+    }
+
+    li:first-child {
+        border-left: 1px solid $color-black;
+    }
+
+}
+
+// END FOOTER
+
+// START ABOUT US
+
+.about-body {
+    background-color: $color-cerise;
+    font-family: $fontbodini;
+}
+
+.about-us-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-us {
+    border-bottom: 1px solid;
+    color: $color-white;
+    margin: 0rem 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.about-us-value {
+    background-color: $color-white;
+    border-radius: 1rem;
+    font-family: $fontworksans;
+    height: auto;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    width: 85%;
+
+    li {
+        font-size: .75rem;
+        list-style-type: none; 
+    }
+}
+
+.about-us-mission,
+.about-us-vision,
+.about-us-promesse,
+.about-us-cibles,
+.about-us-ambition {
+    background-color: $color-white;
+    border-radius: 1rem;
+    font-family: $fontworksans;
+    height: auto;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    width: 85%;
+
+    p {
+        margin: 0;
+    }
+}
+
+// END ABOUT US
+
+// START CONTACT US
+
+.contact-us {
+    border-bottom: 1px solid;
+    color: $color-white;
+    display: flex;
+    font-family: $fontlogo;
+    justify-content: center;
+    margin: 2rem 5rem;
+    padding-bottom: 7px;
+}
+// END CONTACT US
+
 // Add Space Form
 
 #space {
@@ -708,6 +822,13 @@ input[type=submit],
     cursor: pointer;
     padding: 10px;
     text-decoration: none;
+}
+
+.premium-offer {
+    h3 {
+        font-family: $fontbodini;
+        margin-top: 1rem;
+    }
 }
 // Add a background color and some padding around the form
 
@@ -805,7 +926,6 @@ input[type=submit],
     margin: auto;
     padding: 3rem 2rem 2rem;
     width: 85%;
-
 }
 
 .submit-login {
@@ -1270,6 +1390,24 @@ input[type=range]:focus::-ms-fill-upper {
     color: $color-black;
 }
 
+.show-user-annonce-reserved {
+    margin: 1rem auto;
+}
+
+.show-user-annonce-reserved-link {
+    color: $color-black;
+    text-decoration: none;
+}
+
+.show-user-annonce-reserved-link:hover {
+    color: $color-cerise-btn;
+}
+
+table, th, td {
+    border: solid 1px #000;
+    padding: 10px;
+}
+
 // END USER INDEX
 
 // START USER EDIT
@@ -1294,3 +1432,65 @@ input[type=range]:focus::-ms-fill-upper {
 
 // END USER EDIT
 
+// PREMIUM OFFER
+
+.premium-body {
+    background-color: $color-cerise;
+    height: 93vh;
+    font-family: $fontbodini;
+}
+
+.show-premium-offer-title {
+    border-bottom: 1px solid;
+    color: $color-white;
+    display: flex;
+    font-family: $fontlogo;
+    font-size: 1.3rem; 
+    justify-content: center;
+    letter-spacing: 2px;
+    margin: 1rem 1.7rem 0 1.7rem;
+    padding-bottom: 7px;  
+}
+
+.show-premium-offer-advantage {
+    background-color: $color-white;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: .5rem;
+    margin: 1rem;
+
+    ul {
+        font-size: 1.25rem;
+        list-style-type: none;
+        margin-bottom: 1rem;
+        text-align: center;
+
+        li {
+            font-family: $fontworksans;
+            padding: 1rem;
+        }
+    }
+
+}
+
+.show-premium-offer-contact-mailto {
+    background-color: $color-cerise-btn;
+}
+
+.show-premium-offer-contact {
+    background-color: $color-cerise-btn;
+    border-radius: .5rem;
+    color: $color-white;
+    font-family: $fontworksans;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: .5rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.show-premium-offer-contact:hover {
+    color: $color-black;
+}
