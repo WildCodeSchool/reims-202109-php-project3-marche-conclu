@@ -15,6 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Flasher\Toastr\Prime\ToastrFactory;
+use App\Service\Slugify;
 
 #[Route('/user')]
 class UserController extends AbstractController
@@ -23,9 +24,12 @@ class UserController extends AbstractController
     * @IsGranted("ROLE_USER")
     */
     #[Route('/profile', name: 'user_index', methods: ['GET'])]
-    public function index(): Response
+    public function index(UserRepository $userRepository): Response
     {
-        return $this->render('user/index.html.twig');
+        $user = $userRepository->findAll();
+        return $this->render('user/index.html.twig', [
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -37,7 +41,8 @@ class UserController extends AbstractController
         User $user,
         UserPasswordHasherInterface $userPasswordHasher,
         EntityManagerInterface $entityManager,
-        ToastrFactory $flasher
+        ToastrFactory $flasher,
+        Slugify $slugify
     ): Response {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
@@ -50,6 +55,7 @@ class UserController extends AbstractController
                         strval($form->get('plainPassword')->getData())
                     )),
                 );
+                $user->setSlug($slugify->assignSlug($user->getLastname(), $user->getFirstname()));
                 $entityManager->persist($user);
                 $entityManager->flush();
                 $flasher->addSuccess('Votre profil utilisateur a été modifié !');
@@ -63,6 +69,14 @@ class UserController extends AbstractController
         return $this->renderForm('user/edit.html.twig', [
             'user' => $user,
             'form' => $form,
+        ]);
+    }
+
+    #[Route('/{slug}', name: 'user_show', methods: ['GET', 'POST'])]
+    public function show(User $user): Response
+    {
+        return $this->render('user/show.html.twig', [
+            'user' => $user,
         ]);
     }
 }

@@ -10,7 +10,7 @@
 		<div class="searchbar-and-filter">
 			<div class="search-container">
 				<form action="{{ path('space_search') }}" method="get" class="form-search">
-					<input class="search-bar" type="text" id="autocomplete" placeholder="Où louer ?" name="location" value="{{ location ?? '' }}">
+					<input class="search-bar" type="text" id="autocomplete" placeholder="Dans quelle ville ?" name="location" value="{{ location ?? '' }}">
 					<button class="btn form-submit">
 						Chercher
 					</button>
@@ -53,14 +53,14 @@
 								<option value="{{ job }}"> {{ job }} </option>
 								{% endfor %}
 								</select>
-								<label for="range">Prix maximum</label>
-								<input type="range" id="range" min="10" max="1500" step="10" oninput="this.form.maxprice.value=this.value">
-								<input type="number" name="maxprice" min="0" max="1500" value="0" oninput="this.form.priceRange.value=this.value"/>
+								<label for="maxprice">Prix maximum</label>
+								<input type="number" name="maxprice" min="0" placeholder="450€" max="1000"/>
 							</div>
 							<div>
-								<label for="range">Surface minimum</label>
-								<input type="range" id="range" min="5" max="1000" step="10" oninput="this.form.minsurface.value=this.value">
-								<input type="number" name="minsurface" min="0" max="1000" value="0" oninput="this.form.amountRange.value=this.value"/>
+								<label for="minsurface">Surface minimum</label>
+								<input type="number" name="minsurface" min="0" placeholder="50 m²" max="1000"/>
+								<label for="max">Capacité d'accueil minimum</label>
+								<input type="number" name="capacity" min="0" placeholder="500 postes" max="1000"/>
 							</div>
 							<button style="margin-top:1rem; margin-bottom: 1rem;"class="add-new-space" type="submit">
 								Chercher
@@ -78,14 +78,14 @@
 			{% for space in spaces %}
 				<div>
 					<figure class="offer">
-								<img class="image-offer" src="{{ vich_uploader_asset(space) }}" alt="Photo de l'espace"/>
+								<img class="image-offer" src="{{ asset('build/images/bureauprivee.eb2e582d.jpg') }}" alt="Image"/>
+								{# <img class="image-offer" src="{{ asset('/uploads/' ~ space.images.name[0]) }}" alt="Image"/> #}
 						<figcaption class="text-offer">
+							<div class="text-offer-name">{{ space.name|upper }}</div>
 							<div class="card-border card-content-up cardcontent">
 								<div class="spacecategory card-content-up">{{ space.category|capitalize }}
-									<span class="point">·</span>
 								</div>
 								<div class="spacecapacity card-content-up">{{ space.capacity }} places
-									<span class="point">·</span>
 								</div>
 								<div class="spacesurface card-content-up">{{ space.surface }} m²</div>
 							</div>
@@ -97,8 +97,7 @@
 							{% endif %}
 							<div id="price">
 								<div class="spaceprice">
-									<span id="spanprice">{{ random(50, 250) }} €</span>
-									<span id="spanpriceday"> / jour</span>
+									<span id="spanprice">{{ space.price }}€</span><span id="spanpriceday">/jour</span>
 								</div>
 								<a class="show-space-link" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
 							</div>

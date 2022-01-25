@@ -11,8 +11,8 @@
     <div class="user-index-container">
         <div class="show-user-main-datas">
             <div class="show-user-photo">
-                {% if app.user.avatar %}
-                    <img class="user-index-avatar" src="{{ asset('build/images/' ~ app.user.avatar) }}">
+                {% if app.user.photo %}
+                    <img class="user-index-avatar" src="{{ vich_uploader_asset(app.user) }}" alt="photo de l'utilisateur"/>
                 {% else %}
                     <img class="user-index-avatar" src="{{ asset('build/images/logoMarcheConcluXL.png') }}">
                 {% endif %}
@@ -44,7 +44,8 @@
         {% if app.user.spaces is not empty %}
         <div class="user-index-location">
                 <h3>Mes annonces</h3>
-
+<pre>
+</pre>
             <ul class="user-index-location-ul">
             {% for space in app.user.spaces %}
                 <li class="user-index-location-li">
@@ -54,9 +55,30 @@
                         <a class="user-index-submit" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
                         <a class="user-index-submit" href="{{ path("space_edit", {id: space.id}) }}">Modifier l'annonce</a>
                     </div>
+                    {% if space.slots is not empty %}
+                    <div class="show-user-annonce-reserved">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Locataire</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for slot in space.slots|sort((a, b) => a.slotTime <=> b.slotTime) %}
+                                <tr>
+                                    <td><a class="show-user-annonce-reserved-link" href="{{ path('user_show', {slug: slot.owner.slug}) }}">{{ slot.owner.firstname }} {{ slot.owner.lastname }}</a></td>
+                                    <td>{{ slot.slotTime }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% endif %}
                 </div>
                 </li>
             {% endfor %}
+
         <h3>Mes resérvations  :</h3>
             {% for slot in app.user.slots %}
         <p>{{ slot.space.name }}</p>

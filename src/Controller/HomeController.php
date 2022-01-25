@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ImageRepository;
 use App\Repository\SpaceRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,5 +30,24 @@ class HomeController extends AbstractController
             'categories' => self::CATEGORIES,
             'api' => $_ENV["API_KEY"]
         ]);
+    }
+
+
+    #[Route('/contact', name: 'contact')]
+    public function contact(): Response
+    {
+        return $this->renderForm('contact.html.twig');
+    }
+
+    #[Route('/about', name: 'about')]
+    public function about(): Response
+    {
+        return $this->render('about.html.twig');
+    }
+
+     #[Route('/premium', name: 'premium')]
+    public function premium(): Response
+    {
+        return $this->render('premium.html.twig');
     }
 }

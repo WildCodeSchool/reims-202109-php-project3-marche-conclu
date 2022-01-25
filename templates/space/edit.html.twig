@@ -6,11 +6,18 @@
    <div class="user-index-h1">
         <h1>Modifiez votre annonce</h1>
     </div>
-
     {{ include('space/_form.html.twig') }}
-
     <div class="space-form-submit-div">
         <a class ="space-form-submit" href="{{ path("space_show", {id: space.id}) }}">Retourner sur l'annonce</a>
     </div>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+		<script>flatpickr('.flatpick-add', {
+			mode: "multiple",
+			dateFormat: "Y-m-d"
+		})
+        </script>
+{% endblock %}
 
+{% block javascript %}
+    <script src="{{ asset('build/app.js') }}"></script>
 {% endblock %}

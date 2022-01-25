@@ -52,6 +52,10 @@
     z-index: -1;
 }
 
+button#carousel-button-prev:hover,
+button#carousel-button-next:hover {
+    color: $color-cerise-btn;
+}
 // hanlde smooth transitions between slides
 
 @keyframes fadeVisibility {
