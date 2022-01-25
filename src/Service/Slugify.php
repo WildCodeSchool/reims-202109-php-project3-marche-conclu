@@ -29,8 +29,8 @@ class Slugify
         return $fullname;
     }
 
-    public function getSlug(?string $firstname, ?string $lastname): string
+    public function assignSlug(?string $firstname, ?string $lastname): string
     {
-        return self::slug($firstname, $lastname);
+        return $this->slug($firstname, $lastname);
     }
 }

@@ -55,7 +55,7 @@ class UserController extends AbstractController
                         strval($form->get('plainPassword')->getData())
                     )),
                 );
-                $user->setSlug($slugify->setSlug($user->getLastname(), $user->getFirstname()));
+                $user->setSlug($slugify->assignSlug($user->getLastname(), $user->getFirstname()));
                 $entityManager->persist($user);
                 $entityManager->flush();
                 $flasher->addSuccess('Votre profil utilisateur a été modifié !');
