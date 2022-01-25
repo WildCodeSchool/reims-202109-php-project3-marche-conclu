@@ -1399,6 +1399,8 @@ input[type=range]:focus::-ms-fill-upper {
 
 .show-user-annonce-reserved-link:hover {
     color: $color-cerise-btn;
+    text-decoration: underline;
+    text-decoration-color: $color-cerise-btn;
 }
 
 table, th, td {
