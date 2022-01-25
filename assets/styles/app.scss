@@ -132,7 +132,9 @@ a {
         font-weight: 400;
         letter-spacing: .7rem;
         margin: 0;
+        margin-right: -.7em;
     }
+
 }
 
 .form-search {
@@ -710,7 +712,7 @@ video {
 .about-us {
     border-bottom: 1px solid;
     color: $color-white;
-    margin: 0rem 1rem;
+    margin: 0rem 5rem 1rem;
     padding: 1rem;
     text-align: center;
 }
