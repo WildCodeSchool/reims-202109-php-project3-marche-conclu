@@ -37,10 +37,10 @@
             </div>
         </div>
         <div class="show-user-annonce-btns">
-            {% if {{ user.email }} %}
+            {% if user.email %}
                 <a class="user-index-submit" href="mailto:{{ user.email }}">📧 Email</a>
             {% endif %}
-            {% if {{ user.phoneNumber }} %}
+            {% if user.phoneNumber %}
                 <a class="user-index-submit" href="tel:+33{{ user.phoneNumber }}">📞 Téléphone</a>
             {% endif %}
         </div>

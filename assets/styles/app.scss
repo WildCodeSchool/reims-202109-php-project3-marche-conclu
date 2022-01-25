@@ -1384,7 +1384,12 @@ input[type=range]:focus::-ms-fill-upper {
 
 .show-user-annonce-btns {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    padding: 1rem;
+
+    .user-index-submit {
+        padding: 1rem;
+    }
 }
 
 .show-user-modify-btn:hover,
