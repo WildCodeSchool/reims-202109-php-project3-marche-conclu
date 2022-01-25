@@ -36,7 +36,7 @@ class HomeController extends AbstractController
     {
         return $this->renderForm('contact.html.twig');
     }
-  
+
     #[Route('/about', name: 'about')]
     public function about(): Response
     {
