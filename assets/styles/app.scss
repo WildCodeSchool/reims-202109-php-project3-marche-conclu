@@ -654,6 +654,37 @@ video {
 
 // END PARTNER
 
+// START FOOTER
+
+.footer-list {
+    display: flex;
+    justify-content: center;
+    padding: .5rem;
+
+    li {
+        font-family: $fontworksans;
+        list-style-type: none;
+
+        a {
+            color: $color-black;
+            font-size: .8rem;
+            padding: .75rem;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: $color-cerise-btn;
+            text-decoration: underline;
+            text-decoration-color: $color-cerise-btn;
+        }
+
+    }
+
+}
+
+// END FOOTER
+
 
 // START ABOUT US
 
