@@ -38,13 +38,12 @@
 		<figure class="offer premium">
 			<img class="image-offer" src="{{ vich_uploader_asset(space) }}" alt="Photo de l'espace"/>
 			<figcaption class="text-offer">
+				<div class="text-offer-name">{{ space.name|upper }}</div>
 				<div class="card-border card-content-up cardcontent">
 					<div class="spacecategory card-content-up">{{ space.category|capitalize }}
-						<span class="point">·</span>
 					</div>
 					<div class="spacecapacity card-content-up">{{ space.capacity }}
 						places
-						<span class="point">·</span>
 					</div>
 					<div class="spacesurface card-content-up">{{ space.surface }}
 						m²</div>

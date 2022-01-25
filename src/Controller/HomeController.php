@@ -31,9 +31,9 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/about', name: 'about')]
-    public function about(): Response
+    #[Route('/premium', name: 'premium')]
+    public function premium(): Response
     {
-        return $this->renderForm('about.html.twig');
+        return $this->render('premium.html.twig');
     }
 }
