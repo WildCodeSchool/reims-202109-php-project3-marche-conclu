@@ -1287,6 +1287,24 @@ input[type=range]:focus::-ms-fill-upper {
     color: $color-black;
 }
 
+.show-user-annonce-reserved {
+    margin: 1rem auto;
+}
+
+.show-user-annonce-reserved-link {
+    color: $color-black;
+    text-decoration: none;
+}
+
+.show-user-annonce-reserved-link:hover {
+    color: $color-cerise-btn;
+}
+
+table, th, td {
+    border: solid 1px #000;
+    padding: 10px;
+}
+
 // END USER INDEX
 
 // START USER EDIT
