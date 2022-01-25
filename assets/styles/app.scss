@@ -692,14 +692,56 @@ video {
 
 // START ABOUT US
 
+.about-body {
+    background-color: $color-cerise;
+    font-family: $fontbodini;
+}
+
+.about-us-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .about-us {
     border-bottom: 1px solid;
     color: $color-white;
-    display: flex;
-    font-family: $fontlogo;
-    justify-content: center;
-    margin: 2rem 5rem;
-    padding-bottom: 7px;
+    margin: 0rem 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.about-us-value {
+    background-color: $color-white;
+    border-radius: 1rem;
+    font-family: $fontworksans;
+    height: auto;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    width: 85%;
+
+    li {
+        font-size: .75rem;
+        list-style-type: none; 
+    }
+}
+
+.about-us-mission,
+.about-us-vision,
+.about-us-promesse,
+.about-us-cibles,
+.about-us-ambition {
+    background-color: $color-white;
+    border-radius: 1rem;
+    font-family: $fontworksans;
+    height: auto;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    width: 85%;
+
+    p {
+        margin: 0;
+    }
 }
 
 // END ABOUT US
