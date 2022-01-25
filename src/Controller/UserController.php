@@ -55,7 +55,7 @@ class UserController extends AbstractController
                         strval($form->get('plainPassword')->getData())
                     )),
                 );
-                $user->setSlug($slugify->generate($user->getLastname() ?? "", $user->getFirstname() ?? ""));
+                $user->setSlug($slugify->setSlug($user->getLastname(), $user->getFirstname()));
                 $entityManager->persist($user);
                 $entityManager->flush();
                 $flasher->addSuccess('Votre profil utilisateur a été modifié !');
@@ -78,7 +78,6 @@ class UserController extends AbstractController
         $user = $userrepository->findOneBySlug($slug);
 
         return $this->render('user/show.html.twig', [
-
             'user' => $user,
         ]);
     }

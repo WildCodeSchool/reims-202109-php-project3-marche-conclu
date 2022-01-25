@@ -17,20 +17,20 @@ class Slugify
         "õ" => "o", "ú" => "u", "ù" => "u", "û" => "u", "ü" => "u",
         "ý" => "y", "ÿ" => "y"];
 
-    public function generate(string $firstname, string $lastname): string
+    private static function slug(?string $firstname, ?string $lastname): string
     {
-        $firstname = strtolower($firstname);
-        $firstname = strtr($firstname, self::LETTERTOREPLACE);
-        $firstname = str_replace(self::CARACTERESTOREPLACE, "", $firstname);
-        $firstname = str_replace("--", "-", $firstname);
-
-        $lastname = strtolower($lastname);
-        $lastname = strtr($lastname, self::LETTERTOREPLACE);
-        $lastname = str_replace(self::CARACTERESTOREPLACE, "", $lastname);
-        $lastname = str_replace("--", "-", $lastname);
-
         $fullname = $lastname . $firstname;
 
+        $fullname = strtolower($fullname);
+        $fullname = strtr($fullname, self::LETTERTOREPLACE);
+        $fullname = str_replace(self::CARACTERESTOREPLACE, "", $fullname);
+        $fullname = str_replace("--", "-", $fullname);
+
         return $fullname;
+    }
+
+    public function setSlug(?string $firstname, ?string $lastname): string
+    {
+        return self::slug($firstname, $lastname);
     }
 }
