@@ -35,5 +35,6 @@ class HomeController extends AbstractController
     public function premium(): Response
     {
         return $this->render('premium.html.twig');
+
     }
 }
