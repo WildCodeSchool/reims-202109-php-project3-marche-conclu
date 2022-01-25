@@ -97,8 +97,7 @@
 							{% endif %}
 							<div id="price">
 								<div class="spaceprice">
-									<span id="spanprice">{{ random(50, 250) }} €</span>
-									<span id="spanpriceday"> / jour</span>
+									<span id="spanprice">{{ space.price }}€</span><span id="spanpriceday">/jour</span>
 								</div>
 								<a class="show-space-link" id="buttonCardShow" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
 							</div>
