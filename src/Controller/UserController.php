@@ -15,6 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Flasher\Toastr\Prime\ToastrFactory;
+use App\Service\Slugify;
 
 #[Route('/user')]
 class UserController extends AbstractController
@@ -40,7 +41,8 @@ class UserController extends AbstractController
         User $user,
         UserPasswordHasherInterface $userPasswordHasher,
         EntityManagerInterface $entityManager,
-        ToastrFactory $flasher
+        ToastrFactory $flasher,
+        Slugify $slugify
     ): Response {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
@@ -53,6 +55,7 @@ class UserController extends AbstractController
                         strval($form->get('plainPassword')->getData())
                     )),
                 );
+                $user->setSlug($slugify->assignSlug($user->getLastname(), $user->getFirstname()));
                 $entityManager->persist($user);
                 $entityManager->flush();
                 $flasher->addSuccess('Votre profil utilisateur a été modifié !');
@@ -69,7 +72,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'user_show', methods: ['GET', 'POST'])]
+    #[Route('/{slug}', name: 'user_show', methods: ['GET', 'POST'])]
     public function show(User $user): Response
     {
         return $this->render('user/show.html.twig', [

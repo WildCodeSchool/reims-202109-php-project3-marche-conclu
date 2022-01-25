@@ -10,7 +10,7 @@
 		<div class="searchbar-and-filter">
 			<div class="search-container">
 				<form action="{{ path('space_search') }}" method="get" class="form-search">
-					<input class="search-bar" type="text" id="autocomplete" placeholder="Où louer ?" name="location" value="{{ location ?? '' }}">
+					<input class="search-bar" type="text" id="autocomplete" placeholder="Dans quelle ville ?" name="location" value="{{ location ?? '' }}">
 					<button class="btn form-submit">
 						Chercher
 					</button>
@@ -78,14 +78,14 @@
 			{% for space in spaces %}
 				<div>
 					<figure class="offer">
-								<img class="image-offer" src="{{ vich_uploader_asset(space) }}" alt="Photo de l'espace"/>
+								<img class="image-offer" src="{{ asset('build/images/bureauprivee.eb2e582d.jpg') }}" alt="Image"/>
+								{# <img class="image-offer" src="{{ asset('/uploads/' ~ space.images.name[0]) }}" alt="Image"/> #}
 						<figcaption class="text-offer">
+							<div class="text-offer-name">{{ space.name|upper }}</div>
 							<div class="card-border card-content-up cardcontent">
 								<div class="spacecategory card-content-up">{{ space.category|capitalize }}
-									<span class="point">·</span>
 								</div>
 								<div class="spacecapacity card-content-up">{{ space.capacity }} places
-									<span class="point">·</span>
 								</div>
 								<div class="spacesurface card-content-up">{{ space.surface }} m²</div>
 							</div>

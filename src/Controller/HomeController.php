@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ImageRepository;
 use App\Repository\SpaceRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,9 +32,22 @@ class HomeController extends AbstractController
         ]);
     }
 
+
+    #[Route('/contact', name: 'contact')]
+    public function contact(): Response
+    {
+        return $this->renderForm('contact.html.twig');
+    }
+
     #[Route('/about', name: 'about')]
     public function about(): Response
     {
-        return $this->renderForm('about.html.twig');
+        return $this->render('about.html.twig');
+    }
+
+     #[Route('/premium', name: 'premium')]
+    public function premium(): Response
+    {
+        return $this->render('premium.html.twig');
     }
 }

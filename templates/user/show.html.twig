@@ -9,8 +9,8 @@
     <div class="user-index-container">
         <div class="show-user-main-datas">
             <div class="show-user-photo">
-                {% if user.avatar %}
-                    <img class="user-index-avatar" src="{{ asset('build/images/' ~ user.avatar) }}">
+                {% if user.photo %}
+                    <img class="user-index-avatar" src="{{ vich_uploader_asset(app.user) }}">
                 {% else %}
                     <img class="user-index-avatar" src="{{ asset('build/images/logoMarcheConcluXL.png') }}">
                 {% endif %}
@@ -37,6 +37,11 @@
             </div>
         </div>
         <div class="show-user-annonce-btns">
-            <a class="user-index-submit" href="mailto:{{ user.email }}">Contacter par mail</a>
+            {% if user.email %}
+                <a class="user-index-submit" href="mailto:{{ user.email }}">📧 Email</a>
+            {% endif %}
+            {% if user.phoneNumber %}
+                <a class="user-index-submit" href="tel:+33{{ user.phoneNumber }}">📞 Téléphone</a>
+            {% endif %}
         </div>
 {% endblock %}

@@ -18,9 +18,9 @@ class SpaceDisponibility
     private int $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", nullable="true", length=100)
      */
-    private string $monday;
+    private ?string $monday;
 
     /**
      * @ORM\OneToOne(targetEntity=Space::class, inversedBy="spaceDisponibility", cascade={"persist", "remove"})
@@ -28,34 +28,34 @@ class SpaceDisponibility
     private ?Space $space;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", nullable="true", length=100)
      */
-    private string $tuesday;
+    private ?string $tuesday;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", nullable="true", length=100)
      */
-    private string $wednesday;
+    private ?string $wednesday;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", nullable="true", length=100)
      */
-    private string $thursday;
+    private ?string $thursday;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", nullable="true", length=100)
      */
-    private string $friday;
+    private ?string $friday;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", nullable="true", length=100)
      */
-    private string $saturday;
+    private ?string $saturday;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", nullable="true", length=100)
      */
-    private string $sunday;
+    private ?string $sunday;
 
     public function getId(): ?int
     {
@@ -74,7 +74,7 @@ class SpaceDisponibility
         return $this->monday;
     }
 
-    public function setMonday(string $monday): self
+    public function setMonday(?string $monday): self
     {
         $this->monday = $monday;
 
@@ -98,7 +98,7 @@ class SpaceDisponibility
         return $this->tuesday;
     }
 
-    public function setTuesday(string $tuesday): self
+    public function setTuesday(?string $tuesday): self
     {
         $this->tuesday = $tuesday;
 
@@ -110,7 +110,7 @@ class SpaceDisponibility
         return $this->wednesday;
     }
 
-    public function setWednesday(string $wednesday): self
+    public function setWednesday(?string $wednesday): self
     {
         $this->wednesday = $wednesday;
 
@@ -122,7 +122,7 @@ class SpaceDisponibility
         return $this->thursday;
     }
 
-    public function setThursday(string $thursday): self
+    public function setThursday(?string $thursday): self
     {
         $this->thursday = $thursday;
 
@@ -134,7 +134,7 @@ class SpaceDisponibility
         return $this->friday;
     }
 
-    public function setFriday(string $friday): self
+    public function setFriday(?string $friday): self
     {
         $this->friday = $friday;
 
@@ -146,7 +146,7 @@ class SpaceDisponibility
         return $this->saturday;
     }
 
-    public function setSaturday(string $saturday): self
+    public function setSaturday(?string $saturday): self
     {
         $this->saturday = $saturday;
 
@@ -158,7 +158,7 @@ class SpaceDisponibility
         return $this->sunday;
     }
 
-    public function setSunday(string $sunday): self
+    public function setSunday(?string $sunday): self
     {
         $this->sunday = $sunday;
 
