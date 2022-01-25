@@ -39,7 +39,7 @@
 			{% if space.images[0] is defined %}
 				<img class="image-offer" src="{{ asset('/uploads/' ~ space.images[0].name) }}" alt="Photo de l'espace"/>
             {% else %}
-                <img class="image-offer" src="{{ asset('build/images/bureauprivee.jpg') }}">
+                <img class="image-offer" src="{{ asset('build/images/space_image.jpg') }}">
 		    {% endif %}
 			<figcaption class="text-offer">
 				<div class="text-offer-name">{{ space.name|upper }}</div>
