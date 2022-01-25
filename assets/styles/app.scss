@@ -746,6 +746,12 @@ video {
 
 // START CONTACT US
 
+.contact-us-body {
+    background-color: $color-cerise;
+    height: 93vh;
+    font-family: $fontbodini;
+}
+
 .contact-us {
     border-bottom: 1px solid;
     color: $color-white;
@@ -755,6 +761,49 @@ video {
     margin: 2rem 5rem;
     padding-bottom: 7px;
 }
+
+.contact-us-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-us-content-text {
+    background-color: $color-white;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    font-family: $fontlogo;
+    height: auto;
+    justify-content: center;
+    margin: 1rem 2rem 2rem;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    width: 85%;
+}
+
+.contact-us-content-contact {
+    display: flex;
+    justify-content: space-around;
+}
+
+.contact-us-content-link {
+    background-color: $color-cerise-btn;
+    border-radius: .5rem;
+    color: $color-white;
+    font-family: $fontworksans;
+    font-size: 1.25rem;
+    cursor: pointer;
+    margin: 0rem 1rem;
+    padding: .5rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.contact-us-content-link:hover {
+    color: $color-black;
+}
+
 // END CONTACT US
 
 // Add Space Form
@@ -1333,7 +1382,12 @@ input[type=range]:focus::-ms-fill-upper {
 
 .show-user-annonce-btns {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    padding: 1rem;
+
+    .user-index-submit {
+        padding: 1rem;
+    }
 }
 
 .show-user-modify-btn:hover,
