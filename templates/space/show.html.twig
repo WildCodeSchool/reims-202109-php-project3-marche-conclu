@@ -5,15 +5,21 @@
 
 {% block body %}
 <div class="carousel">
-            <div class="carousel-item-mc carousel-item-visible">
-                <img src="{{ asset('uploads/' ~ space.photo) }}" alt="bureau privee" />
-            </div>
-			{% if space.photo|length > 1 %}
-            <div class="carousel-actions">
-                <button id="carousel-button-prev" aria-label="Previous"><</button>
-                <button id="carousel-button-next" aria-label="Next">></button>
-            </div>
-			{% endif %}
+	{% for image in space.images %}
+		{% if loop.index == 1 %}
+			<div class="carousel-item-mc carousel-item-visible">
+					<img class="image-offer" src="{{ asset('/uploads/' ~ image.name) }}" alt="Image"/>
+			</div>
+		{% else %}
+			<div class="carousel-item-mc">
+				<img src="{{ asset('/uploads/' ~ image.name) }}" alt="Image"/>
+			</div>
+		{% endif %}
+	{% endfor %}
+	<div class="carousel-actions">
+		<button id="carousel-button-prev" aria-label="Previous"><</button>
+		<button id="carousel-button-next" aria-label="Next">></button>
+	</div>
 </div>
 <div class="show-space-head">
 	<div class="show-space-head-left">

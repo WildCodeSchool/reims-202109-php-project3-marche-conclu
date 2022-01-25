@@ -36,7 +36,11 @@
 	<h2 class="premium-title">ANNONCES PREMIUM</h2>
 	{% for space in spaces %}
 		<figure class="offer premium">
-			<img class="image-offer" src="{{ vich_uploader_asset(space) }}" alt="Photo de l'espace"/>
+			{% if space.images[0] is defined %}
+				<img class="image-offer" src="{{ asset('/uploads/' ~ space.images[0].name) }}" alt="Photo de l'espace"/>
+            {% else %}
+                <img class="image-offer" src="{{ asset('build/images/bureauprivee.jpg') }}">
+		    {% endif %}
 			<figcaption class="text-offer">
 				<div class="text-offer-name">{{ space.name|upper }}</div>
 				<div class="card-border card-content-up cardcontent">

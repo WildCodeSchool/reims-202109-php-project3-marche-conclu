@@ -24,8 +24,6 @@ class SpaceFixtures extends Fixture implements DependentFixtureInterface
         for ($i = 1; $i <= self::SPACE_COUNT; $i++) {
             $space = new Space();
             $space->setName('Espace ' . $i);
-            $randImage = array_rand(self::SPACE_IMAGES);
-            $space->setPhoto(self::SPACE_IMAGES[$randImage]);
             $space->setPrice((rand(1, 10) / 10) * rand(100, 200));
             $space->setSurface(rand(5, 200));
             $typespace = array_rand(self::TYPESPACE);
@@ -37,7 +35,6 @@ class SpaceFixtures extends Fixture implements DependentFixtureInterface
             $space->setOwner($this->getReference('user_j.v@gmail.com'));
             $space->setAddress(self::ADDRESS[$locationAndAdress]);
             $space->setAvailability("");
-            $space->setUpdatedAt(new DateTime('now'));
             $manager->persist($space);
             $address = array_rand(self::ADDRESS);
             $space->setAddress(self::ADDRESS[$address]);

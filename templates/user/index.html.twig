@@ -11,8 +11,8 @@
     <div class="user-index-container">
         <div class="show-user-main-datas">
             <div class="show-user-photo">
-                {% if app.user.avatar %}
-                    <img class="user-index-avatar" src="{{ asset('build/images/' ~ app.user.avatar) }}">
+                {% if app.user.photo %}
+                    <img class="user-index-avatar" src="{{ vich_uploader_asset(app.user) }}" alt="photo de l'utilisateur"/>
                 {% else %}
                     <img class="user-index-avatar" src="{{ asset('build/images/logoMarcheConcluXL.png') }}">
                 {% endif %}
