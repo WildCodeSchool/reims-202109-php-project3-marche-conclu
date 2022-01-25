@@ -67,7 +67,7 @@
                             <tbody>
                             {% for slot in space.slots|sort((a, b) => a.slotTime <=> b.slotTime) %}
                                 <tr>
-                                    <td><a class="show-user-annonce-reserved-link"href="{{ path('user_show', {slug: slot.owner.slug}) }}">{{ slot.owner.firstname }} {{ slot.owner.lastname }}</a></td>
+                                    <td><a class="show-user-annonce-reserved-link" href="{{ path('user_show', {slug: slot.owner.slug}) }}">{{ slot.owner.firstname }} {{ slot.owner.lastname }}</a></td>
                                     <td>{{ slot.slotTime }}</td>
                                 </tr>
                             {% endfor %}
