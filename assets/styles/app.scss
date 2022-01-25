@@ -344,6 +344,12 @@ a {
         background-color: $color-cerise-btn;
         text-align: center;
         line-height: 2.7rem;
+        
+    }
+
+    .day-letter-disabled {
+        @extend .day-letter;
+        background-color: $color-grey !important;
     }
 
     .day-hours {

@@ -4,8 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Slot;
 use App\Entity\Space;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use App\Entity\SpaceDisponibility;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use App\Entity\User;
 use App\Entity\Image;
 use App\Form\SlotType;
+use App\Form\SpaceDisponibilityType;
 use App\Form\SpaceType;
 use App\Repository\SlotRepository;
 use App\Repository\UserRepository;
@@ -85,6 +90,34 @@ class SpaceController extends AbstractController
         ]);
     }
 
+    /**
+    * @Route("/{id}/disponibility", name="space_disponibility")
+    */
+    public function addDisponibility(
+        Space $space,
+        Request $request,
+        EntityManagerInterface $entityManager,
+        SpaceRepository $spaceRepository,
+        ToastrFactory $flasher
+    ): Response {
+        $spaceDisponibility = new SpaceDisponibility();
+        $form = $this->createForm(SpaceDisponibilityType::class, $spaceDisponibility);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $spaceDisponibility->setSpace($space);
+            $entityManager->persist($spaceDisponibility);
+            $entityManager->flush();
+            $flasher->addSuccess('Vos disponibilités ont bien été prises en compte');
+
+            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('space/newdisponibility.html.twig', [
+            'form' => $form,
+        ]);
+    }
+
     #[Route('/search', name: 'search', methods: ['GET'])]
     public function search(UserRepository $userRepository, Request $request, SpaceRepository $spaceRepository): Response
     {
@@ -129,6 +162,7 @@ class SpaceController extends AbstractController
         $form = $this->createForm(SlotType::class, $slot);
         $form->handleRequest($request);
         $user = $this->getUser();
+        $disponibility = $space->getSpaceDisponibility();
         $availability = array_map("trim", explode(',', $space->getAvailability() ?? ""));
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -163,6 +197,7 @@ class SpaceController extends AbstractController
         return $this->renderForm('space/show.html.twig', [
             'space' => $space,
             'slot' => $slot,
+            'disponibility' => $disponibility,
             'form' => $form,
             'availability' => $availability
         ]);

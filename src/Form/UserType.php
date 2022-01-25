@@ -77,17 +77,8 @@ class UserType extends AbstractType
                 'required' => false,
                 'label' => 'Nom de votre société'
             ])
-            ->add('job', ChoiceType::class, [
-                'placeholder' => '',
-                'required' => false,
-                'label' => 'Métier',
-                'choices' => [
-                    'Electricien' => 'Electricien',
-                    'Développeur web' => 'Développeur web',
-                    'Chauffagiste' => 'Chauffagiste',
-                    'Peintre' => 'Peintre',
-                    'Autre' => '',
-                ]])
+            ->add('job', TextType::class, [
+                'placeholder' => 'Choisissez un métier',])
             ->add('enregistrer', SubmitType::class);
     }
 
