@@ -46,36 +46,63 @@
 {% endif %}
 <div class="show-space-availability">
 	<div class="show-space-availability-week">
-		<div class="show-space-day">
-			<div class="day-letter">L</div>
-			<div class="day-hours">09h-18h</div>
+	<div class="show-space-day">
+	{% if disponibility.monday %}
+		<div class="day-letter">L</div>
+		<div class="day-hours">{{ disponibility.monday }}</div>
+	{% else %}
+		<div class="day-letter-disabled">L</div>
+	{% endif %}
 		</div>
 		<div class="show-space-day">
+		{% if disponibility.thursday %}
 			<div class="day-letter">M</div>
-			<div class="day-hours">09h-18h</div>
-		</div>
-		<div class="show-space-day">
-			<div class="day-letter">M</div>
-			<div class="day-hours">09h-18h</div>
-		</div>
-		<div class="show-space-day">
+			<div class="day-hours">{{ disponibility.thursday }}</div>
+		{% else %}
+			<div class="day-letter-disabled">M</div>
+		{% endif %}
+			</div>
+			<div class="show-space-day">
+			{% if disponibility.wednesday %}
+				<div class="day-letter">M</div>
+				<div class="day-hours">{{ disponibility.wednesday }}</div>
+			{% else %}
+				<div class="day-letter-disabled">M</div>
+			{% endif %}
+				</div>
+				<div class="show-space-day">
+		{% if disponibility.tuesday %}
 			<div class="day-letter">J</div>
-			<div class="day-hours">09h-18h</div>
-		</div>
-		<div class="show-space-day">
+			<div class="day-hours">{{ disponibility.tuesday }}</div>
+		{% else %}
+			<div class="day-letter-disabled">J</div>
+		{% endif %}
+			</div>
+			<div class="show-space-day">
+		{% if disponibility.friday %}
 			<div class="day-letter">V</div>
-			<div class="day-hours">09h-18h</div>
-		</div>
-		<div class="show-space-day">
-			<div class="day-letter">S</div>
-			<div class="day-hours">09h-18h</div>
-		</div>
-		<div class="show-space-day">
-			<div class="day-letter">D</div>
-			<div class="day-hours">09h-18h</div>
-		</div>
+			<div class="day-hours">{{ disponibility.friday }}</div>
+		{% else %}
+			<div class="day-letter-disabled">V</div>
+		{% endif %}
+			</div>
+			<div class="show-space-day">
+			{% if disponibility.saturday %}
+				<div class="day-letter">S</div>
+				<div class="day-hours">{{ disponibility.saturday }}</div>
+			{% else %}
+				<div class="day-letter-disabled">S</div>
+			{% endif %}
+				</div>
+				<div class="show-space-day">
+				{% if disponibility.sunday %}
+					<div class="day-letter">D</div>
+					<div class="day-hours">{{ disponibility.sunday }}</div>
+				{% else %}
+					<div class="day-letter-disabled">D</div>
+				{% endif %}
+					</div>
 	</div>
-
 </div>
 <div class="show-space-owner">
 	<ul class="show-space-owner-details">
