@@ -23,9 +23,12 @@ class UserController extends AbstractController
     * @IsGranted("ROLE_USER")
     */
     #[Route('/profile', name: 'user_index', methods: ['GET'])]
-    public function index(): Response
+    public function index(UserRepository $userRepository): Response
     {
-        return $this->render('user/index.html.twig');
+        $user = $userRepository->findAll();
+        return $this->render('user/index.html.twig', [
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -63,6 +66,14 @@ class UserController extends AbstractController
         return $this->renderForm('user/edit.html.twig', [
             'user' => $user,
             'form' => $form,
+        ]);
+    }
+
+    #[Route('/{id}', name: 'user_show', methods: ['GET', 'POST'])]
+    public function show(User $user): Response
+    {
+        return $this->render('user/show.html.twig', [
+            'user' => $user,
         ]);
     }
 }
