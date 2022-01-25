@@ -5,7 +5,7 @@
 
 {% block body %}
 <div class="carousel">
-	{% if space.images[0] is defined %}
+	{% if space.images|length > 0 %}
 		{% for image in space.images %}
 			{% if loop.index == 1 %}
 				<div class="carousel-item-mc carousel-item-visible">
@@ -17,7 +17,7 @@
 				</div>
 			{% endif %}
 		{% endfor %}
-		{% if space.images[1] is defined %}
+		{% if space.images|length > 1 %}
 		<div class="carousel-actions">
 			<button id="carousel-button-prev" aria-label="Previous"><</button>
 			<button id="carousel-button-next" aria-label="Next">></button>
