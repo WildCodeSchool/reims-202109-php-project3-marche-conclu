@@ -687,6 +687,17 @@ video {
 
 // START ABOUT US
 
+.about-body {
+    background-color: $color-cerise;
+    font-family: $fontbodini;
+}
+
+.about-us-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .about-us {
     border-bottom: 1px solid;
     color: $color-white;
@@ -695,6 +706,38 @@ video {
     justify-content: center;
     margin: 2rem 5rem;
     padding-bottom: 7px;
+}
+
+.about-us-value {
+    background-color: $color-white;
+    border-radius: 1rem;
+    font-family: $fontworksans;
+    height: auto;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    width: 85%;
+
+    li {
+        font-size: .75rem; 
+    }
+}
+
+.about-us-mission,
+.about-us-vision,
+.about-us-promesse,
+.about-us-cibles,
+.about-us-ambition {
+    background-color: $color-white;
+    border-radius: 1rem;
+    font-family: $fontworksans;
+    height: auto;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    width: 85%;
+
+    p {
+        margin: 0;
+    }
 }
 
 // END ABOUT US
@@ -722,13 +765,13 @@ video {
     font-weight: bolder;
 }
 
-.space-count {
-    font-size: 1.2rem;
-}
-
 ul {
     margin: 0;
     padding: 0;
+}
+
+.space-count {
+    font-size: 1.2rem;
 }
 
 // Style inputs with type="text", select elements and textareas
