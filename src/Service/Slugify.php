@@ -31,6 +31,6 @@ class Slugify
 
     public function assignSlug(?string $firstname, ?string $lastname): string
     {
-        return $this->slug($firstname, $lastname);
+        return $this->slug($lastname, $firstname);
     }
 }
