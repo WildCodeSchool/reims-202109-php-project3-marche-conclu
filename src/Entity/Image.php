@@ -3,13 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\ImagesRepository;
+use App\Repository\ImageRepository;
 use Symfony\Component\Validator\Constraints\Collection;
 
 /**
- * @ORM\Entity(repositoryClass=ImagesRepository::class)
+ * @ORM\Entity(repositoryClass=ImageRepository::class)
  */
-class Images
+class Image
 {
     /**
      * @ORM\Id

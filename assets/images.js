@@ -26,7 +26,7 @@ window.onload = () => {
                 ).then((data) => {
                     if (data.success) this.parentElement.remove();
                     else alert(data.error);
-                }).catch(() => alert(event));
+                }).catch((err) => alert(err));
             }
         });
     });

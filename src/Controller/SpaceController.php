@@ -3,24 +3,20 @@
 namespace App\Controller;
 
 use App\Entity\Slot;
-use App\Entity\User;
 use App\Entity\Space;
-use App\Entity\Images;
+use App\Entity\Image;
 use App\Form\SlotType;
 use App\Form\SpaceType;
 use App\Repository\SlotRepository;
 use App\Repository\UserRepository;
 use App\Repository\SpaceRepository;
 use Flasher\Toastr\Prime\ToastrFactory;
-use Symfony\Component\DomCrawler\Image;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
 #[Route('/space', name: 'space_')]
 class SpaceController extends AbstractController
@@ -54,23 +50,23 @@ class SpaceController extends AbstractController
         $user = $this->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // on récupère les images transmises
+            // on récupère les image transmises
             $images = $form['images']->getData();
 
             // on boucle sur les images
             foreach ($images as $image) {
                 // on génère un nouveau nom de fichier
-                $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+                $file = md5(uniqid()) . '.' . $image->guessExtension();
 
                 // on copie le fichier dans le dossier uploads
                 $image->move(
                     $this->getParameter('upload_directory'),
-                    $fichier
+                    $file
                 );
 
                 // on stocke l'image dans la base de donnée (son nom)
-                $img = new Images();
-                $img->setName($fichier);
+                $img = new Image();
+                $img->setName($file);
                 $space->addImage($img);
             }
             /** @var \App\Entity\User $user */
@@ -193,17 +189,17 @@ class SpaceController extends AbstractController
             // on boucle sur les images
             foreach ($images as $image) {
                 // on génère un nouveau nom de fichier
-                $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+                $file = md5(uniqid()) . '.' . $image->guessExtension();
 
                 // on copie le fichier dans le dossier uploads
                 $image->move(
                     $this->getParameter('upload_directory'),
-                    $fichier
+                    $file
                 );
 
                 // on stocke l'image dans la base de donnée (son nom)
-                $img = new Images();
-                $img->setName($fichier);
+                $img = new Image();
+                $img->setName($file);
                 $space->addImage($img);
             }
             $entityManager->flush();

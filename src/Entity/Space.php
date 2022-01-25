@@ -30,7 +30,7 @@ class Space
     private string $name;
 
     /**
-     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="space", orphanRemoval=true, cascade={"persist"})
+     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="space", orphanRemoval=true, cascade={"persist"})
      */
     private Collection $images;
 
@@ -272,14 +272,14 @@ class Space
     }
 
     /**
-     * @return Collection|Images[]
+     * @return Collection|Image[]
      */
     public function getImages(): Collection
     {
         return $this->images;
     }
 
-    public function addImage(Images $image): self
+    public function addImage(Image $image): self
     {
         if (!$this->images->contains($image)) {
             $this->images[] = $image;
@@ -289,7 +289,7 @@ class Space
         return $this;
     }
 
-    public function removeImage(Images $image): self
+    public function removeImage(Image $image): self
     {
         if ($this->images->removeElement($image)) {
             // set the owning side to null (unless already changed)
