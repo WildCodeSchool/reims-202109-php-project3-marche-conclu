@@ -37,4 +37,5 @@ class HomeController extends AbstractController
         return $this->render('premium.html.twig');
 
     }
+    
 }
