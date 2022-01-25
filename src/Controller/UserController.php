@@ -73,10 +73,8 @@ class UserController extends AbstractController
     }
 
     #[Route('/{slug}', name: 'user_show', methods: ['GET', 'POST'])]
-    public function show(string $slug, UserRepository $userrepository): Response
+    public function show(User $user): Response
     {
-        $user = $userrepository->findOneBySlug($slug);
-
         return $this->render('user/show.html.twig', [
             'user' => $user,
         ]);
