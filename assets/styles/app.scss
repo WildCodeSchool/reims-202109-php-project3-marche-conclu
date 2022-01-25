@@ -659,9 +659,10 @@ video {
 .footer-list {
     display: flex;
     justify-content: center;
-    padding: .5rem;
-
+    padding: 1rem .5rem .5rem;
+    
     li {
+        border-right: 1px solid $color-black;
         font-family: $fontworksans;
         list-style-type: none;
 
@@ -681,22 +682,15 @@ video {
 
     }
 
+    li:first-child {
+        border-left: 1px solid $color-black;
+    }
+
 }
 
 // END FOOTER
 
 // START ABOUT US
-
-.about-body {
-    background-color: $color-cerise;
-    font-family: $fontbodini;
-}
-
-.about-us-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 .about-us {
     border-bottom: 1px solid;
@@ -706,38 +700,6 @@ video {
     justify-content: center;
     margin: 2rem 5rem;
     padding-bottom: 7px;
-}
-
-.about-us-value {
-    background-color: $color-white;
-    border-radius: 1rem;
-    font-family: $fontworksans;
-    height: auto;
-    margin: 1rem;
-    padding: 1rem 2rem;
-    width: 85%;
-
-    li {
-        font-size: .75rem; 
-    }
-}
-
-.about-us-mission,
-.about-us-vision,
-.about-us-promesse,
-.about-us-cibles,
-.about-us-ambition {
-    background-color: $color-white;
-    border-radius: 1rem;
-    font-family: $fontworksans;
-    height: auto;
-    margin: 1rem;
-    padding: 1rem 2rem;
-    width: 85%;
-
-    p {
-        margin: 0;
-    }
 }
 
 // END ABOUT US
@@ -765,13 +727,13 @@ video {
     font-weight: bolder;
 }
 
+.space-count {
+    font-size: 1.2rem;
+}
+
 ul {
     margin: 0;
     padding: 0;
-}
-
-.space-count {
-    font-size: 1.2rem;
 }
 
 // Style inputs with type="text", select elements and textareas
@@ -1399,8 +1361,6 @@ input[type=range]:focus::-ms-fill-upper {
 
 .show-user-annonce-reserved-link:hover {
     color: $color-cerise-btn;
-    text-decoration: underline;
-    text-decoration-color: $color-cerise-btn;
 }
 
 table, th, td {
