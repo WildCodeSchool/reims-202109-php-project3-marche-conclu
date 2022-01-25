@@ -77,7 +77,8 @@ class UserController extends AbstractController
     {
         $user = $userrepository->findOneBySlug($slug);
 
-        return $this->renderForm('user/show.html.twig', [
+        return $this->render('user/show.html.twig', [
+
             'user' => $user,
         ]);
     }
