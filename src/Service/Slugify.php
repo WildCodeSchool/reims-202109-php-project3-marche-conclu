@@ -17,7 +17,7 @@ class Slugify
         "õ" => "o", "ú" => "u", "ù" => "u", "û" => "u", "ü" => "u",
         "ý" => "y", "ÿ" => "y"];
 
-    private static function slug(?string $firstname, ?string $lastname): string
+    private function slug(?string $firstname, ?string $lastname): string
     {
         $fullname = $lastname . $firstname;
 
@@ -29,7 +29,7 @@ class Slugify
         return $fullname;
     }
 
-    public function setSlug(?string $firstname, ?string $lastname): string
+    public function getSlug(?string $firstname, ?string $lastname): string
     {
         return self::slug($firstname, $lastname);
     }
