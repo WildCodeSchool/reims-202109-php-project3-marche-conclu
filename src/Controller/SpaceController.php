@@ -80,7 +80,7 @@ class SpaceController extends AbstractController
             $entityManager->flush();
             $flasher->addSuccess('Votre annonce a bien été crée !');
 
-            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('space_disponibility', ['id' => $space->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('space/new.html.twig', [
@@ -91,7 +91,7 @@ class SpaceController extends AbstractController
     }
 
     /**
-    * @Route("/{id}/disponibility", name="space_disponibility")
+    * @Route("/{id}/disponibility", name="disponibility")
     */
     public function addDisponibility(
         Space $space,
