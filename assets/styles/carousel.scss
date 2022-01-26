@@ -1,57 +1,63 @@
 .carousel {
+    margin: 0 auto;
     max-width: 600px;
     position: relative;
-    margin: 0 auto;
 }
 
-.carousel .carousel-item,
+.carousel .carousel-item-mc,
 .carousel .carousel-item-hidden {
-    display: none; /* hide all slide images not currently being viewed */
+    display: none; // hide all slide images not currently being viewed
 }
 
 .carousel .carousel-item-visible {
-    display: block; /* show current slide image */
-    animation: fadeVisibility 1s; /* for fading effect when switching between slides */
+    animation: fadeVisibility 1s; // for fading effect when switching between slides
+    display: block; // show current slide image
 }
 
-.carousel .carousel-item img {
+.carousel .carousel-item-mc img {
+    height: 25vh;
     object-fit: cover;
     width: 100%;
-    height: 25vh;
 }
 
-/* Navigation control styles */
+// Navigation control styles
+
 .carousel .carousel-actions {
     display: flex;
+    justify-content: space-between; // put space between the navigation buttons
+    position: absolute; // position navigation buttons on top
+    top: 50%; // center navigation buttons on the slide
+    transform: translateY(-50%); // align navigation buttons
     width: 100%;
-    justify-content: space-between; /* put space between the navigation buttons */
-    position: absolute; /* position navigation buttons on top */
-    top: 50%; /* center navigation buttons on the slide */
-    transform: translateY(200%); /* align navigation buttons */
 }
 
 .carousel .carousel-actions button {
-    border-radius: 50px;
     background-color: white;
     border: 0;
+    border-radius: 50px;
+    cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    cursor: pointer;
-    width: 40px;
     height: 40px;
+    width: 40px;
 }
 
 .carousel .carousel-actions button#carousel-button-prev {
-    margin-left: 20px; /* prevent previous button from touching the side*/
+    margin-left: 20px; // prevent previous button from touching the side*/
     z-index: -1;
 }
 
 .carousel .carousel-actions button#carousel-button-next {
-    margin-right: 20px;  /* prevent next button from touching the side*/
+    margin-right: 20px;  // prevent next button from touching the side*/
     z-index: -1;
 }
 
-/* hanlde smooth transitions between slides */
+button#carousel-button-prev:hover,
+button#carousel-button-next:hover {
+    color: $color-cerise-btn;
+}
+// hanlde smooth transitions between slides
+
 @keyframes fadeVisibility {
     0% {
         opacity: 0;
@@ -62,21 +68,25 @@
     }
 }
 
-.texte-center {
-    text-decoration: none;
-    font-family: $fontWorkSans;
-    font-size: 1.75rem;
-    display: flex;
-    justify-content: center;
+.text-center {
     align-items: center;
-    text-align: center;
+    background-color: $color-cerise-btn;
+    border-radius: 1.5rem;
     color: $color-white;
-    background-color: $color-cerise;
-    position: absolute;
-    top: 50%;
+    display: flex;
+    font-family: $fontworksans;
+    font-size: 1.75rem;
+    justify-content: center;
     left: 50%;
+    position: absolute;
+    padding: .8rem;
+    text-align: center;
+    text-decoration: none;
+    top: 50%;
     transform: translate(-50%, -50%);
-    width: 60vw;
-    height: 30vh;
     z-index: 1;
+
+    p{
+        margin: 0;
+    }
   }

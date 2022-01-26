@@ -1,34 +1,40 @@
-<div class="space_form_container">
+<div class="space-form-container">
     {{ form_start(form) }}
+        {% if not form.vars.valid %}
+            {{ form_errors(form) }}
+        {% endif %}
+        {{ form_row(form.name) }}
+        {{ form_row(form.capacity, {'attr': {'class': 'space-form-content'}}) }}
+        {{ form_row(form.category, {'attr': {'class': 'space-form-content'}}) }}
+        {{ form_row(form.description, {'attr': {'class': 'space-form-content'}}) }}
+        {{ form_row(form.surface, {'attr': {'class': 'space-form-content'}}) }}
+        {{ form_row(form.address, {'attr': {'class': 'space-form-content'}}) }}
+        {{ form_row(form.location, {'id': 'autocomplete', 'attr': {'class': 'space-form-content'}}) }}
+        {{ form_row(form.price, {'attr': {'class': 'space-form-content'}}) }}
+        {{ form_row(form.images, {'attr': {'class': 'space-form-content'}}) }}
+        {{ form_row(form.availability, {'attr': {'class': 'flatpick-add'}}) }}
+        {# vérifier si la route est "space_edit" on affiche les images #}
+        {% if app.request.attributes.get('_route') == 'space_edit' %}
+            </br>
+            <h3>Images enregistrées :</h3>
+            {% for image in space.images %}
+                <div>
+                    <img src="{{ asset('/uploads/' ~ image.name) }}" alt="Image" width="150">
+                    <a href="{{ path('image_delete', {id: image.id}) }}"
+                    data-delete data-token="{{ csrf_token('delete' ~ image.id) }}
+                    ">Supprimer</a>
+                </div>
+            {% endfor %}
+        {% endif %}
 
-    <label>
-        Nom de votre annonce :
-        {{ form_widget(form.name, {'attr': {'class': 'space_form_content'}}) }}
-    </label>
-    <label>
-        Capacité :
-        {{ form_widget(form.capacity, {'attr': {'class': 'space_form_content'}}) }}
-    </label>
-    <label>
-        Catégorie :
-        {{ form_widget(form.category, {'attr': {'class': 'space_form_content'}}) }}
-    </label>
-    <label>
-        Surface (en m²) :
-        {{ form_widget(form.surface, {'attr': {'class': 'space_form_content'}}) }}
-    </label>
-    <label>
-       Photo :
-       {{ form_widget(form.photos, {'attr': {'class': 'space_form_content'}}) }}
-    </label>
-    <label>
-        Ville :
-        {{ form_widget(form.location, {'attr': {'class': 'space_form_content'}}) }}
-    </label>
-    <div class="div-add-new-space">
-        <button class="space_form_btn space_form_submit add-new-space">
-            {{ button_label|default('Ajouter') }}
-        </button>
-    <div>
+        <div class="new-space-submit">
+            {{ form_row(form.enregistrer, {'attr': {'class': 'user-index-submit'}}) }}
+        <div>
     {{ form_end(form) }}
 </div>
+ <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+		<script>flatpickr('.flatpick-add', {
+			mode: "multiple",
+			dateFormat: "Y-m-d"
+		})
+        </script>

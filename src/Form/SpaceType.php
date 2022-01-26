@@ -3,34 +3,97 @@
 namespace App\Form;
 
 use App\Entity\Space;
+use App\Entity\SpaceDisponibility;
+use Symfony\Config\VichUploaderConfig;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use phpDocumentor\Reflection\Types\Integer;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class SpaceType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('photos')
-            ->add('surface', IntegerType::class)
-            ->add('location', ChoiceType::class, [
+            ->add('name', TextType::class, [
+                'required' => true,
+                'attr' => array(
+                    'placeholder' => 'Petit bureau..',
+                ),
+                'label' => 'Nom de votre annonce'
+            ])
+            ->add('capacity', IntegerType::class, [
+                'required' => true,
+                'attr' => array(
+                    'placeholder' => '250',
+                ),
+                'label' => 'Nombre de postes disponibles'
+            ])
+            ->add('category', ChoiceType::class, [
+                'required' => true,
+                'label' => 'Catégorie',
                 'choices'  => [
-                    'Paris' => 'Paris',
-                    'Marseille' => 'Marseille',
-                    'Lyon' => 'Lyon',
+                    'Salle de réunion' => 'reunion',
+                    'Co-working' => 'co-working',
+                    'Bureau privé' => 'private',
+                    'Open Space' => 'open-space',
+                    'Plateaux vides' => 'plates'
                 ],
             ])
-            ->add('capacity', IntegerType::class)
-            ->add('category', ChoiceType::class, [
-                'choices'  => [
-                    'Espace ouvert' => 'Espace ouvert',
-                    'Espace fermé' => 'Espace fermé',
-                    'Espace bureau' => 'Espace bureau',
-                ],
+            ->add('address', TextType::class, [
+                'attr' => array(
+                    'placeholder' => '6 rue de Saint-Brice',
+                ),
+                'label' => 'Adresse'])
+            ->add('surface', IntegerType::class, [
+                'required' => true,
+                'attr' => array(
+                    'placeholder' => '300',
+                ),
+                'label' => 'Surface (en m²)'
+            ])
+            ->add('description', TextareaType::class)
+            ->add('location', TextType::class, [
+                'attr' => array(
+                    'placeholder' => 'Reims',
+                ),
+                'required' => true,
+                ])
+            ->add('location', TextType::class, [
+                'required' => true,
+                'label' => 'Ville',
+            ])
+            ->add('price', IntegerType::class, [
+                'required' => true,
+                'attr' => array(
+                    'placeholder' => '250',
+                ),
+                'label' => 'Prix par jour'
+            ])
+            // on ajoute le champs 'images' dans le formulaire
+            // il n'est pas lié à la base de données (mapped à false)
+            ->add('images', FileType::class, [
+                'label' => 'Images à ajoutées',
+                'multiple' => true,
+                'mapped' => false,
+                'required' => false,
+
+            ])
+            ->add('availability', TextType::class, [
+                'required' => true,
+                'label' => 'Disponibilités',
+            ])
+            ->add('enregistrer', SubmitType::class, [
+                'label' => "Poster l'annonce",
             ]);
     }
 

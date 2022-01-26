@@ -2,14 +2,17 @@
 
 namespace App\Entity;
 
-use App\Repository\SpaceRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Symfony\Component\Validator\Constraints as Assert;
+use DateTime;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\SpaceRepository;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass=SpaceRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\SpaceRepository")
  */
 class Space
 {
@@ -27,16 +30,15 @@ class Space
     private string $name;
 
     /**
-     * @ORM\Column(type="string", length=500)
-     * @Assert\NotBlank(message="Le champ photos ne peut être vide")
+     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="space", orphanRemoval=true, cascade={"persist"})
      */
-    private string $photos;
+    private Collection $images;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="integer", length=10)
     * @Assert\NotBlank(message="Le champ surface ne peut être vide")
      */
-    private string $surface;
+    private int $surface;
 
     /**
      * @ORM\Column(type="string", length=50)
@@ -67,9 +69,35 @@ class Space
      */
     private ?User $owner;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private int $price;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private ?string $description;
+
+    /**
+     * @ORM\OneToOne(targetEntity=SpaceDisponibility::class, mappedBy="space", cascade={"persist", "remove"})
+     */
+    private SpaceDisponibility $spaceDisponibility;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $address;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private string $availability;
+
     public function __construct()
     {
         $this->slots = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -96,24 +124,12 @@ class Space
         return $this;
     }
 
-    public function getPhotos(): ?string
-    {
-        return $this->photos;
-    }
-
-    public function setPhotos(string $photos): self
-    {
-        $this->photos = $photos;
-
-        return $this;
-    }
-
-    public function getSurface(): ?string
+    public function getSurface(): ?int
     {
         return $this->surface;
     }
 
-    public function setSurface(string $surface): self
+    public function setSurface(int $surface): self
     {
         $this->surface = $surface;
 
@@ -194,6 +210,105 @@ class Space
     public function setOwner(?User $owner): self
     {
         $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function getPrice(): ?int
+    {
+        return $this->price;
+    }
+
+    public function setPrice(int $price): self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getSpaceDisponibility(): ?SpaceDisponibility
+    {
+        return $this->spaceDisponibility;
+    }
+
+    public function setSpaceDisponibility(SpaceDisponibility $spaceDisponibility): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($spaceDisponibility == null && $this->spaceDisponibility !== null) {
+            $this->spaceDisponibility->setSpace(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($spaceDisponibility !== null && $spaceDisponibility->getSpace() !== $this) {
+            $spaceDisponibility->setSpace($this);
+        }
+
+        $this->spaceDisponibility = $spaceDisponibility;
+
+        return $this;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Image[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Image $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setSpace($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getSpace() === $this) {
+                $image->setSpace(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getAvailability(): ?string
+    {
+        return $this->availability;
+    }
+
+    public function setAvailability(string $availability): self
+    {
+        $this->availability = $availability;
 
         return $this;
     }

@@ -14,6 +14,8 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Flasher\Toastr\Prime\ToastrFactory;
+use App\Service\Slugify;
 
 #[Route('/user')]
 class UserController extends AbstractController
@@ -22,9 +24,12 @@ class UserController extends AbstractController
     * @IsGranted("ROLE_USER")
     */
     #[Route('/profile', name: 'user_index', methods: ['GET'])]
-    public function index(): Response
+    public function index(UserRepository $userRepository): Response
     {
-        return $this->render('user/index.html.twig');
+        $user = $userRepository->findAll();
+        return $this->render('user/index.html.twig', [
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -35,7 +40,9 @@ class UserController extends AbstractController
         Request $request,
         User $user,
         UserPasswordHasherInterface $userPasswordHasher,
-        EntityManagerInterface $entityManager
+        EntityManagerInterface $entityManager,
+        ToastrFactory $flasher,
+        Slugify $slugify
     ): Response {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
@@ -48,20 +55,28 @@ class UserController extends AbstractController
                         strval($form->get('plainPassword')->getData())
                     )),
                 );
+                $user->setSlug($slugify->assignSlug($user->getLastname(), $user->getFirstname()));
                 $entityManager->persist($user);
                 $entityManager->flush();
-
-                $this->addFlash('success', 'Modifications apportées!');
+                $flasher->addSuccess('Votre profil utilisateur a été modifié !');
 
                 return $this->redirectToRoute('user_index');
             } catch (Exception $e) {
-                $this->addFlash('danger', "Les modifications n'ont pas fonctionnées. Veuillez réessayer!");
+                $flasher->addError("Les modifications n'ont pas fonctionnées. Veuillez réessayer!");
             }
         }
 
         return $this->renderForm('user/edit.html.twig', [
             'user' => $user,
             'form' => $form,
+        ]);
+    }
+
+    #[Route('/{slug}', name: 'user_show', methods: ['GET', 'POST'])]
+    public function show(User $user): Response
+    {
+        return $this->render('user/show.html.twig', [
+            'user' => $user,
         ]);
     }
 }

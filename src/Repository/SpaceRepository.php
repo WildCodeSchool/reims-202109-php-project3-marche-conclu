@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Space;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use PhpParser\Node\Expr\Cast\Array_;
 
 /**
  * @method Space|null find($id, $lockMode = null, $lockVersion = null)
@@ -22,19 +23,40 @@ class SpaceRepository extends ServiceEntityRepository
     // /**
     //  * @return Space[] Returns an array of Space objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function findByCriterias(array $options): mixed
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $query = $this->createQueryBuilder('s');
+        if (isset($options['category'])) {
+            $query->andWhere('s.category = :category')
+            ->setParameter('category', $options['category']);
+        }
+        if (isset($options['location'])) {
+            $query->andWhere('s.location = :location')
+            ->setParameter('location', $options['location']);
+        }
+        if (isset($options['minsurface'])) {
+            $query->andWhere('s.surface >= :surface')
+            ->setParameter('surface', $options['minsurface']);
+        }
+        if (isset($options['maxprice'])) {
+            $query->andWhere("s.price <= :price")
+            ->setParameter('price', $options['maxprice']);
+        }
+        if (isset($options['capacity'])) {
+            $query->andWhere("s.capacity > :capacity")
+            ->setParameter('capacity', $options['capacity']);
+        }
+        if (isset($options['job'])) {
+            $query->join('s.owner', 'o')->orderBy('CASE WHEN o.job=:job then 0 else 1 end')
+            ->setParameter('job', $options['job']);
+        }
+        if (isset($options['date'])) {
+            $query->andWhere("s.availability LIKE :date")
+            ->setParameter('date', "%" . $options['date'] . "%");
+        }
+        return $query->getQuery()->getResult();
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Space

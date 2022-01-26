@@ -4,12 +4,16 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -19,7 +23,9 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email')
+        ->add('email', EmailType::class, [
+            'label' => 'Adresse mail',
+        ])
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'label' => 'form.register.password.label',
@@ -51,7 +57,24 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('firstname', TextType::class, ['label' => 'Prénom'])
             ->add('lastname', TextType::class, ['label' => 'Nom de famille'])
-            ->add('avatar', TextType::class, ['label' => 'Photo de profil', 'required' => false])
+            ->add('phone_number', TextType::class, ['label' => 'Numéro de téléphone'])
+            ->add('job', ChoiceType::class, [
+                'placeholder' => '',
+                'required' => false,
+                'label' => 'Métier',
+                'choices' => [
+                    'Electricien' => 'Electricien',
+                    'Développeur web' => 'Développeur web',
+                    'Chauffagiste' => 'Chauffagiste',
+                    'Peintre' => 'Peintre',
+                    'Autre' => '',
+                ]])
+            ->add('photoFile', VichFileType::class, [
+                'required' => false,
+                'label' => 'Photo',
+                'allow_delete'  => false, // not mandatory, default is true
+                'download_uri' => false, // not mandatory, default is true
+            ])
             ->add('company', TextType::class, ['label' => 'Nom de votre société', 'required' => false])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
@@ -60,7 +83,8 @@ class RegistrationFormType extends AbstractType
                         'message' => 'You should agree to our terms.',
                     ]),
                 ],
-            ]);
+            ])
+            ->add('enregistrer', SubmitType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

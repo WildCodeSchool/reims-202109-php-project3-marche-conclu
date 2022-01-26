@@ -3,48 +3,45 @@
 {% block title %}User{% endblock %}
 
 {% block body %}
-    <h1>User</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ user.id }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ user.email }}</td>
-            </tr>
-            <tr>
-                <th>Roles</th>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ user.password }}</td>
-            </tr>
-            <tr>
-                <th>Firstname</th>
-                <td>{{ user.firstname }}</td>
-            </tr>
-            <tr>
-                <th>Lastname</th>
-                <td>{{ user.lastname }}</td>
-            </tr>
-            <tr>
-                <th>Avatar</th>
-                <td>{{ user.avatar }}</td>
-            </tr>
-            <tr>
-                <th>Company</th>
-                <td>{{ user.company }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('user_index') }}">back to list</a>
-
-    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
-
-    {{ include('user/_delete_form.html.twig') }}
+    <div class="user-index-h1">
+        <h1>Page utilisateur</h1>
+    </div>
+    <div class="user-index-container">
+        <div class="show-user-main-datas">
+            <div class="show-user-photo">
+                {% if user.photo %}
+                    <img class="user-index-avatar" src="{{ vich_uploader_asset(app.user) }}">
+                {% else %}
+                    <img class="user-index-avatar" src="{{ asset('build/images/logoMarcheConcluXL.png') }}">
+                {% endif %}
+            </div>
+            <div class="show-user-fullname">
+                <h2>{{ user.lastname }}</h2>
+                <h2>{{ user.firstname }}</h2>
+            </div>
+        </div>
+        <div class="show-user-secondary-datas">
+            <div class="show-user-contacts"
+                {% if user.phoneNumber %}
+                    <p>{{ "☎️ " ~ user.phoneNumber }}</p>
+                {% endif %}
+                <p>{{ "✉️ " ~ user.email }}</p>
+            </div>
+            <div class="show-user-job">
+                {% if user.job %}
+                    <p>{{ "⚙️ " ~ user.job }}</p>
+                {% endif %}
+                {% if user.company %}
+                    <p>{{ "🏢 " ~ user.company }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="show-user-annonce-btns">
+            {% if user.email %}
+                <a class="user-index-submit" href="mailto:{{ user.email }}">📧 Email</a>
+            {% endif %}
+            {% if user.phoneNumber %}
+                <a class="user-index-submit" href="tel:+33{{ user.phoneNumber }}">📞 Téléphone</a>
+            {% endif %}
+        </div>
 {% endblock %}

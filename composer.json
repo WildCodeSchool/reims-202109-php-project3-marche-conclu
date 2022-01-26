@@ -15,6 +15,9 @@
         "doctrine/doctrine-fixtures-bundle": "^3.3",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.10",
+        "easycorp/easyadmin-bundle": "3.5",
+        "php-flasher/flasher-symfony": "^0.9.6",
+        "php-flasher/flasher-toastr-symfony": "^0.9.6",
         "phpdocumentor/reflection-docblock": "^5.3",
         "sensio/framework-extra-bundle": "^6.1",
         "symfony/asset": "5.3.*",
@@ -45,7 +48,8 @@
         "symfony/webpack-encore-bundle": "^1.13",
         "symfony/yaml": "5.3.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "vich/uploader-bundle": "^1.19"
     },
     "require-dev": {
         "friendsoftwig/twigcs": ">=4",

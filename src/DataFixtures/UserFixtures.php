@@ -2,10 +2,11 @@
 
 namespace App\DataFixtures;
 
-use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use DateTime;
 use App\Entity\User;
+use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserFixtures extends Fixture
 {
@@ -18,11 +19,34 @@ class UserFixtures extends Fixture
 
     public const USERS = [
         [
+            "email" => "m.p@gmail.com",
+            "password" => "marion",
+            "role" => ["ROLE_CONTRIBUTOR"],
+            "firstname" => "Marion",
+            "lastname" => "PATINET",
+            "phoneNumber" => "0688225932",
+            "job" => "Chef de projet",
+            "company" => "Champagne Ruinart"
+        ],
+        [
+            "email" => "j.v@gmail.com",
+            "password" => "jordan",
+            "role" => ["ROLE_ADMIN"],
+            "firstname" => "Jordan",
+            "lastname" => "VERREAUX",
+            "phoneNumber" => "0618225933",
+            "job" => "Chef d'entreprise",
+            "company" => "ConnecT"
+        ],
+        [
             "email" => "David@email.com",
             "password" => "David",
             "role" => ["ROLE_ADMIN"],
             "firstname" => "David",
             "lastname" => "ADMIN",
+            "phoneNumber" => "0688775932",
+            "job" => "Comptable",
+            "company" => "Champagne Krug"
         ],
         [
             "email" => "Robert@email.com",
@@ -30,6 +54,9 @@ class UserFixtures extends Fixture
             "role" => ["ROLE_CONTRIBUTOR"],
             "firstname" => "Robert",
             "lastname" => "CONTRIB",
+            "phoneNumber" => "0688224932",
+            "job" => "Salarié",
+            "company" => "Forbo"
         ],
     ];
 
@@ -41,6 +68,11 @@ class UserFixtures extends Fixture
             $contributor->setRoles($userData['role']);
             $contributor->setFirstname($userData['firstname']);
             $contributor->setLastname($userData['lastname']);
+            $contributor->setphoneNumber($userData['phoneNumber']);
+            $contributor->setJob($userData['job']);
+            $contributor->setCompany($userData['company']);
+            $contributor->setPhoto('celine-61ee66c662942434919387.png');
+            $contributor->setUpdatedAt(new DateTime('now'));
 
             $hashedPassword = $this->passwordHasher->hashPassword(
                 $contributor,
