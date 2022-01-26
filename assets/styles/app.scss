@@ -1484,6 +1484,10 @@ input[type=range]:focus::-ms-fill-upper {
     flex-direction: column;
     justify-content: end;
     margin-left: .5rem;
+
+        button {
+            padding: .535rem;
+        }
 }
 
 .show-user-annonce-slots-link {
