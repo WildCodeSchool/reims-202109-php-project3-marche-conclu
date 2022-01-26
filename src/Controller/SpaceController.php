@@ -22,6 +22,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\SpaceDisponibilityRepository;
 
 #[Route('/space', name: 'space_')]
 class SpaceController extends AbstractController
@@ -80,7 +81,7 @@ class SpaceController extends AbstractController
             $entityManager->flush();
             $flasher->addSuccess('Votre annonce a bien été crée !');
 
-            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('space_disponibility', ['id' => $space->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('space/new.html.twig', [
@@ -91,7 +92,7 @@ class SpaceController extends AbstractController
     }
 
     /**
-    * @Route("/{id}/disponibility", name="space_disponibility")
+    * @Route("/{id}/disponibility", name="disponibility")
     */
     public function addDisponibility(
         Space $space,
@@ -108,9 +109,36 @@ class SpaceController extends AbstractController
             $spaceDisponibility->setSpace($space);
             $entityManager->persist($spaceDisponibility);
             $entityManager->flush();
-            $flasher->addSuccess('Vos disponibilités ont bien été prises en compte');
+            $flasher->addSuccess('Vos horaires semaine ont bien été prises en compte');
 
-            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('space_show', ['id' => $space->getId()], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('space/newdisponibility.html.twig', [
+            'form' => $form,
+        ]);
+    }
+
+    /**
+    * @Route("/{id}/disponibility/edit", name="disponibility_edit")
+    */
+    public function editDisponibility(
+        SpaceDisponibility $spaceDisponibility,
+        Request $request,
+        EntityManagerInterface $entityManager,
+        Space $space,
+        ToastrFactory $flasher
+    ): Response {
+        $form = $this->createForm(SpaceDisponibilityType::class, $spaceDisponibility);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($spaceDisponibility);
+            $entityManager->flush();
+            $flasher->addSuccess('Vos horaires semaine ont bien été prises en compte');
+
+            return $this->redirectToRoute('space_show', [
+                'id' => $space->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('space/newdisponibility.html.twig', [
@@ -162,7 +190,6 @@ class SpaceController extends AbstractController
         $form = $this->createForm(SlotType::class, $slot);
         $form->handleRequest($request);
         $user = $this->getUser();
-        $disponibility = $space->getSpaceDisponibility();
         $availability = array_map("trim", explode(',', $space->getAvailability() ?? ""));
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -197,7 +224,6 @@ class SpaceController extends AbstractController
         return $this->renderForm('space/show.html.twig', [
             'space' => $space,
             'slot' => $slot,
-            'disponibility' => $disponibility,
             'form' => $form,
             'availability' => $availability
         ]);
