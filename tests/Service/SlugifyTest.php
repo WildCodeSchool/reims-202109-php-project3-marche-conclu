@@ -19,13 +19,13 @@ class SlugifyTest extends TestCase
     public function getSlugs(): array
     {
         return [
-            ['Lorem', 'Ipsum', 'lorem-ipsum'],
-            ['  Lorem', 'Ipsum  ', 'lorem-ipsum'],
-            [' lOrEm ', 'iPsUm  ', 'lorem-ipsum'],
-            ['!Lorem', 'Ipsum!', '!lorem-ipsum!'],
+            ['Lorem', 'Ipsum', 'loremipsum'],
+            ['  Lorem', 'Ipsum  ', 'loremipsum'],
+            [' lOrEm ', 'iPsUm  ', 'loremipsum'],
+            ['!Lorem', 'Ipsum!', 'loremipsum'],
             ['lorem-ipsum', '', 'lorem-ipsum'],
-            ['lorem 日本語', 'ipsum', 'lorem-日本語-ipsum'],
-            ['lorem русский язык', 'ipsum', 'lorem-русский-язык-ipsum'],
+            ['lorem 日本語', 'ipsum', 'lorem日本語ipsum'],
+            ['lorem русский язык', 'ipsum', 'loremрусскийязыкipsum'],
         ];
     }
 }
