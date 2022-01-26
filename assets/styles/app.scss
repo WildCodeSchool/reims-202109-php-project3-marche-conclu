@@ -132,7 +132,6 @@ a {
         font-weight: 400;
         letter-spacing: .7rem;
         margin: 0;
-        margin-right: -.7em;
     }
 
 }
@@ -1505,6 +1504,8 @@ input[type=range]:focus::-ms-fill-upper {
 table, th, td {
     border: solid 1px #000;
     padding: 10px;
+    white-space: nowrap;
+
 }
 
 // END USER INDEX
