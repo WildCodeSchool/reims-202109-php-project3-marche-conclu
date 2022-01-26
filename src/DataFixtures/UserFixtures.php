@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use DateTime;
 use App\Entity\User;
+use App\Service\Slugify;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -11,10 +12,12 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 class UserFixtures extends Fixture
 {
     private UserPasswordHasherInterface $passwordHasher;
+    private Slugify $slugify;
 
-    public function __construct(UserPasswordHasherInterface $passwordHasher)
+    public function __construct(UserPasswordHasherInterface $passwordHasher, Slugify $slugify)
     {
         $this->passwordHasher = $passwordHasher;
+        $this->slugify = $slugify;
     }
 
     public const USERS = [
@@ -80,6 +83,9 @@ class UserFixtures extends Fixture
             );
             $this->addReference('user_' . $userData['email'], $contributor);
             $contributor->setPassword($hashedPassword);
+            $contributor->setSlug($this->slugify->assignSlug(
+                $contributor->getLastname(),
+                $contributor->getFirstname())); 
             $manager->persist($contributor);
         }
 
