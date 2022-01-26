@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Messagerie
+{% endblock %}
+{% block body %}
+	<div class="user-index-h1">
+			<h1>Messagerie</h1>
+		</div>
+	<section class="container">
+		<div class="row">
+			<div class="col">
+				<h1>Envoyer un message </h1>
+{% include 'message/__form.html.twig' %}
+			</div>
+		</div>
+	</section>
+	</div>
+{% endblock %}
