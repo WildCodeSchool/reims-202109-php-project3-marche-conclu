@@ -162,7 +162,7 @@ class SpaceController extends AbstractController
         $form = $this->createForm(SlotType::class, $slot);
         $form->handleRequest($request);
         $user = $this->getUser();
-        $disponibility = $space->getSpaceDisponibility();
+        
         $availability = array_map("trim", explode(',', $space->getAvailability() ?? ""));
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -197,7 +197,6 @@ class SpaceController extends AbstractController
         return $this->renderForm('space/show.html.twig', [
             'space' => $space,
             'slot' => $slot,
-            'disponibility' => $disponibility,
             'form' => $form,
             'availability' => $availability
         ]);
