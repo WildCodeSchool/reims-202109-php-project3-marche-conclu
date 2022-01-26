@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+    <div class="user-index-h1">
+        <h1>Messagerie</h1>
+    </div>
+		<section class="container">
+		<div class="row">
+			<div class="col-12">
+					<p><b>{{ app.user.sent|length }}</b>
+					messages reçus</p>
+			</div>
+						<div class="col-12">
+					<a href="{{ path('messages') }}">Voir les messages reçus </a>
+			</div>
+			<div class="col-3">De</div>
+			<div class="col-3">Sujet</div>
+			<div class="col-3">Date d'envoi</div>
+			<div class="col-3">Actions</div>
+			{% for message in app.user.sent %}
+				<div class="col-3"><a href="{{ path('user_show', {slug: message.sender.slug}) }}">{{ message.sender.lastname ~ " " ~ message.sender.firstname }}</a></div>
+				<div class="col-3">
+					<h6>{{ message.title }}</h6>
+				</div>
+				<div class="col-3">{{ message.createdAt|date }}</div>
+				<div class="col-3 pb-2">
+								<a href="{{ path("send", {slug: message.sender.slug}) }}" class="btn btn-secondary">Répondre</a>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+
+{% endblock %}

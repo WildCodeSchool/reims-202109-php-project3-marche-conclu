@@ -36,7 +36,7 @@
 	<h2 class="premium-title">ANNONCES PREMIUM</h2>
 	{% for space in spaces %}
 		<figure class="offer premium">
-			{% if space.images[0] is defined %}
+			{% if space.images|length > 0 %}
 				<img class="image-offer" src="{{ asset('/uploads/' ~ space.images[0].name) }}" alt="Photo de l'espace"/>
             {% else %}
                 <img class="image-offer" src="{{ asset('build/images/space_image.jpg') }}">
