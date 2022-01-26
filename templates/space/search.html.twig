@@ -78,8 +78,11 @@
 			{% for space in spaces %}
 				<div>
 					<figure class="offer">
-								<img class="image-offer" src="{{ asset('build/images/bureauprivee.eb2e582d.jpg') }}" alt="Image"/>
-								{# <img class="image-offer" src="{{ asset('/uploads/' ~ space.images.name[0]) }}" alt="Image"/> #}
+						{% if space.images|length > 0 %}
+							<img class="image-offer" src="{{ asset('/uploads/' ~ space.images[0].name) }}" alt="Photo de l'espace"/>
+            			{% else %}
+                			<img class="image-offer" src="{{ asset('build/images/space_image.jpg') }}">
+		    			{% endif %}
 						<figcaption class="text-offer">
 							<div class="text-offer-name">{{ space.name|upper }}</div>
 							<div class="card-border card-content-up cardcontent">
