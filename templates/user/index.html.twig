@@ -75,9 +75,11 @@
                 </div>
                 </li>
             {% endfor %}
+            </ul>
         {% endif %}
         {% if app.user.slots is not empty %}
-        <div class="show-user-annonce-slots-content">
+        </div>
+            <div class="show-user-annonce-slots-content">
             <h3>Mes resérvations  :</h3>
             <div class="show-user-annonce-slots">
                 <div class="show-user-annonce-slots-table">
@@ -108,8 +110,6 @@
                 </div>
             </div>
         </div>
-    </div>
-            </ul>
         {% endif %}
         </div>
 {% endblock %}
