@@ -159,18 +159,18 @@ class SpaceController extends AbstractController
 
         $options = $request->query->all();
         foreach ($options as $key => $option) {
-            if ($option === "" || $option == 0) {
+            if ($option === "" || $option == 0 || $option === "2022-01-15") {
                 unset($options[$key]);
             }
-            if ($option === "on" or $option === "category") {
+            if ($option === "on" || $option === "category") {
                 $options['category'] = $key;
                 unset($options[$key]);
             }
         }
-        $spaces = $options ? $spaceRepository->findByCriterias($options) : $spaceRepository->findAll();
         return $this->renderForm('space/search.html.twig', [
             'location' => $options['location'] ?? null,
-            'spaces' => $spaces, 'categories' => self::CATEGORIES,
+            'spaces' => $spaceRepository->findByCriterias($options),
+            'categories' => self::CATEGORIES,
             'api' => $_ENV['API_KEY'],
             'jobs' => $jobs,
             'options' => $options

@@ -25,13 +25,19 @@ class DashboardController extends AbstractDashboardController
         return $this->render('admin/dashboard.html.twig');
     }
 
+    public function configureDashboard(): Dashboard
+    {
+        return Dashboard::new()
+            // you can include HTML contents too (e.g. to link to an image)
+            ->setTitle('<img width=80%; src="build/images/logoMarcheConclu.e7719d0c.png">');
+    }
+
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Panneau central', 'fa fa-home');
         yield MenuItem::linkToCrud('Espaces', 'fas fa-list', Space::class);
-        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-list', User::class);
-        yield MenuItem::linkToCrud('Réservations', 'fas fa-list', Slot::class);
+        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
+        yield MenuItem::linkToCrud('Réservations', 'fas fa-calendar', Slot::class);
     }
-
     // ...
 }

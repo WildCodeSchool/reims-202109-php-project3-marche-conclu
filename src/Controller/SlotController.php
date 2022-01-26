@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Slot;
+use App\Entity\Space;
 use App\Form\SlotType;
 use App\Repository\SlotRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -42,14 +43,6 @@ class SlotController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'slot_show', methods: ['GET'])]
-    public function show(Slot $slot): Response
-    {
-        return $this->render('slot/show.html.twig', [
-            'slot' => $slot,
-        ]);
-    }
-
     #[Route('/{id}/edit', name: 'slot_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Slot $slot, EntityManagerInterface $entityManager): Response
     {
@@ -68,15 +61,18 @@ class SlotController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'slot_delete', methods: ['POST'])]
-    public function delete(Request $request, Slot $slot, EntityManagerInterface $entityManager): Response
+    #[Route('/{space}/{id}', name: 'slot_delete', methods: ['POST'])]
+    public function delete(Request $request, Slot $slot, EntityManagerInterface $entityManager, Space $space): Response
     {
         if ($this->isCsrfTokenValid('delete' . $slot->getId(), strval($request->request->get('_token')))) {
+            $availability = array_map("trim", explode(',', $space->getAvailability() ?? ""));
+            array_push($availability, ", " . $slot->getSlotTime());
+            $space->setAvailability(implode(", ", $availability));
             $entityManager->remove($slot);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('slot_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('user_index');
     }
 
     // #[Route('/{id}/book', name: 'slot_book', methods: ['GET'])]

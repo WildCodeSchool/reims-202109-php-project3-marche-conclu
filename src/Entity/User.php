@@ -109,10 +109,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private string $slug;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Message::class, mappedBy="sender", orphanRemoval=true)
+     */
+    private Collection $sent;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Message::class, mappedBy="receiver", orphanRemoval=true)
+     */
+    private Collection $received;
+
     public function __construct()
     {
         $this->slots = new ArrayCollection();
         $this->spaces = new ArrayCollection();
+        $this->sent = new ArrayCollection();
+        $this->received = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -399,6 +411,43 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->slug = $slug;
 
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Message[]
+     */
+
+    public function getSent(): ?Collection
+    {
+        return $this->sent;
+    }
+
+    public function addSent(Message $sent): self
+    {
+        if (!$this->sent->contains($sent)) {
+            $this->sent[] = $sent;
+            $sent->setSender($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Message[]
+     */
+    public function getReceived(): ?Collection
+    {
+        return $this->received;
+    }
+
+    public function addReceived(Message $received): self
+    {
+        if (!$this->received->contains($received)) {
+            $this->received[] = $received;
+            $received->setReceiver($this);
+        }
 
         return $this;
     }
