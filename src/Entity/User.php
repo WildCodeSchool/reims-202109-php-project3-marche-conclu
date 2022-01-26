@@ -98,7 +98,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
-    private string $job;
+    private ?string $job;
 
     /**
      * @ORM\Column(type="string", length=15)
