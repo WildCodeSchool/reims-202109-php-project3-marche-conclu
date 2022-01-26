@@ -76,7 +76,7 @@ class SlotController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('slot_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
     }
 
     // #[Route('/{id}/book', name: 'slot_book', methods: ['GET'])]
