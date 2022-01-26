@@ -162,7 +162,6 @@ class SpaceController extends AbstractController
         $form = $this->createForm(SlotType::class, $slot);
         $form->handleRequest($request);
         $user = $this->getUser();
-        
         $availability = array_map("trim", explode(',', $space->getAvailability() ?? ""));
 
         if ($form->isSubmitted() && $form->isValid()) {
