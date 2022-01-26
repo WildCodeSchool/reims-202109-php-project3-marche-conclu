@@ -125,8 +125,7 @@
 		<li>{{ space.owner.company }}</li>
 	</ul>
 	<ul class="show-space-owner-contact">
-		<li>{{ space.owner.email }}</li>
-		<li>{{ space.owner.phonenumber }}</li>
+		<a href="{{ path("send", {slug: space.owner.slug}) }}" class="btn btn-secondary">Contacter</a>
 	</ul>
 </div>
 {% if app.user and app.user != space.owner %}
