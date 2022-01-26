@@ -72,9 +72,7 @@ class SlotController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('user_index', [
-            'space' => $space,
-        ]);
+        return $this->redirectToRoute('user_index');
     }
 
     // #[Route('/{id}/book', name: 'slot_book', methods: ['GET'])]
