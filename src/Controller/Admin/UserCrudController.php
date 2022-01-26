@@ -19,7 +19,7 @@ class UserCrudController extends AbstractCrudController
     {
         $this->adminAction = $adminAction;
     }
-    
+
     public static function getEntityFqcn(): string
     {
         return User::class;

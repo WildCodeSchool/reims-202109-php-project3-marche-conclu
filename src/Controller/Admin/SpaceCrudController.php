@@ -24,7 +24,7 @@ class SpaceCrudController extends AbstractCrudController
     {
         $this->adminAction = $adminAction;
     }
-    
+
     public static function getEntityFqcn(): string
     {
         return Space::class;

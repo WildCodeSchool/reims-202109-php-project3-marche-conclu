@@ -85,7 +85,8 @@ class UserFixtures extends Fixture
             $contributor->setPassword($hashedPassword);
             $contributor->setSlug($this->slugify->assignSlug(
                 $contributor->getLastname(),
-                $contributor->getFirstname())); 
+                $contributor->getFirstname()
+            ));
             $manager->persist($contributor);
         }
 

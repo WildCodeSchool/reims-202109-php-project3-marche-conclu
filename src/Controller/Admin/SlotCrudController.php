@@ -25,7 +25,7 @@ class SlotCrudController extends AbstractCrudController
     {
         return $this->adminAction->configureActions($actions);
     }
-    
+
     public static function getEntityFqcn(): string
     {
         return Slot::class;
