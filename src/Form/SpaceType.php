@@ -42,11 +42,11 @@ class SpaceType extends AbstractType
                 'required' => true,
                 'label' => 'Catégorie',
                 'choices'  => [
-                    'Salle de réunion' => 'reunion',
-                    'Co-working' => 'co-working',
-                    'Bureau privé' => 'private',
-                    'Open Space' => 'open-space',
-                    'Plateaux vides' => 'plates'
+                    'Salle de réunion' => 'Salle de réunion',
+                    'Co-working' => 'Co-working',
+                    'Bureau privé' => 'Bureau privé',
+                    'Open Space' => 'Open Space',
+                    'Plateau vide' => 'Plateau vide'
                 ],
             ])
             ->add('address', TextType::class, [
