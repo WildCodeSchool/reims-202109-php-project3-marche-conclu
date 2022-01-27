@@ -383,8 +383,17 @@ a {
     }
 
     .show-space-owner-contact {
-        list-style-type: none;
-        text-align: right;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        a {
+            background-color: $color-cerise-btn;
+        }
+
+        a:hover {
+            color: $color-black;
+        }
     }
 }
 
