@@ -45,8 +45,8 @@ class SpaceType extends AbstractType
                     'Salle de réunion' => 'Salle de réunion',
                     'Co-working' => 'Co-working',
                     'Bureau privé' => 'Bureau privé',
-                    'Open Space' => 'Open-space',
-                    'Plateaux vides' => 'Plateau vide'
+                    'Open Space' => 'Open Space',
+                    'Plateau vide' => 'Plateau vide'
                 ],
             ])
             ->add('address', TextType::class, [
