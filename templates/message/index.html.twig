@@ -24,7 +24,7 @@
 					<div class="col-3">
 						<h6>{{ message.title }}</h6>
 					</div>
-					<div class="col-3">{{ message.createdAt|date }}</div>
+					<div class="col-3">{{ message.createdAt|date("m/d/Y") }}</div>
 						<div class="col-3 pb-2">
 								<a href="{{ path("send", {slug: message.sender.slug}) }}" class="btn btn-secondary">Répondre</a>
 					</div>

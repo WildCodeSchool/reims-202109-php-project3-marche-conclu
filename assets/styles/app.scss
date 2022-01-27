@@ -936,6 +936,10 @@ input[type=submit],
     text-decoration: none;
 }
 
+.space-form-submit:hover {
+    color: $color-black;
+}
+
 .space-form-container {
     margin: 1rem;
 }
@@ -1063,6 +1067,38 @@ input[type=submit],
     margin: 2rem auto auto;
     padding: 2rem 1rem 0;
     width: 85%;
+}
+
+.show-photo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.show-photo-title {
+    border-bottom: 1px solid $color-grey-light-underline;
+    padding: 1rem;
+}
+
+.show-photo-all {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.show-photo-onlyone {
+    display: flex;
+    flex-direction: column;
+    margin: .75rem;
+}
+
+.show-photo-link-delete {
+    text-decoration: none;
+    color: $color-cerise-btn;
+}
+
+.show-photo-link-delete:hover {
+    color: $color-black;
 }
 
 .div-add-new-space {

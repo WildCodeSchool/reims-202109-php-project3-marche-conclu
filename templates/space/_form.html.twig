@@ -15,16 +15,19 @@
         {{ form_row(form.availability, {'attr': {'class': 'flatpick-add'}}) }}
         {# vérifier si la route est "space_edit" on affiche les images #}
         {% if app.request.attributes.get('_route') == 'space_edit' %}
-            </br>
-            <h3>Images enregistrées :</h3>
-            {% for image in space.images %}
-                <div>
-                    <img src="{{ asset('/uploads/' ~ image.name) }}" alt="Image" width="150">
-                    <a href="{{ path('image_delete', {id: image.id}) }}"
-                    data-delete data-token="{{ csrf_token('delete' ~ image.id) }}
-                    ">Supprimer</a>
+            <div class="show-photo">
+                <h3 class="show-photo-title">Images enregistrées</h3>
+                <div class="show-photo-all">
+                {% for image in space.images %}
+                    <div class="show-photo-onlyone">
+                        <img src="{{ asset('/uploads/' ~ image.name) }}" alt="Image" width="150">
+                        <a class="show-photo-link-delete" href="{{ path('image_delete', {id: image.id}) }}"
+                        data-delete data-token="{{ csrf_token('delete' ~ image.id) }}
+                        ">Supprimer</a>
+                    </div>
+                {% endfor %}
                 </div>
-            {% endfor %}
+            </div>
         {% endif %}
         <div class="new-space-submit">
             {{ form_row(form.enregistrer, {'attr': {'class': 'user-index-submit'}}) }}
