@@ -22,26 +22,7 @@
         </div>
         <div class="show-user-secondary-datas">
             <div class="show-user-contacts"
-                {% if user.phoneNumber %}
-                    <p>{{ "☎️ " ~ user.phoneNumber }}</p>
-                {% endif %}
-                <p>{{ "✉️ " ~ user.email }}</p>
-            </div>
-            <div class="show-user-job">
-                {% if user.job %}
-                    <p>{{ "⚙️ " ~ user.job }}</p>
-                {% endif %}
-                {% if user.company %}
-                    <p>{{ "🏢 " ~ user.company }}</p>
-                {% endif %}
-            </div>
-        </div>
         <div class="show-user-annonce-btns">
-            {% if user.email %}
-                <a class="user-index-submit" href="mailto:{{ user.email }}">📧 Email</a>
-            {% endif %}
-            {% if user.phoneNumber %}
-                <a class="user-index-submit" href="tel:+33{{ user.phoneNumber }}">📞 Téléphone</a>
-            {% endif %}
+                <a class="user-index-submit text-center" href="{{ path("send", {slug: user.slug}) }}">📧 Envoyer un message </a>
         </div>
 {% endblock %}

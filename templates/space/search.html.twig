@@ -109,10 +109,10 @@
 				{% endfor %}
 			</div>
 		{% elseif location %}
-			<p>Aucun espace trouvé à
-				{{ location }}</p>
+			<h2 class="spaces-length">Aucun espace trouvé à
+				{{ location }}</h2>
 		{% else %}
-		<p> Aucun espace trouvé </p>
+		<h2 class="spaces-length"> Aucun espace trouvé </h2>
 		{% endif %}
 	</div>
 <script type="text/javascript" src="{{ api }}"></script>
