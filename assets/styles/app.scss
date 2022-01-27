@@ -1447,6 +1447,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .registerButton{
     width:100%;
+    margin: 1.5rem 0;
 }
 
 .user-index-submit {
@@ -1454,7 +1455,6 @@ input[type=range]:focus::-ms-fill-upper {
     border-radius: .5rem;
     color: $color-white;
     cursor: pointer;
-    margin: 1.5rem 0;
     padding: .5rem;
     text-align: center;
     text-decoration: none;
