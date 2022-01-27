@@ -75,7 +75,7 @@ class Space
     private int $price;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text", nullable=true, length=100)
      */
     private ?string $description;
 
