@@ -845,7 +845,7 @@ textarea,
     border: 1px solid $color-light-grey; // Gray border
     border-radius: 4px; // Rounded borders
     box-sizing: border-box; // Make sure that padding and width stays in placewidth: 100%; // Full width
-    margin: 8px 0 5px 0;
+    margin: 10px 0 15px;
     padding: 11px; // Some padding 
     resize: vertical; // Allow the user to vertically resize the textarea (not horizontally)
     width: 100%;
@@ -1330,6 +1330,13 @@ input[type=range]:focus::-ms-fill-upper {
     text-decoration: none;
   }
 
+// END FILTER CONTAINER
+// START USER REGISTRATION
+.register-body{
+    background-color: rgba(99, 35, 35, 0.75);
+    padding-bottom: 3rem;
+}
+//END USER REGISTRATION
 // START USER INDEX
 
 .user-index-h1 {
@@ -1438,11 +1445,16 @@ input[type=range]:focus::-ms-fill-upper {
     margin: 1rem;
 }
 
+.registerButton{
+    width:100%;
+}
+
 .user-index-submit {
     background-color: $color-cerise-btn;
     border-radius: .5rem;
     color: $color-white;
     cursor: pointer;
+    margin: 1.5rem 0;
     padding: .5rem;
     text-align: center;
     text-decoration: none;
@@ -1512,9 +1524,8 @@ table, th, td {
 
 // START USER EDIT
 
-.user-edit-div-form {
-    margin: 1rem;
 
+.user-edit-div-form {
     input[type="checkbox"],
     input[type="range"] {
         width: 25%;
