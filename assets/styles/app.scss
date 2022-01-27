@@ -132,7 +132,6 @@ a {
         font-weight: 400;
         letter-spacing: .7rem;
         margin: 0;
-        margin-right: -.7em;
     }
 
 }
@@ -488,7 +487,7 @@ a {
 
 .text-offer-name {
     color: $color-cerise-btn;
-    font-family: $fontbodini;
+    font-family: $fontworksans;
     font-weight: 800;
     margin: 1rem 0rem 0rem 1rem;
 }
@@ -1346,7 +1345,7 @@ input[type=range]:focus::-ms-fill-upper {
     display: flex;
     margin: 1rem 2rem;
     padding-bottom: 2.5rem;
-    border-bottom: 1px solid #d0d0d0;
+    border-bottom: 1px solid $color-grey-light-underline;
 }
 
 .show-user-fullname {
@@ -1365,7 +1364,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .user-spaces {
-    border: 1px solid grey;
+    border: 1px solid $color-black;
     padding: .5rem;
     border-radius: 1rem;
     display: flex;
@@ -1374,7 +1373,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .show-user-modify {
-    border-bottom: 1px solid #d0d0d0;
+    border-bottom: 1px solid $color-grey-light-underline;
     margin: 0 2rem;
     padding-bottom: 2rem;
     text-align: center;
@@ -1394,7 +1393,7 @@ input[type=range]:focus::-ms-fill-upper {
     padding: 1rem;
 
     .user-index-submit {
-        padding: 1rem;
+        padding: .8rem;
     }
 }
 
@@ -1413,7 +1412,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .user-index-location {
-    border-bottom: 1px solid $color-black;
+    border-bottom: 1px solid $color-grey-light-underline;
     margin: 1rem 2rem
 }
 
@@ -1505,6 +1504,8 @@ input[type=range]:focus::-ms-fill-upper {
 table, th, td {
     border: solid 1px #000;
     padding: 10px;
+    white-space: nowrap;
+
 }
 
 // END USER INDEX

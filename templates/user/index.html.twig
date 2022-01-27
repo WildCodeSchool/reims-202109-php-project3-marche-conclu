@@ -47,10 +47,10 @@
             {% for space in app.user.spaces %}
                 <li class="user-index-location-li">
                 <div class="user-spaces">
-                    <p>{{ "Nom de l'annonce :" ~ " " ~ space.name }}</p>
+                    <p><strong>{{ "Nom de l'annonce :" ~ " " ~ space.name }}</strong></p>
                     <div class="show-user-annonce-btns">
-                        <a class="user-index-submit" href="{{ path("space_show", {id: space.id}) }}">Voir l'annonce</a>
-                        <a class="user-index-submit" href="{{ path("space_edit", {id: space.id}) }}">Modifier l'annonce</a>
+                        <a class="user-index-submit" href="{{ path("space_show", {id: space.id}) }}">Consulter</a>
+                        <a class="user-index-submit" href="{{ path("space_edit", {id: space.id}) }}">Modifier</a>
                     </div>
                     {% if space.slots is not empty %}
                     <div class="show-user-annonce-reserved">
@@ -75,9 +75,11 @@
                 </div>
                 </li>
             {% endfor %}
+            </ul>
         {% endif %}
         {% if app.user.slots is not empty %}
-        <div class="show-user-annonce-slots-content">
+        </div>
+            <div class="show-user-annonce-slots-content">
             <h3>Mes resérvations  :</h3>
             <div class="show-user-annonce-slots">
                 <div class="show-user-annonce-slots-table">
@@ -108,8 +110,6 @@
                 </div>
             </div>
         </div>
-    </div>
-            </ul>
         {% endif %}
         </div>
 {% endblock %}
