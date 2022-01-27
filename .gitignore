@@ -31,3 +31,8 @@ yarn-error.log
 
 ###< Uploads ###
 /public/uploads/
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
