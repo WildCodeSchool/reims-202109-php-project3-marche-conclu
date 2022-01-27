@@ -91,13 +91,12 @@ class SpaceType extends AbstractType
             ->add('images', FileType::class, [
                 'label' => 'Images à ajoutées',
                 'multiple' => true,
-                'mapped' => false,
                 'required' => false,
-
             ])
             ->add('availability', TextType::class, [
-                'required' => true,
+                'required' => false,
                 'label' => 'Disponibilités',
+                'attr' => ['value' => "cliquez ici"]
             ])
             ->add('enregistrer', SubmitType::class, [
                 'label' => "Poster l'annonce",
