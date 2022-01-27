@@ -116,6 +116,7 @@ class SpaceController extends AbstractController
 
         return $this->renderForm('space/newdisponibility.html.twig', [
             'form' => $form,
+            'space' => $space,
         ]);
     }
 
@@ -143,6 +144,7 @@ class SpaceController extends AbstractController
 
         return $this->renderForm('space/newdisponibility.html.twig', [
             'form' => $form,
+            'space' => $space,
         ]);
     }
 
