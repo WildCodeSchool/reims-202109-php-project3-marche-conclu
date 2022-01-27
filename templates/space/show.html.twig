@@ -124,9 +124,11 @@
 		<li>{{ space.owner.job }}</li>
 		<li>{{ space.owner.company }}</li>
 	</ul>
-	<ul class="show-space-owner-contact">
-		<a href="{{ path("send", {slug: space.owner.slug}) }}" class="btn btn-secondary">Contacter</a>
-	</ul>
+	{% if app.user and app.user != space.owner %}
+		<ul class="show-space-owner-contact">
+			<a href="{{ path("send", {slug: space.owner.slug}) }}" class="btn btn-secondary">Contacter</a>
+		</ul>
+	{% endif %}
 </div>
 {% if app.user and app.user != space.owner %}
 	<div class="show-space-reservation">
