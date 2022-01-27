@@ -58,17 +58,9 @@ class RegistrationFormType extends AbstractType
             ->add('firstname', TextType::class, ['label' => 'Prénom'])
             ->add('lastname', TextType::class, ['label' => 'Nom de famille'])
             ->add('phone_number', TextType::class, ['label' => 'Numéro de téléphone'])
-            ->add('job', ChoiceType::class, [
-                'placeholder' => '',
-                'required' => false,
-                'label' => 'Métier',
-                'choices' => [
-                    'Electricien' => 'Electricien',
-                    'Développeur web' => 'Développeur web',
-                    'Chauffagiste' => 'Chauffagiste',
-                    'Peintre' => 'Peintre',
-                    'Autre' => '',
-                ]])
+            ->add('job', TextType::class, [
+                'attr' => ['placeholder' => 'Choisissez un métier']
+            ])
             ->add('photoFile', VichFileType::class, [
                 'required' => false,
                 'label' => 'Photo',

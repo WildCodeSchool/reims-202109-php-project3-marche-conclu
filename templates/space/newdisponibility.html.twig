@@ -1,8 +1,31 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-{{ form_start(form) }}
-<div class="my-custom-class-for-errors">
-    {{ form_errors(form) }}
+<div class="new-space-body">
+	<div class="title">
+        {% include "_logoTitle.html.twig" %}
+	</div>
+	<h1 class="create-new-space">Horaires semaine</h1>
+	<div class="new-space-form">
+        {{ form_start(form) }}
+            {% if not form.vars.valid %}
+                {{ form_errors(form) }}
+            {% endif %}
+            {{ form_row(form.monday, {'attr': {'class': 'space-form-content'}}) }}
+            {{ form_row(form.tuesday, {'attr': {'class': 'space-form-content'}}) }}
+            {{ form_row(form.wednesday, {'attr': {'class': 'space-form-content'}}) }}
+            {{ form_row(form.thursday, {'attr': {'class': 'space-form-content'}}) }}
+            {{ form_row(form.friday, {'attr': {'class': 'space-form-content'}}) }}
+            {{ form_row(form.saturday, {'attr': {'class': 'space-form-content'}}) }}
+            {{ form_row(form.sunday, {'attr': {'class': 'space-form-content'}}) }}
+             <div class="new-space-submit">
+                {{ form_row(form.enregistrer, {'attr': {'class': 'user-index-submit'}}) }}
+             <div>
+        {{ form_end(form) }}
+        <div class="space-form-submit-div">
+            <a class ="space-form-submit" href="{{ path("space_edit", {id: space.id}) }}">Retourner sur modifier l'annonce</a>
+        </div>
+         <div class="space-form-submit-div">
+        </div>
+    </div>
 </div>
-{{ form_end(form) }}
 {% endblock %}

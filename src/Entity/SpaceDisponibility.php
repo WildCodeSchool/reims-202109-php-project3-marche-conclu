@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\SpaceDisponibilityRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -15,11 +16,15 @@ class SpaceDisponibility
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
+
     private int $id;
 
     /**
      * @ORM\Column(type="string", nullable="true", length=100)
      */
+    #[Assert\Regex(
+        pattern: '/((?:[01]\d|2[0-3])h)-((?:[01]\d|2[0-3])h)/'
+    )]
     private ?string $monday;
 
     /**
@@ -30,31 +35,49 @@ class SpaceDisponibility
     /**
      * @ORM\Column(type="string", nullable="true", length=100)
      */
+    #[Assert\Regex(
+        pattern: '/((?:[01]\d|2[0-3])h)-((?:[01]\d|2[0-3])h)/'
+    )]
     private ?string $tuesday;
 
     /**
      * @ORM\Column(type="string", nullable="true", length=100)
      */
+    #[Assert\Regex(
+        pattern: '/((?:[01]\d|2[0-3])h)-((?:[01]\d|2[0-3])h)/'
+    )]
     private ?string $wednesday;
 
     /**
      * @ORM\Column(type="string", nullable="true", length=100)
      */
+    #[Assert\Regex(
+        pattern: '/((?:[01]\d|2[0-3])h)-((?:[01]\d|2[0-3])h)/'
+    )]
     private ?string $thursday;
 
     /**
      * @ORM\Column(type="string", nullable="true", length=100)
      */
+    #[Assert\Regex(
+        pattern: '/((?:[01]\d|2[0-3])h)-((?:[01]\d|2[0-3])h)/'
+    )]
     private ?string $friday;
 
     /**
      * @ORM\Column(type="string", nullable="true", length=100)
      */
+    #[Assert\Regex(
+        pattern: '/((?:[01]\d|2[0-3])h)-((?:[01]\d|2[0-3])h)/'
+    )]
     private ?string $saturday;
 
     /**
      * @ORM\Column(type="string", nullable="true", length=100)
      */
+    #[Assert\Regex(
+        pattern: '/((?:[01]\d|2[0-3])h)-((?:[01]\d|2[0-3])h)/'
+    )]
     private ?string $sunday;
 
     public function getId(): ?int
