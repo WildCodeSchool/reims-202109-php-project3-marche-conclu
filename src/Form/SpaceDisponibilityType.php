@@ -49,8 +49,9 @@ class SpaceDisponibilityType extends AbstractType
             'required' => false,
             'label' => 'Dimanche'
         ])
-        ->add('enregistrer', SubmitType::class);
-        ;
+        ->add('enregistrer', SubmitType::class, [
+            'label' => "Poster l'annonce",
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
