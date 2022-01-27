@@ -3,21 +3,26 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <div class="user-edit-h1">
+<div class="register-body">
+    <div class="title">
+        {% include "_logoTitle.html.twig" %}
+    </div>
+    <div class="connect-you">
         <h1>Créér un compte</h1>
     </div>
-    <div class="user-edit-div-form">
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.lastname) }}
-        {{ form_row(registrationForm.firstname) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword) }}
-        {{ form_row(registrationForm.company) }}
-        {{ form_row(registrationForm.phone_number) }}
-        {{ form_row(registrationForm.job) }}
-        {{ form_row(registrationForm.photoFile, {'attr': {'class': 'space-form-content'}}) }}
-        {{ form_row(registrationForm.agreeTerms, {'attr': {'class': 'registration-form-agreeTerms'}}) }}
-        {{ form_row(registrationForm.enregistrer) }}
-    {{ form_end(registrationForm) }}
+    <div class="login-register user-edit-div-form">
+        {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.lastname) }}
+            {{ form_row(registrationForm.firstname) }}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.plainPassword) }}
+            {{ form_row(registrationForm.company) }}
+            {{ form_row(registrationForm.phone_number) }}
+            {{ form_row(registrationForm.job) }}
+            {{ form_row(registrationForm.photoFile, {'attr': {'class': 'space-form-content'}}) }}
+            {{ form_row(registrationForm.agreeTerms, {'attr': {'class': 'registration-form-agreeTerms'}}) }}
+            {{ form_row(registrationForm.enregistrer, {'attr': {'class': 'user-index-submit registerButton', 'margin': 'auto'}}) }}
+        {{ form_end(registrationForm) }}
     </div>
+</div>
 {% endblock %}
