@@ -59,6 +59,7 @@ class RegistrationFormType extends AbstractType
             ->add('lastname', TextType::class, ['label' => 'Nom de famille'])
             ->add('phone_number', TextType::class, ['label' => 'Numéro de téléphone'])
             ->add('job', TextType::class, [
+                'required' => false,
                 'attr' => ['placeholder' => 'Choisissez un métier']
             ])
             ->add('photoFile', VichFileType::class, [
@@ -68,14 +69,6 @@ class RegistrationFormType extends AbstractType
                 'download_uri' => false, // not mandatory, default is true
             ])
             ->add('company', TextType::class, ['label' => 'Nom de votre société', 'required' => false])
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'You should agree to our terms.',
-                    ]),
-                ],
-            ])
             ->add('enregistrer', SubmitType::class);
     }
 
