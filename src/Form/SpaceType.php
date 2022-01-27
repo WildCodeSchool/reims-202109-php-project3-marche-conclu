@@ -62,6 +62,7 @@ class SpaceType extends AbstractType
                 'label' => 'Surface (en m²)'
             ])
             ->add('description', TextareaType::class, [
+                'required' => false,
                 'attr' => array(
                     'placeholder' => 'Petit bureau orienté côté Est',
                     'maxlength' => '150',
@@ -93,10 +94,6 @@ class SpaceType extends AbstractType
                 'mapped' => false,
                 'required' => false,
 
-            ])
-            ->add('availability', TextType::class, [
-                'required' => true,
-                'label' => 'Disponibilités',
             ])
             ->add('availability', TextType::class, [
                 'required' => true,
