@@ -69,9 +69,9 @@
 	{% endif %}
 		</div>
 		<div class="show-space-day">
-		{% if disponibility.thursday %}
+		{% if space.spacedisponibility.tuesday %}
 			<div class="day-letter">M</div>
-			<div class="day-hours">{{ disponibility.thursday }}</div>
+			<div class="day-hours">{{ space.spacedisponibility.tuesday }}</div>
 		{% else %}
 			<div class="day-letter-disabled">M</div>
 		{% endif %}
@@ -85,9 +85,9 @@
 			{% endif %}
 				</div>
 				<div class="show-space-day">
-		{% if disponibility.tuesday %}
+		{% if space.spacedisponibility.thursday %}
 			<div class="day-letter">J</div>
-			<div class="day-hours">{{ disponibility.tuesday }}</div>
+			<div class="day-hours">{{ space.spacedisponibility.thursday }}</div>
 		{% else %}
 			<div class="day-letter-disabled">J</div>
 		{% endif %}
