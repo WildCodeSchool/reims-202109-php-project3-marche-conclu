@@ -3,7 +3,6 @@
 namespace App\Tests\Controller;
 
 use App\Controller\HomeController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class HomeControllerTest extends WebTestCase
