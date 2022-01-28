@@ -394,6 +394,10 @@ a {
         a:hover {
             color: $color-black;
         }
+        
+        li {
+            list-style-type: none;
+        }
     }
 }
 
