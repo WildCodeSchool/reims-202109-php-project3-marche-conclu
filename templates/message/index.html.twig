@@ -14,11 +14,15 @@
 			<div class="col-12">
 				<a href="{{ path('sent') }}">Voir les messages envoyés </a>
 			</div>
+			<pre>
+				{{ dump() }}
+			</pre>
 			{% for message in app.user.received %}
 			<div>
 				<div class="col-3">Auteur: <a href="{{ path('user_show', {slug: message.sender.slug}) }}">{{ message.sender.lastname ~ " " ~ message.sender.firstname }}</a></div>
 				<div class="message-user">Sujet: <h6>{{ message.title }}</h6></div>
 				<div class="message-user">Date: <h6>{{ message.createdAt|date("d/m/Y H:i") }}</h6></div>
+				<div class="message-user">Message: <h6>{{ message.message }}</h6></div>
 				<div class="col-3 pb-2"><a href="{{ path("send", {slug: message.sender.slug}) }}" class="btn btn-secondary">Répondre</a></div>
 			</div>
 			{% endfor %}
