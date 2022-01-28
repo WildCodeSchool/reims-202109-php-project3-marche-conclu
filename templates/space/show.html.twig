@@ -126,7 +126,7 @@
 	</ul>
 	{% if app.user and app.user != space.owner %}
 		<ul class="show-space-owner-contact">
-			<a href="{{ path("send", {slug: space.owner.slug}) }}" class="btn btn-secondary">Contacter</a>
+			<li><a href="{{ path("send", {slug: space.owner.slug}) }}" class="btn btn-secondary">Contacter</a><li>
 		</ul>
 	{% endif %}
 </div>
