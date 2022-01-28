@@ -1429,6 +1429,13 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .show-user-modify {
+    margin: 0 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+.show-user-message {
     border-bottom: 1px solid $color-grey-light-underline;
     margin: 0 2rem;
     padding-bottom: 2rem;
