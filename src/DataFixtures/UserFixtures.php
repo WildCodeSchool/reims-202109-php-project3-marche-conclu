@@ -74,7 +74,6 @@ class UserFixtures extends Fixture
             $contributor->setphoneNumber($userData['phoneNumber']);
             $contributor->setJob($userData['job']);
             $contributor->setCompany($userData['company']);
-            $contributor->setPhoto('celine-61ee66c662942434919387.png');
             $contributor->setUpdatedAt(new DateTime('now'));
 
             $hashedPassword = $this->passwordHasher->hashPassword(
