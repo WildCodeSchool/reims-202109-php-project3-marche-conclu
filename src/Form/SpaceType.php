@@ -90,6 +90,7 @@ class SpaceType extends AbstractType
             // il n'est pas lié à la base de données (mapped à false)
             ->add('images', FileType::class, [
                 'label' => 'Images à ajoutées',
+                'mapped' => false,
                 'multiple' => true,
                 'required' => false,
             ])
