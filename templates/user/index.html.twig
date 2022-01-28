@@ -40,6 +40,9 @@
         <div class="show-user-modify">
             <a class="show-user-modify-btn" href="{{ path('user_edit', {'id': app.user.id}) }}">Modifier mon profil</a>
         </div>
+        <div class="show-user-message">
+            <a class="show-user-modify-btn" href="{{ path('messages') }}">Messagerie</a>
+        </div>
         {% if app.user.spaces is not empty %}
         <div class="user-index-location">
                 <h3>Mes annonces</h3>

@@ -42,11 +42,11 @@ class SpaceType extends AbstractType
                 'required' => true,
                 'label' => 'Catégorie',
                 'choices'  => [
-                    'Salle de réunion' => 'reunion',
-                    'Co-working' => 'co-working',
-                    'Bureau privé' => 'private',
-                    'Open Space' => 'open-space',
-                    'Plateaux vides' => 'plates'
+                    'Salle de réunion' => 'Salle de réunion',
+                    'Co-working' => 'Co-working',
+                    'Bureau privé' => 'Bureau privé',
+                    'Open Space' => 'Open Space',
+                    'Plateau vide' => 'Plateau vide'
                 ],
             ])
             ->add('address', TextType::class, [
@@ -61,7 +61,14 @@ class SpaceType extends AbstractType
                 ),
                 'label' => 'Surface (en m²)'
             ])
-            ->add('description', TextareaType::class)
+            ->add('description', TextareaType::class, [
+                'required' => false,
+                'attr' => array(
+                    'placeholder' => 'Petit bureau orienté côté Est',
+                    'maxlength' => '150',
+                ),
+                ])
+
             ->add('location', TextType::class, [
                 'attr' => array(
                     'placeholder' => 'Reims',
@@ -83,18 +90,14 @@ class SpaceType extends AbstractType
             // il n'est pas lié à la base de données (mapped à false)
             ->add('images', FileType::class, [
                 'label' => 'Images à ajoutées',
-                'multiple' => true,
                 'mapped' => false,
+                'multiple' => true,
                 'required' => false,
-
             ])
             ->add('availability', TextType::class, [
-                'required' => true,
+                'required' => false,
                 'label' => 'Disponibilités',
-            ])
-            ->add('availability', TextType::class, [
-                'required' => true,
-                'label' => 'Disponibilités',
+                'attr' => ['value' => "cliquez ici"]
             ])
             ->add('enregistrer', SubmitType::class, [
                 'label' => "Poster l'annonce",

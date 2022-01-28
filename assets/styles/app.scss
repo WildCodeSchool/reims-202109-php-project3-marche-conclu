@@ -383,8 +383,21 @@ a {
     }
 
     .show-space-owner-contact {
-        list-style-type: none;
-        text-align: right;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        a {
+            background-color: $color-cerise-btn;
+        }
+
+        a:hover {
+            color: $color-black;
+        }
+
+        li {
+            list-style-type: none;
+        }
     }
 }
 
@@ -845,7 +858,7 @@ textarea,
     border: 1px solid $color-light-grey; // Gray border
     border-radius: 4px; // Rounded borders
     box-sizing: border-box; // Make sure that padding and width stays in placewidth: 100%; // Full width
-    margin: 8px 0 5px 0;
+    margin: 10px 0 15px;
     padding: 11px; // Some padding 
     resize: vertical; // Allow the user to vertically resize the textarea (not horizontally)
     width: 100%;
@@ -925,6 +938,10 @@ input[type=submit],
     cursor: pointer;
     padding: 12px 20px;
     text-decoration: none;
+}
+
+.space-form-submit:hover {
+    color: $color-black;
 }
 
 .space-form-container {
@@ -1054,6 +1071,38 @@ input[type=submit],
     margin: 2rem auto auto;
     padding: 2rem 1rem 0;
     width: 85%;
+}
+
+.show-photo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.show-photo-title {
+    border-bottom: 1px solid $color-grey-light-underline;
+    padding: 1rem;
+}
+
+.show-photo-all {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.show-photo-onlyone {
+    display: flex;
+    flex-direction: column;
+    margin: .75rem;
+}
+
+.show-photo-link-delete {
+    text-decoration: none;
+    color: $color-cerise-btn;
+}
+
+.show-photo-link-delete:hover {
+    color: $color-black;
 }
 
 .div-add-new-space {
@@ -1330,6 +1379,13 @@ input[type=range]:focus::-ms-fill-upper {
     text-decoration: none;
   }
 
+// END FILTER CONTAINER
+// START USER REGISTRATION
+.register-body{
+    background-color: rgba(99, 35, 35, 0.75);
+    padding-bottom: 3rem;
+}
+//END USER REGISTRATION
 // START USER INDEX
 
 .user-index-h1 {
@@ -1373,6 +1429,13 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .show-user-modify {
+    margin: 0 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+.show-user-message {
     border-bottom: 1px solid $color-grey-light-underline;
     margin: 0 2rem;
     padding-bottom: 2rem;
@@ -1436,6 +1499,11 @@ input[type=range]:focus::-ms-fill-upper {
     display: flex;
     justify-content: end;
     margin: 1rem;
+}
+
+.registerButton{
+    width:100%;
+    margin: 1.5rem 0;
 }
 
 .user-index-submit {
@@ -1512,9 +1580,8 @@ table, th, td {
 
 // START USER EDIT
 
-.user-edit-div-form {
-    margin: 1rem;
 
+.user-edit-div-form {
     input[type="checkbox"],
     input[type="range"] {
         width: 25%;
@@ -1531,6 +1598,8 @@ table, th, td {
 }
 
 // END USER EDIT
+
+
 
 // PREMIUM OFFER
 
@@ -1594,3 +1663,22 @@ table, th, td {
 .show-premium-offer-contact:hover {
     color: $color-black;
 }
+
+// USER MESSAGE
+.h6 {
+    line-height: inherit;
+}
+
+.message-user {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: .5rem;
+}
+
+.col-3 {
+    flex: none;
+    width: 100%;
+    margin-bottom: 0rem;
+    line-height: inherit;
+}
+// END USER MESSAGE

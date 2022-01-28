@@ -35,9 +35,9 @@ class SpaceFixtures extends Fixture implements DependentFixtureInterface
             $space->setOwner($this->getReference('user_j.v@gmail.com'));
             $space->setAddress(self::ADDRESS[$locationAndAdress]);
             $space->setAvailability("");
-            $manager->persist($space);
             $address = array_rand(self::ADDRESS);
             $space->setAddress(self::ADDRESS[$address]);
+            $manager->persist($space);
         }
 
         $manager->flush();
