@@ -61,9 +61,9 @@
 <div class="show-space-availability">
 	<div class="show-space-availability-week">
 	<div class="show-space-day">
-	{% if space.spacedisponibility.monday %}
+	{% if disponibility.monday %}
 		<div class="day-letter">L</div>
-		<div class="day-hours">{{ space.spacedisponibility.monday }}</div>
+		<div class="day-hours">{{ disponibility.monday }}</div>
 	{% else %}
 		<div class="day-letter-disabled">L</div>
 	{% endif %}
@@ -77,9 +77,9 @@
 		{% endif %}
 			</div>
 			<div class="show-space-day">
-			{% if space.spacedisponibility.wednesday %}
+			{% if disponibility.wednesday %}
 				<div class="day-letter">M</div>
-				<div class="day-hours">{{ space.spacedisponibility.wednesday }}</div>
+				<div class="day-hours">{{ disponibility.wednesday }}</div>
 			{% else %}
 				<div class="day-letter-disabled">M</div>
 			{% endif %}
@@ -93,25 +93,25 @@
 		{% endif %}
 			</div>
 			<div class="show-space-day">
-		{% if space.spacedisponibility.friday %}
+		{% if disponibility.friday %}
 			<div class="day-letter">V</div>
-			<div class="day-hours">{{ space.spacedisponibility.friday }}</div>
+			<div class="day-hours">{{ disponibility.friday }}</div>
 		{% else %}
 			<div class="day-letter-disabled">V</div>
 		{% endif %}
 			</div>
 			<div class="show-space-day">
-			{% if space.spacedisponibility.saturday %}
+			{% if disponibility.saturday %}
 				<div class="day-letter">S</div>
-				<div class="day-hours">{{ space.spacedisponibility.saturday }}</div>
+				<div class="day-hours">{{ disponibility.saturday }}</div>
 			{% else %}
 				<div class="day-letter-disabled">S</div>
 			{% endif %}
 				</div>
 				<div class="show-space-day">
-				{% if space.spacedisponibility.sunday %}
+				{% if disponibility.sunday %}
 					<div class="day-letter">D</div>
-					<div class="day-hours">{{ space.spacedisponibility.sunday }}</div>
+					<div class="day-hours">{{ disponibility.sunday }}</div>
 				{% else %}
 					<div class="day-letter-disabled">D</div>
 				{% endif %}
@@ -125,7 +125,10 @@
 		<li>{{ space.owner.company }}</li>
 	</ul>
 	<ul class="show-space-owner-contact">
-		<a href="{{ path("send", {slug: space.owner.slug}) }}" class="btn btn-secondary">Contacter</a>
+		<a href="{{ path("send", {slug: space.owner.slug}) }}" class="btn btn-secondary">Répondre</a>
+
+		<li>{{ space.owner.email }}</li>
+		<li>{{ space.owner.phonenumber }}</li>
 	</ul>
 </div>
 {% if app.user and app.user != space.owner %}
