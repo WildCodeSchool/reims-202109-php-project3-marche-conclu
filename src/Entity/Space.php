@@ -90,7 +90,7 @@ class Space
     private string $address;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private string $availability;
 
