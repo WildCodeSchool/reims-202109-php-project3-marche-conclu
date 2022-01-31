@@ -17,6 +17,16 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    # For test mysql
+    services:
+      mysql:
+        image: mysql:latest
+        env:
+          MYSQL_ROOT_PASSWORD: password
+        ports:
+          - 3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3    
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -45,5 +55,14 @@ jobs:
           ./node_modules/.bin/sass-lint -c sass-linter.yml -v
 
       - name: phpunit
-        run: ./vendor/bin/phpunit
-
+        # for test mysql
+        run: |
+          php ./bin/console doctrine:database:drop --if-exists --force || true
+          php ./bin/console doctrine:database:create
+          php ./bin/console doctrine:migrations:migrate -n
+          php ./bin/console doctrine:fixtures:load -n
+          yarn encore dev
+          php ./vendor/bin/phpunit
+        env:
+          APP_ENV: test
+          DATABASE_URL: mysql://root:password@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/tests
