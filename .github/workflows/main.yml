@@ -45,5 +45,5 @@ jobs:
           ./node_modules/.bin/sass-lint -c sass-linter.yml -v
 
       - name: phpunit
-        run: bin/phpunit
+        run: ./vendor/bin/phpunit
 
